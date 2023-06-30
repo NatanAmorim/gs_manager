@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/views/widgets/tabbar_widget.dart';
 
-class RecordsView extends StatefulWidget {
-  const RecordsView({Key? key}) : super(key: key);
+class OverviewView extends StatefulWidget {
+  const OverviewView({Key? key}) : super(key: key);
 
   @override
-  State<RecordsView> createState() => _RecordsViewState();
+  State<OverviewView> createState() => _OverviewViewState();
 }
 
-class _RecordsViewState extends State<RecordsView>
+class _OverviewViewState extends State<OverviewView>
     with TickerProviderStateMixin {
   late TabController _tabController;
 
@@ -22,19 +21,19 @@ class _RecordsViewState extends State<RecordsView>
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TabBarTemplate(
+        TabBar(
           controller: _tabController,
           tabs: const <Tab>[
             Tab(
-              text: 'Produtos',
-              icon: Icon(Icons.checkroom),
-            ),
-            Tab(
-              icon: Icon(Icons.sports_gymnastics),
-              text: 'Alunos',
+              text: "Análise",
+              icon: Icon(Icons.bar_chart_rounded),
             ),
             Tab(
               icon: Icon(Icons.school),
+              text: 'Aulas',
+            ),
+            Tab(
+              icon: Icon(Icons.bookmark),
               text: 'Modalidades',
             ),
           ],
@@ -44,13 +43,13 @@ class _RecordsViewState extends State<RecordsView>
             controller: _tabController,
             children: const <Widget>[
               Center(
-                child: Text("Produtos"),
-              ),
-              Center(
-                child: Text("Alunos"),
+                child: Text("Análise"),
               ),
               Center(
                 child: Text("Modalidades"),
+              ),
+              Center(
+                child: Text("Aulas"),
               ),
             ],
           ),

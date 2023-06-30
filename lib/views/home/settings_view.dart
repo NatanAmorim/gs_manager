@@ -153,6 +153,12 @@ class SettingsView extends ConsumerWidget {
                             },
                           ),
                           ListTile(
+                            leading: const Icon(Icons.gavel),
+                            trailing: const Icon(Icons.arrow_right),
+                            title: const Text("Jurídico e Conformidade"),
+                            onTap: () {},
+                          ),
+                          ListTile(
                             leading: const Icon(Icons.info),
                             trailing: const Icon(Icons.arrow_right),
                             title: const Text("Sobre o App"),

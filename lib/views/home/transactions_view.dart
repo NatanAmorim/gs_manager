@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/views/widgets/tabbar_widget.dart';
 
 class TransactionsView extends StatefulWidget {
   const TransactionsView({Key? key}) : super(key: key);
@@ -15,27 +14,23 @@ class _TransactionsViewState extends State<TransactionsView>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TabBarTemplate(
+        TabBar(
           controller: _tabController,
           tabs: const <Tab>[
             Tab(
-              text: 'Mensalidades',
+              text: "Vendas",
+              icon: Icon(Icons.shopping_cart),
+            ),
+            Tab(
+              text: "Mensalidades",
               icon: Icon(Icons.receipt_long),
-            ),
-            Tab(
-              text: 'Vendas',
-              icon: Icon(Icons.point_of_sale),
-            ),
-            Tab(
-              text: 'Encomendas',
-              icon: Icon(Icons.local_shipping),
             ),
           ],
         ),
@@ -44,13 +39,10 @@ class _TransactionsViewState extends State<TransactionsView>
             controller: _tabController,
             children: const <Widget>[
               Center(
-                child: Text("Mensalidades"),
-              ),
-              Center(
                 child: Text("Vendas"),
               ),
               Center(
-                child: Text("Encomendas"),
+                child: Text("Mensalidades"),
               ),
             ],
           ),

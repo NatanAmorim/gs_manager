@@ -6,9 +6,11 @@ import 'package:gs_admin/views/forms/modality_form_view.dart';
 import 'package:gs_admin/views/forms/order_form_view.dart';
 import 'package:gs_admin/views/forms/product_form_view.dart';
 import 'package:gs_admin/views/home/inventory_view.dart';
-import 'package:gs_admin/views/home/records_views.dart';
+import 'package:gs_admin/views/home/overview_view.dart';
+import 'package:gs_admin/views/home/people_views.dart';
 import 'package:gs_admin/views/home/settings_view.dart';
 import 'package:gs_admin/views/home/transactions_view.dart';
+import 'package:gs_admin/views/point_of_sale_view.dart';
 import 'package:gs_admin/views/widgets/fade_indexed_stack_widget.dart';
 
 class HomeView extends StatefulWidget {
@@ -28,9 +30,10 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
         body: FadeIndexedStackWidget(
           index: _currentIndex,
           children: const [
-            RecordsView(),
-            TransactionsView(),
+            OverviewView(),
             InventoryView(),
+            TransactionsView(),
+            PeopleView(),
             SettingsView(),
           ],
         ),
@@ -47,11 +50,15 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                 ),
               ),
               label: const Text("Ponto de Vendas"),
-              icon: const Icon(Icons.shopping_cart),
-              onPressed: () {},
+              icon: const Icon(Icons.point_of_sale),
+              onPressed: () async => await Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const PointOfSaleView(),
+                ),
+              ),
             ),
             SpeedDial(
-              tooltip: 'More options',
+              tooltip: 'Adicionar',
               heroTag: 'fab-options',
               icon: Icons.add,
               activeIcon: Icons.close,
@@ -63,10 +70,10 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
               ),
               children: [
                 SpeedDialChild(
-                  child: const Icon(Icons.accessibility),
-                  backgroundColor: Colors.red,
-                  foregroundColor: Colors.white,
                   label: 'Novo aluno',
+                  child: const Icon(Icons.add_reaction),
+                  backgroundColor: Theme.of(context).colorScheme.tertiary,
+                  foregroundColor: Theme.of(context).colorScheme.onTertiary,
                   onTap: () async => await Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const ClientFormView(),
@@ -74,10 +81,10 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   ),
                 ),
                 SpeedDialChild(
-                  child: const Icon(Icons.add),
-                  backgroundColor: Colors.deepOrange,
-                  foregroundColor: Colors.white,
                   label: 'Novo produto',
+                  child: const Icon(Icons.new_label),
+                  backgroundColor: Theme.of(context).colorScheme.tertiary,
+                  foregroundColor: Theme.of(context).colorScheme.onTertiary,
                   onTap: () async => await Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const ProductFormView(),
@@ -85,10 +92,10 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   ),
                 ),
                 SpeedDialChild(
-                  child: const Icon(Icons.add),
-                  backgroundColor: Colors.indigo,
-                  foregroundColor: Colors.white,
                   label: 'Nova encomenda',
+                  child: const Icon(Icons.add_location_alt),
+                  backgroundColor: Theme.of(context).colorScheme.tertiary,
+                  foregroundColor: Theme.of(context).colorScheme.onTertiary,
                   visible: true,
                   onTap: () async => await Navigator.of(context).push(
                     MaterialPageRoute(
@@ -97,8 +104,10 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   ),
                 ),
                 SpeedDialChild(
-                  child: const Icon(Icons.add),
                   label: 'Nova modalidade',
+                  child: const Icon(Icons.bookmark_add),
+                  backgroundColor: Theme.of(context).colorScheme.tertiary,
+                  foregroundColor: Theme.of(context).colorScheme.onTertiary,
                   visible: true,
                   onTap: () async => await Navigator.of(context).push(
                     MaterialPageRoute(
@@ -118,25 +127,31 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
           onItemSelected: (index) => setState(() => _currentIndex = index),
           items: <BottomNavyBarItem>[
             BottomNavyBarItem(
-              icon: const Icon(Icons.store),
-              title: const Text('Cadastros'),
+              icon: const Icon(Icons.store_outlined),
+              title: const Text('Geral'),
               activeColor: Theme.of(context).colorScheme.secondary,
               textAlign: TextAlign.center,
             ),
             BottomNavyBarItem(
-              icon: const Icon(Icons.attach_money),
-              title: const Text('Transações'),
-              activeColor: Theme.of(context).colorScheme.secondary,
-              textAlign: TextAlign.center,
-            ),
-            BottomNavyBarItem(
-              icon: const Icon(Icons.inventory_2),
+              icon: const Icon(Icons.inventory_outlined),
               title: const Text('Inventário'),
               activeColor: Theme.of(context).colorScheme.secondary,
               textAlign: TextAlign.center,
             ),
             BottomNavyBarItem(
-              icon: const Icon(Icons.settings),
+              icon: const Icon(Icons.currency_exchange),
+              title: const Text('Transações'),
+              activeColor: Theme.of(context).colorScheme.secondary,
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: const Icon(Icons.diversity_1),
+              title: const Text('Pessoas'),
+              activeColor: Theme.of(context).colorScheme.secondary,
+              textAlign: TextAlign.center,
+            ),
+            BottomNavyBarItem(
+              icon: const Icon(Icons.settings_outlined),
               title: const Text('Ajustes'),
               activeColor: Theme.of(context).colorScheme.secondary,
               textAlign: TextAlign.center,
