@@ -1,4 +1,4 @@
-import 'package:gs_admin/models/modalidade_model.dart';
+import 'package:gs_admin/models/aula_model.dart';
 
 class ClienteModel {
   ClienteModel({
@@ -11,7 +11,7 @@ class ClienteModel {
     this.nomeResponsavel = '',
     this.cpfResponsavel = '',
     this.nomePix = '',
-    this.modalidadesInscritas,
+    this.aulasInscritas,
   });
 
   String nome;
@@ -32,18 +32,18 @@ class ClienteModel {
 
   String nomePix;
 
-  List<ClienteModalidadeModel>? modalidadesInscritas;
+  List<ClienteAulaModel>? aulasInscritas;
 }
 
-class ClienteModalidadeModel {
-  ClienteModalidadeModel({
+class ClienteAulaModel {
+  ClienteAulaModel({
     required this.modalidade,
     this.isInscrito = true,
     required this.precoCombinado,
     this.diaPagamento = 1,
   });
 
-  ModalidadeModel modalidade;
+  AulaModel modalidade;
 
   bool isInscrito;
 

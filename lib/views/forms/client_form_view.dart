@@ -95,12 +95,12 @@ class _ClientFormViewState extends State<ClientFormView> {
                     constraints: const BoxConstraints(maxWidth: 770),
                     child: Column(
                       children: [
-                        const SizedBox(height: 25),
+                        const SizedBox(height: 24),
                         const Align(
                           alignment: Alignment.centerLeft,
                           child: BackButton(),
                         ),
-                        const SizedBox(height: 15),
+                        const SizedBox(height: 16),
                         Card(
                           child: Container(
                             width: double.infinity,
@@ -117,11 +117,13 @@ class _ClientFormViewState extends State<ClientFormView> {
                                       .textTheme
                                       .headlineMedium!
                                       .copyWith(
-                                        color: Colors.pink.withOpacity(0.5),
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
                                       ),
                                 ),
                                 const Divider(),
-                                const SizedBox(height: 15),
+                                const SizedBox(height: 16),
                                 Form(
                                   key: controller.formKey,
                                   child: Column(
@@ -360,36 +362,34 @@ class _ClientFormViewState extends State<ClientFormView> {
                                         onSaved: (String? text) =>
                                             controller.client.nomePix = text!,
                                       ),
-                                      const SizedBox(height: 16),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          FilledButtonWidget(
-                                            icon: Icons.save,
-                                            label: 'Salvar',
-                                            onPressed: () =>
-                                                controller.submit(context),
-                                          ),
-                                          controller.clientUpdating == null
-                                              ? Container()
-                                              : FilledButtonWidget(
-                                                  icon: Icons.delete_forever,
-                                                  label: 'Deletar',
-                                                  isDelete: true,
-                                                  onPressed: () => controller
-                                                      .delete(context),
-                                                ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 30),
                                     ],
                                   ),
                                 ),
+                                const SizedBox(height: 16),
                               ],
                             ),
                           ),
                         ),
+                        const SizedBox(height: 16),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            controller.clientUpdating == null
+                                ? Container()
+                                : FilledButtonWidget(
+                                    icon: Icons.delete_forever,
+                                    label: 'Deletar',
+                                    isDelete: true,
+                                    onPressed: () => controller.delete(context),
+                                  ),
+                            FilledButtonWidget(
+                              icon: Icons.save,
+                              label: 'Salvar',
+                              onPressed: () => controller.submit(context),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 32),
                       ],
                     ),
                   ),

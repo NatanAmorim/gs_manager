@@ -14,7 +14,7 @@ class _OverviewViewState extends State<OverviewView>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -25,16 +25,12 @@ class _OverviewViewState extends State<OverviewView>
           controller: _tabController,
           tabs: const <Tab>[
             Tab(
-              text: "Análise",
-              icon: Icon(Icons.bar_chart_rounded),
-            ),
-            Tab(
               icon: Icon(Icons.school),
               text: 'Aulas',
             ),
             Tab(
-              icon: Icon(Icons.bookmark),
-              text: 'Modalidades',
+              text: "Análise",
+              icon: Icon(Icons.bar_chart_rounded),
             ),
           ],
         ),
@@ -43,13 +39,10 @@ class _OverviewViewState extends State<OverviewView>
             controller: _tabController,
             children: const <Widget>[
               Center(
-                child: Text("Análise"),
-              ),
-              Center(
-                child: Text("Modalidades"),
-              ),
-              Center(
                 child: Text("Aulas"),
+              ),
+              Center(
+                child: Text("Análise"),
               ),
             ],
           ),

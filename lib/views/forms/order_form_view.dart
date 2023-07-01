@@ -33,12 +33,12 @@ class _OrderFormViewState extends State<OrderFormView> {
                   constraints: const BoxConstraints(maxWidth: 770),
                   child: Column(
                     children: [
-                      const SizedBox(height: 25),
+                      const SizedBox(height: 24),
                       const Align(
                         alignment: Alignment.centerLeft,
                         child: BackButton(),
                       ),
-                      const SizedBox(height: 15),
+                      const SizedBox(height: 16),
                       Card(
                         child: Container(
                           width: double.infinity,
@@ -55,11 +55,13 @@ class _OrderFormViewState extends State<OrderFormView> {
                                     .textTheme
                                     .headlineMedium!
                                     .copyWith(
-                                      color: Colors.pink.withOpacity(0.5),
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
                                     ),
                               ),
                               const Divider(),
-                              const SizedBox(height: 15),
+                              const SizedBox(height: 16),
                               Text(
                                 'TODO',
                                 style: Theme.of(context)
@@ -68,7 +70,7 @@ class _OrderFormViewState extends State<OrderFormView> {
                                     .copyWith(color: Colors.deepOrangeAccent),
                               ),
                               const Text(
-                                  '⬤ Dropdown selecionar aluno'), // TODO: dropdown selecionar aluno
+                                  '⬤ Dropdown selecionar cliente'), // TODO: dropdown selecionar aluno
                               const Text(
                                   '⬤ Dropdown selecionar multiplos produtos'), // TODO: dropdown selecionar multiplos produtos
                               const Text(
@@ -78,18 +80,20 @@ class _OrderFormViewState extends State<OrderFormView> {
                               const Text(
                                   '⬤ Relacionar com uma venda'), // TODO: Relacionar com uma venda
                               const SizedBox(height: 16),
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: FilledButtonWidget(
-                                  onPressed: () => controller.submit(context),
-                                  icon: Icons.save,
-                                  label: 'Salvar',
-                                ),
-                              ),
                             ],
                           ),
                         ),
                       ),
+                      const SizedBox(height: 16),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: FilledButtonWidget(
+                          onPressed: () => controller.submit(context),
+                          icon: Icons.save,
+                          label: 'Salvar',
+                        ),
+                      ),
+                      const SizedBox(height: 32),
                     ],
                   ),
                 ),

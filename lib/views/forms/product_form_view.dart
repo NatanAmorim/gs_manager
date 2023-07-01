@@ -41,12 +41,12 @@ class _ProductFormViewState extends State<ProductFormView> {
                     constraints: const BoxConstraints(maxWidth: 770),
                     child: Column(
                       children: [
-                        const SizedBox(height: 25),
+                        const SizedBox(height: 24),
                         const Align(
                           alignment: Alignment.centerLeft,
                           child: BackButton(),
                         ),
-                        const SizedBox(height: 15),
+                        const SizedBox(height: 16),
                         Card(
                           child: Container(
                             width: double.infinity,
@@ -63,11 +63,13 @@ class _ProductFormViewState extends State<ProductFormView> {
                                       .textTheme
                                       .headlineMedium!
                                       .copyWith(
-                                        color: Colors.pink.withOpacity(0.5),
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
                                       ),
                                 ),
                                 const Divider(),
-                                const SizedBox(height: 15),
+                                const SizedBox(height: 16),
                                 Form(
                                   key: controller.formKey,
                                   autovalidateMode:
@@ -91,27 +93,39 @@ class _ProductFormViewState extends State<ProductFormView> {
                                       const SizedBox(height: 16),
                                       TextButton.icon(
                                         onPressed: () {},
-                                        icon: const Icon(Icons.add),
-                                        label: const Text('Adicionar Variação'),
-                                      ),
-                                      const SizedBox(height: 16),
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: FilledButtonWidget(
-                                          onPressed: () =>
-                                              controller.submit(context),
-                                          icon: Icons.save,
-                                          label: 'Salvar',
+                                        icon: Icon(
+                                          Icons.add,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .tertiary,
+                                        ),
+                                        label: Text(
+                                          'Adicionar Variação',
+                                          style: TextStyle(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .tertiary,
+                                          ),
                                         ),
                                       ),
-                                      const SizedBox(height: 10),
                                     ],
                                   ),
                                 ),
+                                const SizedBox(height: 16),
                               ],
                             ),
                           ),
                         ),
+                        const SizedBox(height: 16),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: FilledButtonWidget(
+                            onPressed: () => controller.submit(context),
+                            icon: Icons.save,
+                            label: 'Salvar',
+                          ),
+                        ),
+                        const SizedBox(height: 32),
                       ],
                     ),
                   ),
@@ -126,7 +140,6 @@ class _ProductFormViewState extends State<ProductFormView> {
 
   Widget _buildPanel() {
     return ExpansionPanelList.radio(
-      initialOpenPanelValue: 2,
       children: _data.map<ExpansionPanelRadio>((Item item) {
         return ExpansionPanelRadio(
             value: item.id,
@@ -134,6 +147,11 @@ class _ProductFormViewState extends State<ProductFormView> {
             headerBuilder: (BuildContext context, bool isExpanded) {
               return ListTile(
                 title: Text(item.headerValue),
+                iconColor: Theme.of(context).colorScheme.tertiary,
+                leading: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.delete),
+                ),
               );
             },
             body: ListTile(
@@ -142,7 +160,6 @@ class _ProductFormViewState extends State<ProductFormView> {
                   TextFormFieldWidget(
                     label: 'Descrição',
                     placeholderText: 'Digite a descrição do produto',
-                    autofocus: true,
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
                         return 'Digite a descrição';
@@ -151,7 +168,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 16),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -159,9 +176,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                         flex: 1,
                         child: TextFormFieldWidget(
                           label: 'Código de barras',
-                          placeholderText:
-                              'Digite a Código de barras do produto',
-                          autofocus: true,
+                          placeholderText: 'Digite a Código de barras',
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
                               return 'Digite a Código de barras';
@@ -170,7 +185,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                           },
                         ),
                       ),
-                      const SizedBox(width: 4),
+                      const SizedBox(width: 8),
                       Flexible(
                         flex: 1,
                         child: TextFormFieldWidget(
@@ -193,15 +208,29 @@ class _ProductFormViewState extends State<ProductFormView> {
                           ],
                         ),
                       ),
-                      const SizedBox(width: 4),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Flexible(
                         flex: 1,
                         child: TextFormFieldWidget(
                           label: 'Estoque mínimo',
-                          initialValue: '0',
                           placeholderText: 'Digite a quantidade mínima',
                           helperText:
                               'Para alertar, quando fica \n abaixo do valor mínimo',
+                          suffixIcon: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.add),
+                          ),
+                          prefixIcon: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.remove),
+                          ),
+                          initialValue: '0',
+                          textAlign: TextAlign.center,
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
                               return 'Digite a quantidade';
@@ -212,6 +241,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                             }
                             return null;
                           },
+                          keyboardType: TextInputType.number,
                           inputFormatters: [
                             FilteringTextInputFormatter.deny(
                                 RegExp('^0+(?=.)')),
@@ -219,13 +249,22 @@ class _ProductFormViewState extends State<ProductFormView> {
                           ],
                         ),
                       ),
-                      const SizedBox(width: 4),
+                      const SizedBox(width: 8),
                       Flexible(
                         flex: 1,
                         child: TextFormFieldWidget(
                           label: 'Estoque',
                           placeholderText: 'Digite a quantidade',
-                          autofocus: true,
+                          suffixIcon: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.add),
+                          ),
+                          prefixIcon: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.remove),
+                          ),
+                          initialValue: '0',
+                          textAlign: TextAlign.center,
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
                               return 'Digite a quantidade';
@@ -236,6 +275,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                             }
                             return null;
                           },
+                          keyboardType: TextInputType.number,
                           inputFormatters: [
                             FilteringTextInputFormatter.deny(
                                 RegExp('^0+(?=.)')),
@@ -244,12 +284,8 @@ class _ProductFormViewState extends State<ProductFormView> {
                         ),
                       ),
                     ],
-                  ),
+                  )
                 ],
-              ),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.delete),
               ),
             ));
       }).toList(),

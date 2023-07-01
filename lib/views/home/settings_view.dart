@@ -48,7 +48,7 @@ class SettingsView extends ConsumerWidget {
               ),
               child: Column(
                 children: [
-                  const SizedBox(height: 25),
+                  const SizedBox(height: 24),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -56,7 +56,7 @@ class SettingsView extends ConsumerWidget {
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 16),
                   Card(
                     // clipBehavior is necessary because, without it, the InkWell's animation
                     // will extend beyond the rounded edges of the [Card] (see https://github.com/flutter/flutter/issues/109776)

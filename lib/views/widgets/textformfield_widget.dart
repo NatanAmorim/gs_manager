@@ -28,6 +28,7 @@ class TextFormFieldWidget extends StatefulWidget {
     this.textInputAction,
     this.inputFormatters,
     this.keyboardType,
+    this.textAlign = TextAlign.start,
     Key? key,
   }) : super(key: key);
 
@@ -56,6 +57,7 @@ class TextFormFieldWidget extends StatefulWidget {
   final TextInputAction? textInputAction;
   final List<TextInputFormatter>? inputFormatters;
   final TextInputType? keyboardType;
+  final TextAlign textAlign;
 
   @override
   State<TextFormFieldWidget> createState() => _TextFormFieldWidgetState();
@@ -81,9 +83,12 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
       validator: widget.validator,
       minLines: widget.isObscure ? 1 : widget.minLines,
       maxLines: widget.isObscure ? 1 : widget.maxLines,
+      textAlign: widget.textAlign,
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.white.withOpacity(0.4),
+        fillColor: Theme.of(context).brightness == Brightness.light
+            ? Colors.white.withOpacity(0.4)
+            : Colors.black.withOpacity(0.6),
         enabled: widget.isEnabled,
         alignLabelWithHint: true,
         helperText: widget.helperText,

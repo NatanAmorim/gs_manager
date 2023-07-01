@@ -1,33 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gs_admin/controllers/modality_form_controller.dart';
-import 'package:gs_admin/models/modalidade_model.dart';
+import 'package:gs_admin/controllers/class_form_controller.dart';
+import 'package:gs_admin/models/aula_model.dart';
 import 'package:gs_admin/utils/dialog_helper.dart';
 import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/utils/values_converter.dart';
 import 'package:gs_admin/views/widgets/filled_button_widget.dart';
 import 'package:gs_admin/views/widgets/textformfield_widget.dart';
 
-class ModalityFormView extends StatefulWidget {
-  const ModalityFormView({
+class LectureFormView extends StatefulWidget {
+  const LectureFormView({
     Key? key,
-    this.modalityUpdating,
+    this.lectureUpdating,
   }) : super(key: key);
 
-  final ModalidadeModel? modalityUpdating;
+  final AulaModel? lectureUpdating;
 
   @override
-  State<ModalityFormView> createState() => _ModalityFormViewState();
+  State<LectureFormView> createState() => _LectureFormViewState();
 }
 
-class _ModalityFormViewState extends State<ModalityFormView> {
-  late ModalityFormController controller;
+class _LectureFormViewState extends State<LectureFormView> {
+  late LectureFormController controller;
 
   @override
   void initState() {
     super.initState();
-    controller =
-        ModalityFormController(modalityUpdating: widget.modalityUpdating);
+    controller = LectureFormController(lectureUpdating: widget.lectureUpdating);
   }
 
   @override
@@ -47,12 +46,12 @@ class _ModalityFormViewState extends State<ModalityFormView> {
                     constraints: const BoxConstraints(maxWidth: 770),
                     child: Column(
                       children: [
-                        const SizedBox(height: 25),
+                        const SizedBox(height: 24),
                         const Align(
                           alignment: Alignment.centerLeft,
                           child: BackButton(),
                         ),
-                        const SizedBox(height: 15),
+                        const SizedBox(height: 16),
                         Card(
                           child: Container(
                             width: double.infinity,
@@ -64,16 +63,18 @@ class _ModalityFormViewState extends State<ModalityFormView> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Cadastro de modalidade',
+                                  'Cadastro de Aula',
                                   style: Theme.of(context)
                                       .textTheme
                                       .headlineMedium!
                                       .copyWith(
-                                        color: Colors.pink.withOpacity(0.5),
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
                                       ),
                                 ),
                                 const Divider(),
-                                const SizedBox(height: 15),
+                                const SizedBox(height: 16),
                                 Form(
                                   key: controller.formKey,
                                   autovalidateMode:
@@ -83,11 +84,11 @@ class _ModalityFormViewState extends State<ModalityFormView> {
                                       TextFormFieldWidget(
                                         label: 'Nome',
                                         placeholderText:
-                                            'Digite o nome da modalidade',
+                                            'Digite o nome da aula',
                                         autofocus: true,
-                                        initialValue: controller.modality.nome,
+                                        initialValue: controller.lecture.nome,
                                         onSaved: (String? text) =>
-                                            controller.modality.nome = text!,
+                                            controller.lecture.nome = text!,
                                         validator: (String? value) {
                                           if (value == null || value.isEmpty) {
                                             return 'Digite o nome';
@@ -97,11 +98,11 @@ class _ModalityFormViewState extends State<ModalityFormView> {
                                       ),
                                       const SizedBox(height: 16),
                                       TextFormFieldWidget(
-                                        label: 'Preço/Valor',
+                                        label: 'Preço',
                                         keyboardType: TextInputType.number,
-                                        initialValue: controller.modality.preco,
+                                        initialValue: controller.lecture.preco,
                                         onSaved: (String? text) =>
-                                            controller.modality.preco = text!,
+                                            controller.lecture.preco = text!,
                                         validator: (String? value) {
                                           if (value == null || value.isEmpty) {
                                             return 'Digite o preço';
@@ -121,36 +122,34 @@ class _ModalityFormViewState extends State<ModalityFormView> {
                                           BrlInputFormatter()
                                         ],
                                       ),
-                                      const SizedBox(height: 16),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          FilledButtonWidget(
-                                            icon: Icons.save,
-                                            label: 'Salvar',
-                                            onPressed: () =>
-                                                controller.submit(context),
-                                          ),
-                                          controller.modalityUpdating == null
-                                              ? Container()
-                                              : FilledButtonWidget(
-                                                  icon: Icons.delete_forever,
-                                                  label: 'Deletar',
-                                                  isDelete: true,
-                                                  onPressed: () => controller
-                                                      .delete(context),
-                                                ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 30),
                                     ],
                                   ),
                                 ),
+                                const SizedBox(height: 16),
                               ],
                             ),
                           ),
                         ),
+                        const SizedBox(height: 16),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            controller.lectureUpdating == null
+                                ? Container()
+                                : FilledButtonWidget(
+                                    icon: Icons.delete_forever,
+                                    label: 'Deletar',
+                                    isDelete: true,
+                                    onPressed: () => controller.delete(context),
+                                  ),
+                            FilledButtonWidget(
+                              icon: Icons.save,
+                              label: 'Salvar',
+                              onPressed: () => controller.submit(context),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 32),
                       ],
                     ),
                   ),

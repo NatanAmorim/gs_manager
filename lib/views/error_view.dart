@@ -34,12 +34,12 @@ class ErrorView extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.displayMedium,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 24),
               Text(
                 errorDetails.exceptionAsString(),
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 24),
               TextButton(
                 onPressed: () => Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(

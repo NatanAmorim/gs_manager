@@ -1,8 +1,8 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:gs_admin/views/forms/class_form_view.dart';
 import 'package:gs_admin/views/forms/client_form_view.dart';
-import 'package:gs_admin/views/forms/modality_form_view.dart';
 import 'package:gs_admin/views/forms/order_form_view.dart';
 import 'package:gs_admin/views/forms/product_form_view.dart';
 import 'package:gs_admin/views/home/inventory_view.dart';
@@ -70,7 +70,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
               ),
               children: [
                 SpeedDialChild(
-                  label: 'Novo aluno',
+                  label: 'Novo Aluno',
                   child: const Icon(Icons.add_reaction),
                   backgroundColor: Theme.of(context).colorScheme.tertiary,
                   foregroundColor: Theme.of(context).colorScheme.onTertiary,
@@ -81,7 +81,19 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   ),
                 ),
                 SpeedDialChild(
-                  label: 'Novo produto',
+                  label: 'Nova Aula',
+                  child: const Icon(Icons.bookmark_add),
+                  backgroundColor: Theme.of(context).colorScheme.tertiary,
+                  foregroundColor: Theme.of(context).colorScheme.onTertiary,
+                  visible: true,
+                  onTap: () async => await Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const LectureFormView(),
+                    ),
+                  ),
+                ),
+                SpeedDialChild(
+                  label: 'Novo Produto',
                   child: const Icon(Icons.new_label),
                   backgroundColor: Theme.of(context).colorScheme.tertiary,
                   foregroundColor: Theme.of(context).colorScheme.onTertiary,
@@ -92,7 +104,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   ),
                 ),
                 SpeedDialChild(
-                  label: 'Nova encomenda',
+                  label: 'Nova Encomenda',
                   child: const Icon(Icons.add_location_alt),
                   backgroundColor: Theme.of(context).colorScheme.tertiary,
                   foregroundColor: Theme.of(context).colorScheme.onTertiary,
@@ -100,18 +112,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   onTap: () async => await Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const OrderFormView(),
-                    ),
-                  ),
-                ),
-                SpeedDialChild(
-                  label: 'Nova modalidade',
-                  child: const Icon(Icons.bookmark_add),
-                  backgroundColor: Theme.of(context).colorScheme.tertiary,
-                  foregroundColor: Theme.of(context).colorScheme.onTertiary,
-                  visible: true,
-                  onTap: () async => await Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const ModalityFormView(),
                     ),
                   ),
                 ),
