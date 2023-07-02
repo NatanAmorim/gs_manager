@@ -23,11 +23,11 @@ class DateInputFormatter extends TextInputFormatter {
     final newText = StringBuffer();
 
     if (newValueLength >= 3) {
-      newText.write(newValue.text.substring(0, substrIndex = 2) + '/');
+      newText.write('${newValue.text.substring(0, substrIndex = 2)}/');
       if (newValue.selection.end >= 2) selectionIndex++;
     }
     if (newValueLength >= 5) {
-      newText.write(newValue.text.substring(2, substrIndex = 4) + '/');
+      newText.write('${newValue.text.substring(2, substrIndex = 4)}/');
       if (newValue.selection.end >= 4) selectionIndex++;
     }
     if (newValueLength >= substrIndex) {
