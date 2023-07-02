@@ -54,65 +54,60 @@ class _ProductFormViewState extends State<ProductFormView> {
                               vertical: 8,
                               horizontal: 16,
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Cadastro de produto',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium!
-                                      .copyWith(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
-                                      ),
-                                ),
-                                const Divider(),
-                                const SizedBox(height: 16),
-                                Form(
-                                  key: controller.formKey,
-                                  autovalidateMode:
-                                      AutovalidateMode.onUserInteraction,
-                                  child: Column(
-                                    children: [
-                                      TextFormFieldWidget(
-                                        label: 'Nome',
-                                        placeholderText:
-                                            'Digite o nome do produto',
-                                        autofocus: true,
-                                        validator: (String? value) {
-                                          if (value == null || value.isEmpty) {
-                                            return 'Digite o nome';
-                                          }
-                                          return null;
-                                        },
-                                      ),
-                                      const SizedBox(height: 16),
-                                      _buildPanel(),
-                                      const SizedBox(height: 16),
-                                      TextButton.icon(
-                                        onPressed: () {},
-                                        icon: Icon(
-                                          Icons.add,
+                            child: Form(
+                              key: controller.formKey,
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Cadastro de produto',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium!
+                                        .copyWith(
                                           color: Theme.of(context)
                                               .colorScheme
-                                              .tertiary,
+                                              .secondary,
                                         ),
-                                        label: Text(
-                                          'Adicionar Variação',
-                                          style: TextStyle(
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .tertiary,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
                                   ),
-                                ),
-                                const SizedBox(height: 16),
-                              ],
+                                  const Divider(),
+                                  const SizedBox(height: 16),
+                                  TextFormFieldWidget(
+                                    label: 'Nome',
+                                    placeholderText: 'Digite o nome do produto',
+                                    autofocus: true,
+                                    validator: (String? value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Digite o nome';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                  const SizedBox(height: 16),
+                                  _buildPanel(),
+                                  const SizedBox(height: 16),
+                                  TextButton.icon(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.add,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .tertiary,
+                                    ),
+                                    label: Text(
+                                      'Adicionar Variação',
+                                      style: TextStyle(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .tertiary,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 16),
+                                ],
+                              ),
                             ),
                           ),
                         ),

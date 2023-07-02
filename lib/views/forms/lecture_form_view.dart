@@ -59,74 +59,67 @@ class _LectureFormViewState extends State<LectureFormView> {
                               vertical: 8,
                               horizontal: 16,
                             ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Cadastro de Aula',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineMedium!
-                                      .copyWith(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
-                                      ),
-                                ),
-                                const Divider(),
-                                const SizedBox(height: 16),
-                                Form(
-                                  key: controller.formKey,
-                                  autovalidateMode:
-                                      AutovalidateMode.onUserInteraction,
-                                  child: Column(
-                                    children: [
-                                      TextFormFieldWidget(
-                                        label: 'Nome',
-                                        placeholderText:
-                                            'Digite o nome da aula',
-                                        autofocus: true,
-                                        initialValue: controller.lecture.nome,
-                                        onSaved: (String? text) =>
-                                            controller.lecture.nome = text!,
-                                        validator: (String? value) {
-                                          if (value == null || value.isEmpty) {
-                                            return 'Digite o nome';
-                                          }
-                                          return null;
-                                        },
-                                      ),
-                                      const SizedBox(height: 16),
-                                      TextFormFieldWidget(
-                                        label: 'Preço',
-                                        keyboardType: TextInputType.number,
-                                        initialValue: controller.lecture.preco,
-                                        onSaved: (String? text) =>
-                                            controller.lecture.preco = text!,
-                                        validator: (String? value) {
-                                          if (value == null || value.isEmpty) {
-                                            return 'Digite o preço';
-                                          }
+                            child: Form(
+                              key: controller.formKey,
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Cadastro de Aula',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium!
+                                        .copyWith(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .secondary,
+                                        ),
+                                  ),
+                                  const Divider(),
+                                  const SizedBox(height: 16),
+                                  TextFormFieldWidget(
+                                    label: 'Nome',
+                                    placeholderText: 'Digite o nome da aula',
+                                    autofocus: true,
+                                    initialValue: controller.lecture.nome,
+                                    onSaved: (String? text) =>
+                                        controller.lecture.nome = text!,
+                                    validator: (String? value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Digite o nome';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                  const SizedBox(height: 16),
+                                  TextFormFieldWidget(
+                                    label: 'Preço',
+                                    keyboardType: TextInputType.number,
+                                    initialValue: controller.lecture.preco,
+                                    onSaved: (String? text) =>
+                                        controller.lecture.preco = text!,
+                                    validator: (String? value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Digite o preço';
+                                      }
 
-                                          if (ValuesConverter.convertBrl(
-                                                  value) <
-                                              30.0) {
-                                            return 'Preço mínimo de 30 reais';
-                                          }
+                                      if (ValuesConverter.convertBrl(value) <
+                                          30.0) {
+                                        return 'Preço mínimo de 30 reais';
+                                      }
 
-                                          return null;
-                                        },
-                                        inputFormatters: [
-                                          FilteringTextInputFormatter
-                                              .digitsOnly,
-                                          BrlInputFormatter()
-                                        ],
-                                      ),
+                                      return null;
+                                    },
+                                    inputFormatters: [
+                                      FilteringTextInputFormatter.digitsOnly,
+                                      BrlInputFormatter()
                                     ],
                                   ),
-                                ),
-                                const SizedBox(height: 16),
-                              ],
+                                  const SizedBox(height: 16),
+                                ],
+                              ),
                             ),
                           ),
                         ),

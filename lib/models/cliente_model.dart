@@ -47,10 +47,7 @@ class ClienteAulaModel {
   });
 
   AulaModel aula;
-
   bool isInscrito;
-
   double precoCombinado;
-
   int diaPagamento;
 }
