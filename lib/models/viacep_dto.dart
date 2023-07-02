@@ -10,17 +10,17 @@ String viacepDtoToJson(ViacepDto data) => json.encode(data.toJson());
 
 class ViacepDto {
   ViacepDto({
-    this.erro,
-    this.cep,
-    this.logradouro,
-    this.complemento,
-    this.bairro,
-    this.localidade,
-    this.uf,
-    this.ibge,
-    this.gia,
-    this.ddd,
-    this.siafi,
+    this.erro = true,
+    this.cep = "",
+    this.logradouro = "",
+    this.complemento = "",
+    this.bairro = "",
+    this.localidade = "",
+    this.uf = "",
+    this.ibge = "",
+    this.gia = "",
+    this.ddd = "",
+    this.siafi = "",
   });
 
   factory ViacepDto.fromJson(Map<String, dynamic> json) => ViacepDto(
@@ -37,17 +37,17 @@ class ViacepDto {
         siafi: json["siafi"],
       );
 
-  bool? erro;
-  String? cep;
-  String? logradouro;
-  String? complemento;
-  String? bairro;
-  String? localidade;
-  String? uf;
-  String? ibge;
-  String? gia;
-  String? ddd;
-  String? siafi;
+  bool erro;
+  String cep;
+  String logradouro;
+  String complemento;
+  String bairro;
+  String localidade;
+  String uf;
+  String ibge;
+  String gia;
+  String ddd;
+  String siafi;
 
   Map<String, dynamic> toJson() => {
         "erro": erro,

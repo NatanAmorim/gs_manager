@@ -3,14 +3,11 @@ class MensalidadeModel {
     this.isPago = false,
     required this.dataVencimento,
     required this.valor,
-    this.formaPagamento,
+    required this.formaPagamento,
   });
 
   bool isPago;
-
   String dataVencimento;
-
   double valor;
-
-  String? formaPagamento;
+  String formaPagamento;
 }

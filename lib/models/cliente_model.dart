@@ -7,6 +7,7 @@ class ClienteModel {
     this.celular = '',
     this.cep = '',
     this.endereco = '',
+    this.numero = '',
     this.cpf = '',
     this.nomeResponsavel = '',
     this.cpfResponsavel = '',
@@ -24,6 +25,8 @@ class ClienteModel {
 
   String endereco;
 
+  String numero;
+
   String cpf;
 
   String nomeResponsavel;
@@ -37,17 +40,17 @@ class ClienteModel {
 
 class ClienteAulaModel {
   ClienteAulaModel({
-    required this.modalidade,
+    required this.aula,
     this.isInscrito = true,
     required this.precoCombinado,
     this.diaPagamento = 1,
   });
 
-  AulaModel modalidade;
+  AulaModel aula;
 
   bool isInscrito;
 
-  double? precoCombinado;
+  double precoCombinado;
 
   int diaPagamento;
 }

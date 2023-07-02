@@ -1,34 +1,28 @@
 class ProdutoModel {
   ProdutoModel({
-    this.nome,
+    required this.nome,
+    required this.variacoes,
   });
 
-  String? nome;
+  String nome;
 
-  List<ProdutoVarianteModel>? variacoes;
+  List<ProdutoVarianteModel> variacoes;
 }
 
 class ProdutoVarianteModel {
   ProdutoVarianteModel({
-    this.descricao,
-    this.ean,
-    this.sku,
-    this.precoUnitario,
-    this.estoqueMinimo,
-    this.estoque,
+    this.descricao = '',
+    this.codigoBarras = '',
+    this.precoUnitario = 0.0,
+    this.estoqueMinimo = 1,
+    this.estoque = 1,
   });
 
-  String? descricao;
-
-  String? ean;
-
-  String? sku;
-
-  double? precoUnitario;
-
-  int? estoqueMinimo;
-
-  int? estoque;
+  String descricao;
+  String codigoBarras;
+  double precoUnitario;
+  int estoqueMinimo;
+  int estoque;
 }
 
 class ProdutoHistoricoEstoqueModel {

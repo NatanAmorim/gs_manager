@@ -7,6 +7,7 @@ class VendaModel {
     this.cliente,
     this.desconto = 0,
     required this.valorTotal,
+    required this.subTotal,
     this.totalPago = 0,
     required this.itens,
     required this.pagamentos,
@@ -15,15 +16,11 @@ class VendaModel {
   bool isEncomenda;
 
   ClienteModel? cliente;
-
   double desconto;
-
+  double subTotal;
   double valorTotal;
-
   double totalPago;
-
   List<VendaItemModel> itens;
-
   List<VendaPagamentoModel> pagamentos;
 }
 
@@ -35,7 +32,7 @@ class VendaItemModel {
     this.descontoTotal = 0,
   });
 
-  ProdutoModel produto;
+  ProdutoVarianteModel produto;
 
   int quantidade;
 
