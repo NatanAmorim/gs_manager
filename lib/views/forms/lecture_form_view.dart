@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gs_admin/controllers/class_form_controller.dart';
+import 'package:gs_admin/controllers/lecture_form_controller.dart';
 import 'package:gs_admin/models/aula_model.dart';
 import 'package:gs_admin/utils/dialog_helper.dart';
 import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';

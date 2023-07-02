@@ -32,8 +32,12 @@ class _FilledButtonWidgetState extends State<FilledButtonWidget> {
             return Theme.of(context).colorScheme.primary.withOpacity(0.6);
           }
 
-          if (widget.isDelete == true) {
-            return Colors.redAccent;
+          if (widget.isDelete) {
+            return Theme.of(context).colorScheme.tertiary;
+          }
+
+          if (widget.isDelete && states.contains(MaterialState.pressed)) {
+            return Theme.of(context).colorScheme.primary.withOpacity(0.6);
           }
 
           return null;

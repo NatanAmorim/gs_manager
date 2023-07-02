@@ -1,8 +1,8 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:gs_admin/views/forms/class_form_view.dart';
 import 'package:gs_admin/views/forms/client_form_view.dart';
+import 'package:gs_admin/views/forms/lecture_form_view.dart';
 import 'package:gs_admin/views/forms/order_form_view.dart';
 import 'package:gs_admin/views/forms/product_form_view.dart';
 import 'package:gs_admin/views/home/inventory_view.dart';
@@ -70,7 +70,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
               ),
               children: [
                 SpeedDialChild(
-                  label: 'Novo Aluno',
+                  label: 'Novo Aluno/Professor',
                   child: const Icon(Icons.add_reaction),
                   backgroundColor: Theme.of(context).colorScheme.tertiary,
                   foregroundColor: Theme.of(context).colorScheme.onTertiary,
