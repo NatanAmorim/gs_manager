@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gs_admin/controllers/order_form_controller.dart';
+import 'package:gs_admin/global_variables.dart';
+import 'package:gs_admin/models/cliente_model.dart';
+import 'package:gs_admin/views/widgets/dropdown_formfield_template.dart';
 import 'package:gs_admin/views/widgets/filled_button_widget.dart';
 
 class OrderFormView extends StatefulWidget {
@@ -46,41 +49,78 @@ class _OrderFormViewState extends State<OrderFormView> {
                             vertical: 8,
                             horizontal: 16,
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Cadastro de encomenda',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium!
-                                    .copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .secondary,
-                                    ),
-                              ),
-                              const Divider(),
-                              const SizedBox(height: 16),
-                              Text(
-                                'TODO',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium!
-                                    .copyWith(color: Colors.deepOrangeAccent),
-                              ),
-                              const Text(
-                                  '⬤ Dropdown selecionar cliente'), // TODO: dropdown selecionar aluno
-                              const Text(
-                                  '⬤ Dropdown selecionar multiplos produtos'), // TODO: dropdown selecionar multiplos produtos
-                              const Text(
-                                  '⬤ O que fazer quando produto não listado?'), // TODO: produto não listado?
-                              const Text(
-                                  '⬤ Desconto na compra'), // TODO: desconto
-                              const Text(
-                                  '⬤ Relacionar com uma venda'), // TODO: Relacionar com uma venda
-                              const SizedBox(height: 16),
-                            ],
+                          child: Form(
+                            key: controller.formKey,
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Cadastro de encomenda',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium!
+                                      .copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                      ),
+                                ),
+                                const Divider(),
+                                const SizedBox(height: 16),
+                                DropdownButtonFormFieldTemplate<ClienteModel>(
+                                  fieldName: "Cliente",
+                                  selectedValue: controller.clientSelected,
+                                  onChanged: (dynamic newValue) {
+                                    if (newValue == null) {
+                                      return;
+                                    }
+
+                                    setState(() {
+                                      controller.clientSelected = newValue;
+                                    });
+                                  },
+                                  items: fakeDb.clientes
+                                      .map(
+                                        (ClienteModel cliente) =>
+                                            DropdownMenuItem<ClienteModel>(
+                                          value: cliente,
+                                          child: Text(
+                                            cliente.nome,
+                                            style: const TextStyle(height: 2.0),
+                                          ),
+                                        ),
+                                      )
+                                      .toList(),
+                                ),
+                                const SizedBox(height: 16),
+                                Text(
+                                  'TODO',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium!
+                                      .copyWith(color: Colors.deepOrangeAccent),
+                                ),
+                                const Text(
+                                  // TODO: dropdown selecionar aluno
+                                  '⬤ Dropdown selecionar cliente',
+                                ),
+                                const Text(
+                                  // TODO: dropdown selecionar multiplos produtos
+                                  '⬤ Dropdown selecionar multiplos produtos',
+                                ),
+                                const Text(
+                                  // TODO: produto não listado?
+                                  '⬤ O que fazer quando produto não listado?',
+                                ),
+                                const Text(
+                                  // TODO: Relacionar com uma venda
+                                  '⬤ Relacionar com uma venda',
+                                ),
+                                const SizedBox(height: 16),
+                              ],
+                            ),
                           ),
                         ),
                       ),

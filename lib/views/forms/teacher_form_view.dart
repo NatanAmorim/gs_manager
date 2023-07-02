@@ -2,8 +2,8 @@ import 'dart:convert' as convert;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gs_admin/controllers/client_form_controller.dart';
-import 'package:gs_admin/models/cliente_model.dart';
+import 'package:gs_admin/controllers/teacher_form_controller.dart';
+import 'package:gs_admin/models/professor_model.dart';
 import 'package:gs_admin/models/viacep_dto.dart';
 import 'package:gs_admin/utils/dialog_helper.dart';
 import 'package:gs_admin/utils/formatters/cep_input_formatter.dart';
@@ -17,20 +17,20 @@ import 'package:gs_admin/views/widgets/textformfield_widget.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
-class ClientFormView extends StatefulWidget {
-  const ClientFormView({
+class TeacherFormView extends StatefulWidget {
+  const TeacherFormView({
     Key? key,
-    this.clientUpdating,
+    this.teacherUpdating,
   }) : super(key: key);
 
-  final ClienteModel? clientUpdating;
+  final ProfessorModel? teacherUpdating;
 
   @override
-  State<ClientFormView> createState() => _ClientFormViewState();
+  State<TeacherFormView> createState() => _TeacherFormViewState();
 }
 
-class _ClientFormViewState extends State<ClientFormView> {
-  late ClientFormController controller;
+class _TeacherFormViewState extends State<TeacherFormView> {
+  late TeacherFormController controller;
   late ValueNotifier<TextEditingController> address;
   int? age;
 
@@ -51,20 +51,12 @@ class _ClientFormViewState extends State<ClientFormView> {
     return age;
   }
 
-  bool _isMinor(int age) {
-    if (age < 18) {
-      return true;
-    }
-
-    return false;
-  }
-
   @override
   void initState() {
     super.initState();
-    controller = ClientFormController(clientUpdating: widget.clientUpdating);
-    if (widget.clientUpdating != null) {
-      age = _calculateAge(controller.client.dataNascimento);
+    controller = TeacherFormController(teacherUpdating: widget.teacherUpdating);
+    if (widget.teacherUpdating != null) {
+      age = _calculateAge(controller.teacher.dataNascimento);
     }
   }
 
@@ -77,7 +69,7 @@ class _ClientFormViewState extends State<ClientFormView> {
   @override
   Widget build(BuildContext context) {
     address = ValueNotifier<TextEditingController>(
-      TextEditingController(text: widget.clientUpdating?.endereco ?? ''),
+      TextEditingController(text: widget.teacherUpdating?.endereco ?? ''),
     );
 
     return WillPopScope(
@@ -112,7 +104,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Cadastro de aluno',
+                                  'Cadastro de professor',
                                   style: Theme.of(context)
                                       .textTheme
                                       .headlineMedium!
@@ -132,10 +124,10 @@ class _ClientFormViewState extends State<ClientFormView> {
                                         autofocus: true,
                                         label: 'Nome',
                                         placeholderText:
-                                            'Digite o nome do cliente',
-                                        initialValue: controller.client.nome,
+                                            'Digite o nome do professor',
+                                        initialValue: controller.teacher.nome,
                                         onSaved: (String? text) =>
-                                            controller.client.nome = text!,
+                                            controller.teacher.nome = text!,
                                         keyboardType: TextInputType.name,
                                         validator: (String? value) {
                                           if (value == null || value.isEmpty) {
@@ -148,23 +140,24 @@ class _ClientFormViewState extends State<ClientFormView> {
                                       TextFormFieldWidget(
                                         label: 'Celular',
                                         placeholderText:
-                                            'Digite o número de celular do cliente',
+                                            'Digite o número de celular do professor',
                                         keyboardType: TextInputType.phone,
                                         inputFormatters: [
                                           FilteringTextInputFormatter
                                               .digitsOnly,
                                           PhoneInputFormatter(),
                                         ],
-                                        initialValue: controller.client.celular,
+                                        initialValue:
+                                            controller.teacher.celular,
                                         onSaved: (String? text) =>
-                                            controller.client.celular = text!,
+                                            controller.teacher.celular = text!,
                                       ),
                                       const SizedBox(height: 16),
                                       TextFormFieldWidget(
                                         label: 'Data de nascimento',
                                         placeholderText: 'Digite a data',
                                         initialValue:
-                                            controller.client.dataNascimento,
+                                            controller.teacher.dataNascimento,
                                         validator: (String? value) {
                                           if (value?.length != 10) {
                                             return 'Digite a data de nascimento';
@@ -194,7 +187,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                                           }
                                         },
                                         onSaved: (String? text) => controller
-                                            .client.dataNascimento = text!,
+                                            .teacher.dataNascimento = text!,
                                       ),
                                       const SizedBox(height: 16),
                                       TextFormFieldWidget(
@@ -205,18 +198,15 @@ class _ClientFormViewState extends State<ClientFormView> {
                                           if (age == null) {
                                             return 'Erro data de nascimento não preenchida';
                                           }
-                                          if (!_isMinor(age!) &&
-                                              (value == null ||
-                                                  value.isEmpty)) {
+                                          if (value == null || value.isEmpty) {
                                             return 'Digite o CPF';
                                           }
-                                          if (!_isMinor(age!) &&
-                                              !CPFValidator.isValid(value)) {
+                                          if (!CPFValidator.isValid(value)) {
                                             return 'CPF inválido';
                                           }
                                           return null;
                                         },
-                                        initialValue: controller.client.cpf,
+                                        initialValue: controller.teacher.cpf,
                                         keyboardType: TextInputType.number,
                                         inputFormatters: [
                                           FilteringTextInputFormatter
@@ -224,13 +214,13 @@ class _ClientFormViewState extends State<ClientFormView> {
                                           CpfInputFormatter(),
                                         ],
                                         onSaved: (String? text) {
-                                          controller.client.cpf = text!;
+                                          controller.teacher.cpf = text!;
                                         },
                                       ),
                                       const SizedBox(height: 16),
                                       TextFormFieldWidget(
                                         label: 'CEP',
-                                        initialValue: controller.client.cep,
+                                        initialValue: controller.teacher.cep,
                                         placeholderText:
                                             'Digite o número de cep',
                                         keyboardType: TextInputType.number,
@@ -275,7 +265,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                                           }
                                         },
                                         onSaved: (String? text) =>
-                                            controller.client.cep = text!,
+                                            controller.teacher.cep = text!,
                                       ),
                                       const SizedBox(height: 16),
                                       ValueListenableBuilder<
@@ -294,7 +284,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                                             keyboardType:
                                                 TextInputType.streetAddress,
                                             onSaved: (String? text) =>
-                                                controller.client.endereco =
+                                                controller.teacher.endereco =
                                                     text!,
                                           );
                                         },
@@ -304,9 +294,9 @@ class _ClientFormViewState extends State<ClientFormView> {
                                         label: 'Número',
                                         placeholderText:
                                             'Digite o nome do endereço',
-                                        initialValue: controller.client.numero,
+                                        initialValue: controller.teacher.numero,
                                         onSaved: (String? text) =>
-                                            controller.client.numero = text!,
+                                            controller.teacher.numero = text!,
                                         keyboardType: TextInputType.name,
                                         validator: (String? value) {
                                           if (value == null || value.isEmpty) {
@@ -314,69 +304,6 @@ class _ClientFormViewState extends State<ClientFormView> {
                                           }
                                           return null;
                                         },
-                                      ),
-                                      const SizedBox(height: 16),
-                                      TextFormFieldWidget(
-                                        label: 'Nome do responsável',
-                                        initialValue:
-                                            controller.client.nomeResponsavel,
-                                        placeholderText:
-                                            '*Opicional se maior de 18 anos',
-                                        keyboardType: TextInputType.name,
-                                        validator: (String? value) {
-                                          if (age == null) {
-                                            return 'Erro data de nascimento não preenchida';
-                                          }
-                                          if (_isMinor(age!) &&
-                                              (value == null ||
-                                                  value.isEmpty)) {
-                                            return 'Digite o nome';
-                                          }
-                                          return null;
-                                        },
-                                        onSaved: (String? text) => controller
-                                            .client.nomeResponsavel = text!,
-                                      ),
-                                      const SizedBox(height: 16),
-                                      TextFormFieldWidget(
-                                        label: 'CPF do responsável',
-                                        initialValue:
-                                            controller.client.cpfResponsavel,
-                                        placeholderText:
-                                            '*Opicional se maior de 18 anos',
-                                        validator: (String? value) {
-                                          if (age == null) {
-                                            return 'Erro data de nascimento não preenchida';
-                                          }
-                                          if (_isMinor(age!) &&
-                                              (value == null ||
-                                                  value.isEmpty)) {
-                                            return 'Digite o CPF';
-                                          }
-                                          if (_isMinor(age!) &&
-                                              !CPFValidator.isValid(value)) {
-                                            return 'CPF inválido';
-                                          }
-
-                                          return null;
-                                        },
-                                        onSaved: (String? text) => controller
-                                            .client.cpfResponsavel = text!,
-                                        keyboardType: TextInputType.number,
-                                        inputFormatters: [
-                                          FilteringTextInputFormatter
-                                              .digitsOnly,
-                                          CpfInputFormatter(),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 16),
-                                      TextFormFieldWidget(
-                                        label: 'Nome PIX',
-                                        placeholderText:
-                                            'Digite o nome no recibo do PIX',
-                                        initialValue: controller.client.nomePix,
-                                        onSaved: (String? text) =>
-                                            controller.client.nomePix = text!,
                                       ),
                                     ],
                                   ),
@@ -390,7 +317,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            controller.clientUpdating == null
+                            controller.teacherUpdating == null
                                 ? Container()
                                 : FilledButtonWidget(
                                     icon: Icons.delete_forever,

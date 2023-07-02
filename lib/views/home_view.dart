@@ -5,6 +5,7 @@ import 'package:gs_admin/views/forms/client_form_view.dart';
 import 'package:gs_admin/views/forms/lecture_form_view.dart';
 import 'package:gs_admin/views/forms/order_form_view.dart';
 import 'package:gs_admin/views/forms/product_form_view.dart';
+import 'package:gs_admin/views/forms/teacher_form_view.dart';
 import 'package:gs_admin/views/home/inventory_view.dart';
 import 'package:gs_admin/views/home/overview_view.dart';
 import 'package:gs_admin/views/home/people_views.dart';
@@ -70,13 +71,26 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
               ),
               children: [
                 SpeedDialChild(
-                  label: 'Novo Aluno/Professor',
-                  child: const Icon(Icons.add_reaction),
+                  label: 'Novo Aluno',
+                  child: const Icon(Icons.group_add),
                   backgroundColor: Theme.of(context).colorScheme.tertiary,
                   foregroundColor: Theme.of(context).colorScheme.onTertiary,
+                  visible: true,
                   onTap: () async => await Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const ClientFormView(),
+                    ),
+                  ),
+                ),
+                SpeedDialChild(
+                  label: 'Novo Professor',
+                  child: const Icon(Icons.add_reaction),
+                  backgroundColor: Theme.of(context).colorScheme.tertiary,
+                  foregroundColor: Theme.of(context).colorScheme.onTertiary,
+                  visible: true,
+                  onTap: () async => await Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const TeacherFormView(),
                     ),
                   ),
                 ),
