@@ -12,7 +12,7 @@ import 'package:gs_admin/views/home/people_views.dart';
 import 'package:gs_admin/views/home/settings_view.dart';
 import 'package:gs_admin/views/home/transactions_view.dart';
 import 'package:gs_admin/views/point_of_sale_view.dart';
-import 'package:gs_admin/views/widgets/fade_indexed_stack_widget.dart';
+import 'package:gs_admin/views/widgets/custom_indexed_stack.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -28,7 +28,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: FadeIndexedStackWidget(
+        body: CustomIndexedStack(
           index: _currentIndex,
           children: const [
             OverviewView(),

@@ -5,8 +5,8 @@ import 'package:gs_admin/models/aula_model.dart';
 import 'package:gs_admin/utils/dialog_helper.dart';
 import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/utils/values_converter.dart';
-import 'package:gs_admin/views/widgets/filled_button_widget.dart';
-import 'package:gs_admin/views/widgets/textformfield_widget.dart';
+import 'package:gs_admin/views/widgets/custom_filled_button.dart';
+import 'package:gs_admin/views/widgets/custom_text_form_field.dart';
 
 class LectureFormView extends StatefulWidget {
   const LectureFormView({
@@ -79,7 +79,7 @@ class _LectureFormViewState extends State<LectureFormView> {
                                   ),
                                   const Divider(),
                                   const SizedBox(height: 16),
-                                  TextFormFieldWidget(
+                                  CustomTextFormField(
                                     label: 'Nome',
                                     placeholderText: 'Digite o nome da aula',
                                     autofocus: true,
@@ -94,7 +94,7 @@ class _LectureFormViewState extends State<LectureFormView> {
                                     },
                                   ),
                                   const SizedBox(height: 16),
-                                  TextFormFieldWidget(
+                                  CustomTextFormField(
                                     label: 'Preço',
                                     keyboardType: TextInputType.number,
                                     initialValue: controller.lecture.preco,
@@ -129,13 +129,13 @@ class _LectureFormViewState extends State<LectureFormView> {
                           children: [
                             controller.lectureUpdating == null
                                 ? Container()
-                                : FilledButtonWidget(
+                                : CustomFilledButton(
                                     icon: Icons.delete_forever,
                                     label: 'Deletar',
                                     isDelete: true,
                                     onPressed: () => controller.delete(context),
                                   ),
-                            FilledButtonWidget(
+                            CustomFilledButton(
                               icon: Icons.save,
                               label: 'Salvar',
                               onPressed: () => controller.submit(context),

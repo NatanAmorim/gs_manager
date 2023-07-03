@@ -12,8 +12,8 @@ import 'package:gs_admin/utils/formatters/date_input_formatter.dart';
 import 'package:gs_admin/utils/formatters/phone_input_formatter.dart';
 import 'package:gs_admin/utils/validators/cpf_validator.dart';
 import 'package:gs_admin/utils/values_converter.dart';
-import 'package:gs_admin/views/widgets/filled_button_widget.dart';
-import 'package:gs_admin/views/widgets/textformfield_widget.dart';
+import 'package:gs_admin/views/widgets/custom_filled_button.dart';
+import 'package:gs_admin/views/widgets/custom_text_form_field.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
@@ -128,7 +128,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                                   ),
                                   const Divider(),
                                   const SizedBox(height: 16),
-                                  TextFormFieldWidget(
+                                  CustomTextFormField(
                                     autofocus: true,
                                     label: 'Nome',
                                     placeholderText: 'Digite o nome do cliente',
@@ -144,7 +144,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                                     },
                                   ),
                                   const SizedBox(height: 16),
-                                  TextFormFieldWidget(
+                                  CustomTextFormField(
                                     label: 'Celular',
                                     placeholderText:
                                         'Digite o número de celular do cliente',
@@ -158,7 +158,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                                         controller.client.celular = text!,
                                   ),
                                   const SizedBox(height: 16),
-                                  TextFormFieldWidget(
+                                  CustomTextFormField(
                                     label: 'Data de nascimento',
                                     placeholderText: 'Digite a data',
                                     initialValue:
@@ -194,7 +194,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                                         .client.dataNascimento = text!,
                                   ),
                                   const SizedBox(height: 16),
-                                  TextFormFieldWidget(
+                                  CustomTextFormField(
                                     label: 'CPF',
                                     placeholderText: 'Digite o número de cpf',
                                     validator: (String? value) {
@@ -222,7 +222,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                                     },
                                   ),
                                   const SizedBox(height: 16),
-                                  TextFormFieldWidget(
+                                  CustomTextFormField(
                                     label: 'CEP',
                                     initialValue: controller.client.cep,
                                     placeholderText: 'Digite o número de cep',
@@ -276,7 +276,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                                       TextEditingController value,
                                       Widget? child,
                                     ) {
-                                      return TextFormFieldWidget(
+                                      return CustomTextFormField(
                                         controller: value,
                                         label: 'Endereço',
                                         placeholderText: 'Digite o endereço',
@@ -288,7 +288,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                                     },
                                   ),
                                   const SizedBox(height: 16),
-                                  TextFormFieldWidget(
+                                  CustomTextFormField(
                                     label: 'Número',
                                     placeholderText:
                                         'Digite o nome do endereço',
@@ -304,7 +304,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                                     },
                                   ),
                                   const SizedBox(height: 16),
-                                  TextFormFieldWidget(
+                                  CustomTextFormField(
                                     label: 'Nome do responsável',
                                     initialValue:
                                         controller.client.nomeResponsavel,
@@ -325,7 +325,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                                         .client.nomeResponsavel = text!,
                                   ),
                                   const SizedBox(height: 16),
-                                  TextFormFieldWidget(
+                                  CustomTextFormField(
                                     label: 'CPF do responsável',
                                     initialValue:
                                         controller.client.cpfResponsavel,
@@ -355,7 +355,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                                     ],
                                   ),
                                   const SizedBox(height: 16),
-                                  TextFormFieldWidget(
+                                  CustomTextFormField(
                                     label: 'Nome PIX',
                                     placeholderText:
                                         'Digite o nome no recibo do PIX',
@@ -375,13 +375,13 @@ class _ClientFormViewState extends State<ClientFormView> {
                           children: [
                             controller.clientUpdating == null
                                 ? Container()
-                                : FilledButtonWidget(
+                                : CustomFilledButton(
                                     icon: Icons.delete_forever,
                                     label: 'Deletar',
                                     isDelete: true,
                                     onPressed: () => controller.delete(context),
                                   ),
-                            FilledButtonWidget(
+                            CustomFilledButton(
                               icon: Icons.save,
                               label: 'Salvar',
                               onPressed: () => controller.submit(context),

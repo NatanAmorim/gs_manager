@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class FilledButtonWidget extends StatefulWidget {
-  const FilledButtonWidget({
+class CustomFilledButton extends StatefulWidget {
+  const CustomFilledButton({
     Key? key,
     required this.icon,
     required this.label,
@@ -15,10 +15,10 @@ class FilledButtonWidget extends StatefulWidget {
   final bool isDelete;
 
   @override
-  State<FilledButtonWidget> createState() => _FilledButtonWidgetState();
+  State<CustomFilledButton> createState() => _CustomFilledButtonState();
 }
 
-class _FilledButtonWidgetState extends State<FilledButtonWidget> {
+class _CustomFilledButtonState extends State<CustomFilledButton> {
   final double contentSize = 18;
   bool _isLoading = false;
 

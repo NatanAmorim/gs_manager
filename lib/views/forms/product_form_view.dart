@@ -4,8 +4,8 @@ import 'package:gs_admin/controllers/product_form_controller.dart';
 import 'package:gs_admin/utils/dialog_helper.dart';
 import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/utils/values_converter.dart';
-import 'package:gs_admin/views/widgets/filled_button_widget.dart';
-import 'package:gs_admin/views/widgets/textformfield_widget.dart';
+import 'package:gs_admin/views/widgets/custom_filled_button.dart';
+import 'package:gs_admin/views/widgets/custom_text_form_field.dart';
 
 class ProductFormView extends StatefulWidget {
   const ProductFormView({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class ProductFormView extends StatefulWidget {
 
 class _ProductFormViewState extends State<ProductFormView> {
   late ProductFormController controller;
-  final List<Item> _data = generateItems(8);
+  final List<Item> _data = generateItems(3);
 
   @override
   void initState() {
@@ -74,7 +74,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                                   ),
                                   const Divider(),
                                   const SizedBox(height: 16),
-                                  TextFormFieldWidget(
+                                  CustomTextFormField(
                                     label: 'Nome',
                                     placeholderText: 'Digite o nome do produto',
                                     autofocus: true,
@@ -114,7 +114,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                         const SizedBox(height: 16),
                         Align(
                           alignment: Alignment.centerRight,
-                          child: FilledButtonWidget(
+                          child: CustomFilledButton(
                             onPressed: () => controller.submit(context),
                             icon: Icons.save,
                             label: 'Salvar',
@@ -152,7 +152,7 @@ class _ProductFormViewState extends State<ProductFormView> {
             body: ListTile(
               title: Column(
                 children: [
-                  TextFormFieldWidget(
+                  CustomTextFormField(
                     label: 'Descrição',
                     placeholderText: 'Digite a descrição do produto',
                     validator: (String? value) {
@@ -169,7 +169,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                     children: [
                       Flexible(
                         flex: 1,
-                        child: TextFormFieldWidget(
+                        child: CustomTextFormField(
                           label: 'Código de barras',
                           placeholderText: 'Digite a Código de barras',
                           validator: (String? value) {
@@ -183,7 +183,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                       const SizedBox(width: 8),
                       Flexible(
                         flex: 1,
-                        child: TextFormFieldWidget(
+                        child: CustomTextFormField(
                           label: 'Preço unitário',
                           initialValue: r'R$ 0,00',
                           validator: (String? value) {
@@ -211,7 +211,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                     children: [
                       Flexible(
                         flex: 1,
-                        child: TextFormFieldWidget(
+                        child: CustomTextFormField(
                           label: 'Estoque mínimo',
                           placeholderText: 'Digite a quantidade mínima',
                           helperText:
@@ -247,7 +247,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                       const SizedBox(width: 8),
                       Flexible(
                         flex: 1,
-                        child: TextFormFieldWidget(
+                        child: CustomTextFormField(
                           label: 'Estoque',
                           placeholderText: 'Digite a quantidade',
                           suffixIcon: IconButton(
@@ -306,7 +306,7 @@ List<Item> generateItems(int numberOfItems) {
   return List<Item>.generate(numberOfItems, (int index) {
     return Item(
       id: index,
-      headerValue: 'Variação nº $index',
+      headerValue: 'Variação nº ${index + 1}',
       expandedValue: 'This is item number $index',
     );
   });
