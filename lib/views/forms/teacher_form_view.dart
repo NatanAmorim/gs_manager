@@ -14,6 +14,7 @@ import 'package:gs_admin/utils/validators/cpf_validator.dart';
 import 'package:gs_admin/utils/values_converter.dart';
 import 'package:gs_admin/views/widgets/custom_card.dart';
 import 'package:gs_admin/views/widgets/custom_filled_button.dart';
+import 'package:gs_admin/views/widgets/custom_form_scaffold.dart';
 import 'package:gs_admin/views/widgets/custom_text_form_field.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -75,245 +76,212 @@ class _TeacherFormViewState extends State<TeacherFormView> {
 
     return WillPopScope(
       onWillPop: () => DialogHelper.onWillPop(context: context),
-      child: SafeArea(
-        child: Scaffold(
-          body: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            physics: const BouncingScrollPhysics(),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+      child: CustomFormScaffold(
+        children: [
+          const SizedBox(height: 24),
+          const Align(
+            alignment: Alignment.centerLeft,
+            child: BackButton(),
+          ),
+          const SizedBox(height: 16),
+          Form(
+            key: controller.formKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: CustomCard(
               children: [
-                Flexible(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 770),
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 24),
-                        const Align(
-                          alignment: Alignment.centerLeft,
-                          child: BackButton(),
-                        ),
-                        const SizedBox(height: 16),
-                        Form(
-                          key: controller.formKey,
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          child: CustomCard(
-                            children: [
-                              Text(
-                                'Cadastro de professor',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium!
-                                    .copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .secondary,
-                                    ),
-                              ),
-                              const Divider(),
-                              const SizedBox(height: 16),
-                              CustomTextFormField(
-                                autofocus: true,
-                                label: 'Nome',
-                                placeholderText: 'Digite o nome do professor',
-                                initialValue: controller.teacher.nome,
-                                onSaved: (String? text) =>
-                                    controller.teacher.nome = text!,
-                                keyboardType: TextInputType.name,
-                                validator: (String? value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Digite o nome';
-                                  }
-                                  return null;
-                                },
-                              ),
-                              const SizedBox(height: 16),
-                              CustomTextFormField(
-                                label: 'Celular',
-                                placeholderText:
-                                    'Digite o número de celular do professor',
-                                keyboardType: TextInputType.phone,
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.digitsOnly,
-                                  PhoneInputFormatter(),
-                                ],
-                                initialValue: controller.teacher.celular,
-                                onSaved: (String? text) =>
-                                    controller.teacher.celular = text!,
-                              ),
-                              const SizedBox(height: 16),
-                              CustomTextFormField(
-                                label: 'Data de nascimento',
-                                placeholderText: 'Digite a data',
-                                initialValue: controller.teacher.dataNascimento,
-                                validator: (String? value) {
-                                  if (value?.length != 10) {
-                                    return 'Digite a data de nascimento';
-                                  }
-                                  final int year =
-                                      int.parse(value!.substring(6, 10));
+                Text(
+                  'Cadastro de professor',
+                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                ),
+                const Divider(),
+                const SizedBox(height: 16),
+                CustomTextFormField(
+                  autofocus: true,
+                  label: 'Nome',
+                  placeholderText: 'Digite o nome do professor',
+                  initialValue: controller.teacher.nome,
+                  onSaved: (String? text) => controller.teacher.nome = text!,
+                  keyboardType: TextInputType.name,
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Digite o nome';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
+                CustomTextFormField(
+                  label: 'Celular',
+                  placeholderText: 'Digite o número de celular do professor',
+                  keyboardType: TextInputType.phone,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    PhoneInputFormatter(),
+                  ],
+                  initialValue: controller.teacher.celular,
+                  onSaved: (String? text) => controller.teacher.celular = text!,
+                ),
+                const SizedBox(height: 16),
+                CustomTextFormField(
+                  label: 'Data de nascimento',
+                  placeholderText: 'Digite a data',
+                  initialValue: controller.teacher.dataNascimento,
+                  validator: (String? value) {
+                    if (value?.length != 10) {
+                      return 'Digite a data de nascimento';
+                    }
+                    final int year = int.parse(value!.substring(6, 10));
 
-                                  if (year < 1901) {
-                                    return 'Data inválida';
-                                  }
+                    if (year < 1901) {
+                      return 'Data inválida';
+                    }
 
-                                  if (year > DateTime.now().year - 1) {
-                                    return 'Data inválida';
-                                  }
+                    if (year > DateTime.now().year - 1) {
+                      return 'Data inválida';
+                    }
 
-                                  return null;
-                                },
-                                keyboardType: TextInputType.datetime,
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.digitsOnly,
-                                  DateInputFormatter(),
-                                ],
-                                onChanged: (String? text) {
-                                  if (text?.length == 10) {
-                                    age = _calculateAge(text!);
-                                  }
-                                },
-                                onSaved: (String? text) =>
-                                    controller.teacher.dataNascimento = text!,
-                              ),
-                              const SizedBox(height: 16),
-                              CustomTextFormField(
-                                label: 'CPF',
-                                placeholderText: 'Digite o número de cpf',
-                                validator: (String? value) {
-                                  if (age == null) {
-                                    return 'Erro data de nascimento não preenchida';
-                                  }
-                                  if (value == null || value.isEmpty) {
-                                    return 'Digite o CPF';
-                                  }
-                                  if (!CPFValidator.isValid(value)) {
-                                    return 'CPF inválido';
-                                  }
-                                  return null;
-                                },
-                                initialValue: controller.teacher.cpf,
-                                keyboardType: TextInputType.number,
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.digitsOnly,
-                                  CpfInputFormatter(),
-                                ],
-                                onSaved: (String? text) {
-                                  controller.teacher.cpf = text!;
-                                },
-                              ),
-                              const SizedBox(height: 16),
-                              CustomTextFormField(
-                                label: 'CEP',
-                                initialValue: controller.teacher.cep,
-                                placeholderText: 'Digite o número de cep',
-                                keyboardType: TextInputType.number,
-                                inputFormatters: [
-                                  FilteringTextInputFormatter.digitsOnly,
-                                  CepInputFormatter(),
-                                ],
-                                onChanged: (String? text) async {
-                                  if (text?.length == 10) {
-                                    final String cep =
-                                        ValuesConverter.convertCep(
-                                      text ?? '',
-                                    );
+                    return null;
+                  },
+                  keyboardType: TextInputType.datetime,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    DateInputFormatter(),
+                  ],
+                  onChanged: (String? text) {
+                    if (text?.length == 10) {
+                      age = _calculateAge(text!);
+                    }
+                  },
+                  onSaved: (String? text) =>
+                      controller.teacher.dataNascimento = text!,
+                ),
+                const SizedBox(height: 16),
+                CustomTextFormField(
+                  label: 'CPF',
+                  placeholderText: 'Digite o número de cpf',
+                  validator: (String? value) {
+                    if (age == null) {
+                      return 'Erro data de nascimento não preenchida';
+                    }
+                    if (value == null || value.isEmpty) {
+                      return 'Digite o CPF';
+                    }
+                    if (!CPFValidator.isValid(value)) {
+                      return 'CPF inválido';
+                    }
+                    return null;
+                  },
+                  initialValue: controller.teacher.cpf,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    CpfInputFormatter(),
+                  ],
+                  onSaved: (String? text) {
+                    controller.teacher.cpf = text!;
+                  },
+                ),
+                const SizedBox(height: 16),
+                CustomTextFormField(
+                  label: 'CEP',
+                  initialValue: controller.teacher.cep,
+                  placeholderText: 'Digite o número de cep',
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    CepInputFormatter(),
+                  ],
+                  onChanged: (String? text) async {
+                    if (text?.length == 10) {
+                      final String cep = ValuesConverter.convertCep(
+                        text ?? '',
+                      );
 
-                                    final url = Uri.https(
-                                      'viacep.com.br',
-                                      '/ws/$cep/json/',
-                                      {'q': '{http}'},
-                                    );
+                      final url = Uri.https(
+                        'viacep.com.br',
+                        '/ws/$cep/json/',
+                        {'q': '{http}'},
+                      );
 
-                                    // Await the HTTP GET response, then decode the
-                                    // JSON data it contains.
-                                    final response = await http.get(url);
+                      // Await the HTTP GET response, then decode the
+                      // JSON data it contains.
+                      final response = await http.get(url);
 
-                                    if (response.statusCode == 200) {
-                                      final jsonResponse =
-                                          convert.jsonDecode(response.body);
+                      if (response.statusCode == 200) {
+                        final jsonResponse = convert.jsonDecode(response.body);
 
-                                      final ViacepDto viacep =
-                                          ViacepDto.fromJson(
-                                        jsonResponse,
-                                      );
+                        final ViacepDto viacep = ViacepDto.fromJson(
+                          jsonResponse,
+                        );
 
-                                      address.value.text =
-                                          '${viacep.logradouro}'
-                                          ', Bairro ${viacep.bairro}'
-                                          ', ${viacep.localidade}'
-                                          ' - ${viacep.uf}.';
-                                    }
-                                  }
-                                },
-                                onSaved: (String? text) =>
-                                    controller.teacher.cep = text!,
-                              ),
-                              const SizedBox(height: 16),
-                              ValueListenableBuilder<TextEditingController>(
-                                valueListenable: address,
-                                builder: (
-                                  BuildContext context,
-                                  TextEditingController value,
-                                  Widget? child,
-                                ) {
-                                  return CustomTextFormField(
-                                    controller: value,
-                                    label: 'Endereço',
-                                    placeholderText: 'Digite o endereço',
-                                    keyboardType: TextInputType.streetAddress,
-                                    onSaved: (String? text) =>
-                                        controller.teacher.endereco = text!,
-                                  );
-                                },
-                              ),
-                              const SizedBox(height: 16),
-                              CustomTextFormField(
-                                label: 'Número',
-                                placeholderText: 'Digite o nome do endereço',
-                                initialValue: controller.teacher.numero,
-                                onSaved: (String? text) =>
-                                    controller.teacher.numero = text!,
-                                keyboardType: TextInputType.name,
-                                validator: (String? value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Digite o número';
-                                  }
-                                  return null;
-                                },
-                              ),
-                              const SizedBox(height: 16),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            controller.teacherUpdating == null
-                                ? Container()
-                                : CustomFilledButton(
-                                    icon: Icons.delete_forever,
-                                    label: 'Deletar',
-                                    isDelete: true,
-                                    onPressed: () => controller.delete(context),
-                                  ),
-                            CustomFilledButton(
-                              icon: Icons.save,
-                              label: 'Salvar',
-                              onPressed: () => controller.submit(context),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 32),
-                      ],
-                    ),
-                  ),
-                )
+                        address.value.text = '${viacep.logradouro}'
+                            ', Bairro ${viacep.bairro}'
+                            ', ${viacep.localidade}'
+                            ' - ${viacep.uf}.';
+                      }
+                    }
+                  },
+                  onSaved: (String? text) => controller.teacher.cep = text!,
+                ),
+                const SizedBox(height: 16),
+                ValueListenableBuilder<TextEditingController>(
+                  valueListenable: address,
+                  builder: (
+                    BuildContext context,
+                    TextEditingController value,
+                    Widget? child,
+                  ) {
+                    return CustomTextFormField(
+                      controller: value,
+                      label: 'Endereço',
+                      placeholderText: 'Digite o endereço',
+                      keyboardType: TextInputType.streetAddress,
+                      onSaved: (String? text) =>
+                          controller.teacher.endereco = text!,
+                    );
+                  },
+                ),
+                const SizedBox(height: 16),
+                CustomTextFormField(
+                  label: 'Número',
+                  placeholderText: 'Digite o nome do endereço',
+                  initialValue: controller.teacher.numero,
+                  onSaved: (String? text) => controller.teacher.numero = text!,
+                  keyboardType: TextInputType.name,
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Digite o número';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
               ],
             ),
           ),
-        ),
+          const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              controller.teacherUpdating == null
+                  ? Container()
+                  : CustomFilledButton(
+                      icon: Icons.delete_forever,
+                      label: 'Deletar',
+                      isDelete: true,
+                      onPressed: () => controller.delete(context),
+                    ),
+              CustomFilledButton(
+                icon: Icons.save,
+                label: 'Salvar',
+                onPressed: () => controller.submit(context),
+              ),
+            ],
+          ),
+          const SizedBox(height: 32),
+        ],
       ),
     );
   }

@@ -6,6 +6,7 @@ import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/utils/values_converter.dart';
 import 'package:gs_admin/views/widgets/custom_card.dart';
 import 'package:gs_admin/views/widgets/custom_filled_button.dart';
+import 'package:gs_admin/views/widgets/custom_form_scaffold.dart';
 import 'package:gs_admin/views/widgets/custom_text_form_field.dart';
 
 class ProductFormView extends StatefulWidget {
@@ -29,93 +30,69 @@ class _ProductFormViewState extends State<ProductFormView> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () => DialogHelper.onWillPop(context: context),
-      child: SafeArea(
-        child: Scaffold(
-          body: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            physics: const BouncingScrollPhysics(),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+      child: CustomFormScaffold(
+        children: [
+          const SizedBox(height: 24),
+          const Align(
+            alignment: Alignment.centerLeft,
+            child: BackButton(),
+          ),
+          const SizedBox(height: 16),
+          Form(
+            key: controller.formKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: CustomCard(
               children: [
-                Flexible(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 770),
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 24),
-                        const Align(
-                          alignment: Alignment.centerLeft,
-                          child: BackButton(),
-                        ),
-                        const SizedBox(height: 16),
-                        Form(
-                          key: controller.formKey,
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          child: CustomCard(
-                            children: [
-                              Text(
-                                'Cadastro de produto',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium!
-                                    .copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .secondary,
-                                    ),
-                              ),
-                              const Divider(),
-                              const SizedBox(height: 16),
-                              CustomTextFormField(
-                                label: 'Nome',
-                                placeholderText: 'Digite o nome do produto',
-                                autofocus: true,
-                                validator: (String? value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Digite o nome';
-                                  }
-                                  return null;
-                                },
-                              ),
-                              const SizedBox(height: 16),
-                              _buildPanel(),
-                              const SizedBox(height: 16),
-                              TextButton.icon(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.add,
-                                  color: Theme.of(context).colorScheme.tertiary,
-                                ),
-                                label: Text(
-                                  'Adicionar Variação',
-                                  style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.tertiary,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 16),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 16),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: CustomFilledButton(
-                            onPressed: () => controller.submit(context),
-                            icon: Icons.save,
-                            label: 'Salvar',
-                          ),
-                        ),
-                        const SizedBox(height: 32),
-                      ],
+                Text(
+                  'Cadastro de produto',
+                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                ),
+                const Divider(),
+                const SizedBox(height: 16),
+                CustomTextFormField(
+                  label: 'Nome',
+                  placeholderText: 'Digite o nome do produto',
+                  autofocus: true,
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Digite o nome';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
+                _buildPanel(),
+                const SizedBox(height: 16),
+                TextButton.icon(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.add,
+                    color: Theme.of(context).colorScheme.tertiary,
+                  ),
+                  label: Text(
+                    'Adicionar Variação',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.tertiary,
                     ),
                   ),
-                )
+                ),
+                const SizedBox(height: 16),
               ],
             ),
           ),
-        ),
+          const SizedBox(height: 16),
+          Align(
+            alignment: Alignment.centerRight,
+            child: CustomFilledButton(
+              onPressed: () => controller.submit(context),
+              icon: Icons.save,
+              label: 'Salvar',
+            ),
+          ),
+          const SizedBox(height: 32),
+        ],
       ),
     );
   }

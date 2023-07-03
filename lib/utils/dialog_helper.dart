@@ -6,6 +6,8 @@ class DialogHelper {
     required BuildContext context,
   }) async {
     bool willPop = false;
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final bool isLightTheme = Theme.of(context).brightness == Brightness.light;
     await AwesomeDialog(
       width: 500,
       showCloseIcon: false,
@@ -20,10 +22,14 @@ class DialogHelper {
       btnOkOnPress: () {
         willPop = true;
       },
-      btnOkColor: Colors.red,
+      btnOkColor: isLightTheme ? colorScheme.error : colorScheme.errorContainer,
       btnCancelText: 'Cancelar',
       btnCancelOnPress: () {},
-      btnCancelColor: Colors.green,
+      btnCancelColor:
+          isLightTheme ? colorScheme.tertiary : colorScheme.tertiaryContainer,
+      buttonsTextStyle: const TextStyle(
+        color: Colors.white,
+      ),
     ).show();
 
     return willPop;
