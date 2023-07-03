@@ -4,6 +4,7 @@ import 'package:gs_admin/controllers/product_form_controller.dart';
 import 'package:gs_admin/utils/dialog_helper.dart';
 import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/utils/values_converter.dart';
+import 'package:gs_admin/views/widgets/custom_card.dart';
 import 'package:gs_admin/views/widgets/custom_filled_button.dart';
 import 'package:gs_admin/views/widgets/custom_text_form_field.dart';
 
@@ -47,68 +48,54 @@ class _ProductFormViewState extends State<ProductFormView> {
                           child: BackButton(),
                         ),
                         const SizedBox(height: 16),
-                        Card(
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 8,
-                              horizontal: 16,
-                            ),
-                            child: Form(
-                              key: controller.formKey,
-                              autovalidateMode:
-                                  AutovalidateMode.onUserInteraction,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Cadastro de produto',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineMedium!
-                                        .copyWith(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .secondary,
-                                        ),
-                                  ),
-                                  const Divider(),
-                                  const SizedBox(height: 16),
-                                  CustomTextFormField(
-                                    label: 'Nome',
-                                    placeholderText: 'Digite o nome do produto',
-                                    autofocus: true,
-                                    validator: (String? value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Digite o nome';
-                                      }
-                                      return null;
-                                    },
-                                  ),
-                                  const SizedBox(height: 16),
-                                  _buildPanel(),
-                                  const SizedBox(height: 16),
-                                  TextButton.icon(
-                                    onPressed: () {},
-                                    icon: Icon(
-                                      Icons.add,
+                        Form(
+                          key: controller.formKey,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          child: CustomCard(
+                            children: [
+                              Text(
+                                'Cadastro de produto',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium!
+                                    .copyWith(
                                       color: Theme.of(context)
                                           .colorScheme
-                                          .tertiary,
+                                          .secondary,
                                     ),
-                                    label: Text(
-                                      'Adicionar Variação',
-                                      style: TextStyle(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .tertiary,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 16),
-                                ],
                               ),
-                            ),
+                              const Divider(),
+                              const SizedBox(height: 16),
+                              CustomTextFormField(
+                                label: 'Nome',
+                                placeholderText: 'Digite o nome do produto',
+                                autofocus: true,
+                                validator: (String? value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Digite o nome';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              const SizedBox(height: 16),
+                              _buildPanel(),
+                              const SizedBox(height: 16),
+                              TextButton.icon(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.add,
+                                  color: Theme.of(context).colorScheme.tertiary,
+                                ),
+                                label: Text(
+                                  'Adicionar Variação',
+                                  style: TextStyle(
+                                    color:
+                                        Theme.of(context).colorScheme.tertiary,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 16),
+                            ],
                           ),
                         ),
                         const SizedBox(height: 16),

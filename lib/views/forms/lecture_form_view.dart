@@ -5,6 +5,7 @@ import 'package:gs_admin/models/aula_model.dart';
 import 'package:gs_admin/utils/dialog_helper.dart';
 import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/utils/values_converter.dart';
+import 'package:gs_admin/views/widgets/custom_card.dart';
 import 'package:gs_admin/views/widgets/custom_filled_button.dart';
 import 'package:gs_admin/views/widgets/custom_text_form_field.dart';
 
@@ -52,75 +53,64 @@ class _LectureFormViewState extends State<LectureFormView> {
                           child: BackButton(),
                         ),
                         const SizedBox(height: 16),
-                        Card(
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 8,
-                              horizontal: 16,
-                            ),
-                            child: Form(
-                              key: controller.formKey,
-                              autovalidateMode:
-                                  AutovalidateMode.onUserInteraction,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Cadastro de Aula',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .headlineMedium!
-                                        .copyWith(
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .secondary,
-                                        ),
-                                  ),
-                                  const Divider(),
-                                  const SizedBox(height: 16),
-                                  CustomTextFormField(
-                                    label: 'Nome',
-                                    placeholderText: 'Digite o nome da aula',
-                                    autofocus: true,
-                                    initialValue: controller.lecture.nome,
-                                    onSaved: (String? text) =>
-                                        controller.lecture.nome = text!,
-                                    validator: (String? value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Digite o nome';
-                                      }
-                                      return null;
-                                    },
-                                  ),
-                                  const SizedBox(height: 16),
-                                  CustomTextFormField(
-                                    label: 'Preço',
-                                    keyboardType: TextInputType.number,
-                                    initialValue: controller.lecture.preco,
-                                    onSaved: (String? text) =>
-                                        controller.lecture.preco = text!,
-                                    validator: (String? value) {
-                                      if (value == null || value.isEmpty) {
-                                        return 'Digite o preço';
-                                      }
+                        Form(
+                          key: controller.formKey,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          child: CustomCard(
+                            children: [
+                              Text(
+                                'Cadastro de Aula',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium!
+                                    .copyWith(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                    ),
+                              ),
+                              const Divider(),
+                              const SizedBox(height: 16),
+                              CustomTextFormField(
+                                label: 'Nome',
+                                placeholderText: 'Digite o nome da aula',
+                                autofocus: true,
+                                initialValue: controller.lecture.nome,
+                                onSaved: (String? text) =>
+                                    controller.lecture.nome = text!,
+                                validator: (String? value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Digite o nome';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              const SizedBox(height: 16),
+                              CustomTextFormField(
+                                label: 'Preço',
+                                keyboardType: TextInputType.number,
+                                initialValue: controller.lecture.preco,
+                                onSaved: (String? text) =>
+                                    controller.lecture.preco = text!,
+                                validator: (String? value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Digite o preço';
+                                  }
 
-                                      if (ValuesConverter.convertBrl(value) <
-                                          30.0) {
-                                        return 'Preço mínimo de 30 reais';
-                                      }
+                                  if (ValuesConverter.convertBrl(value) <
+                                      30.0) {
+                                    return 'Preço mínimo de 30 reais';
+                                  }
 
-                                      return null;
-                                    },
-                                    inputFormatters: [
-                                      FilteringTextInputFormatter.digitsOnly,
-                                      BrlInputFormatter()
-                                    ],
-                                  ),
-                                  const SizedBox(height: 16),
+                                  return null;
+                                },
+                                inputFormatters: [
+                                  FilteringTextInputFormatter.digitsOnly,
+                                  BrlInputFormatter()
                                 ],
                               ),
-                            ),
+                              const SizedBox(height: 16),
+                            ],
                           ),
                         ),
                         const SizedBox(height: 16),
