@@ -16,23 +16,14 @@ class ClienteModel {
   });
 
   String nome;
-
   String dataNascimento;
-
   String celular;
-
   String cep;
-
   String endereco;
-
   String numero;
-
   String cpf;
-
   String nomeResponsavel;
-
   String cpfResponsavel;
-
   String nomePix;
 
   List<ClienteAulaModel>? aulasInscritas;
