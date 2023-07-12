@@ -46,6 +46,16 @@ class _CustomIndexedStackState extends State<CustomIndexedStack>
 
   @override
   Widget build(BuildContext context) {
+    if (widget.index == 4) {
+      return FadeTransition(
+        opacity: CurveTween(curve: Curves.easeInOutCirc).animate(_controller),
+        child: IndexedStack(
+          index: widget.index,
+          children: widget.children,
+        ),
+      );
+    }
+
     return PageTransitionSwitcher(
       transitionBuilder: (
         Widget child,
