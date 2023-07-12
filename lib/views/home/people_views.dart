@@ -63,8 +63,6 @@ class ClientView extends StatefulWidget {
 }
 
 class _ClientViewState extends State<ClientView> {
-  final GlobalKey<AnimatedListState> animatedListKey =
-      GlobalKey<AnimatedListState>();
   List<ClienteModel> list = [
     ClienteModel(
       nome: "Suélen Oliveira",
@@ -170,13 +168,10 @@ class _ClientViewState extends State<ClientView> {
   }
 
   Future fetchMoreItems() async {
-    int sizeBefore = items.length;
     await Future.delayed(const Duration(seconds: 2));
-    items.addAll(list);
-    for (var i = 0; i < list.length; i++) {
-      final int index = sizeBefore + 1 + i;
-      animatedListKey.currentState?.insertItem(index);
-    }
+    setState(() {
+      items.addAll(list);
+    });
   }
 
   @override
@@ -199,8 +194,7 @@ class _ClientViewState extends State<ClientView> {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: () async => await refreshItems(),
-      child: AnimatedList(
-        key: animatedListKey,
+      child: ListView.builder(
         controller: controller,
         shrinkWrap: true,
         physics: const BouncingScrollPhysics(),
@@ -208,9 +202,8 @@ class _ClientViewState extends State<ClientView> {
           vertical: 8,
           horizontal: 16,
         ),
-        initialItemCount: items.length + 1,
-        itemBuilder:
-            (BuildContext context, int index, Animation<double> animation) {
+        itemCount: items.length + 1,
+        itemBuilder: (BuildContext context, int index) {
           if (index == items.length) {
             return const Padding(
               padding: EdgeInsets.symmetric(
@@ -222,56 +215,29 @@ class _ClientViewState extends State<ClientView> {
             );
           }
 
-          return SizeTransition(
-            sizeFactor: animation,
-            child: Card(
-              // clipBehavior is necessary because, without it, the InkWell's animation
-              // will extend beyond the rounded edges of the [Card] (see https://github.com/flutter/flutter/issues/109776)
-              // This comes with a small performance cost, and you should not set [clipBehavior]
-              // unless you need it.
-              clipBehavior: Clip.hardEdge,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+          return Card(
+            // clipBehavior is necessary because, without it, the InkWell's animation
+            // will extend beyond the rounded edges of the [Card] (see https://github.com/flutter/flutter/issues/109776)
+            // This comes with a small performance cost, and you should not set [clipBehavior]
+            // unless you need it.
+            clipBehavior: Clip.hardEdge,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: CustomOpenContainerCard(
+              destination: ClientFormView(
+                clientUpdating: items[index],
               ),
-              child: CustomOpenContainerCard(
-                destination: ClientFormView(
-                  clientUpdating: items[index],
+              child: ListTile(
+                contentPadding: const EdgeInsets.symmetric(
+                  vertical: 8,
+                  horizontal: 16,
                 ),
-                child: ListTile(
-                  contentPadding: const EdgeInsets.symmetric(
-                    vertical: 8,
-                    horizontal: 16,
-                  ),
-                  title: Text(items[index].nome),
-                  textColor: Theme.of(context).colorScheme.secondary,
-                  leading: IconButton(
-                    icon: const Icon(Icons.person),
-                    onPressed: () {
-                      animatedListKey.currentState?.removeItem(index,
-                          (context, animation) {
-                        items.removeAt(index);
-                        return Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: ListTile(
-                            contentPadding: const EdgeInsets.symmetric(
-                              vertical: 8,
-                              horizontal: 16,
-                            ),
-                            title: Text(items[index].nome),
-                            textColor: Theme.of(context).colorScheme.secondary,
-                            leading: const Icon(Icons.person),
-                            trailing: const Icon(Icons.arrow_right),
-                            iconColor: Theme.of(context).colorScheme.secondary,
-                          ),
-                        );
-                      });
-                    },
-                  ),
-                  trailing: const Icon(Icons.arrow_right),
-                  iconColor: Theme.of(context).colorScheme.secondary,
-                ),
+                title: Text(items[index].nome),
+                textColor: Theme.of(context).colorScheme.secondary,
+                leading: const Icon(Icons.person),
+                trailing: const Icon(Icons.arrow_right),
+                iconColor: Theme.of(context).colorScheme.secondary,
               ),
             ),
           );

@@ -12,6 +12,8 @@ final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
 // User Navigator without a context by setting the navigatorKey
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
+bool isLoggedIn = false;
+
 // Fake DB for tests
 final FakeDb fakeDb = FakeDb();
 
