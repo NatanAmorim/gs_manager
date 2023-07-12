@@ -42,22 +42,31 @@ class ClientFormController {
     // NavigatorState and ScaffoldMessengerState are stored
     // to avoid the error use_build_context_synchronously
     final NavigatorState navigator = Navigator.of(context);
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final bool isLightTheme = Theme.of(context).brightness == Brightness.light;
 
     await AwesomeDialog(
-      width: 400,
+      width: 500,
+      padding: const EdgeInsets.all(8),
+      buttonsBorderRadius: const BorderRadius.all(Radius.circular(20)),
       showCloseIcon: false,
       dismissOnTouchOutside: false,
-      buttonsBorderRadius: const BorderRadius.all(Radius.circular(2)),
       context: context,
       headerAnimationLoop: false,
-      dialogType: DialogType.ERROR,
-      animType: AnimType.BOTTOMSLIDE,
+      dialogType: DialogType.error,
+      animType: AnimType.bottomSlide,
       title: 'Remover cliente?',
       desc: 'Tem certeza que deseja remover o cliente?'
           '\n\nNome: ${client.nome}\n\n'
           'Essa alteração tem efeito permanente e não pode ser revertida',
-      buttonsTextStyle: const TextStyle(color: Colors.black, fontSize: 24),
+      buttonsTextStyle: const TextStyle(
+        color: Colors.white,
+      ),
+      btnCancelColor:
+          isLightTheme ? colorScheme.tertiary : colorScheme.tertiaryContainer,
+      btnCancelText: 'Cancelar',
       btnCancelOnPress: () {},
+      btnOkColor: isLightTheme ? colorScheme.error : colorScheme.errorContainer,
       btnOkOnPress: () async {
         bool success = true;
 

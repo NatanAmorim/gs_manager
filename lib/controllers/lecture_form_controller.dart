@@ -1,5 +1,6 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:gs_admin/global_variables.dart';
 import 'package:gs_admin/models/aula_model.dart';
 import 'package:gs_admin/utils/snackbar_helper.dart';
 
@@ -9,7 +10,12 @@ class LectureFormController {
   });
 
   final AulaModel? lectureUpdating;
-  late AulaModel lecture = lectureUpdating ?? AulaModel();
+  late AulaModel lecture = lectureUpdating ??
+      AulaModel(
+        horaInicio: const TimeOfDay(hour: 18, minute: 10),
+        horaFim: const TimeOfDay(hour: 18, minute: 55),
+        professor: fakeDb.professores.first,
+      );
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   Future<bool> submit(BuildContext context) async {
