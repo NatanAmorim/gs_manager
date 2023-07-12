@@ -72,9 +72,16 @@ ThemeData lightTheme = ThemeData(
   useMaterial3: true,
   colorScheme: lightColorScheme,
   brightness: Brightness.light,
+  cardTheme: CardTheme(
+    color: const Color(0xFFF9F1F8).withOpacity(0.9),
+  ),
 );
+// f9f1f8
 ThemeData darkTheme = ThemeData(
   useMaterial3: true,
   colorScheme: darkColorScheme,
   brightness: Brightness.dark,
+  cardTheme: CardTheme(
+    color: darkColorScheme.primary.withOpacity(0.1),
+  ),
 );

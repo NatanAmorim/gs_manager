@@ -42,6 +42,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
           mainAxisSize: MainAxisSize.min,
           children: [
             FloatingActionButton.extended(
+              elevation: 6.0,
               tooltip: 'Ponto de Vendas',
               heroTag: 'fab-ponto-de-vendas',
               shape: const RoundedRectangleBorder(
@@ -58,7 +59,9 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                 ),
               ),
             ),
+            const SizedBox(width: 1),
             SpeedDial(
+              elevation: 6.0,
               tooltip: 'Adicionar',
               heroTag: 'fab-options',
               icon: Icons.add,
@@ -166,7 +169,10 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
             ),
             BottomNavyBarItem(
               icon: const Icon(Icons.settings_outlined),
-              title: const Text('Ajustes'),
+              title: const FittedBox(
+                fit: BoxFit.fitWidth,
+                child: Text('Configuração'),
+              ),
               activeColor: Theme.of(context).colorScheme.secondary,
               textAlign: TextAlign.center,
             ),

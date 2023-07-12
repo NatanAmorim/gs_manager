@@ -5,11 +5,14 @@ class DialogHelper {
   static Future<bool> onWillPop({
     required BuildContext context,
   }) async {
+    FocusScope.of(context).unfocus();
     bool willPop = false;
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     final bool isLightTheme = Theme.of(context).brightness == Brightness.light;
     await AwesomeDialog(
       width: 500,
+      padding: const EdgeInsets.all(8),
+      buttonsBorderRadius: const BorderRadius.all(Radius.circular(20)),
       showCloseIcon: false,
       dismissOnTouchOutside: true,
       context: context,

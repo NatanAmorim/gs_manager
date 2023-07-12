@@ -36,7 +36,7 @@ class SettingsView extends ConsumerWidget {
     ];
 
     return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       physics: const BouncingScrollPhysics(),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -52,7 +52,7 @@ class SettingsView extends ConsumerWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Ajustes Gerais",
+                      "Configuração Geral",
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                   ),
@@ -70,9 +70,11 @@ class SettingsView extends ConsumerWidget {
                         context: context,
                         tiles: [
                           ListTile(
+                            title: const Text("Tema do aplicativo"),
+                            textColor: Theme.of(context).colorScheme.secondary,
                             leading: const Icon(Icons.palette),
                             trailing: const Icon(Icons.arrow_right),
-                            title: const Text("Tema do aplicativo"),
+                            iconColor: Theme.of(context).colorScheme.secondary,
                             onTap: () {
                               final ThemeMode oldTheme = ref.read(
                                 settingsProvider.select((s) => s.themeMode),
@@ -153,15 +155,19 @@ class SettingsView extends ConsumerWidget {
                             },
                           ),
                           ListTile(
+                            title: const Text("Jurídico e Conformidade"),
+                            textColor: Theme.of(context).colorScheme.secondary,
                             leading: const Icon(Icons.gavel),
                             trailing: const Icon(Icons.arrow_right),
-                            title: const Text("Jurídico e Conformidade"),
+                            iconColor: Theme.of(context).colorScheme.secondary,
                             onTap: () {},
                           ),
                           ListTile(
+                            title: const Text("Sobre o App"),
+                            textColor: Theme.of(context).colorScheme.secondary,
                             leading: const Icon(Icons.info),
                             trailing: const Icon(Icons.arrow_right),
-                            title: const Text("Sobre o App"),
+                            iconColor: Theme.of(context).colorScheme.secondary,
                             onTap: () => showAboutDialog(
                               context: context,
                               applicationIcon: const FlutterLogo(),
