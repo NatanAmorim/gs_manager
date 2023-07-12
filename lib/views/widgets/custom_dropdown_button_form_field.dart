@@ -27,6 +27,9 @@ class _CustomDropdownButtonFormFieldState<T>
       isExpanded: false,
       decoration: InputDecoration(
         filled: true,
+        fillColor: Theme.of(context).brightness == Brightness.light
+            ? Colors.white.withOpacity(0.4)
+            : Colors.black.withOpacity(0.6),
         alignLabelWithHint: true,
         focusedBorder: UnderlineInputBorder(
           borderRadius: BorderRadius.circular(4),

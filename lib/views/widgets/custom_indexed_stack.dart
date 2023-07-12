@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
 class CustomIndexedStack extends StatefulWidget {
@@ -45,12 +46,19 @@ class _CustomIndexedStackState extends State<CustomIndexedStack>
 
   @override
   Widget build(BuildContext context) {
-    return FadeTransition(
-      opacity: CurveTween(curve: Curves.easeInOutCirc).animate(_controller),
-      child: IndexedStack(
-        index: widget.index,
-        children: widget.children,
-      ),
+    return PageTransitionSwitcher(
+      transitionBuilder: (
+        Widget child,
+        Animation<double> animation,
+        Animation<double> secondaryAnimation,
+      ) {
+        return FadeThroughTransition(
+          animation: animation,
+          secondaryAnimation: secondaryAnimation,
+          child: child,
+        );
+      },
+      child: widget.children[widget.index],
     );
   }
 }
