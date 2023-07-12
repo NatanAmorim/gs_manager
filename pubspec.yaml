@@ -7,6 +7,8 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
+  animations: ^2.0.7
+  audioplayers: ^4.1.0
   awesome_dialog: ^3.1.0
   bottom_navy_bar: ^6.0.0
   flutter_riverpod: ^2.3.2
@@ -18,6 +20,7 @@ dependencies:
   logging: ^1.2.0
   riverpod_annotation: ^2.0.2
   shared_preferences: ^2.0.15
+  slide_action: ^0.0.2
 
   flutter:
     sdk: flutter
@@ -42,9 +45,10 @@ flutter:
   # Enable generation of localized Strings from arb files.
   generate: true
 
-  # assets:
+  assets:
     # Add assets from the images directory to the application.
-    # - assets/images/
+    - assets/images/
+    - assets/sounds/material_product_sounds/
 
 flutter_native_splash:
   android: true
