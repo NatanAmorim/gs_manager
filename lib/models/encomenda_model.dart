@@ -8,9 +8,9 @@ class EncomendaModel {
     required this.itens,
   });
 
-  String status;
+  String status; //TODO Convert to enum
 
-  ClienteModel? cliente;
+  ClienteModel cliente;
 
   List<EncomendaItemModel> itens;
 }

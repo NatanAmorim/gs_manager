@@ -27,13 +27,13 @@ class ProdutoVarianteModel {
 
 class ProdutoHistoricoEstoqueModel {
   ProdutoHistoricoEstoqueModel({
-    this.quantidade,
+    required this.quantidade,
     this.isVenda = false,
     this.isRetornoItens = false,
     this.isReabastecimento = false,
   });
 
-  int? quantidade;
+  int quantidade;
 
   bool isVenda;
 

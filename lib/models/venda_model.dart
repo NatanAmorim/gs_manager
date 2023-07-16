@@ -44,13 +44,13 @@ class VendaItemModel {
 class VendaPagamentoModel {
   VendaPagamentoModel({
     this.isPago = false,
-    required this.valorPago,
+    required this.valor,
     required this.formaPagamento,
   });
 
   bool isPago;
 
-  double valorPago;
+  double valor;
 
   String formaPagamento;
 }

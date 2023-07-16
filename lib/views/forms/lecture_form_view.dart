@@ -134,76 +134,85 @@ class _LectureFormViewState extends State<LectureFormView> {
                 ),
                 const SizedBox(height: 16),
                 const Text('Dias da semana'),
-                SegmentedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateColor.resolveWith((states) {
-                      if (states.contains(MaterialState.selected)) {
-                        return Theme.of(context).colorScheme.secondaryContainer;
-                      }
+                const SizedBox(height: 4),
+                SizedBox(
+                  width: double.infinity,
+                  child: SegmentedButton(
+                    style: ButtonStyle(
+                      alignment: Alignment.center,
+                      tapTargetSize: MaterialTapTargetSize.padded,
+                      visualDensity: VisualDensity.compact,
+                      backgroundColor: MaterialStateColor.resolveWith((states) {
+                        if (states.contains(MaterialState.selected)) {
+                          return Theme.of(context)
+                              .colorScheme
+                              .secondaryContainer;
+                        }
 
-                      return Theme.of(context).brightness == Brightness.light
-                          ? Colors.white.withOpacity(0.4)
-                          : Colors.black.withOpacity(0.6);
-                    }),
+                        return Theme.of(context).brightness == Brightness.light
+                            ? Colors.white.withOpacity(0.4)
+                            : Colors.black.withOpacity(0.6);
+                      }),
+                    ),
+                    segments: const <ButtonSegment<Days>>[
+                      ButtonSegment<Days>(
+                        value: Days.dom,
+                        label: FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text('Dom'),
+                        ),
+                      ),
+                      ButtonSegment<Days>(
+                        value: Days.seg,
+                        label: FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text('Seg'),
+                        ),
+                      ),
+                      ButtonSegment<Days>(
+                        value: Days.ter,
+                        label: FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text('Ter'),
+                        ),
+                      ),
+                      ButtonSegment<Days>(
+                        value: Days.qua,
+                        label: FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text('Qua'),
+                        ),
+                      ),
+                      ButtonSegment<Days>(
+                        value: Days.qui,
+                        label: FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text('Qui'),
+                        ),
+                      ),
+                      ButtonSegment<Days>(
+                        value: Days.sex,
+                        label: FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text('Sex'),
+                        ),
+                      ),
+                      ButtonSegment<Days>(
+                        value: Days.sab,
+                        label: FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Text('Sáb'),
+                        ),
+                      ),
+                    ],
+                    selected: selection,
+                    onSelectionChanged: (Set<Days> newSelection) {
+                      setState(() {
+                        selection = newSelection;
+                      });
+                    },
+                    multiSelectionEnabled: true,
                   ),
-                  segments: const <ButtonSegment<Days>>[
-                    ButtonSegment<Days>(
-                      value: Days.dom,
-                      label: FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text('Dom'),
-                      ),
-                    ),
-                    ButtonSegment<Days>(
-                      value: Days.seg,
-                      label: FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text('Seg'),
-                      ),
-                    ),
-                    ButtonSegment<Days>(
-                      value: Days.ter,
-                      label: FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text('Ter'),
-                      ),
-                    ),
-                    ButtonSegment<Days>(
-                      value: Days.qua,
-                      label: FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text('Qua'),
-                      ),
-                    ),
-                    ButtonSegment<Days>(
-                      value: Days.qui,
-                      label: FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text('Qui'),
-                      ),
-                    ),
-                    ButtonSegment<Days>(
-                      value: Days.sex,
-                      label: FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text('Sex'),
-                      ),
-                    ),
-                    ButtonSegment<Days>(
-                      value: Days.sab,
-                      label: FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Text('Sáb'),
-                      ),
-                    ),
-                  ],
-                  selected: selection,
-                  onSelectionChanged: (Set<Days> newSelection) {
-                    setState(() {
-                      selection = newSelection;
-                    });
-                  },
-                  multiSelectionEnabled: true,
                 ),
                 const SizedBox(height: 24),
                 Row(
