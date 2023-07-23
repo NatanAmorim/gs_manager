@@ -1,6 +1,7 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:gs_admin/global_variables.dart';
 import 'package:gs_admin/views/forms/client_form_view.dart';
 import 'package:gs_admin/views/forms/lecture_form_view.dart';
 import 'package:gs_admin/views/forms/order_form_view.dart';
@@ -41,25 +42,36 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
         floatingActionButton: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            FloatingActionButton.extended(
-              elevation: 6.0,
-              tooltip: 'Ponto de Vendas',
-              heroTag: 'fab-ponto-de-vendas',
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  topLeft: Radius.circular(20),
-                ),
-              ),
-              label: const Text("Ponto de Vendas"),
-              icon: const Icon(Icons.point_of_sale),
-              onPressed: () async => await Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const PointOfSaleView(),
-                ),
-              ),
-            ),
-            const SizedBox(width: 1),
+            ValueListenableBuilder<bool>(
+                valueListenable: isFabExtended,
+                builder: (BuildContext context, bool value, Widget? child) {
+                  return AnimatedContainer(
+                    duration: const Duration(milliseconds: 75),
+                    curve: Curves.linear,
+                    width: value ? 176 : 56,
+                    height: 56,
+                    child: FloatingActionButton.extended(
+                      isExtended: value,
+                      elevation: 6.0,
+                      tooltip: 'Ponto de Vendas',
+                      heroTag: 'fab-ponto-de-vendas',
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(20),
+                          topLeft: Radius.circular(20),
+                        ),
+                      ),
+                      label: const Text("Ponto de Vendas"),
+                      icon: const Icon(Icons.point_of_sale),
+                      onPressed: () async => await Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const PointOfSaleView(),
+                        ),
+                      ),
+                    ),
+                  );
+                }),
+            const SizedBox(width: 2),
             SpeedDial(
               elevation: 6.0,
               tooltip: 'Adicionar',

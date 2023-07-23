@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:gs_admin/global_variables.dart';
 import 'package:gs_admin/models/cliente_model.dart';
 import 'package:gs_admin/views/forms/client_form_view.dart';
@@ -155,7 +156,7 @@ class _ClientViewState extends State<ClientView> {
   ];
 
   late List<ClienteModel> items = fakeDb.clientes;
-  late final ScrollController controller = ScrollController();
+  late final ScrollController scrollController = ScrollController();
 
   Future refreshItems() async {
     await Future.delayed(const Duration(seconds: 2));
@@ -177,8 +178,9 @@ class _ClientViewState extends State<ClientView> {
   @override
   void initState() {
     super.initState();
-    controller.addListener(() {
-      if (controller.position.maxScrollExtent == controller.offset) {
+    scrollController.addListener(() {
+      if (scrollController.position.maxScrollExtent ==
+          scrollController.offset) {
         fetchMoreItems();
       }
     });
@@ -186,7 +188,7 @@ class _ClientViewState extends State<ClientView> {
 
   @override
   void dispose() {
-    controller.dispose();
+    scrollController.dispose();
     super.dispose();
   }
 
@@ -194,54 +196,65 @@ class _ClientViewState extends State<ClientView> {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: () async => await refreshItems(),
-      child: ListView.builder(
-        controller: controller,
-        shrinkWrap: true,
-        physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(
-          vertical: 8,
-          horizontal: 16,
-        ),
-        itemCount: items.length + 1,
-        itemBuilder: (BuildContext context, int index) {
-          if (index == items.length) {
-            return const Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: 32,
-              ),
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
+      child: NotificationListener<UserScrollNotification>(
+        onNotification: (UserScrollNotification notification) {
+          if (notification.direction == ScrollDirection.forward) {
+            if (!isFabExtended.value) isFabExtended.value = true;
+          } else if (notification.direction == ScrollDirection.reverse) {
+            if (isFabExtended.value) isFabExtended.value = false;
           }
 
-          return Card(
-            // clipBehavior is necessary because, without it, the InkWell's animation
-            // will extend beyond the rounded edges of the [Card] (see https://github.com/flutter/flutter/issues/109776)
-            // This comes with a small performance cost, and you should not set [clipBehavior]
-            // unless you need it.
-            clipBehavior: Clip.hardEdge,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: CustomOpenContainerCard(
-              destination: ClientFormView(
-                clientUpdating: items[index],
-              ),
-              child: ListTile(
-                contentPadding: const EdgeInsets.symmetric(
-                  vertical: 8,
-                  horizontal: 16,
-                ),
-                title: Text(items[index].nome),
-                textColor: Theme.of(context).colorScheme.secondary,
-                leading: const Icon(Icons.person),
-                trailing: const Icon(Icons.arrow_right),
-                iconColor: Theme.of(context).colorScheme.secondary,
-              ),
-            ),
-          );
+          return true;
         },
+        child: ListView.builder(
+          controller: scrollController,
+          shrinkWrap: true,
+          physics: const BouncingScrollPhysics(),
+          padding: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 16,
+          ),
+          itemCount: items.length + 1,
+          itemBuilder: (BuildContext context, int index) {
+            if (index == items.length) {
+              return const Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: 32,
+                ),
+                child: Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            }
+
+            return Card(
+              // clipBehavior is necessary because, without it, the InkWell's animation
+              // will extend beyond the rounded edges of the [Card] (see https://github.com/flutter/flutter/issues/109776)
+              // This comes with a small performance cost, and you should not set [clipBehavior]
+              // unless you need it.
+              clipBehavior: Clip.hardEdge,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: CustomOpenContainerCard(
+                destination: ClientFormView(
+                  clientUpdating: items[index],
+                ),
+                child: ListTile(
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: 8,
+                    horizontal: 16,
+                  ),
+                  title: Text(items[index].nome),
+                  textColor: Theme.of(context).colorScheme.secondary,
+                  leading: const Icon(Icons.person),
+                  trailing: const Icon(Icons.arrow_right),
+                  iconColor: Theme.of(context).colorScheme.secondary,
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

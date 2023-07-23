@@ -12,6 +12,7 @@ final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
 // User Navigator without a context by setting the navigatorKey
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
+final ValueNotifier<bool> isFabExtended = ValueNotifier<bool>(true);
 bool isLoggedIn = false;
 
 // Fake DB for tests

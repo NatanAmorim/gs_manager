@@ -27,8 +27,8 @@ class CustomOpenContainerCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       closedColor: theme.cardTheme.color!,
-      openColor: theme.colorScheme.background,
-      middleColor: theme.colorScheme.background,
+      openColor: theme.cardTheme.color!,
+      middleColor: theme.cardTheme.color!,
       transitionType: ContainerTransitionType.fadeThrough,
       openBuilder: (BuildContext context, _) => destination,
       closedBuilder: (BuildContext context, VoidCallback navigateTo) {
