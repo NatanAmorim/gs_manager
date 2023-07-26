@@ -46,11 +46,12 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                 valueListenable: isFabExtended,
                 builder: (BuildContext context, bool value, Widget? child) {
                   return AnimatedContainer(
-                    duration: const Duration(milliseconds: 75),
-                    curve: Curves.linear,
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.fastEaseInToSlowEaseOut,
                     width: value ? 176 : 56,
                     height: 56,
                     child: FloatingActionButton.extended(
+                      clipBehavior: Clip.hardEdge,
                       isExtended: value,
                       elevation: 6.0,
                       tooltip: 'Ponto de Vendas',

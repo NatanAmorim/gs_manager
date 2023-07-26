@@ -51,12 +51,6 @@ class FakeDb {
       numero: "221",
     ),
     ClienteModel(
-        nome: "João Moraes",
-        cpf: "132.725.310-09",
-        dataNascimento: "02/10/1957",
-        cep: "37337-076",
-        endereco: "4138 Saraiva Rodovia"),
-    ClienteModel(
       nome: "Deneval Saraiva",
       cpf: "181.062.811-32",
       dataNascimento: "27/11/1978",
@@ -103,22 +97,6 @@ class FakeDb {
       cep: "86557-817",
       endereco: "Souza Rua",
       numero: "805",
-    ),
-    ClienteModel(
-      nome: "Vitor Nogueira",
-      cpf: "609.674.695-03",
-      dataNascimento: "30/08/1973",
-      cep: "42225-781",
-      endereco: "Emanuel Travessa",
-      numero: "774",
-    ),
-    ClienteModel(
-      nome: "Daniel Costa",
-      cpf: "641.557.776-06",
-      dataNascimento: "24/11/1992",
-      cep: "12478-448",
-      endereco: "Souza Travessa",
-      numero: "59822",
     ),
     ClienteModel(
       nome: "Tertuliano Silva",

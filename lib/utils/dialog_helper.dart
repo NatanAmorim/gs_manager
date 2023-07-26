@@ -1,40 +1,88 @@
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 
 class DialogHelper {
   static Future<bool> onWillPop({
     required BuildContext context,
   }) async {
+    // unfocus to remove keyboard
     FocusScope.of(context).unfocus();
-    bool willPop = false;
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final bool isLightTheme = Theme.of(context).brightness == Brightness.light;
-    await AwesomeDialog(
-      width: 500,
-      padding: const EdgeInsets.all(8),
-      buttonsBorderRadius: const BorderRadius.all(Radius.circular(20)),
-      showCloseIcon: false,
-      dismissOnTouchOutside: true,
-      context: context,
-      headerAnimationLoop: false,
-      dialogType: DialogType.question,
-      animType: AnimType.rightSlide,
-      title: 'Tem certeza?',
-      desc: 'Todo o progresso não salvo será perdido.',
-      btnOkText: 'Descartar alterações',
-      btnOkOnPress: () {
-        willPop = true;
-      },
-      btnOkColor: isLightTheme ? colorScheme.error : colorScheme.errorContainer,
-      btnCancelText: 'Cancelar',
-      btnCancelOnPress: () {},
-      btnCancelColor:
-          isLightTheme ? colorScheme.tertiary : colorScheme.tertiaryContainer,
-      buttonsTextStyle: const TextStyle(
-        color: Colors.white,
-      ),
-    ).show();
 
-    return willPop;
+    return await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+            contentPadding: const EdgeInsets.all(16),
+            title: Center(
+              child: Text(
+                'Descartar alterações?',
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+            ),
+            content: Text(
+              'Todo o progresso não salvo será perdido.',
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.pop(context, false),
+                child: const Text('Cancelar'),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.pop(context, true),
+                child: const Text('Descartar'),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+  }
+
+  static Future<bool> onDelete({
+    required BuildContext context,
+    required String itemDescription,
+  }) async {
+    return await showDialog<bool>(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+            contentPadding: const EdgeInsets.all(16),
+            alignment: Alignment.center,
+            title: Center(
+              child: Text(
+                'Excluir?',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+            ),
+            content: RichText(
+              text: TextSpan(
+                style: DefaultTextStyle.of(context).style,
+                children: [
+                  TextSpan(
+                    style: Theme.of(context).textTheme.bodyLarge,
+                    text:
+                        'Essa alteração tem efeito permanente e não pode ser revertida',
+                  ),
+                  TextSpan(
+                    text: '\n\nDescrição: $itemDescription',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ],
+              ),
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.pop(context, false),
+                child: const Text('Cancelar'),
+              ),
+              FilledButton(
+                style: FilledButton.styleFrom(
+                  backgroundColor: Theme.of(context).colorScheme.error,
+                  foregroundColor: Theme.of(context).colorScheme.onError,
+                ),
+                onPressed: () => Navigator.pop(context, true),
+                child: const Text('Excluir'),
+              ),
+            ],
+          ),
+        ) ??
+        false;
   }
 }
