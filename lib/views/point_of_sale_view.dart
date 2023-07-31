@@ -1,6 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:gs_admin/views/widgets/custom_slider.dart';
 
 class PointOfSaleView extends StatefulWidget {
   const PointOfSaleView({super.key});
@@ -14,6 +15,8 @@ class _PointOfSaleViewState extends State<PointOfSaleView> {
   final String heroCelebrationAudioPath =
       "sounds/material_product_sounds/hero_simple-celebration-01.wav";
   bool isPlaying = false;
+  bool hasPlayed = false;
+  final double scale = 4;
 
   @override
   void dispose() {
@@ -26,10 +29,6 @@ class _PointOfSaleViewState extends State<PointOfSaleView> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: runSuccessAnimation,
-          child: const Icon(Icons.music_note),
-        ),
         body: isPlaying
             ? Center(
                 child: Stack(
@@ -39,37 +38,40 @@ class _PointOfSaleViewState extends State<PointOfSaleView> {
                       foregroundColor: Colors.green[900],
                     )
                         .animate(
-                          onPlay: (AnimationController animationController) {
+                          onPlay:
+                              (AnimationController animationController) async {
+                            await Future.delayed(
+                                const Duration(milliseconds: 2400));
+                            if (!mounted) return;
+
                             animationController.repeat();
                           },
                         )
                         .scale(
-                          delay: const Duration(milliseconds: 800),
-                          begin: const Offset(5, 5),
-                          end: const Offset(8, 8),
+                          duration: const Duration(seconds: 2),
+                          end: const Offset(9, 9),
                           curve: Curves.linear,
                         )
                         .fadeOut(
-                          delay: const Duration(milliseconds: 800),
+                          duration: const Duration(seconds: 2),
                           curve: Curves.easeOut,
                         ),
                     CircleAvatar(
                       backgroundColor: Colors.green,
                       foregroundColor: Colors.green[900],
                       child: const Icon(Icons.check).animate().fadeIn(
-                            delay: const Duration(seconds: 1),
+                            delay: const Duration(milliseconds: 600),
                             curve: Curves.easeOut,
                           ),
                     )
                         .animate()
                         .scale(
-                          begin: const Offset(0, 0),
-                          end: const Offset(6, 6),
+                          end: Offset(scale, scale),
                           curve: Curves.bounceOut,
                           duration: const Duration(milliseconds: 800),
                         )
                         .animate(
-                          delay: const Duration(milliseconds: 1200),
+                          delay: const Duration(milliseconds: 800),
                           onPlay:
                               (AnimationController animationController) async {
                             await Future.delayed(
@@ -78,6 +80,7 @@ class _PointOfSaleViewState extends State<PointOfSaleView> {
                           },
                         )
                         .scale(
+                          delay: const Duration(milliseconds: 800),
                           begin: const Offset(1, 1),
                           end: const Offset(0.9, 0.9),
                           curve: Curves.ease,
@@ -86,7 +89,23 @@ class _PointOfSaleViewState extends State<PointOfSaleView> {
                   ],
                 ),
               )
-            : const Placeholder(),
+            : hasPlayed
+                ? Transform.scale(
+                    scale: scale,
+                    child: Center(
+                      child: CircleAvatar(
+                        backgroundColor: Colors.green,
+                        foregroundColor: Colors.green[900],
+                        child: const Icon(Icons.check),
+                      ),
+                    ),
+                  )
+                : Center(
+                    child: CustomSlider(
+                      text: 'Arraste para finalizar',
+                      onSubmit: runSuccessAnimation,
+                    ),
+                  ),
       ),
     );
   }
@@ -95,11 +114,14 @@ class _PointOfSaleViewState extends State<PointOfSaleView> {
     if (isPlaying) {
       return;
     }
-
     setState(() => isPlaying = true);
-    await Future.delayed(const Duration(milliseconds: 600));
+    await Future.delayed(const Duration(milliseconds: 500));
     await audioPlayer.play(AssetSource(heroCelebrationAudioPath));
-    await Future.delayed(const Duration(seconds: 6));
-    setState(() => isPlaying = false);
+    await Future.delayed(const Duration(seconds: 4));
+    if (!mounted) return;
+    setState(() {
+      hasPlayed = true;
+      isPlaying = false;
+    });
   }
 }
