@@ -15,7 +15,6 @@ class _PointOfSaleViewState extends State<PointOfSaleView> {
   final String heroCelebrationAudioPath =
       "sounds/material_product_sounds/hero_simple-celebration-01.wav";
   bool isPlaying = false;
-  bool hasPlayed = false;
   final double scale = 4;
 
   @override
@@ -63,49 +62,20 @@ class _PointOfSaleViewState extends State<PointOfSaleView> {
                             delay: const Duration(milliseconds: 600),
                             curve: Curves.easeOut,
                           ),
-                    )
-                        .animate()
-                        .scale(
+                    ).animate().scale(
                           end: Offset(scale, scale),
                           curve: Curves.bounceOut,
-                          duration: const Duration(milliseconds: 800),
-                        )
-                        .animate(
-                          delay: const Duration(milliseconds: 800),
-                          onPlay:
-                              (AnimationController animationController) async {
-                            await Future.delayed(
-                                const Duration(milliseconds: 800));
-                            animationController.loop(count: 4, reverse: true);
-                          },
-                        )
-                        .scale(
-                          delay: const Duration(milliseconds: 800),
-                          begin: const Offset(1, 1),
-                          end: const Offset(0.9, 0.9),
-                          curve: Curves.ease,
-                          duration: const Duration(milliseconds: 800),
+                          duration: const Duration(milliseconds: 600),
                         ),
                   ],
                 ),
               )
-            : hasPlayed
-                ? Transform.scale(
-                    scale: scale,
-                    child: Center(
-                      child: CircleAvatar(
-                        backgroundColor: Colors.green,
-                        foregroundColor: Colors.green[900],
-                        child: const Icon(Icons.check),
-                      ),
-                    ),
-                  )
-                : Center(
-                    child: CustomSlider(
-                      text: 'Arraste para finalizar',
-                      onSubmit: runSuccessAnimation,
-                    ),
-                  ),
+            : Center(
+                child: CustomSlider(
+                  text: 'Arraste para finalizar',
+                  onSubmit: runSuccessAnimation,
+                ),
+              ),
       ),
     );
   }
@@ -120,7 +90,6 @@ class _PointOfSaleViewState extends State<PointOfSaleView> {
     await Future.delayed(const Duration(seconds: 4));
     if (!mounted) return;
     setState(() {
-      hasPlayed = true;
       isPlaying = false;
     });
   }

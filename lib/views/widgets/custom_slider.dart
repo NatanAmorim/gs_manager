@@ -126,8 +126,8 @@ class _CustomSliderState extends State<CustomSlider>
               dismissThresholds: {
                 DismissDirection.startToEnd: widget.dismissThresholds,
               },
-              movementDuration: const Duration(milliseconds: 1),
-              resizeDuration: const Duration(milliseconds: 1),
+              movementDuration: const Duration(milliseconds: 300),
+              resizeDuration: const Duration(microseconds: 1),
               onDismissed: widget.onSubmit == null
                   ? null
                   : (DismissDirection direction) {
