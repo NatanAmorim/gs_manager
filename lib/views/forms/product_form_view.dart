@@ -65,7 +65,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                 const SizedBox(height: 16),
                 _buildPanel(),
                 const SizedBox(height: 16),
-                TextButton.icon(
+                ElevatedButton.icon(
                   onPressed: () {},
                   icon: Icon(
                     Icons.add,

@@ -132,7 +132,6 @@ class _CustomSliderState extends State<CustomSlider>
                   ? null
                   : (DismissDirection direction) {
                       widget.onSubmit!();
-                      debugPrint('Dismissed!');
                     },
               onUpdate: (DismissUpdateDetails details) {
                 if (details.progress >= 0.2) {
