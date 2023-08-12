@@ -59,17 +59,17 @@ flutter_native_splash:
   web: false
 
   color: "#000000"
-  image: assets/images/gs_logo.png
+  image: assets/images/gs_manager_logo.png
   android_12:
-    image: assets/images/gs_logo.png
+    image: assets/images/gs_manager_logo.png
     icon_background_color: "#ffffff"
-    image_dark: assets/images/gs_logo.png
+    image_dark: assets/images/gs_manager_logo.png
     icon_background_color_dark: "#000000"
 
 flutter_launcher_icons:
   android: true
   ios: false
-  image_path: "assets/images/gs_logo.png"
+  image_path: "assets/images/gs_manager_logo.png"
   min_sdk_android: 21
   remove_alpha_ios: true
   web:
