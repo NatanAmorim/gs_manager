@@ -59,19 +59,17 @@ class _CustomAsyncFilledButtonState extends State<CustomAsyncFilledButton> {
               widget.icon,
               size: contentSize,
             ),
-      onPressed: _isLoading
-          ? null
-          : () async {
-              if (_isLoading) return;
+      onPressed: () async {
+        if (_isLoading) return;
 
-              setState(() => _isLoading = true);
+        setState(() => _isLoading = true);
 
-              final bool isSuccessful = await widget.onPressed();
+        final bool isSuccessful = await widget.onPressed();
 
-              if (isSuccessful) return;
+        if (isSuccessful) return;
 
-              setState(() => _isLoading = false);
-            },
+        setState(() => _isLoading = false);
+      },
     );
   }
 }

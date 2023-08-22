@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/views/widgets/custom_filled_button.dart';
+import 'package:gs_admin/views/widgets/custom_async_filled_button.dart';
 import 'package:gs_admin/views/widgets/custom_text_form_field.dart';
 
 class LoginView extends StatefulWidget {
