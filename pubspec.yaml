@@ -14,7 +14,6 @@ dependencies:
   flutter_animate: ^4.2.0
   flutter_riverpod: ^2.3.2
   flutter_secure_storage: ^8.0.0
-  flutter_speed_dial: ^7.0.0
   flutter_svg: ^2.0.7
   freezed_annotation: ^2.2.0
   intl: ^0.18.0

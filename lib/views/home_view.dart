@@ -1,6 +1,5 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:gs_admin/global_variables.dart';
 import 'package:gs_admin/views/forms/client_form_view.dart';
 import 'package:gs_admin/views/forms/lecture_form_view.dart';
@@ -73,79 +72,146 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   );
                 }),
             const SizedBox(width: 2),
-            SpeedDial(
-              elevation: 6.0,
-              tooltip: 'Adicionar',
-              heroTag: 'fab-options',
-              icon: Icons.add,
-              activeIcon: Icons.close,
+            FloatingActionButton(
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(20),
                   topRight: Radius.circular(20),
                 ),
               ),
-              children: [
-                SpeedDialChild(
-                  label: 'Novo Aluno',
-                  child: const Icon(Icons.group_add),
-                  backgroundColor: Theme.of(context).colorScheme.tertiary,
-                  foregroundColor: Theme.of(context).colorScheme.onTertiary,
-                  visible: true,
-                  onTap: () async => await Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const ClientFormView(),
-                    ),
-                  ),
-                ),
-                SpeedDialChild(
-                  label: 'Novo Professor',
-                  child: const Icon(Icons.add_reaction),
-                  backgroundColor: Theme.of(context).colorScheme.tertiary,
-                  foregroundColor: Theme.of(context).colorScheme.onTertiary,
-                  visible: true,
-                  onTap: () async => await Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const TeacherFormView(),
-                    ),
-                  ),
-                ),
-                SpeedDialChild(
-                  label: 'Nova Aula',
-                  child: const Icon(Icons.bookmark_add),
-                  backgroundColor: Theme.of(context).colorScheme.tertiary,
-                  foregroundColor: Theme.of(context).colorScheme.onTertiary,
-                  visible: true,
-                  onTap: () async => await Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const LectureFormView(),
-                    ),
-                  ),
-                ),
-                SpeedDialChild(
-                  label: 'Novo Produto',
-                  child: const Icon(Icons.new_label),
-                  backgroundColor: Theme.of(context).colorScheme.tertiary,
-                  foregroundColor: Theme.of(context).colorScheme.onTertiary,
-                  onTap: () async => await Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const ProductFormView(),
-                    ),
-                  ),
-                ),
-                SpeedDialChild(
-                  label: 'Nova Encomenda',
-                  child: const Icon(Icons.add_location_alt),
-                  backgroundColor: Theme.of(context).colorScheme.tertiary,
-                  foregroundColor: Theme.of(context).colorScheme.onTertiary,
-                  visible: true,
-                  onTap: () async => await Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const OrderFormView(),
-                    ),
-                  ),
-                ),
-              ],
+              onPressed: () {
+                showModalBottomSheet<void>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return Container(
+                      height: 384,
+                      padding: const EdgeInsets.all(16),
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'Cadastrar',
+                                  style:
+                                      Theme.of(context).textTheme.headlineLarge,
+                                ),
+                                IconButton(
+                                  onPressed: () => Navigator.pop(context),
+                                  iconSize: 40,
+                                  icon: const Icon(Icons.close),
+                                ),
+                              ],
+                            ),
+                            const Divider(),
+                            ListTile(
+                                leading: const Icon(Icons.add_reaction),
+                                title: Text(
+                                  'Novo Cliente',
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
+                                onTap: () async {
+                                  final NavigatorState navigator =
+                                      Navigator.of(context);
+
+                                  navigator.pop();
+
+                                  await navigator.push(
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const ClientFormView(),
+                                    ),
+                                  );
+                                }),
+                            ListTile(
+                                leading: const Icon(Icons.group_add),
+                                title: Text(
+                                  'Novo Professor',
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
+                                onTap: () async {
+                                  final NavigatorState navigator =
+                                      Navigator.of(context);
+
+                                  navigator.pop();
+
+                                  await navigator.push(
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const TeacherFormView(),
+                                    ),
+                                  );
+                                }),
+                            ListTile(
+                                leading: const Icon(Icons.bookmark_add),
+                                title: Text(
+                                  'Nova Aula',
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
+                                onTap: () async {
+                                  final NavigatorState navigator =
+                                      Navigator.of(context);
+
+                                  navigator.pop();
+
+                                  await navigator.push(
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const LectureFormView(),
+                                    ),
+                                  );
+                                }),
+                            ListTile(
+                                leading: const Icon(Icons.new_label),
+                                title: Text(
+                                  'Novo Produto',
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
+                                onTap: () async {
+                                  final NavigatorState navigator =
+                                      Navigator.of(context);
+
+                                  navigator.pop();
+
+                                  await navigator.push(
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const ProductFormView(),
+                                    ),
+                                  );
+                                }),
+                            ListTile(
+                                leading: const Icon(Icons.add_location_alt),
+                                title: Text(
+                                  'Nova Encomenda',
+                                  style: Theme.of(context).textTheme.bodyLarge,
+                                ),
+                                onTap: () async {
+                                  final NavigatorState navigator =
+                                      Navigator.of(context);
+
+                                  navigator.pop();
+
+                                  await navigator.push(
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const OrderFormView(),
+                                    ),
+                                  );
+                                }),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+              child: const Icon(Icons.add),
             ),
           ],
         ),
