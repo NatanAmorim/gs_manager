@@ -74,7 +74,7 @@ class _LectureFormViewState extends State<LectureFormView> {
                 CustomTextFormField(
                   label: 'Nome',
                   placeholderText: 'Digite o nome da aula',
-                  autofocus: true,
+                  autofocus: widget.lectureUpdating == null,
                   initialValue: controller.lecture.nome,
                   onSaved: (String? text) => controller.lecture.nome = text!,
                   validator: (String? value) {
@@ -309,13 +309,13 @@ class _LectureFormViewState extends State<LectureFormView> {
             children: [
               controller.lectureUpdating == null
                   ? Container()
-                  : CustomFilledButton(
+                  : CustomAsyncFilledButton(
                       icon: Icons.delete_forever,
                       label: 'Deletar',
-                      isDelete: true,
+                      isTonal: true,
                       onPressed: () => controller.delete(context),
                     ),
-              CustomFilledButton(
+              CustomAsyncFilledButton(
                 icon: Icons.save,
                 label: 'Salvar',
                 onPressed: () => controller.submit(context),

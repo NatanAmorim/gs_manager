@@ -20,8 +20,8 @@ class SettingsView extends ConsumerWidget {
           children: <TextSpan>[
             TextSpan(
               style: Theme.of(context).textTheme.bodyMedium!,
-              text: '\tApp de gestão de Gislaine Studio em Andradina.\n'
-                  '\nDesenvolvido com Flutter, mais informações em\n',
+              text: 'App de gestão de Gislaine Studio em Andradina.\n'
+                  'Desenvolvido com Flutter, mais informações em\n',
             ),
             TextSpan(
               style: Theme.of(context)
@@ -171,11 +171,15 @@ class SettingsView extends ConsumerWidget {
                             iconColor: Theme.of(context).colorScheme.secondary,
                             onTap: () => showAboutDialog(
                               context: context,
-                              applicationIcon: const FlutterLogo(),
-                              applicationName: 'Gislaine Studio Admin App',
+                              applicationIcon: Image.asset(
+                                'assets/images/gs_manager_logo.png',
+                                width: 128,
+                                height: 128,
+                              ),
+                              applicationName: 'Gislaine Studio Manager App',
                               applicationVersion: '0.1.0',
                               applicationLegalese:
-                                  '\u{a9} 2022 Natan Amorim S. G. de Moraes',
+                                  '\u{a9} 2023 Natan Amorim S. G. de Moraes',
                               children: aboutBoxChildren,
                             ),
                           ),

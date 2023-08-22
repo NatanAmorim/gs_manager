@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 
-class CustomFilledButton extends StatefulWidget {
-  const CustomFilledButton({
+class CustomAsyncFilledButton extends StatefulWidget {
+  const CustomAsyncFilledButton({
     Key? key,
     required this.icon,
     required this.label,
     required this.onPressed,
-    this.isDelete = false,
+    this.isTonal = false,
   }) : super(key: key);
 
   final IconData icon;
   final String label;
   final Future<bool> Function() onPressed;
-  final bool isDelete;
+  final bool isTonal;
 
   @override
-  State<CustomFilledButton> createState() => _CustomFilledButtonState();
+  State<CustomAsyncFilledButton> createState() =>
+      _CustomAsyncFilledButtonState();
 }
 
-class _CustomFilledButtonState extends State<CustomFilledButton> {
+class _CustomAsyncFilledButtonState extends State<CustomAsyncFilledButton> {
   final double contentSize = 18;
   bool _isLoading = false;
 
@@ -32,11 +33,11 @@ class _CustomFilledButtonState extends State<CustomFilledButton> {
             return Theme.of(context).colorScheme.primary.withOpacity(0.6);
           }
 
-          if (widget.isDelete) {
-            return Theme.of(context).colorScheme.tertiary;
+          if (widget.isTonal) {
+            return Theme.of(context).colorScheme.secondary;
           }
 
-          if (widget.isDelete && states.contains(MaterialState.pressed)) {
+          if (widget.isTonal && states.contains(MaterialState.pressed)) {
             return Theme.of(context).colorScheme.primary.withOpacity(0.6);
           }
 

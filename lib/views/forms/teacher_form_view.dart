@@ -98,7 +98,7 @@ class _TeacherFormViewState extends State<TeacherFormView> {
                 const Divider(),
                 const SizedBox(height: 16),
                 CustomTextFormField(
-                  autofocus: true,
+                  autofocus: widget.teacherUpdating == null,
                   label: 'Nome',
                   placeholderText: 'Digite o nome do professor',
                   initialValue: controller.teacher.nome,
@@ -267,13 +267,13 @@ class _TeacherFormViewState extends State<TeacherFormView> {
             children: [
               controller.teacherUpdating == null
                   ? Container()
-                  : CustomFilledButton(
+                  : CustomAsyncFilledButton(
                       icon: Icons.delete_forever,
                       label: 'Deletar',
-                      isDelete: true,
+                      isTonal: true,
                       onPressed: () => controller.delete(context),
                     ),
-              CustomFilledButton(
+              CustomAsyncFilledButton(
                 icon: Icons.save,
                 label: 'Salvar',
                 onPressed: () => controller.submit(context),

@@ -83,7 +83,7 @@ class _OrderFormViewState extends State<OrderFormView> {
                       .copyWith(color: Colors.deepOrangeAccent),
                 ),
                 const Text(
-                  // TODO: dropdown selecionar aluno
+                  // TODO: dropdown selecionar cliente
                   '⬤ Dropdown selecionar cliente',
                 ),
                 const Text(
@@ -105,7 +105,7 @@ class _OrderFormViewState extends State<OrderFormView> {
           const SizedBox(height: 16),
           Align(
             alignment: Alignment.centerRight,
-            child: CustomFilledButton(
+            child: CustomAsyncFilledButton(
               onPressed: () => controller.submit(context),
               icon: Icons.save,
               label: 'Salvar',

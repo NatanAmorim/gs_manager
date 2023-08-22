@@ -54,6 +54,8 @@ class _ProductFormViewState extends State<ProductFormView> {
                 CustomTextFormField(
                   label: 'Nome',
                   placeholderText: 'Digite o nome do produto',
+                  // TODO update to only autofocus if not editing
+                  // autofocus: widget.productUpdating == null,
                   autofocus: true,
                   validator: (String? value) {
                     if (value == null || value.isEmpty) {
@@ -85,7 +87,7 @@ class _ProductFormViewState extends State<ProductFormView> {
           const SizedBox(height: 16),
           Align(
             alignment: Alignment.centerRight,
-            child: CustomFilledButton(
+            child: CustomAsyncFilledButton(
               onPressed: () => controller.submit(context),
               icon: Icons.save,
               label: 'Salvar',

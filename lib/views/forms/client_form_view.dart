@@ -98,7 +98,7 @@ class _ClientFormViewState extends State<ClientFormView> {
             child: CustomCard(
               children: [
                 Text(
-                  'Cadastro de aluno',
+                  'Cadastro de cliente',
                   style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                         color: Theme.of(context).colorScheme.secondary,
                       ),
@@ -106,7 +106,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                 const Divider(),
                 const SizedBox(height: 16),
                 CustomTextFormField(
-                  autofocus: true,
+                  autofocus: widget.clientUpdating == null,
                   label: 'Nome',
                   placeholderText: 'Digite o nome do cliente',
                   initialValue: controller.client.nome,
@@ -326,13 +326,13 @@ class _ClientFormViewState extends State<ClientFormView> {
             children: [
               controller.clientUpdating == null
                   ? Container()
-                  : CustomFilledButton(
+                  : CustomAsyncFilledButton(
                       icon: Icons.delete_forever,
                       label: 'Deletar',
-                      isDelete: true,
+                      isTonal: true,
                       onPressed: () => controller.delete(context),
                     ),
-              CustomFilledButton(
+              CustomAsyncFilledButton(
                 icon: Icons.save,
                 label: 'Salvar',
                 onPressed: () => controller.submit(context),
