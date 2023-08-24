@@ -31,7 +31,7 @@ class _PeopleViewState extends State<PeopleView> with TickerProviderStateMixin {
           tabs: const <Tab>[
             Tab(
               text: 'Clientes',
-              icon: Icon(Icons.group),
+              icon: Icon(Icons.groups),
             ),
             Tab(
               icon: Icon(Icons.sports_gymnastics),

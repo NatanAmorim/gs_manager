@@ -1,4 +1,3 @@
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:gs_admin/global_variables.dart';
 import 'package:gs_admin/views/forms/client_form_view.dart';
@@ -82,130 +81,127 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
               onPressed: () {
                 showModalBottomSheet<void>(
                   context: context,
+                  showDragHandle: true,
                   builder: (BuildContext context) {
-                    return Container(
-                      height: 384,
+                    return Padding(
                       padding: const EdgeInsets.all(16),
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  'Cadastrar',
-                                  style:
-                                      Theme.of(context).textTheme.headlineLarge,
-                                ),
-                                IconButton(
-                                  onPressed: () => Navigator.pop(context),
-                                  iconSize: 40,
-                                  icon: const Icon(Icons.close),
-                                ),
-                              ],
-                            ),
-                            const Divider(),
-                            ListTile(
-                                leading: const Icon(Icons.add_reaction),
-                                title: Text(
-                                  'Novo Cliente',
-                                  style: Theme.of(context).textTheme.bodyLarge,
-                                ),
-                                onTap: () async {
-                                  final NavigatorState navigator =
-                                      Navigator.of(context);
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'Cadastrar',
+                                style:
+                                    Theme.of(context).textTheme.headlineLarge,
+                              ),
+                              IconButton(
+                                onPressed: () => Navigator.pop(context),
+                                iconSize: 40,
+                                icon: const Icon(Icons.close),
+                              ),
+                            ],
+                          ),
+                          const Divider(),
+                          ListTile(
+                              leading: const Icon(Icons.add_reaction),
+                              title: Text(
+                                'Novo Cliente',
+                                style: Theme.of(context).textTheme.bodyLarge,
+                              ),
+                              onTap: () async {
+                                final NavigatorState navigator =
+                                    Navigator.of(context);
 
-                                  navigator.pop();
+                                navigator.pop();
 
-                                  await navigator.push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const ClientFormView(),
-                                    ),
-                                  );
-                                }),
-                            ListTile(
-                                leading: const Icon(Icons.group_add),
-                                title: Text(
-                                  'Novo Professor',
-                                  style: Theme.of(context).textTheme.bodyLarge,
-                                ),
-                                onTap: () async {
-                                  final NavigatorState navigator =
-                                      Navigator.of(context);
+                                await navigator.push(
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const ClientFormView(),
+                                  ),
+                                );
+                              }),
+                          ListTile(
+                              leading: const Icon(Icons.group_add),
+                              title: Text(
+                                'Novo Professor',
+                                style: Theme.of(context).textTheme.bodyLarge,
+                              ),
+                              onTap: () async {
+                                final NavigatorState navigator =
+                                    Navigator.of(context);
 
-                                  navigator.pop();
+                                navigator.pop();
 
-                                  await navigator.push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const TeacherFormView(),
-                                    ),
-                                  );
-                                }),
-                            ListTile(
-                                leading: const Icon(Icons.bookmark_add),
-                                title: Text(
-                                  'Nova Aula',
-                                  style: Theme.of(context).textTheme.bodyLarge,
-                                ),
-                                onTap: () async {
-                                  final NavigatorState navigator =
-                                      Navigator.of(context);
+                                await navigator.push(
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const TeacherFormView(),
+                                  ),
+                                );
+                              }),
+                          ListTile(
+                              leading: const Icon(Icons.bookmark_add),
+                              title: Text(
+                                'Nova Aula',
+                                style: Theme.of(context).textTheme.bodyLarge,
+                              ),
+                              onTap: () async {
+                                final NavigatorState navigator =
+                                    Navigator.of(context);
 
-                                  navigator.pop();
+                                navigator.pop();
 
-                                  await navigator.push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const LectureFormView(),
-                                    ),
-                                  );
-                                }),
-                            ListTile(
-                                leading: const Icon(Icons.new_label),
-                                title: Text(
-                                  'Novo Produto',
-                                  style: Theme.of(context).textTheme.bodyLarge,
-                                ),
-                                onTap: () async {
-                                  final NavigatorState navigator =
-                                      Navigator.of(context);
+                                await navigator.push(
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const LectureFormView(),
+                                  ),
+                                );
+                              }),
+                          ListTile(
+                              leading: const Icon(Icons.new_label),
+                              title: Text(
+                                'Novo Produto',
+                                style: Theme.of(context).textTheme.bodyLarge,
+                              ),
+                              onTap: () async {
+                                final NavigatorState navigator =
+                                    Navigator.of(context);
 
-                                  navigator.pop();
+                                navigator.pop();
 
-                                  await navigator.push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const ProductFormView(),
-                                    ),
-                                  );
-                                }),
-                            ListTile(
-                                leading: const Icon(Icons.add_location_alt),
-                                title: Text(
-                                  'Nova Encomenda',
-                                  style: Theme.of(context).textTheme.bodyLarge,
-                                ),
-                                onTap: () async {
-                                  final NavigatorState navigator =
-                                      Navigator.of(context);
+                                await navigator.push(
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const ProductFormView(),
+                                  ),
+                                );
+                              }),
+                          ListTile(
+                              leading: const Icon(Icons.add_location_alt),
+                              title: Text(
+                                'Nova Encomenda',
+                                style: Theme.of(context).textTheme.bodyLarge,
+                              ),
+                              onTap: () async {
+                                final NavigatorState navigator =
+                                    Navigator.of(context);
 
-                                  navigator.pop();
+                                navigator.pop();
 
-                                  await navigator.push(
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const OrderFormView(),
-                                    ),
-                                  );
-                                }),
-                          ],
-                        ),
+                                await navigator.push(
+                                  MaterialPageRoute(
+                                    builder: (context) => const OrderFormView(),
+                                  ),
+                                );
+                              }),
+                        ],
                       ),
                     );
                   },
@@ -215,45 +211,31 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
             ),
           ],
         ),
-        bottomNavigationBar: BottomNavyBar(
+        bottomNavigationBar: NavigationBar(
           selectedIndex: _currentIndex,
-          backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          curve: Curves.easeIn,
-          onItemSelected: (index) => setState(() => _currentIndex = index),
-          items: <BottomNavyBarItem>[
-            BottomNavyBarItem(
-              icon: const Icon(Icons.store_outlined),
-              title: const Text('Geral'),
-              activeColor: Theme.of(context).colorScheme.secondary,
-              textAlign: TextAlign.center,
+          labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+          onDestinationSelected: (index) =>
+              setState(() => _currentIndex = index),
+          destinations: const [
+            NavigationDestination(
+              icon: Icon(Icons.store_outlined),
+              label: 'Geral',
             ),
-            BottomNavyBarItem(
-              icon: const Icon(Icons.inventory_outlined),
-              title: const Text('Inventário'),
-              activeColor: Theme.of(context).colorScheme.secondary,
-              textAlign: TextAlign.center,
+            NavigationDestination(
+              icon: Icon(Icons.inventory_outlined),
+              label: 'Inventário',
             ),
-            BottomNavyBarItem(
-              icon: const Icon(Icons.currency_exchange),
-              title: const Text('Transações'),
-              activeColor: Theme.of(context).colorScheme.secondary,
-              textAlign: TextAlign.center,
+            NavigationDestination(
+              icon: Icon(Icons.currency_exchange),
+              label: 'Transações',
             ),
-            BottomNavyBarItem(
-              icon: const Icon(Icons.diversity_1),
-              title: const Text('Pessoas'),
-              activeColor: Theme.of(context).colorScheme.secondary,
-              textAlign: TextAlign.center,
+            NavigationDestination(
+              icon: Icon(Icons.diversity_1),
+              label: 'Pessoas',
             ),
-            BottomNavyBarItem(
-              icon: const Icon(Icons.settings_outlined),
-              title: const FittedBox(
-                fit: BoxFit.fitWidth,
-                child: Text('Configuração'),
-              ),
-              activeColor: Theme.of(context).colorScheme.secondary,
-              textAlign: TextAlign.center,
+            NavigationDestination(
+              icon: Icon(Icons.settings_outlined),
+              label: 'Configurações',
             ),
           ],
         ),
