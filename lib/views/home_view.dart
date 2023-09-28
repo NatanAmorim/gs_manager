@@ -84,7 +84,12 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   showDragHandle: true,
                   builder: (BuildContext context) {
                     return Padding(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.only(
+                        top: 0,
+                        bottom: 16,
+                        left: 16,
+                        right: 16,
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
