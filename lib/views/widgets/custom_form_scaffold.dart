@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:gs_admin/utils/dialog_helper.dart';
 
-class CustomFormScaffold extends StatelessWidget {
+class CustomFormScaffold extends StatefulWidget {
   const CustomFormScaffold({
     super.key,
-    required this.children,
+    required this.formKey,
+    required this.child,
+    required this.actions,
   });
 
-  final List<Widget> children;
+  final GlobalKey<FormState> formKey;
+  final Widget child;
+  final List<Widget> actions;
+
+  @override
+  State<CustomFormScaffold> createState() => _CustomFormScaffoldState();
+}
+
+class _CustomFormScaffoldState extends State<CustomFormScaffold> {
+  bool hasFormChanged = false;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +34,38 @@ class CustomFormScaffold extends StatelessWidget {
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 770),
                   child: Column(
-                    children: children,
+                    children: [
+                      const SizedBox(height: 24),
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: BackButton(),
+                      ),
+                      const SizedBox(height: 16),
+                      Form(
+                        key: widget.formKey,
+                        autovalidateMode: AutovalidateMode.disabled,
+                        onChanged: () {
+                          if (hasFormChanged == false) {
+                            hasFormChanged = true;
+                          }
+                        },
+                        onWillPop: () async {
+                          if (hasFormChanged) {
+                            return DialogHelper.discardChanges(
+                                context: context);
+                          }
+
+                          return true;
+                        },
+                        child: widget.child,
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: widget.actions,
+                      ),
+                      const SizedBox(height: 32),
+                    ],
                   ),
                 ),
               )

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gs_admin/controllers/product_form_controller.dart';
-import 'package:gs_admin/utils/dialog_helper.dart';
 import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/utils/values_converter.dart';
 import 'package:gs_admin/views/widgets/custom_async_filled_button.dart';
@@ -28,76 +27,60 @@ class _ProductFormViewState extends State<ProductFormView> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () => DialogHelper.onWillPop(context: context),
-      child: CustomFormScaffold(
+    return CustomFormScaffold(
+      formKey: controller.formKey,
+      actions: [
+        CustomAsyncFilledButton(
+          onPressed: () => controller.submit(context),
+          icon: Icons.save,
+          label: 'Salvar',
+        ),
+      ],
+      child: CustomCard(
         children: [
-          const SizedBox(height: 24),
-          const Align(
-            alignment: Alignment.centerLeft,
-            child: BackButton(),
+          Text(
+            'Cadastro de produto',
+            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+          ),
+          const Divider(),
+          const SizedBox(height: 16),
+          CustomTextFormField(
+            label: 'Nome',
+            placeholderText: 'Digite o nome do produto',
+            // TODO update to only autofocus if not editing
+            // autofocus: widget.productUpdating == null,
+            autofocus: true,
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return 'Digite o nome';
+              }
+
+              if (value.length < 3) {
+                return 'Insira um nome valido';
+              }
+
+              return null;
+            },
           ),
           const SizedBox(height: 16),
-          Form(
-            key: controller.formKey,
-            child: CustomCard(
-              children: [
-                Text(
-                  'Cadastro de produto',
-                  style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
-                ),
-                const Divider(),
-                const SizedBox(height: 16),
-                CustomTextFormField(
-                  label: 'Nome',
-                  placeholderText: 'Digite o nome do produto',
-                  // TODO update to only autofocus if not editing
-                  // autofocus: widget.productUpdating == null,
-                  autofocus: true,
-                  validator: (String? value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Digite o nome';
-                    }
-
-                    if (value.length < 3) {
-                      return 'Insira um nome valido';
-                    }
-
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 16),
-                _buildPanel(),
-                const SizedBox(height: 16),
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.add,
-                    color: Theme.of(context).colorScheme.tertiary,
-                  ),
-                  label: Text(
-                    'Adicionar Variação',
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.tertiary,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-              ],
+          _buildPanel(),
+          const SizedBox(height: 16),
+          OutlinedButton.icon(
+            onPressed: () {},
+            icon: Icon(
+              Icons.add,
+              color: Theme.of(context).colorScheme.tertiary,
+            ),
+            label: Text(
+              'Adicionar Variação',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.tertiary,
+              ),
             ),
           ),
           const SizedBox(height: 16),
-          Align(
-            alignment: Alignment.centerRight,
-            child: CustomAsyncFilledButton(
-              onPressed: () => controller.submit(context),
-              icon: Icons.save,
-              label: 'Salvar',
-            ),
-          ),
-          const SizedBox(height: 32),
         ],
       ),
     );

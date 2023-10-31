@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DialogHelper {
-  static Future<bool> onWillPop({
+  static Future<bool> discardChanges({
     required BuildContext context,
   }) async {
     // unfocus to remove keyboard
