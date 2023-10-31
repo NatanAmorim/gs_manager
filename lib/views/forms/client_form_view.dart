@@ -1,22 +1,18 @@
-import 'dart:convert' as convert;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gs_admin/controllers/client_form_controller.dart';
 import 'package:gs_admin/models/cliente_model.dart';
-import 'package:gs_admin/models/viacep_dto.dart';
+import 'package:gs_admin/services/viacep_service.dart';
 import 'package:gs_admin/utils/dialog_helper.dart';
 import 'package:gs_admin/utils/formatters/cep_input_formatter.dart';
 import 'package:gs_admin/utils/formatters/cpf_input_formatter.dart';
 import 'package:gs_admin/utils/formatters/date_input_formatter.dart';
 import 'package:gs_admin/utils/formatters/phone_input_formatter.dart';
 import 'package:gs_admin/utils/validators/cpf_validator.dart';
-import 'package:gs_admin/utils/values_converter.dart';
 import 'package:gs_admin/views/widgets/custom_async_filled_button.dart';
 import 'package:gs_admin/views/widgets/custom_card.dart';
 import 'package:gs_admin/views/widgets/custom_form_scaffold.dart';
 import 'package:gs_admin/views/widgets/custom_text_form_field.dart';
-import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 
 class ClientFormView extends StatefulWidget {
@@ -34,40 +30,12 @@ class ClientFormView extends StatefulWidget {
 class _ClientFormViewState extends State<ClientFormView> {
   late ClientFormController controller;
   late ValueNotifier<TextEditingController> address;
-  int? age;
-
-  int _calculateAge(String text) {
-    final birthday = DateFormat('dd/MM/yyyy').parse(text);
-    final DateTime today = DateTime.now();
-
-    int age = today.year - birthday.year;
-    if (today.month < birthday.month) {
-      age--;
-    }
-
-    if (today.month == birthday.month) {
-      if (today.day < birthday.day) {
-        age--;
-      }
-    }
-    return age;
-  }
-
-  bool _isMinor(int age) {
-    if (age < 18) {
-      return true;
-    }
-
-    return false;
-  }
+  final DateFormat dateFormatter = DateFormat('dd/MM/yyyy');
 
   @override
   void initState() {
     super.initState();
     controller = ClientFormController(clientUpdating: widget.clientUpdating);
-    if (widget.clientUpdating != null) {
-      age = _calculateAge(controller.client.dataNascimento);
-    }
   }
 
   @override
@@ -94,7 +62,6 @@ class _ClientFormViewState extends State<ClientFormView> {
           const SizedBox(height: 16),
           Form(
             key: controller.formKey,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
             child: CustomCard(
               children: [
                 Text(
@@ -137,16 +104,27 @@ class _ClientFormViewState extends State<ClientFormView> {
                   placeholderText: 'Digite a data',
                   initialValue: controller.client.dataNascimento,
                   validator: (String? value) {
-                    if (value?.length != 10) {
-                      return 'Digite a data de nascimento';
+                    if (value == null || value.isEmpty) {
+                      return null;
                     }
-                    final int year = int.parse(value!.substring(6, 10));
 
-                    if (year < 1901) {
+                    if (value.length != 10) {
                       return 'Data inválida';
                     }
 
-                    if (year > DateTime.now().year - 1) {
+                    try {
+                      dateFormatter.parseStrict(
+                        value.trim(),
+                      );
+                    } on Exception {
+                      return 'Data inválida';
+                    }
+
+                    final int year = int.parse(
+                      value.substring(6, 10),
+                    );
+
+                    if (year <= 1900) {
                       return 'Data inválida';
                     }
 
@@ -157,11 +135,6 @@ class _ClientFormViewState extends State<ClientFormView> {
                     FilteringTextInputFormatter.digitsOnly,
                     DateInputFormatter(),
                   ],
-                  onChanged: (String? text) {
-                    if (text?.length == 10) {
-                      age = _calculateAge(text!);
-                    }
-                  },
                   onSaved: (String? text) =>
                       controller.client.dataNascimento = text!,
                 ),
@@ -170,16 +143,11 @@ class _ClientFormViewState extends State<ClientFormView> {
                   label: 'CPF',
                   placeholderText: 'Digite o número de cpf',
                   validator: (String? value) {
-                    if (age == null) {
-                      return 'Erro data de nascimento não preenchida';
+                    if (value == null || value.isEmpty) {
+                      return null;
                     }
-                    if (!_isMinor(age!) && (value == null || value.isEmpty)) {
-                      return 'Digite o CPF';
-                    }
-                    if (!_isMinor(age!) && !CPFValidator.isValid(value)) {
-                      return 'CPF inválido';
-                    }
-                    return null;
+
+                    return CPFValidator.isValid(value) ? null : 'CPF inválido.';
                   },
                   initialValue: controller.client.cpf,
                   keyboardType: TextInputType.number,
@@ -203,31 +171,12 @@ class _ClientFormViewState extends State<ClientFormView> {
                   ],
                   onChanged: (String? text) async {
                     if (text?.length == 10) {
-                      final String cep = ValuesConverter.convertCep(
-                        text ?? '',
+                      final String? newAddress = await ViacepService.getAddress(
+                        cep: text!,
                       );
 
-                      final url = Uri.https(
-                        'viacep.com.br',
-                        '/ws/$cep/json/',
-                        {'q': '{http}'},
-                      );
-
-                      // Await the HTTP GET response, then decode the
-                      // JSON data it contains.
-                      final response = await http.get(url);
-
-                      if (response.statusCode == 200) {
-                        final jsonResponse = convert.jsonDecode(response.body);
-
-                        final ViacepDto viacep = ViacepDto.fromJson(
-                          jsonResponse,
-                        );
-
-                        address.value.text = '${viacep.logradouro}'
-                            ', Bairro ${viacep.bairro}'
-                            ', ${viacep.localidade}'
-                            ' - ${viacep.uf}.';
+                      if (newAddress != null) {
+                        address.value.text = newAddress;
                       }
                     }
                   },
@@ -264,50 +213,6 @@ class _ClientFormViewState extends State<ClientFormView> {
                     }
                     return null;
                   },
-                ),
-                const SizedBox(height: 16),
-                CustomTextFormField(
-                  label: 'Nome do responsável',
-                  initialValue: controller.client.nomeResponsavel,
-                  placeholderText: '*Opicional se maior de 18 anos',
-                  keyboardType: TextInputType.name,
-                  validator: (String? value) {
-                    if (age == null) {
-                      return 'Erro data de nascimento não preenchida';
-                    }
-                    if (_isMinor(age!) && (value == null || value.isEmpty)) {
-                      return 'Digite o nome';
-                    }
-                    return null;
-                  },
-                  onSaved: (String? text) =>
-                      controller.client.nomeResponsavel = text!,
-                ),
-                const SizedBox(height: 16),
-                CustomTextFormField(
-                  label: 'CPF do responsável',
-                  initialValue: controller.client.cpfResponsavel,
-                  placeholderText: '*Opicional se maior de 18 anos',
-                  validator: (String? value) {
-                    if (age == null) {
-                      return 'Erro data de nascimento não preenchida';
-                    }
-                    if (_isMinor(age!) && (value == null || value.isEmpty)) {
-                      return 'Digite o CPF';
-                    }
-                    if (_isMinor(age!) && !CPFValidator.isValid(value)) {
-                      return 'CPF inválido';
-                    }
-
-                    return null;
-                  },
-                  onSaved: (String? text) =>
-                      controller.client.cpfResponsavel = text!,
-                  keyboardType: TextInputType.number,
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                    CpfInputFormatter(),
-                  ],
                 ),
                 const SizedBox(height: 16),
                 CustomTextFormField(

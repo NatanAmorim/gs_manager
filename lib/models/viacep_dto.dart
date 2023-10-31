@@ -37,7 +37,7 @@ class ViacepDto {
         siafi: json["siafi"],
       );
 
-  bool erro;
+  bool? erro;
   String cep;
   String logradouro;
   String complemento;
