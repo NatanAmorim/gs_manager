@@ -1,4 +1,3 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gs_admin/views/widgets/custom_slider.dart';
@@ -11,7 +10,6 @@ class PointOfSaleView extends StatefulWidget {
 }
 
 class _PointOfSaleViewState extends State<PointOfSaleView> {
-  final AudioPlayer audioPlayer = AudioPlayer();
   final String heroCelebrationAudioPath =
       "sounds/material_product_sounds/hero_simple-celebration-01.wav";
   bool isPlaying = false;
@@ -19,7 +17,6 @@ class _PointOfSaleViewState extends State<PointOfSaleView> {
 
   @override
   void dispose() {
-    audioPlayer.dispose();
     super.dispose();
   }
 
@@ -86,7 +83,7 @@ class _PointOfSaleViewState extends State<PointOfSaleView> {
     }
     setState(() => isPlaying = true);
     await Future.delayed(const Duration(milliseconds: 500));
-    await audioPlayer.play(AssetSource(heroCelebrationAudioPath));
+    // await audioPlayer.play(AssetSource(heroCelebrationAudioPath));
     await Future.delayed(const Duration(seconds: 4));
     if (!mounted) return;
     setState(() {
