@@ -83,13 +83,18 @@ class _ClientFormViewState extends State<ClientFormView> {
                     if (value == null || value.isEmpty) {
                       return 'Digite o nome';
                     }
+
+                    if (value.length < 2) {
+                      return 'Insira um nome valido';
+                    }
+
                     return null;
                   },
                 ),
                 const SizedBox(height: 16),
                 CustomTextFormField(
                   label: 'Celular',
-                  placeholderText: 'Digite o número de celular do cliente',
+                  placeholderText: 'Digite o número de celular',
                   keyboardType: TextInputType.phone,
                   inputFormatters: [
                     FilteringTextInputFormatter.digitsOnly,
@@ -109,7 +114,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                     }
 
                     if (value.length != 10) {
-                      return 'Data inválida';
+                      return 'Insira uma data valida';
                     }
 
                     try {
@@ -117,7 +122,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                         value.trim(),
                       );
                     } on Exception {
-                      return 'Data inválida';
+                      return 'Insira uma data valida';
                     }
 
                     final int year = int.parse(
@@ -125,7 +130,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                     );
 
                     if (year <= 1900) {
-                      return 'Data inválida';
+                      return 'Insira uma data valida';
                     }
 
                     return null;
@@ -147,7 +152,9 @@ class _ClientFormViewState extends State<ClientFormView> {
                       return null;
                     }
 
-                    return CPFValidator.isValid(value) ? null : 'CPF inválido.';
+                    return CPFValidator.isValid(value)
+                        ? null
+                        : 'Insira um CPF valido';
                   },
                   initialValue: controller.client.cpf,
                   keyboardType: TextInputType.number,
@@ -169,6 +176,17 @@ class _ClientFormViewState extends State<ClientFormView> {
                     FilteringTextInputFormatter.digitsOnly,
                     CepInputFormatter(),
                   ],
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return null;
+                    }
+
+                    if (value.length != 10) {
+                      'Insira um CEP valido';
+                    }
+
+                    return null;
+                  },
                   onChanged: (String? text) async {
                     if (text?.length == 10) {
                       final String? newAddress = await ViacepService.getAddress(

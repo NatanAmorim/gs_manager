@@ -38,7 +38,6 @@ class _OrderFormViewState extends State<OrderFormView> {
           const SizedBox(height: 16),
           Form(
             key: controller.formKey,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
             child: CustomCard(
               children: [
                 Text(

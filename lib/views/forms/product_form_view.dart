@@ -40,7 +40,6 @@ class _ProductFormViewState extends State<ProductFormView> {
           const SizedBox(height: 16),
           Form(
             key: controller.formKey,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
             child: CustomCard(
               children: [
                 Text(
@@ -61,6 +60,11 @@ class _ProductFormViewState extends State<ProductFormView> {
                     if (value == null || value.isEmpty) {
                       return 'Digite o nome';
                     }
+
+                    if (value.length < 3) {
+                      return 'Insira um nome valido';
+                    }
+
                     return null;
                   },
                 ),
@@ -126,6 +130,10 @@ class _ProductFormViewState extends State<ProductFormView> {
                         return 'Digite a descrição';
                       }
 
+                      if (value.length < 3) {
+                        return 'Insira uma descrição valida';
+                      }
+
                       return null;
                     },
                   ),
@@ -142,6 +150,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                             if (value == null || value.isEmpty) {
                               return 'Digite a Código de barras';
                             }
+
                             return null;
                           },
                         ),
@@ -200,6 +209,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                             if (int.parse(value) < 0) {
                               return 'quantidade inválida';
                             }
+
                             return null;
                           },
                           keyboardType: TextInputType.number,
@@ -234,6 +244,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                             if (int.parse(value) < 0) {
                               return 'quantidade inválida';
                             }
+
                             return null;
                           },
                           keyboardType: TextInputType.number,

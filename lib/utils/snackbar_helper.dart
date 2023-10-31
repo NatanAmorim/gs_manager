@@ -18,6 +18,30 @@ class SnackBarHelper {
         ),
       );
 
+  static showError({
+    required String shortDescription,
+    required ThemeData theme,
+  }) {
+    assert(
+      shortDescription.length <= 140,
+      "shortDescription should be about 140 chars long",
+    );
+
+    return scaffoldMessengerKey.currentState?.showSnackBar(
+      SnackBar(
+        backgroundColor: Colors.deepOrange,
+        content: Text(
+          shortDescription,
+          style: const TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+
   static showUnknownError() => scaffoldMessengerKey.currentState?.showSnackBar(
         const SnackBar(
           backgroundColor: Colors.deepOrange,

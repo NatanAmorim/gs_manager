@@ -6,6 +6,7 @@ import 'package:gs_admin/models/aula_model.dart';
 import 'package:gs_admin/models/professor_model.dart';
 import 'package:gs_admin/utils/dialog_helper.dart';
 import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';
+import 'package:gs_admin/utils/snackbar_helper.dart';
 import 'package:gs_admin/utils/values_converter.dart';
 import 'package:gs_admin/views/widgets/custom_async_filled_button.dart';
 import 'package:gs_admin/views/widgets/custom_card.dart';
@@ -22,6 +23,25 @@ enum Days {
   qui, // Quinta-feira
   sex, // Sexta-feira
   sab, // Sábado
+}
+
+extension TimeOfDayExtension on TimeOfDay {
+  // Ported from org.threeten.bp;
+  TimeOfDay addMinutes(int minutes) {
+    if (minutes == 0) {
+      return this;
+    } else {
+      int mofd = hour * 60 + minute;
+      int newMofd = ((minutes % 1440) + mofd + 1440) % 1440;
+      if (mofd == newMofd) {
+        return this;
+      } else {
+        int newHour = newMofd ~/ 60;
+        int newMinute = newMofd % 60;
+        return TimeOfDay(hour: newHour, minute: newMinute);
+      }
+    }
+  }
 }
 
 class LectureFormView extends StatefulWidget {
@@ -60,7 +80,6 @@ class _LectureFormViewState extends State<LectureFormView> {
           const SizedBox(height: 16),
           Form(
             key: controller.formKey,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
             child: CustomCard(
               children: [
                 Text(
@@ -81,6 +100,11 @@ class _LectureFormViewState extends State<LectureFormView> {
                     if (value == null || value.isEmpty) {
                       return 'Digite o nome da aula';
                     }
+
+                    if (value.length < 3) {
+                      return 'Insira um nome valido';
+                    }
+
                     return null;
                   },
                 ),
@@ -226,12 +250,30 @@ class _LectureFormViewState extends State<LectureFormView> {
                         time: controller.lecture.horaInicio.format(context),
                         icon: const Icon(Icons.timer_outlined),
                         onPressed: () async {
+                          final ThemeData theme = Theme.of(context);
                           TimeOfDay? timeOfDay = await showTimePicker(
-                            initialTime: TimeOfDay.now(),
+                            initialTime: const TimeOfDay(hour: 18, minute: 0),
                             context: context,
                           );
 
                           if (timeOfDay == null) {
+                            return;
+                          }
+
+                          final int duration = Duration(
+                            hours: controller.lecture.horaFim.hour -
+                                timeOfDay.hour,
+                            minutes: controller.lecture.horaFim.minute -
+                                timeOfDay.minute,
+                          ).inMinutes;
+
+                          if (duration < 1) {
+                            SnackBarHelper.showError(
+                              theme: theme,
+                              shortDescription:
+                                  "Hora que a aula começa não pode ser depois de acabar",
+                            );
+
                             return;
                           }
 
@@ -249,12 +291,31 @@ class _LectureFormViewState extends State<LectureFormView> {
                         time: controller.lecture.horaFim.format(context),
                         icon: const Icon(Icons.timer_off_outlined),
                         onPressed: () async {
+                          final ThemeData theme = Theme.of(context);
                           TimeOfDay? timeOfDay = await showTimePicker(
-                            initialTime: TimeOfDay.now(),
+                            initialTime:
+                                controller.lecture.horaInicio.addMinutes(50),
                             context: context,
                           );
 
                           if (timeOfDay == null) {
+                            return;
+                          }
+
+                          final int duration = Duration(
+                            hours: timeOfDay.hour -
+                                controller.lecture.horaInicio.hour,
+                            minutes: timeOfDay.minute -
+                                controller.lecture.horaInicio.minute,
+                          ).inMinutes;
+
+                          if (duration < 1) {
+                            SnackBarHelper.showError(
+                              theme: theme,
+                              shortDescription:
+                                  "Hora que a aula acaba não pode ser antes de começar",
+                            );
+
                             return;
                           }
 
