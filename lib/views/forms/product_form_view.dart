@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gs_admin/controllers/product_form_controller.dart';
+import 'package:gs_admin/models/produto_model.dart';
 import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/utils/values_converter.dart';
 import 'package:gs_admin/views/widgets/custom_async_filled_button.dart';
@@ -9,7 +10,12 @@ import 'package:gs_admin/views/widgets/custom_form_scaffold.dart';
 import 'package:gs_admin/views/widgets/custom_text_form_field.dart';
 
 class ProductFormView extends StatefulWidget {
-  const ProductFormView({Key? key}) : super(key: key);
+  const ProductFormView({
+    Key? key,
+    this.productUpdating,
+  }) : super(key: key);
+
+  final ProdutoModel? productUpdating;
 
   @override
   State<ProductFormView> createState() => _ProductFormViewState();
@@ -49,9 +55,7 @@ class _ProductFormViewState extends State<ProductFormView> {
           CustomTextFormField(
             label: 'Nome',
             placeholderText: 'Digite o nome do produto',
-            // TODO update to only autofocus if not editing
-            // autofocus: widget.productUpdating == null,
-            autofocus: true,
+            autofocus: widget.productUpdating == null,
             validator: (String? value) {
               if (value == null || value.isEmpty) {
                 return 'Digite o nome';
@@ -67,16 +71,18 @@ class _ProductFormViewState extends State<ProductFormView> {
           const SizedBox(height: 16),
           _buildPanel(),
           const SizedBox(height: 16),
-          OutlinedButton.icon(
-            onPressed: () {},
-            icon: Icon(
-              Icons.add,
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
-            label: Text(
-              'Adicionar Variação',
-              style: TextStyle(
+          Center(
+            child: TextButton.icon(
+              onPressed: () {},
+              icon: Icon(
+                Icons.add,
                 color: Theme.of(context).colorScheme.tertiary,
+              ),
+              label: Text(
+                'Adicionar Variante',
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.tertiary,
+                ),
               ),
             ),
           ),
@@ -91,15 +97,11 @@ class _ProductFormViewState extends State<ProductFormView> {
       children: _data.map<ExpansionPanelRadio>((Item item) {
         return ExpansionPanelRadio(
             value: item.id,
-            canTapOnHeader: false,
+            canTapOnHeader: true,
             headerBuilder: (BuildContext context, bool isExpanded) {
               return ListTile(
                 title: Text(item.headerValue),
                 iconColor: Theme.of(context).colorScheme.tertiary,
-                leading: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.delete),
-                ),
               );
             },
             body: ListTile(
@@ -239,7 +241,24 @@ class _ProductFormViewState extends State<ProductFormView> {
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  const SizedBox(height: 16),
+                  TextButton.icon(
+                    style: ButtonStyle(
+                      foregroundColor:
+                          MaterialStateProperty.resolveWith<Color?>(
+                              (Set<MaterialState> states) {
+                        if (states.contains(MaterialState.pressed)) {
+                          return Colors.red.withOpacity(0.6);
+                        }
+
+                        return Colors.red;
+                      }),
+                    ),
+                    onPressed: () {},
+                    icon: const Icon(Icons.delete),
+                    label: const Text('Excluir variante'),
+                  ),
                 ],
               ),
             ));
@@ -266,7 +285,7 @@ List<Item> generateItems(int numberOfItems) {
   return List<Item>.generate(numberOfItems, (int index) {
     return Item(
       id: index,
-      headerValue: 'Variação nº ${index + 1}',
+      headerValue: 'Variante nº ${index + 1}',
       expandedValue: 'This is item number $index',
     );
   });

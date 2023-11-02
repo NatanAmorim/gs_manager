@@ -57,7 +57,9 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           const SizedBox(height: 10),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              // TODO
+                            },
                             child: const Text(
                               'Esqueceu a senha?',
                               style: TextStyle(fontSize: 16),
@@ -74,6 +76,7 @@ class _LoginViewState extends State<LoginView> {
                       icon: Icons.login,
                       label: ' Entrar',
                       onPressed: () async {
+                        // TODO
                         await Future.delayed(const Duration(seconds: 2));
                         return false;
                       },

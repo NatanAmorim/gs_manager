@@ -7,24 +7,12 @@ class ErrorView extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  // TODO show user-friendly error message instead of showing red exception
   final FlutterErrorDetails errorDetails;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.error,
-          title: Text(
-            'Erro',
-            style: TextStyle(
-              fontSize: 24.0,
-              fontWeight: FontWeight.w400,
-              color: Theme.of(context).colorScheme.onError,
-            ),
-          ),
-        ),
         body: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -40,14 +28,15 @@ class ErrorView extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               const SizedBox(height: 24),
-              TextButton(
+              TextButton.icon(
                 onPressed: () => Navigator.of(context).pushAndRemoveUntil(
                   MaterialPageRoute(
                     builder: (BuildContext context) => const HomeView(),
                   ),
                   (Route<dynamic> route) => false,
                 ),
-                child: const Text('Ínicio'),
+                icon: const Icon(Icons.undo),
+                label: const Text('Voltar ao ínicio'),
               ),
             ],
           ),

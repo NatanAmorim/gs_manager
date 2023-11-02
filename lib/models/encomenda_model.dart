@@ -4,7 +4,7 @@ import 'package:gs_admin/models/produto_model.dart';
 class EncomendaModel {
   EncomendaModel({
     required this.cliente,
-    this.status = "", // TODO criar enum de status
+    this.status = "", // TODO criar enum de status da situação da encomenda
     required this.itens,
   });
 
