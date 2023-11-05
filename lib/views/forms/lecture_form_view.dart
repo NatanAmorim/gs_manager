@@ -106,7 +106,7 @@ class _LectureFormViewState extends State<LectureFormView> {
               }
 
               if (value.length < 3) {
-                return 'Insira um nome valido';
+                return 'Insira um nome válido';
               }
 
               return null;

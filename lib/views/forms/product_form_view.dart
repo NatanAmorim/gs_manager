@@ -62,7 +62,7 @@ class _ProductFormViewState extends State<ProductFormView> {
               }
 
               if (value.length < 3) {
-                return 'Insira um nome valido';
+                return 'Insira um nome válido';
               }
 
               return null;
@@ -116,7 +116,7 @@ class _ProductFormViewState extends State<ProductFormView> {
                       }
 
                       if (value.length < 3) {
-                        return 'Insira uma descrição valida';
+                        return 'Insira uma descrição válida';
                       }
 
                       return null;

@@ -89,7 +89,7 @@ class _TeacherFormViewState extends State<TeacherFormView> {
               }
 
               if (value.length < 2) {
-                return 'Insira um nome valido';
+                return 'Insira um nome válido';
               }
 
               return null;
@@ -118,7 +118,7 @@ class _TeacherFormViewState extends State<TeacherFormView> {
               }
 
               if (value.length != 10) {
-                return 'Insira uma data valida';
+                return 'Insira uma data válida';
               }
 
               try {
@@ -126,7 +126,7 @@ class _TeacherFormViewState extends State<TeacherFormView> {
                   value.trim(),
                 );
               } on Exception {
-                return 'Insira uma data valida';
+                return 'Insira uma data válida';
               }
 
               final int year = int.parse(
@@ -134,7 +134,7 @@ class _TeacherFormViewState extends State<TeacherFormView> {
               );
 
               if (year <= 1900) {
-                return 'Insira uma data valida';
+                return 'Insira uma data válida';
               }
 
               return null;
@@ -158,7 +158,7 @@ class _TeacherFormViewState extends State<TeacherFormView> {
 
               return CPFValidator.isValid(value)
                   ? null
-                  : 'Insira um CPF valido';
+                  : 'Insira um CPF válido';
             },
             initialValue: controller.teacher.cpf,
             keyboardType: TextInputType.number,
@@ -186,7 +186,7 @@ class _TeacherFormViewState extends State<TeacherFormView> {
               }
 
               if (value.length != 10) {
-                'Insira um CEP valido';
+                'Insira um CEP válido';
               }
 
               return null;
