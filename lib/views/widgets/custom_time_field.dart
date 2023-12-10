@@ -29,6 +29,9 @@ class _CustomTimeFieldState extends State<CustomTimeField> {
           expands: false,
           decoration: InputDecoration(
             labelText: widget.label,
+            labelStyle: const TextStyle(
+              fontSize: 16,
+            ),
             prefixIcon: widget.icon,
             suffixIcon: const Icon(Icons.arrow_drop_down),
             contentPadding: const EdgeInsets.all(12),

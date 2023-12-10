@@ -70,7 +70,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                     ),
                   );
                 }),
-            const SizedBox(width: 2),
+            const SizedBox(width: 0.5),
             FloatingActionButton(
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(

@@ -7,12 +7,13 @@ class ProductFormController {
   Future<bool> submit(BuildContext context) async {
     final bool isValid = formKey.currentState!.validate();
 
-    // NavigatorState and ScaffoldMessengerState are stored
+    // Theme, NavigatorState and ScaffoldMessengerState are stored
     // to avoid the error use_build_context_synchronously
     final NavigatorState navigator = Navigator.of(context);
+    final ThemeData theme = Theme.of(context);
 
     if (!isValid) {
-      SnackBarHelper.showInvalidFormDataError();
+      SnackBarHelper.showInvalidFormDataError(theme);
 
       return false;
     }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gs_admin/models/professor_model.dart';
+import 'package:gs_admin/views/forms/lecture_form_view.dart';
 
 class AulaModel {
   AulaModel({
@@ -8,6 +9,7 @@ class AulaModel {
     required this.professor,
     required this.horaInicio,
     required this.horaFim,
+    required this.dias,
   });
 
   String nome;
@@ -15,6 +17,7 @@ class AulaModel {
   ProfessorModel professor;
   TimeOfDay horaInicio;
   TimeOfDay horaFim;
+  Set<Days> dias;
 
   int get duracaoEmMinutos => Duration(
         hours: horaFim.hour - horaInicio.hour,

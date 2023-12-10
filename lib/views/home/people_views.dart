@@ -156,6 +156,7 @@ class _ClientViewState extends State<ClientView> {
     // setState(() {
     //   items.clear();
     // });
+    if (!mounted) return;
     setState(() {
       // items = fakeDb.clientes;
     });

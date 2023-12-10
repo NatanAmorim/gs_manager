@@ -3,6 +3,7 @@ import 'package:gs_admin/global_variables.dart';
 import 'package:gs_admin/models/aula_model.dart';
 import 'package:gs_admin/utils/dialog_helper.dart';
 import 'package:gs_admin/utils/snackbar_helper.dart';
+import 'package:gs_admin/views/forms/lecture_form_view.dart';
 
 class LectureFormController {
   LectureFormController({
@@ -12,21 +13,41 @@ class LectureFormController {
   final AulaModel? lectureUpdating;
   late AulaModel lecture = lectureUpdating ??
       AulaModel(
+        professor: fakeDb.professores.first,
         horaInicio: const TimeOfDay(hour: 18, minute: 10),
         horaFim: const TimeOfDay(hour: 18, minute: 55),
-        professor: fakeDb.professores.first,
+        dias: <Days>{Days.seg, Days.qua},
       );
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   Future<bool> submit(BuildContext context) async {
     final bool isValid = formKey.currentState!.validate();
 
-    // NavigatorState and ScaffoldMessengerState are stored
+    // Theme, NavigatorState and ScaffoldMessengerState are stored
     // to avoid the error use_build_context_synchronously
     final NavigatorState navigator = Navigator.of(context);
+    final ThemeData theme = Theme.of(context);
 
     if (!isValid) {
-      SnackBarHelper.showInvalidFormDataError();
+      SnackBarHelper.showInvalidFormDataError(theme);
+
+      return false;
+    }
+
+    if (lecture.duracaoEmMinutos < 30) {
+      SnackBarHelper.showError(
+        theme: theme,
+        shortDescription: "Duração mínima de aula é 30 minutos.",
+      );
+
+      return false;
+    }
+
+    if (lecture.dias.isEmpty) {
+      SnackBarHelper.showError(
+        theme: theme,
+        shortDescription: "Selecione pelo menos um dia da semana.",
+      );
 
       return false;
     }
@@ -45,9 +66,10 @@ class LectureFormController {
   }
 
   Future<bool> delete(BuildContext context) async {
-    // NavigatorState and ScaffoldMessengerState are stored
+    // Theme, NavigatorState and ScaffoldMessengerState are stored
     // to avoid the error use_build_context_synchronously
     final NavigatorState navigator = Navigator.of(context);
+    final ThemeData theme = Theme.of(context);
 
     final bool shouldDelete = await DialogHelper.onDelete(
       context: context,
@@ -65,9 +87,9 @@ class LectureFormController {
 
       if (success) {
         navigator.pop();
-        SnackBarHelper.showSuccessfullyRemoved();
+        SnackBarHelper.showSuccessfullyRemoved(theme);
       } else {
-        SnackBarHelper.showUnknownError();
+        SnackBarHelper.showUnknownError(theme);
       }
     }
 

@@ -90,7 +90,6 @@ class SettingsView extends ConsumerWidget {
                                     child: SingleChildScrollView(
                                       child: Column(
                                         children: [
-                                          const Divider(),
                                           RadioListTile<ThemeMode>(
                                             title:
                                                 const Text("Tema do sistema"),
@@ -123,7 +122,6 @@ class SettingsView extends ConsumerWidget {
                                                 .read(settingsProvider)
                                                 .updateThemeMode,
                                           ),
-                                          const Divider(),
                                         ],
                                       ),
                                     ),
@@ -161,7 +159,9 @@ class SettingsView extends ConsumerWidget {
                             leading: const Icon(Icons.gavel),
                             trailing: const Icon(Icons.arrow_right),
                             iconColor: Theme.of(context).colorScheme.secondary,
-                            onTap: () {},
+                            onTap: () {
+                              // TODO
+                            },
                           ),
                           ListTile(
                             title: const Text("Sobre o App"),
@@ -182,6 +182,16 @@ class SettingsView extends ConsumerWidget {
                                   '\u{a9} 2023 Natan Amorim S. G. de Moraes',
                               children: aboutBoxChildren,
                             ),
+                          ),
+                          ListTile(
+                            title: const Text("Encerrar Sessão "),
+                            textColor: Theme.of(context).colorScheme.secondary,
+                            leading: const Icon(Icons.logout),
+                            trailing: const Icon(Icons.arrow_right),
+                            iconColor: Theme.of(context).colorScheme.secondary,
+                            onTap: () {
+                              // TODO
+                            },
                           ),
                         ],
                       ).toList(),

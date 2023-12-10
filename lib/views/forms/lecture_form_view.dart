@@ -5,7 +5,6 @@ import 'package:gs_admin/global_variables.dart';
 import 'package:gs_admin/models/aula_model.dart';
 import 'package:gs_admin/models/professor_model.dart';
 import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';
-import 'package:gs_admin/utils/snackbar_helper.dart';
 import 'package:gs_admin/utils/values_converter.dart';
 import 'package:gs_admin/views/widgets/custom_async_filled_button.dart';
 import 'package:gs_admin/views/widgets/custom_card.dart';
@@ -57,7 +56,6 @@ class LectureFormView extends StatefulWidget {
 
 class _LectureFormViewState extends State<LectureFormView> {
   late LectureFormController controller;
-  Set<Days> selection = <Days>{Days.seg, Days.qua};
 
   @override
   void initState() {
@@ -160,86 +158,11 @@ class _LectureFormViewState extends State<LectureFormView> {
                 .toList(),
           ),
           const SizedBox(height: 16),
-          const Text('Dias da semana'),
-          const SizedBox(height: 4),
-          SizedBox(
-            width: double.infinity,
-            child: SegmentedButton(
-              style: ButtonStyle(
-                alignment: Alignment.center,
-                tapTargetSize: MaterialTapTargetSize.padded,
-                visualDensity: VisualDensity.compact,
-                backgroundColor: MaterialStateColor.resolveWith((states) {
-                  if (states.contains(MaterialState.selected)) {
-                    return Theme.of(context).colorScheme.secondaryContainer;
-                  }
-
-                  return Theme.of(context).brightness == Brightness.light
-                      ? Colors.white.withOpacity(0.4)
-                      : Colors.black.withOpacity(0.6);
-                }),
-              ),
-              segments: const <ButtonSegment<Days>>[
-                ButtonSegment<Days>(
-                  value: Days.dom,
-                  label: FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text('Dom'),
-                  ),
-                ),
-                ButtonSegment<Days>(
-                  value: Days.seg,
-                  label: FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text('Seg'),
-                  ),
-                ),
-                ButtonSegment<Days>(
-                  value: Days.ter,
-                  label: FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text('Ter'),
-                  ),
-                ),
-                ButtonSegment<Days>(
-                  value: Days.qua,
-                  label: FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text('Qua'),
-                  ),
-                ),
-                ButtonSegment<Days>(
-                  value: Days.qui,
-                  label: FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text('Qui'),
-                  ),
-                ),
-                ButtonSegment<Days>(
-                  value: Days.sex,
-                  label: FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text('Sex'),
-                  ),
-                ),
-                ButtonSegment<Days>(
-                  value: Days.sab,
-                  label: FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text('Sáb'),
-                  ),
-                ),
-              ],
-              selected: selection,
-              onSelectionChanged: (Set<Days> newSelection) {
-                setState(() {
-                  selection = newSelection;
-                });
-              },
-              multiSelectionEnabled: true,
-            ),
+          Text(
+            'Horário',
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -251,39 +174,12 @@ class _LectureFormViewState extends State<LectureFormView> {
                   time: controller.lecture.horaInicio.format(context),
                   icon: const Icon(Icons.timer_outlined),
                   onPressed: () async {
-                    final ThemeData theme = Theme.of(context);
                     TimeOfDay? timeOfDay = await showTimePicker(
                       initialTime: const TimeOfDay(hour: 18, minute: 0),
                       context: context,
                     );
 
                     if (timeOfDay == null) {
-                      return;
-                    }
-
-                    final int durationInMinutes = Duration(
-                      hours: controller.lecture.horaFim.hour - timeOfDay.hour,
-                      minutes:
-                          controller.lecture.horaFim.minute - timeOfDay.minute,
-                    ).inMinutes;
-
-                    if (durationInMinutes < 1) {
-                      SnackBarHelper.showError(
-                        theme: theme,
-                        shortDescription:
-                            "Hora que a aula começa não pode ser depois de acabar.",
-                      );
-
-                      return;
-                    }
-
-                    if (durationInMinutes < 30) {
-                      SnackBarHelper.showError(
-                        theme: theme,
-                        shortDescription:
-                            "Duração mínima de aula é 30 minutos.",
-                      );
-
                       return;
                     }
 
@@ -301,40 +197,12 @@ class _LectureFormViewState extends State<LectureFormView> {
                   time: controller.lecture.horaFim.format(context),
                   icon: const Icon(Icons.timer_off_outlined),
                   onPressed: () async {
-                    final ThemeData theme = Theme.of(context);
                     TimeOfDay? timeOfDay = await showTimePicker(
                       initialTime: controller.lecture.horaInicio.addMinutes(45),
                       context: context,
                     );
 
                     if (timeOfDay == null) {
-                      return;
-                    }
-
-                    final int durationInMinutes = Duration(
-                      hours:
-                          timeOfDay.hour - controller.lecture.horaInicio.hour,
-                      minutes: timeOfDay.minute -
-                          controller.lecture.horaInicio.minute,
-                    ).inMinutes;
-
-                    if (durationInMinutes < 1) {
-                      SnackBarHelper.showError(
-                        theme: theme,
-                        shortDescription:
-                            "Hora que a aula acaba não pode ser antes de começar.",
-                      );
-
-                      return;
-                    }
-
-                    if (durationInMinutes < 30) {
-                      SnackBarHelper.showError(
-                        theme: theme,
-                        shortDescription:
-                            "Duração mínima de aula é 30 minutos.",
-                      );
-
                       return;
                     }
 
@@ -348,7 +216,7 @@ class _LectureFormViewState extends State<LectureFormView> {
               Flexible(
                 flex: 1,
                 child: SizedBox(
-                  width: 150,
+                  width: 180,
                   child: InputDecorator(
                     expands: false,
                     decoration: InputDecoration(
@@ -367,7 +235,7 @@ class _LectureFormViewState extends State<LectureFormView> {
                     ),
                     child: Center(
                       child: Text(
-                        "${controller.lecture.duracaoEmMinutos} min",
+                        "${controller.lecture.duracaoEmMinutos} minutos",
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -378,6 +246,112 @@ class _LectureFormViewState extends State<LectureFormView> {
                 ),
               )
             ],
+          ),
+          const SizedBox(height: 16),
+          Text(
+            'Dias da semana',
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          const SizedBox(height: 4),
+          Center(
+            child: Wrap(
+              spacing: 8.0,
+              alignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.end,
+              children: <FilterChip>[
+                FilterChip(
+                  label: const Text('Domingo'),
+                  selected: controller.lecture.dias.contains(Days.dom),
+                  onSelected: (bool selected) {
+                    setState(() {
+                      if (selected) {
+                        controller.lecture.dias.add(Days.dom);
+                      } else {
+                        controller.lecture.dias.remove(Days.dom);
+                      }
+                    });
+                  },
+                ),
+                FilterChip(
+                  label: const Text('Segunda-feira'),
+                  selected: controller.lecture.dias.contains(Days.seg),
+                  onSelected: (bool selected) {
+                    setState(() {
+                      if (selected) {
+                        controller.lecture.dias.add(Days.seg);
+                      } else {
+                        controller.lecture.dias.remove(Days.seg);
+                      }
+                    });
+                  },
+                ),
+                FilterChip(
+                  label: const Text('Terça-feira'),
+                  selected: controller.lecture.dias.contains(Days.ter),
+                  onSelected: (bool selected) {
+                    setState(() {
+                      if (selected) {
+                        controller.lecture.dias.add(Days.ter);
+                      } else {
+                        controller.lecture.dias.remove(Days.ter);
+                      }
+                    });
+                  },
+                ),
+                FilterChip(
+                  label: const Text('Quarta-feira'),
+                  selected: controller.lecture.dias.contains(Days.qua),
+                  onSelected: (bool selected) {
+                    setState(() {
+                      if (selected) {
+                        controller.lecture.dias.add(Days.qua);
+                      } else {
+                        controller.lecture.dias.remove(Days.qua);
+                      }
+                    });
+                  },
+                ),
+                FilterChip(
+                  label: const Text('Quinta-feira'),
+                  selected: controller.lecture.dias.contains(Days.qui),
+                  onSelected: (bool selected) {
+                    setState(() {
+                      if (selected) {
+                        controller.lecture.dias.add(Days.qui);
+                      } else {
+                        controller.lecture.dias.remove(Days.qui);
+                      }
+                    });
+                  },
+                ),
+                FilterChip(
+                  label: const Text('Sexta-feira'),
+                  selected: controller.lecture.dias.contains(Days.sex),
+                  onSelected: (bool selected) {
+                    setState(() {
+                      if (selected) {
+                        controller.lecture.dias.add(Days.sex);
+                      } else {
+                        controller.lecture.dias.remove(Days.sex);
+                      }
+                    });
+                  },
+                ),
+                FilterChip(
+                  label: const Text('Sábado'),
+                  selected: controller.lecture.dias.contains(Days.sab),
+                  onSelected: (bool selected) {
+                    setState(() {
+                      if (selected) {
+                        controller.lecture.dias.add(Days.sab);
+                      } else {
+                        controller.lecture.dias.remove(Days.sab);
+                      }
+                    });
+                  },
+                ),
+              ],
+            ),
           ),
           const SizedBox(height: 16),
         ],

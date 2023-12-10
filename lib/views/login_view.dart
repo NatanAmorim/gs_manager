@@ -46,11 +46,12 @@ class _LoginViewState extends State<LoginView> {
                           const SizedBox(height: 10),
                           const CustomTextFormField(
                             prefixIcon: Icon(Icons.badge_outlined),
-                            label: 'E-mail',
-                            placeholderText: 'Digite seu e-mail',
+                            label: 'Login',
+                            placeholderText: 'Digite seu login',
                           ),
                           const SizedBox(height: 10),
                           const CustomTextFormField(
+                            isObscure: true,
                             prefixIcon: Icon(Icons.lock_open),
                             label: 'Senha',
                             placeholderText: 'Digite sua senha',
