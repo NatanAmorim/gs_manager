@@ -4,12 +4,25 @@ class CustomCard extends StatelessWidget {
   const CustomCard({
     super.key,
     required this.children,
+    required this.actions,
   });
 
   final List<Widget> children;
+  final List<Widget> actions;
 
   @override
   Widget build(BuildContext context) {
+    children.add(const SizedBox(height: 16));
+
+    if (actions.length == 1) {
+      children.add(actions.first);
+    } else {
+      children.add(Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: actions,
+      ));
+    }
+
     return Card(
       child: Container(
         width: double.infinity,

@@ -18,17 +18,17 @@ class DialogHelper {
               ),
             ),
             content: Text(
-              'Todo o progresso não salvo será perdido.',
+              'Tem certeza? quaisquer alterações não salvas serão perdidas!',
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             actions: <Widget>[
-              TextButton(
+              OutlinedButton(
                 onPressed: () => Navigator.pop(context, false),
-                child: const Text('Cancelar'),
+                child: const Text('Não, continue editando'),
               ),
               FilledButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: const Text('Descartar'),
+                child: const Text('Sim, descarte minhas alterações'),
               ),
             ],
           ),

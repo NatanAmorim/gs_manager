@@ -4,7 +4,7 @@ import 'package:gs_admin/controllers/product_form_controller.dart';
 import 'package:gs_admin/models/produto_model.dart';
 import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/utils/values_converter.dart';
-import 'package:gs_admin/views/widgets/custom_async_filled_button.dart';
+import 'package:gs_admin/views/widgets/custom_async_text_button.dart';
 import 'package:gs_admin/views/widgets/custom_card.dart';
 import 'package:gs_admin/views/widgets/custom_form_scaffold.dart';
 import 'package:gs_admin/views/widgets/custom_text_form_field.dart';
@@ -35,14 +35,14 @@ class _ProductFormViewState extends State<ProductFormView> {
   Widget build(BuildContext context) {
     return CustomFormScaffold(
       formKey: controller.formKey,
-      actions: [
-        CustomAsyncFilledButton(
-          onPressed: () => controller.submit(context),
-          icon: Icons.save,
-          label: 'Salvar',
-        ),
-      ],
       child: CustomCard(
+        actions: [
+          CustomAsyncTextButton(
+            onPressed: () => controller.submit(context),
+            icon: Icons.save,
+            label: 'Salvar',
+          ),
+        ],
         children: [
           Text(
             'Cadastro de produto',
@@ -107,6 +107,23 @@ class _ProductFormViewState extends State<ProductFormView> {
             body: ListTile(
               title: Column(
                 children: [
+                  TextButton.icon(
+                    style: ButtonStyle(
+                      foregroundColor:
+                          MaterialStateProperty.resolveWith<Color?>(
+                              (Set<MaterialState> states) {
+                        if (states.contains(MaterialState.pressed)) {
+                          return Colors.red.withOpacity(0.6);
+                        }
+
+                        return Colors.red;
+                      }),
+                    ),
+                    onPressed: () {},
+                    icon: const Icon(Icons.delete),
+                    label: const Text('Excluir variante'),
+                  ),
+                  const SizedBox(height: 8.0),
                   CustomTextFormField(
                     label: 'Descrição',
                     placeholderText: 'Digite a descrição do produto',
@@ -241,23 +258,6 @@ class _ProductFormViewState extends State<ProductFormView> {
                         ),
                       ),
                     ],
-                  ),
-                  const SizedBox(height: 16),
-                  TextButton.icon(
-                    style: ButtonStyle(
-                      foregroundColor:
-                          MaterialStateProperty.resolveWith<Color?>(
-                              (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.pressed)) {
-                          return Colors.red.withOpacity(0.6);
-                        }
-
-                        return Colors.red;
-                      }),
-                    ),
-                    onPressed: () {},
-                    icon: const Icon(Icons.delete),
-                    label: const Text('Excluir variante'),
                   ),
                 ],
               ),

@@ -8,7 +8,7 @@ import 'package:gs_admin/utils/formatters/cpf_input_formatter.dart';
 import 'package:gs_admin/utils/formatters/date_input_formatter.dart';
 import 'package:gs_admin/utils/formatters/phone_input_formatter.dart';
 import 'package:gs_admin/utils/validators/cpf_validator.dart';
-import 'package:gs_admin/views/widgets/custom_async_filled_button.dart';
+import 'package:gs_admin/views/widgets/custom_async_text_button.dart';
 import 'package:gs_admin/views/widgets/custom_card.dart';
 import 'package:gs_admin/views/widgets/custom_form_scaffold.dart';
 import 'package:gs_admin/views/widgets/custom_text_form_field.dart';
@@ -51,22 +51,22 @@ class _TeacherFormViewState extends State<TeacherFormView> {
 
     return CustomFormScaffold(
       formKey: controller.formKey,
-      actions: [
-        controller.teacherUpdating == null
-            ? Container()
-            : CustomAsyncFilledButton(
-                icon: Icons.delete_forever,
-                label: 'Deletar',
-                isTonal: true,
-                onPressed: () => controller.delete(context),
-              ),
-        CustomAsyncFilledButton(
-          icon: Icons.save,
-          label: 'Salvar',
-          onPressed: () => controller.submit(context),
-        ),
-      ],
       child: CustomCard(
+        actions: [
+          controller.teacherUpdating == null
+              ? Container()
+              : CustomAsyncTextButton(
+                  icon: Icons.delete_forever,
+                  label: 'Deletar',
+                  isDelete: true,
+                  onPressed: () => controller.delete(context),
+                ),
+          CustomAsyncTextButton(
+            icon: Icons.save,
+            label: 'Salvar',
+            onPressed: () => controller.submit(context),
+          ),
+        ],
         children: [
           Text(
             'Cadastro de professor',

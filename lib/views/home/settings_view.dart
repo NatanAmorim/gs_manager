@@ -63,7 +63,7 @@ class SettingsView extends ConsumerWidget {
                     // This comes with a small performance cost, and you should not set [clipBehavior]
                     // unless you need it.
                     clipBehavior: Clip.hardEdge,
-                    color: Theme.of(context).cardTheme.color!,
+                    elevation: 2.0,
                     child: ListView(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
@@ -71,7 +71,7 @@ class SettingsView extends ConsumerWidget {
                         context: context,
                         tiles: [
                           ListTile(
-                            title: const Text("Tema do aplicativo"),
+                            title: const Text("Tema do Aplicativo"),
                             textColor: Theme.of(context).colorScheme.secondary,
                             leading: const Icon(Icons.palette),
                             trailing: const Icon(Icons.arrow_right),

@@ -8,7 +8,7 @@ import 'package:gs_admin/utils/formatters/cpf_input_formatter.dart';
 import 'package:gs_admin/utils/formatters/date_input_formatter.dart';
 import 'package:gs_admin/utils/formatters/phone_input_formatter.dart';
 import 'package:gs_admin/utils/validators/cpf_validator.dart';
-import 'package:gs_admin/views/widgets/custom_async_filled_button.dart';
+import 'package:gs_admin/views/widgets/custom_async_text_button.dart';
 import 'package:gs_admin/views/widgets/custom_card.dart';
 import 'package:gs_admin/views/widgets/custom_form_scaffold.dart';
 import 'package:gs_admin/views/widgets/custom_text_form_field.dart';
@@ -28,7 +28,7 @@ class ClientFormView extends StatefulWidget {
 
 class _ClientFormViewState extends State<ClientFormView> {
   late ClientFormController controller;
-  late ValueNotifier<TextEditingController> address;
+  late ValueNotifier<TextEditingController> addressNotifier;
   final DateFormat dateFormatter = DateFormat('dd/MM/yyyy');
 
   @override
@@ -40,33 +40,33 @@ class _ClientFormViewState extends State<ClientFormView> {
   @override
   void dispose() {
     super.dispose();
-    address.value.dispose();
+    addressNotifier.value.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    address = ValueNotifier<TextEditingController>(
+    addressNotifier = ValueNotifier<TextEditingController>(
       TextEditingController(text: widget.clientUpdating?.endereco ?? ''),
     );
 
     return CustomFormScaffold(
       formKey: controller.formKey,
-      actions: [
-        controller.clientUpdating == null
-            ? Container()
-            : CustomAsyncFilledButton(
-                icon: Icons.delete_forever,
-                label: 'Deletar',
-                isTonal: true,
-                onPressed: () => controller.delete(context),
-              ),
-        CustomAsyncFilledButton(
-          icon: Icons.save,
-          label: 'Salvar',
-          onPressed: () => controller.submit(context),
-        ),
-      ],
       child: CustomCard(
+        actions: [
+          controller.clientUpdating == null
+              ? Container()
+              : CustomAsyncTextButton(
+                  icon: Icons.delete_forever,
+                  label: 'Deletar',
+                  isDelete: true,
+                  onPressed: () => controller.delete(context),
+                ),
+          CustomAsyncTextButton(
+            icon: Icons.save,
+            label: 'Salvar',
+            onPressed: () => controller.submit(context),
+          ),
+        ],
         children: [
           Text(
             'Cadastro de cliente',
@@ -197,7 +197,7 @@ class _ClientFormViewState extends State<ClientFormView> {
                 );
 
                 if (newAddress != null) {
-                  address.value.text = newAddress;
+                  addressNotifier.value.text = newAddress;
                 }
               }
             },
@@ -205,7 +205,7 @@ class _ClientFormViewState extends State<ClientFormView> {
           ),
           const SizedBox(height: 16),
           ValueListenableBuilder<TextEditingController>(
-            valueListenable: address,
+            valueListenable: addressNotifier,
             builder: (
               BuildContext context,
               TextEditingController value,

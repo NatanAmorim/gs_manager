@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gs_admin/controllers/lecture_form_controller.dart';
-import 'package:gs_admin/global_variables.dart';
 import 'package:gs_admin/models/aula_model.dart';
 import 'package:gs_admin/models/professor_model.dart';
 import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/utils/values_converter.dart';
-import 'package:gs_admin/views/widgets/custom_async_filled_button.dart';
+import 'package:gs_admin/views/widgets/custom_async_text_button.dart';
 import 'package:gs_admin/views/widgets/custom_card.dart';
 import 'package:gs_admin/views/widgets/custom_dropdown_button_form_field.dart';
 import 'package:gs_admin/views/widgets/custom_form_scaffold.dart';
@@ -67,22 +66,22 @@ class _LectureFormViewState extends State<LectureFormView> {
   Widget build(BuildContext context) {
     return CustomFormScaffold(
       formKey: controller.formKey,
-      actions: [
-        controller.lectureUpdating == null
-            ? Container()
-            : CustomAsyncFilledButton(
-                icon: Icons.delete_forever,
-                label: 'Deletar',
-                isTonal: true,
-                onPressed: () => controller.delete(context),
-              ),
-        CustomAsyncFilledButton(
-          icon: Icons.save,
-          label: 'Salvar',
-          onPressed: () => controller.submit(context),
-        ),
-      ],
       child: CustomCard(
+        actions: [
+          controller.lectureUpdating == null
+              ? Container()
+              : CustomAsyncTextButton(
+                  icon: Icons.delete_forever,
+                  label: 'Deletar',
+                  isDelete: true,
+                  onPressed: () => controller.delete(context),
+                ),
+          CustomAsyncTextButton(
+            icon: Icons.save,
+            label: 'Salvar',
+            onPressed: () => controller.submit(context),
+          ),
+        ],
         children: [
           Text(
             'Cadastro de Aula',
@@ -145,17 +144,7 @@ class _LectureFormViewState extends State<LectureFormView> {
                 controller.lecture.professor = newValue;
               });
             },
-            items: fakeDb.professores
-                .map(
-                  (ProfessorModel cliente) => DropdownMenuItem<ProfessorModel>(
-                    value: cliente,
-                    child: Text(
-                      cliente.nome,
-                      style: const TextStyle(height: 2.0),
-                    ),
-                  ),
-                )
-                .toList(),
+            items: const [],
           ),
           const SizedBox(height: 16),
           Text(
@@ -163,9 +152,10 @@ class _LectureFormViewState extends State<LectureFormView> {
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(height: 12),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          Wrap(
+            spacing: 8.0,
+            alignment: WrapAlignment.center,
+            crossAxisAlignment: WrapCrossAlignment.end,
             children: [
               Flexible(
                 flex: 1,

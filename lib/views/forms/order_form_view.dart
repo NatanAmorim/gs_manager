@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gs_admin/controllers/order_form_controller.dart';
-import 'package:gs_admin/global_variables.dart';
 import 'package:gs_admin/models/cliente_model.dart';
-import 'package:gs_admin/views/widgets/custom_async_filled_button.dart';
+import 'package:gs_admin/views/widgets/custom_async_text_button.dart';
 import 'package:gs_admin/views/widgets/custom_card.dart';
 import 'package:gs_admin/views/widgets/custom_dropdown_button_form_field.dart';
 import 'package:gs_admin/views/widgets/custom_form_scaffold.dart';
@@ -27,14 +26,14 @@ class _OrderFormViewState extends State<OrderFormView> {
   Widget build(BuildContext context) {
     return CustomFormScaffold(
       formKey: controller.formKey,
-      actions: [
-        CustomAsyncFilledButton(
-          onPressed: () => controller.submit(context),
-          icon: Icons.save,
-          label: 'Salvar',
-        ),
-      ],
       child: CustomCard(
+        actions: [
+          CustomAsyncTextButton(
+            onPressed: () => controller.submit(context),
+            icon: Icons.save,
+            label: 'Salvar',
+          ),
+        ],
         children: [
           Text(
             'Cadastro de encomenda',
@@ -56,17 +55,7 @@ class _OrderFormViewState extends State<OrderFormView> {
                 controller.clientSelected = newValue;
               });
             },
-            items: fakeDb.clientes
-                .map(
-                  (ClienteModel cliente) => DropdownMenuItem<ClienteModel>(
-                    value: cliente,
-                    child: Text(
-                      cliente.nome,
-                      style: const TextStyle(height: 2.0),
-                    ),
-                  ),
-                )
-                .toList(),
+            items: const [],
           ),
           const SizedBox(height: 16),
           Text(

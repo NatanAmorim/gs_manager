@@ -41,7 +41,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
           mainAxisSize: MainAxisSize.min,
           children: [
             ValueListenableBuilder<bool>(
-                valueListenable: isFabExtended,
+                valueListenable: isFabExtendedNotifier,
                 builder: (BuildContext context, bool value, Widget? child) {
                   return AnimatedContainer(
                     duration: const Duration(milliseconds: 300),

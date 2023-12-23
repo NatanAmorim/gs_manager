@@ -148,7 +148,6 @@ class _ClientViewState extends State<ClientView> {
     ),
   ];
 
-  late List<ClienteModel> items = fakeDb.clientes;
   late final ScrollController scrollController = ScrollController();
 
   Future refreshItems() async {
@@ -163,18 +162,18 @@ class _ClientViewState extends State<ClientView> {
   }
 
   Future fetchMoreItems() async {
-    await Future.delayed(const Duration(seconds: 2));
     if (!mounted) return;
     setState(() {
-      items.addAll(list);
+      // TODO
+      // items.addAll(list);
     });
   }
 
   bool onNotification(UserScrollNotification notification) {
     if (notification.direction == ScrollDirection.forward) {
-      if (!isFabExtended.value) isFabExtended.value = true;
+      if (!isFabExtendedNotifier.value) isFabExtendedNotifier.value = true;
     } else if (notification.direction == ScrollDirection.reverse) {
-      if (isFabExtended.value) isFabExtended.value = false;
+      if (isFabExtendedNotifier.value) isFabExtendedNotifier.value = false;
     }
 
     return true;
@@ -211,11 +210,13 @@ class _ClientViewState extends State<ClientView> {
             vertical: 8,
             horizontal: 16,
           ),
-          itemCount: items.length + 1,
+          itemCount: 0,
+          // itemCount: items.length + 1, // TODO
           itemBuilder: (BuildContext context, int index) {
-            if (index == items.length) {
-              return loading();
-            }
+            // TODO
+            // if (index == items.length) {
+            //   return loading();
+            // }
 
             return listViewCard(index).animate().fadeIn(
                   duration: const Duration(
@@ -245,19 +246,22 @@ class _ClientViewState extends State<ClientView> {
       // This comes with a small performance cost, and you should not set [clipBehavior]
       // unless you need it.
       clipBehavior: Clip.hardEdge,
+      elevation: 2.0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
       child: CustomOpenContainerCard(
         destination: ClientFormView(
-          clientUpdating: items[index],
+          // clientUpdating: items[index], // TODO
+          clientUpdating: ClienteModel(),
         ),
         child: ListTile(
           contentPadding: const EdgeInsets.symmetric(
             vertical: 8,
             horizontal: 16,
           ),
-          title: Text(items[index].nome),
+          // title: Text(items[index].nome), // TODO
+          title: const Text('items[index].nome'),
           textColor: Theme.of(context).colorScheme.secondary,
           leading: const Icon(Icons.person),
           trailing: const Icon(Icons.arrow_right),

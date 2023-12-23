@@ -6,12 +6,10 @@ class CustomFormScaffold extends StatefulWidget {
     super.key,
     required this.formKey,
     required this.child,
-    required this.actions,
   });
 
   final GlobalKey<FormState> formKey;
   final Widget child;
-  final List<Widget> actions;
 
   @override
   State<CustomFormScaffold> createState() => _CustomFormScaffoldState();
@@ -52,17 +50,13 @@ class _CustomFormScaffoldState extends State<CustomFormScaffold> {
                         onWillPop: () async {
                           if (hasFormChanged) {
                             return DialogHelper.discardChanges(
-                                context: context);
+                              context: context,
+                            );
                           }
 
                           return true;
                         },
                         child: widget.child,
-                      ),
-                      const SizedBox(height: 16),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: widget.actions,
                       ),
                       const SizedBox(height: 32),
                     ],
