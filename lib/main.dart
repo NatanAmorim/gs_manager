@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gs_admin/app.dart';
-import 'package:gs_admin/controllers/settings_controller.dart';
-import 'package:gs_admin/services/settings_service.dart';
+import 'package:gs_admin/src/app.dart';
+import 'package:gs_admin/src/home/subviews/configuracoes_controller.dart';
+import 'package:gs_admin/src/home/subviews/configuracoes_service.dart';
 
 // Set up the SettingsController, which will glue user settings to multiple
 // Flutter Widgets.
@@ -18,7 +18,7 @@ import 'package:gs_admin/services/settings_service.dart';
 * TODO: See if i can use another provider, and which one should be used.
 */
 final settingsProvider = ChangeNotifierProvider(
-  (ref) => SettingsController(SettingsService()),
+  (ref) => ConfiguracoesController(ConfiguracoesService()),
 );
 
 void main() async {
