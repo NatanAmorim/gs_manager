@@ -44,14 +44,16 @@ class _ProdutoFormViewState extends State<ProdutoFormView> {
           ),
         ],
         children: [
-          Text(
-            'Cadastro de produto',
-            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                  color: Theme.of(context).colorScheme.secondary,
-                ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Text(
+              'Cadastro de produto',
+              style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.secondary,
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
           ),
-          const Divider(),
-          const SizedBox(height: 16),
           CustomTextFormField(
             label: 'Nome',
             placeholderText: 'Digite o nome do produto',

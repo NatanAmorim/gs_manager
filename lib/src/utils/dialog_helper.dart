@@ -11,11 +11,9 @@ class DialogHelper {
           context: context,
           builder: (BuildContext context) => AlertDialog(
             contentPadding: const EdgeInsets.all(16),
-            title: Center(
-              child: Text(
-                'Descartar alterações?',
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
+            title: Text(
+              'Descartar alterações?',
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
             content: Text(
               'Tem certeza? quaisquer alterações não salvas serão perdidas!',
@@ -45,11 +43,9 @@ class DialogHelper {
           builder: (BuildContext context) => AlertDialog(
             contentPadding: const EdgeInsets.all(16),
             alignment: Alignment.center,
-            title: Center(
-              child: Text(
-                'Excluir?',
-                style: Theme.of(context).textTheme.titleLarge,
-              ),
+            title: Text(
+              'Excluir registro?',
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
             content: RichText(
               text: TextSpan(
@@ -68,17 +64,53 @@ class DialogHelper {
               ),
             ),
             actions: <Widget>[
-              TextButton(
+              OutlinedButton(
                 onPressed: () => Navigator.pop(context, false),
-                child: const Text('Cancelar'),
+                child: const Text('Não, cancelar'),
               ),
               FilledButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: const Text('Excluir'),
+                child: const Text('Sim, excluir'),
               ),
             ],
           ),
         ) ??
         false;
   }
+
+  static Future logout({
+    required BuildContext context,
+  }) async =>
+      showDialog(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: Text(
+            'Encerrar Sessão?',
+            style: Theme.of(context).textTheme.headlineLarge,
+          ),
+          content: Text(
+            'Tem certeza que deseja desconectar?',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          actions: <Widget>[
+            OutlinedButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Não, continue conectado'),
+            ),
+            FilledButton(
+              onPressed: () async {
+                // final NavigatorState navigator = Navigator.of(context);
+
+                // await navigator.pushAndRemoveUntil(
+                //     MaterialPageRoute(
+                //       builder: (BuildContext context) =>
+                //           const PlaceholderView(),
+                //     ),
+                //     (Route<dynamic> route) => false);
+              },
+              child: const Text('Sim, desconecte-me'),
+            ),
+          ],
+        ),
+      );
 }

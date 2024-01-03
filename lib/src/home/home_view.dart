@@ -51,7 +51,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                     child: FloatingActionButton.extended(
                       clipBehavior: Clip.hardEdge,
                       isExtended: value,
-                      elevation: 6.0,
                       tooltip: 'Ponto de Vendas',
                       heroTag: 'fab-ponto-de-vendas',
                       shape: const RoundedRectangleBorder(
@@ -70,7 +69,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                     ),
                   );
                 }),
-            const SizedBox(width: 0.5),
             FloatingActionButton(
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(

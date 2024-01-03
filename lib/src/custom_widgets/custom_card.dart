@@ -13,15 +13,10 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     children.add(const SizedBox(height: 16));
-
-    if (actions.length == 1) {
-      children.add(actions.first);
-    } else {
-      children.add(Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: actions,
-      ));
-    }
+    children.add(Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: actions,
+    ));
 
     return Card(
       child: Container(

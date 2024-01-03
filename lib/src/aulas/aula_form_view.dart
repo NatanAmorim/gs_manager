@@ -68,14 +68,12 @@ class _AulaFormViewState extends State<AulaFormView> {
       formKey: controller.formKey,
       child: CustomCard(
         actions: [
-          controller.aulaAtualizando == null
-              ? Container()
-              : CustomAsyncTextButton(
-                  icon: Icons.delete_forever,
-                  label: 'Deletar',
-                  isDelete: true,
-                  onPressed: () => controller.delete(context),
-                ),
+          CustomAsyncTextButton(
+            icon: Icons.delete_forever,
+            label: 'Deletar',
+            isDelete: true,
+            onPressed: () => controller.delete(context),
+          ),
           CustomAsyncTextButton(
             icon: Icons.save,
             label: 'Salvar',
@@ -83,14 +81,16 @@ class _AulaFormViewState extends State<AulaFormView> {
           ),
         ],
         children: [
-          Text(
-            'Cadastro de Aula',
-            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                  color: Theme.of(context).colorScheme.secondary,
-                ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Text(
+              'Cadastro de aula',
+              style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.secondary,
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
           ),
-          const Divider(),
-          const SizedBox(height: 16),
           CustomTextFormField(
             label: 'Nome',
             placeholderText: 'Digite o nome da aula',

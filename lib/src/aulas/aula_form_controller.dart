@@ -45,7 +45,7 @@ class AulaFormController {
     if (lecture.duracaoEmMinutos < 30) {
       SnackBarHelper.showError(
         theme: theme,
-        shortDescription: "Duração mínima de aula é 30 minutos.",
+        shortDescription: "Duração mínima da aula é 30 minutos.",
       );
 
       return false;

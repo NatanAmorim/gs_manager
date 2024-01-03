@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gs_admin/main.dart';
+import 'package:gs_admin/src/utils/dialog_helper.dart';
 
 /// Displays the various settings that can be customized by the user.
 ///
@@ -71,6 +72,7 @@ class ConfiguracoesSubview extends ConsumerWidget {
                         context: context,
                         tiles: [
                           ListTile(
+                            tileColor: Theme.of(context).cardTheme.color!,
                             title: const Text("Tema do Aplicativo"),
                             textColor: Theme.of(context).colorScheme.secondary,
                             leading: const Icon(Icons.palette),
@@ -154,6 +156,7 @@ class ConfiguracoesSubview extends ConsumerWidget {
                             },
                           ),
                           ListTile(
+                            tileColor: Theme.of(context).cardTheme.color!,
                             title: const Text("Jurídico e Conformidade"),
                             textColor: Theme.of(context).colorScheme.secondary,
                             leading: const Icon(Icons.gavel),
@@ -164,6 +167,7 @@ class ConfiguracoesSubview extends ConsumerWidget {
                             },
                           ),
                           ListTile(
+                            tileColor: Theme.of(context).cardTheme.color!,
                             title: const Text("Sobre o App"),
                             textColor: Theme.of(context).colorScheme.secondary,
                             leading: const Icon(Icons.info),
@@ -184,14 +188,15 @@ class ConfiguracoesSubview extends ConsumerWidget {
                             ),
                           ),
                           ListTile(
-                            title: const Text("Encerrar Sessão "),
+                            tileColor: Theme.of(context).cardTheme.color!,
+                            title: const Text("Encerrar Sessão"),
                             textColor: Theme.of(context).colorScheme.secondary,
                             leading: const Icon(Icons.logout),
                             trailing: const Icon(Icons.arrow_right),
                             iconColor: Theme.of(context).colorScheme.secondary,
-                            onTap: () {
-                              // TODO
-                            },
+                            onTap: () => DialogHelper.logout(
+                              context: context,
+                            ),
                           ),
                         ],
                       ).toList(),

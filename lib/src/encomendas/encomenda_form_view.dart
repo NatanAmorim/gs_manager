@@ -35,14 +35,16 @@ class _EncomendaFormViewState extends State<EncomendaFormView> {
           ),
         ],
         children: [
-          Text(
-            'Cadastro de encomenda',
-            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                  color: Theme.of(context).colorScheme.secondary,
-                ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Text(
+              'Cadastro de encomenda',
+              style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.secondary,
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
           ),
-          const Divider(),
-          const SizedBox(height: 16),
           CustomDropdownButtonFormField<ClienteModel>(
             fieldName: "Cliente",
             selectedValue: controller.clienteSelecionado,

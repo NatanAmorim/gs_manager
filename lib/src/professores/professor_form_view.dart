@@ -54,14 +54,12 @@ class _ProfessorFormViewState extends State<ProfessorFormView> {
       formKey: controller.formKey,
       child: CustomCard(
         actions: [
-          controller.professorAtualizando == null
-              ? Container()
-              : CustomAsyncTextButton(
-                  icon: Icons.delete_forever,
-                  label: 'Deletar',
-                  isDelete: true,
-                  onPressed: () => controller.delete(context),
-                ),
+          CustomAsyncTextButton(
+            icon: Icons.delete_forever,
+            label: 'Deletar',
+            isDelete: true,
+            onPressed: () => controller.delete(context),
+          ),
           CustomAsyncTextButton(
             icon: Icons.save,
             label: 'Salvar',
@@ -69,14 +67,16 @@ class _ProfessorFormViewState extends State<ProfessorFormView> {
           ),
         ],
         children: [
-          Text(
-            'Cadastro de professor',
-            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                  color: Theme.of(context).colorScheme.secondary,
-                ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Text(
+              'Cadastro de professor',
+              style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.secondary,
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
           ),
-          const Divider(),
-          const SizedBox(height: 16),
           CustomTextFormField(
             autofocus: widget.professorAtualizando == null,
             label: 'Nome',
