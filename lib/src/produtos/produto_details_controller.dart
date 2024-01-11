@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gs_admin/src/utils/snackbar_helper.dart';
 
-class ProdutoFormController {
+class ProdutoDetailsController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   Future<bool> submit(BuildContext context) async {

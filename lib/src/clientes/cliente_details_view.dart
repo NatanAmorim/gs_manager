@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gs_admin/src/clientes/cliente_form_controller.dart';
+import 'package:gs_admin/src/clientes/cliente_details_controller.dart';
 import 'package:gs_admin/src/clientes/cliente_model.dart';
 import 'package:gs_admin/src/custom_widgets/custom_async_text_button.dart';
 import 'package:gs_admin/src/custom_widgets/custom_card.dart';
@@ -25,8 +25,8 @@ class DependenteModel {
   String dataNascimento;
 }
 
-class ClienteFormView extends StatefulWidget {
-  const ClienteFormView({
+class ClienteDetailsView extends StatefulWidget {
+  const ClienteDetailsView({
     Key? key,
     this.clienteAtualizando,
   }) : super(key: key);
@@ -34,11 +34,11 @@ class ClienteFormView extends StatefulWidget {
   final ClienteModel? clienteAtualizando;
 
   @override
-  State<ClienteFormView> createState() => _ClienteFormViewState();
+  State<ClienteDetailsView> createState() => _ClienteDetailsViewState();
 }
 
-class _ClienteFormViewState extends State<ClienteFormView> {
-  late ClienteFormController controller;
+class _ClienteDetailsViewState extends State<ClienteDetailsView> {
+  late ClienteDetailsController controller;
   late ValueNotifier<TextEditingController> addressNotifier;
   final DateFormat dateFormatter = DateFormat('dd/MM/yyyy');
   List<DependenteModel> dependentes = [];
@@ -205,7 +205,7 @@ class _ClienteFormViewState extends State<ClienteFormView> {
   void initState() {
     super.initState();
     controller =
-        ClienteFormController(clienteAtualizando: widget.clienteAtualizando);
+        ClienteDetailsController(clienteAtualizando: widget.clienteAtualizando);
   }
 
   @override

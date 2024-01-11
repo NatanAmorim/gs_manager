@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/src/aulas/aula_form_view.dart';
+import 'package:gs_admin/src/aulas/aula_details_view.dart';
 import 'package:gs_admin/src/aulas/aula_model.dart';
 import 'package:gs_admin/src/professores/professor_model.dart';
 import 'package:gs_admin/src/utils/dialog_helper.dart';
 import 'package:gs_admin/src/utils/snackbar_helper.dart';
 
-class AulaFormController {
-  AulaFormController({
+class AulaDetailsController {
+  AulaDetailsController({
     this.aulaAtualizando,
   });
 

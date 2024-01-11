@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gs_admin/src/clientes/cliente_model.dart';
 import 'package:gs_admin/src/utils/snackbar_helper.dart';
 
-class EncomendaFormController {
+class EncomendaDetailsController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   // TODO a default client can lead to problems...
   // maybe don't? what if someone gets a order because they are first in the list?

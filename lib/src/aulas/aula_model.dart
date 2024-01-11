@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/src/aulas/aula_form_view.dart';
+import 'package:gs_admin/src/aulas/aula_details_view.dart';
 import 'package:gs_admin/src/professores/professor_model.dart';
 
 class AulaModel {

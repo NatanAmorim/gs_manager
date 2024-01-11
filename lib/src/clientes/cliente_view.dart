@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:gs_admin/src/clientes/cliente_form_view.dart';
+import 'package:gs_admin/src/clientes/cliente_details_view.dart';
 import 'package:gs_admin/src/clientes/cliente_model.dart';
 import 'package:gs_admin/src/custom_widgets/custom_open_container_card.dart';
 import 'package:gs_admin/src/global_variables.dart';
@@ -118,7 +118,7 @@ class _ClienteViewState extends State<ClienteView> {
         borderRadius: BorderRadius.circular(10),
       ),
       child: CustomOpenContainerCard(
-        destination: ClienteFormView(
+        destination: ClienteDetailsView(
           // clientUpdating: items[index], // TODO
           clienteAtualizando: ClienteModel(),
         ),

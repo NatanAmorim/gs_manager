@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gs_admin/src/aulas/aula_form_controller.dart';
+import 'package:gs_admin/src/aulas/aula_details_controller.dart';
 import 'package:gs_admin/src/aulas/aula_model.dart';
 import 'package:gs_admin/src/custom_widgets/custom_async_text_button.dart';
 import 'package:gs_admin/src/custom_widgets/custom_card.dart';
@@ -41,8 +41,8 @@ extension TimeOfDayExtension on TimeOfDay {
   }
 }
 
-class AulaFormView extends StatefulWidget {
-  const AulaFormView({
+class AulaDetailsView extends StatefulWidget {
+  const AulaDetailsView({
     Key? key,
     this.aulaAtualizando,
   }) : super(key: key);
@@ -50,16 +50,16 @@ class AulaFormView extends StatefulWidget {
   final AulaModel? aulaAtualizando;
 
   @override
-  State<AulaFormView> createState() => _AulaFormViewState();
+  State<AulaDetailsView> createState() => _AulaDetailsViewState();
 }
 
-class _AulaFormViewState extends State<AulaFormView> {
-  late AulaFormController controller;
+class _AulaDetailsViewState extends State<AulaDetailsView> {
+  late AulaDetailsController controller;
 
   @override
   void initState() {
     super.initState();
-    controller = AulaFormController(aulaAtualizando: widget.aulaAtualizando);
+    controller = AulaDetailsController(aulaAtualizando: widget.aulaAtualizando);
   }
 
   @override

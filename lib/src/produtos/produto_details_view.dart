@@ -4,13 +4,13 @@ import 'package:gs_admin/src/custom_widgets/custom_async_text_button.dart';
 import 'package:gs_admin/src/custom_widgets/custom_card.dart';
 import 'package:gs_admin/src/custom_widgets/custom_form_scaffold.dart';
 import 'package:gs_admin/src/custom_widgets/custom_text_form_field.dart';
-import 'package:gs_admin/src/produtos/produto_form_controller.dart';
+import 'package:gs_admin/src/produtos/produto_details_controller.dart';
 import 'package:gs_admin/src/produtos/produto_model.dart';
 import 'package:gs_admin/src/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/src/utils/values_converter.dart';
 
-class ProdutoFormView extends StatefulWidget {
-  const ProdutoFormView({
+class ProdutoDetailsView extends StatefulWidget {
+  const ProdutoDetailsView({
     Key? key,
     this.produtoAtualizando,
   }) : super(key: key);
@@ -18,17 +18,17 @@ class ProdutoFormView extends StatefulWidget {
   final ProdutoModel? produtoAtualizando;
 
   @override
-  State<ProdutoFormView> createState() => _ProdutoFormViewState();
+  State<ProdutoDetailsView> createState() => _ProdutoDetailsViewState();
 }
 
-class _ProdutoFormViewState extends State<ProdutoFormView> {
-  late ProdutoFormController controller;
+class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
+  late ProdutoDetailsController controller;
   final List<Item> _data = generateItems(3);
 
   @override
   void initState() {
     super.initState();
-    controller = ProdutoFormController();
+    controller = ProdutoDetailsController();
   }
 
   @override

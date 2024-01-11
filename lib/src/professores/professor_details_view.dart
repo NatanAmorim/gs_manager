@@ -4,7 +4,7 @@ import 'package:gs_admin/src/custom_widgets/custom_async_text_button.dart';
 import 'package:gs_admin/src/custom_widgets/custom_card.dart';
 import 'package:gs_admin/src/custom_widgets/custom_form_scaffold.dart';
 import 'package:gs_admin/src/custom_widgets/custom_text_form_field.dart';
-import 'package:gs_admin/src/professores/professor_form_controller.dart';
+import 'package:gs_admin/src/professores/professor_details_controller.dart';
 import 'package:gs_admin/src/professores/professor_model.dart';
 import 'package:gs_admin/src/utils/formatters/cep_input_formatter.dart';
 import 'package:gs_admin/src/utils/formatters/cpf_input_formatter.dart';
@@ -14,8 +14,8 @@ import 'package:gs_admin/src/utils/validators/cpf_validator.dart';
 import 'package:gs_admin/src/viacep/viacep_service.dart';
 import 'package:intl/intl.dart';
 
-class ProfessorFormView extends StatefulWidget {
-  const ProfessorFormView({
+class ProfessorDetailsView extends StatefulWidget {
+  const ProfessorDetailsView({
     Key? key,
     this.professorAtualizando,
   }) : super(key: key);
@@ -23,18 +23,18 @@ class ProfessorFormView extends StatefulWidget {
   final ProfessorModel? professorAtualizando;
 
   @override
-  State<ProfessorFormView> createState() => _ProfessorFormViewState();
+  State<ProfessorDetailsView> createState() => _ProfessorDetailsViewState();
 }
 
-class _ProfessorFormViewState extends State<ProfessorFormView> {
-  late ProfessorFormController controller;
+class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
+  late ProfessorDetailsController controller;
   late ValueNotifier<TextEditingController> address;
   final DateFormat dateFormatter = DateFormat('dd/MM/yyyy');
 
   @override
   void initState() {
     super.initState();
-    controller = ProfessorFormController(
+    controller = ProfessorDetailsController(
         professorAtualizando: widget.professorAtualizando);
   }
 

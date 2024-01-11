@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/src/professores/professor_model.dart';
+import 'package:gs_admin/src/clientes/cliente_model.dart';
 import 'package:gs_admin/src/utils/dialog_helper.dart';
 import 'package:gs_admin/src/utils/snackbar_helper.dart';
 
-class ProfessorFormController {
-  ProfessorFormController({
-    this.professorAtualizando,
+class ClienteDetailsController {
+  ClienteDetailsController({
+    this.clienteAtualizando,
   });
 
-  final ProfessorModel? professorAtualizando;
-  late ProfessorModel teacher = professorAtualizando ?? ProfessorModel();
+  final ClienteModel? clienteAtualizando;
+  late ClienteModel cliente = clienteAtualizando ?? ClienteModel();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   Future<bool> submit(BuildContext context) async {
@@ -28,11 +28,11 @@ class ProfessorFormController {
 
     formKey.currentState!.save();
 
-    // final box = Boxes.getProfessors();
-    // if (teacherUpdating == null) {
-    //   await box.add(teacher);
+    // final box = Boxes.getClientes();
+    // if (clientUpdating == null) {
+    //   await box.add(client);
     // } else {
-    //   await teacher.save();
+    //   await client.save();
     // }
 
     navigator.pop();
@@ -47,14 +47,14 @@ class ProfessorFormController {
 
     final bool shouldDelete = await DialogHelper.onDelete(
       context: context,
-      itemDescription: 'Nome: ${teacher.nome}',
+      itemDescription: 'Nome: ${cliente.nome}',
     );
 
     if (shouldDelete) {
       bool success = true;
 
       try {
-        // await teacher.delete();
+        // await client.delete();
       } on Exception {
         success = false;
       }

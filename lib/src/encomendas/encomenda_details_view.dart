@@ -4,22 +4,22 @@ import 'package:gs_admin/src/custom_widgets/custom_async_text_button.dart';
 import 'package:gs_admin/src/custom_widgets/custom_card.dart';
 import 'package:gs_admin/src/custom_widgets/custom_dropdown_button_form_field.dart';
 import 'package:gs_admin/src/custom_widgets/custom_form_scaffold.dart';
-import 'package:gs_admin/src/encomendas/encomenda_form_controller.dart';
+import 'package:gs_admin/src/encomendas/encomenda_details_controller.dart';
 
-class EncomendaFormView extends StatefulWidget {
-  const EncomendaFormView({Key? key}) : super(key: key);
+class EncomendaDetailsView extends StatefulWidget {
+  const EncomendaDetailsView({Key? key}) : super(key: key);
 
   @override
-  State<EncomendaFormView> createState() => _EncomendaFormViewState();
+  State<EncomendaDetailsView> createState() => _EncomendaDetailsViewState();
 }
 
-class _EncomendaFormViewState extends State<EncomendaFormView> {
-  late EncomendaFormController controller;
+class _EncomendaDetailsViewState extends State<EncomendaDetailsView> {
+  late EncomendaDetailsController controller;
 
   @override
   void initState() {
     super.initState();
-    controller = EncomendaFormController();
+    controller = EncomendaDetailsController();
   }
 
   @override
