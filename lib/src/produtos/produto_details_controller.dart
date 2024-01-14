@@ -30,4 +30,8 @@ class ProdutoDetailsController {
     navigator.pop();
     return true;
   }
+
+  delete(BuildContext context) {
+    // TODO
+  }
 }

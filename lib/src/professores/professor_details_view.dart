@@ -225,16 +225,10 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
           const SizedBox(height: 16),
           CustomTextFormField(
             label: 'Número',
-            placeholderText: 'Digite o nome do endereço',
+            placeholderText: 'Digite o número do endereço',
             initialValue: controller.teacher.numero,
             onSaved: (String? text) => controller.teacher.numero = text!,
             keyboardType: TextInputType.name,
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Digite o número';
-              }
-              return null;
-            },
           ),
           const SizedBox(height: 16),
         ],

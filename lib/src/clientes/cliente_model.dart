@@ -26,7 +26,18 @@ class ClienteModel {
   String cpfResponsavel;
   String nomePix;
 
+  List<ClienteDependenteModel>? dependentes;
   List<ClienteAulaModel>? aulasInscritas;
+}
+
+class ClienteDependenteModel {
+  ClienteDependenteModel({
+    this.nome = '',
+    this.dataNascimento = '',
+  });
+
+  String nome;
+  String dataNascimento;
 }
 
 class ClienteAulaModel {

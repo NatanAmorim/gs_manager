@@ -79,14 +79,11 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
               onPressed: () {
                 showModalBottomSheet<void>(
                   context: context,
-                  showDragHandle: true,
                   builder: (BuildContext context) {
                     return Padding(
-                      padding: const EdgeInsets.only(
-                        top: 0,
-                        bottom: 16,
-                        left: 16,
-                        right: 16,
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 8,
+                        horizontal: 16,
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,

@@ -23,7 +23,7 @@ class ProdutoDetailsView extends StatefulWidget {
 
 class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
   late ProdutoDetailsController controller;
-  final List<Item> _data = generateItems(3);
+  List<ProdutoVarianteModel> variantes = [];
 
   @override
   void initState() {
@@ -37,6 +37,12 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
       formKey: controller.formKey,
       child: CustomCard(
         actions: [
+          CustomAsyncTextButton(
+            icon: Icons.delete_forever,
+            label: 'Deletar',
+            isDelete: true,
+            onPressed: () => controller.delete(context),
+          ),
           CustomAsyncTextButton(
             onPressed: () => controller.submit(context),
             icon: Icons.save,
@@ -71,11 +77,20 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          _buildPanel(),
+          Flexible(
+            flex: 1,
+            child: AnimatedList(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              key: _listKey,
+              initialItemCount: variantes.length,
+              itemBuilder: _buildItem,
+            ),
+          ),
           const SizedBox(height: 16),
           Center(
-            child: TextButton.icon(
-              onPressed: () {},
+            child: OutlinedButton.icon(
+              onPressed: () => _insert(ProdutoVarianteModel()),
               icon: Icon(
                 Icons.add,
                 color: Theme.of(context).colorScheme.tertiary,
@@ -94,201 +109,261 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
     );
   }
 
-  Widget _buildPanel() {
-    return ExpansionPanelList.radio(
-      children: _data.map<ExpansionPanelRadio>((Item item) {
-        return ExpansionPanelRadio(
-            value: item.id,
-            canTapOnHeader: true,
-            headerBuilder: (BuildContext context, bool isExpanded) {
-              return ListTile(
-                title: Text(item.headerValue),
-                iconColor: Theme.of(context).colorScheme.tertiary,
-              );
-            },
-            body: ListTile(
-              title: Column(
-                children: [
-                  TextButton.icon(
-                    style: ButtonStyle(
-                      foregroundColor:
-                          MaterialStateProperty.resolveWith<Color?>(
-                              (Set<MaterialState> states) {
-                        if (states.contains(MaterialState.pressed)) {
-                          return Colors.red.withOpacity(0.6);
-                        }
+  final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
 
-                        return Colors.red;
-                      }),
-                    ),
-                    onPressed: () {},
-                    icon: const Icon(Icons.delete),
-                    label: const Text('Excluir variante'),
-                  ),
-                  const SizedBox(height: 8.0),
-                  CustomTextFormField(
-                    label: 'Descrição',
-                    placeholderText: 'Digite a descrição do produto',
-                    validator: (String? value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Digite a descrição';
-                      }
-
-                      if (value.length < 3) {
-                        return 'Insira uma descrição válida';
-                      }
-
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Flexible(
-                        flex: 1,
-                        child: CustomTextFormField(
-                          label: 'Código de barras',
-                          placeholderText: 'Digite a Código de barras',
-                          validator: (String? value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Digite a Código de barras';
-                            }
-
-                            return null;
-                          },
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Flexible(
-                        flex: 1,
-                        child: CustomTextFormField(
-                          label: 'Preço unitário',
-                          initialValue: r'R$ 0,00',
-                          validator: (String? value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Digite o preço';
-                            }
-
-                            if (ValuesConverter.convertBrl(value) < 0.05) {
-                              return 'Preço mínimo de 5 centavos';
-                            }
-
-                            return null;
-                          },
-                          inputFormatters: [
-                            FilteringTextInputFormatter.digitsOnly,
-                            BrlInputFormatter()
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Flexible(
-                        flex: 1,
-                        child: CustomTextFormField(
-                          label: 'Estoque mínimo',
-                          placeholderText: 'Digite a quantidade mínima',
-                          helperText:
-                              'Para alertar, quando fica \n abaixo do valor mínimo',
-                          suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.add),
-                          ),
-                          prefixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.remove),
-                          ),
-                          initialValue: '0',
-                          textAlign: TextAlign.center,
-                          validator: (String? value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Digite a quantidade';
-                            }
-
-                            if (int.parse(value) < 0) {
-                              return 'quantidade inválida';
-                            }
-
-                            return null;
-                          },
-                          keyboardType: TextInputType.number,
-                          inputFormatters: [
-                            FilteringTextInputFormatter.deny(
-                                RegExp('^0+(?=.)')),
-                            FilteringTextInputFormatter.digitsOnly,
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Flexible(
-                        flex: 1,
-                        child: CustomTextFormField(
-                          label: 'Estoque',
-                          placeholderText: 'Digite a quantidade',
-                          suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.add),
-                          ),
-                          prefixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.remove),
-                          ),
-                          initialValue: '0',
-                          textAlign: TextAlign.center,
-                          validator: (String? value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Digite a quantidade';
-                            }
-
-                            if (int.parse(value) < 0) {
-                              return 'quantidade inválida';
-                            }
-
-                            return null;
-                          },
-                          keyboardType: TextInputType.number,
-                          inputFormatters: [
-                            FilteringTextInputFormatter.deny(
-                                RegExp('^0+(?=.)')),
-                            FilteringTextInputFormatter.digitsOnly,
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ));
-      }).toList(),
+  // Used to build list items that haven't been removed.
+  Widget _buildItem(
+    BuildContext context,
+    int index,
+    Animation<double> animation,
+  ) {
+    return SizeTransition(
+      sizeFactor: animation,
+      child: _buildDependentesWidget(variantes[index]),
     );
   }
-}
 
-// Delete
-// stores ExpansionPanel state information
-class Item {
-  Item({
-    required this.id,
-    required this.expandedValue,
-    required this.headerValue,
-  });
-
-  int id;
-  String expandedValue;
-  String headerValue;
-}
-
-List<Item> generateItems(int numberOfItems) {
-  return List<Item>.generate(numberOfItems, (int index) {
-    return Item(
-      id: index,
-      headerValue: 'Variante nº ${index + 1}',
-      expandedValue: 'This is item number $index',
+  /// The builder function used to build items that have been removed.
+  ///
+  /// Used to build an item after it has been removed from the list. This method
+  /// is needed because a removed item remains visible until its animation has
+  /// completed (even though it's gone as far as this ListModel is concerned).
+  /// The widget will be used by the [AnimatedListState.removeItem] method's
+  /// [AnimatedRemovedItemBuilder] parameter.
+  Widget _buildRemovedItem(
+    ProdutoVarianteModel variante,
+    BuildContext context,
+    Animation<double> animation,
+  ) {
+    // WARNING we don't want removed items to be interactive.
+    return SizeTransition(
+      sizeFactor: animation,
+      child: FadeTransition(
+        opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
+        child: _buildDependentesWidget(
+          variante,
+          isRemoving: true,
+        ),
+      ),
     );
-  });
+  }
+
+  // Insert the "next item" into the list model.
+  void _insert(ProdutoVarianteModel variante) {
+    variantes.add(variante);
+    _listKey.currentState?.insertItem(variantes.length - 1);
+  }
+
+  // Remove the selected item from the list model.
+  void _remove(ProdutoVarianteModel variante) {
+    final index = variantes.indexOf(variante);
+    _listKey.currentState?.removeItem(
+        index,
+        (
+          BuildContext context,
+          Animation<double> animation,
+        ) =>
+            _buildRemovedItem(
+              variante,
+              context,
+              animation,
+            ));
+
+    variantes.removeAt(index);
+    FocusManager.instance.primaryFocus?.unfocus();
+  }
+
+  Widget _buildDependentesWidget(
+    ProdutoVarianteModel variante, {
+    bool isRemoving = false,
+  }) {
+    return ExpansionTile(
+      shape: const Border(
+        top: BorderSide.none,
+        bottom: BorderSide(
+          color: Colors.grey,
+          width: 1.0,
+        ),
+      ),
+      collapsedShape: const Border(
+        top: BorderSide.none,
+        bottom: BorderSide(
+          color: Colors.grey,
+          width: 1.0,
+        ),
+      ),
+      collapsedBackgroundColor: Theme.of(context).brightness == Brightness.light
+          ? Colors.white.withAlpha(160)
+          : Colors.black.withAlpha(120),
+      backgroundColor: Theme.of(context).brightness == Brightness.light
+          ? Colors.white.withAlpha(120)
+          : Colors.black.withAlpha(80),
+      childrenPadding: const EdgeInsets.all(8.0),
+      title: const Text('Variante'),
+      subtitle: Text(
+        variante.descricao.isEmpty
+            ? 'Digite uma descrição'
+            : variante.descricao,
+      ),
+      children: [
+        TextButton.icon(
+          style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+                (Set<MaterialState> states) {
+              if (states.contains(MaterialState.pressed)) {
+                return Colors.pink.withOpacity(0.6);
+              }
+
+              return Colors.pink;
+            }),
+          ),
+          onPressed: () => _remove(variante),
+          icon: const Icon(Icons.delete),
+          label: const Text('Excluir variante'),
+        ),
+        const SizedBox(height: 8.0),
+        CustomTextFormField(
+          isEnabled: !isRemoving,
+          label: 'Descrição',
+          placeholderText: 'Digite a descrição do produto',
+          onChanged: (String? text) => setState(() {
+            variante.descricao = text!;
+          }),
+          validator: (String? value) {
+            if (value == null || value.isEmpty) {
+              return 'Digite a descrição';
+            }
+
+            if (value.length < 3) {
+              return 'Insira uma descrição válida';
+            }
+
+            return null;
+          },
+        ),
+        const SizedBox(height: 16),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Flexible(
+              flex: 1,
+              child: CustomTextFormField(
+                isEnabled: !isRemoving,
+                label: 'Código de barras',
+                placeholderText: 'Digite a Código de barras',
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Digite a Código de barras';
+                  }
+
+                  return null;
+                },
+              ),
+            ),
+            const SizedBox(width: 8),
+            Flexible(
+              flex: 1,
+              child: CustomTextFormField(
+                isEnabled: !isRemoving,
+                label: 'Preço unitário',
+                initialValue: r'R$ 0,00',
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Digite o preço';
+                  }
+
+                  if (ValuesConverter.convertBrl(value) < 0.05) {
+                    return 'Preço mínimo de 5 centavos';
+                  }
+
+                  return null;
+                },
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  BrlInputFormatter()
+                ],
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 16),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Flexible(
+              flex: 1,
+              child: CustomTextFormField(
+                isEnabled: !isRemoving,
+                label: 'Estoque mínimo',
+                placeholderText: 'Digite a quantidade mínima',
+                helperText:
+                    'Para alertar, quando fica \n abaixo do valor mínimo',
+                suffixIcon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.add),
+                ),
+                prefixIcon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.remove),
+                ),
+                initialValue: '0',
+                textAlign: TextAlign.center,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Digite a quantidade';
+                  }
+
+                  if (int.parse(value) < 0) {
+                    return 'quantidade inválida';
+                  }
+
+                  return null;
+                },
+                keyboardType: TextInputType.number,
+                inputFormatters: [
+                  FilteringTextInputFormatter.deny(RegExp('^0+(?=.)')),
+                  FilteringTextInputFormatter.digitsOnly,
+                ],
+              ),
+            ),
+            const SizedBox(width: 8),
+            Flexible(
+              flex: 1,
+              child: CustomTextFormField(
+                isEnabled: !isRemoving,
+                label: 'Estoque',
+                placeholderText: 'Digite a quantidade',
+                suffixIcon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.add),
+                ),
+                prefixIcon: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.remove),
+                ),
+                initialValue: '0',
+                textAlign: TextAlign.center,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Digite a quantidade';
+                  }
+
+                  if (int.parse(value) < 0) {
+                    return 'quantidade inválida';
+                  }
+
+                  return null;
+                },
+                keyboardType: TextInputType.number,
+                inputFormatters: [
+                  FilteringTextInputFormatter.deny(RegExp('^0+(?=.)')),
+                  FilteringTextInputFormatter.digitsOnly,
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
 }

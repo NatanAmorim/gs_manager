@@ -14,17 +14,6 @@ import 'package:gs_admin/src/utils/validators/cpf_validator.dart';
 import 'package:gs_admin/src/viacep/viacep_service.dart';
 import 'package:intl/intl.dart';
 
-// TODO decide final model
-class DependenteModel {
-  DependenteModel({
-    this.nome = '',
-    this.dataNascimento = '',
-  });
-
-  String nome;
-  String dataNascimento;
-}
-
 class ClienteDetailsView extends StatefulWidget {
   const ClienteDetailsView({
     Key? key,
@@ -41,7 +30,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
   late ClienteDetailsController controller;
   late ValueNotifier<TextEditingController> addressNotifier;
   final DateFormat dateFormatter = DateFormat('dd/MM/yyyy');
-  List<DependenteModel> dependentes = [];
+  List<ClienteDependenteModel> dependentes = [];
 
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
 
@@ -65,7 +54,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
   /// The widget will be used by the [AnimatedListState.removeItem] method's
   /// [AnimatedRemovedItemBuilder] parameter.
   Widget _buildRemovedItem(
-    DependenteModel dependente,
+    ClienteDependenteModel dependente,
     BuildContext context,
     Animation<double> animation,
   ) {
@@ -83,13 +72,13 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
   }
 
   // Insert the "next item" into the list model.
-  void _insert(DependenteModel dependente) {
+  void _insert(ClienteDependenteModel dependente) {
     dependentes.add(dependente);
     _listKey.currentState?.insertItem(dependentes.length - 1);
   }
 
   // Remove the selected item from the list model.
-  void _remove(DependenteModel dependente) {
+  void _remove(ClienteDependenteModel dependente) {
     final index = dependentes.indexOf(dependente);
     _listKey.currentState?.removeItem(
         index,
@@ -108,10 +97,31 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
   }
 
   Widget _buildDependentesWidget(
-    DependenteModel dependente, {
+    ClienteDependenteModel dependente, {
     bool isRemoving = false,
   }) {
     return ExpansionTile(
+      shape: const Border(
+        top: BorderSide.none,
+        bottom: BorderSide(
+          color: Colors.grey,
+          width: 1.0,
+        ),
+      ),
+      collapsedShape: const Border(
+        top: BorderSide.none,
+        bottom: BorderSide(
+          color: Colors.grey,
+          width: 1.0,
+        ),
+      ),
+      collapsedBackgroundColor: Theme.of(context).brightness == Brightness.light
+          ? Colors.white.withAlpha(160)
+          : Colors.black.withAlpha(120),
+      backgroundColor: Theme.of(context).brightness == Brightness.light
+          ? Colors.white.withAlpha(120)
+          : Colors.black.withAlpha(80),
+      childrenPadding: const EdgeInsets.symmetric(horizontal: 8.0),
       title: const Text('Dependente'),
       subtitle:
           Text(dependente.nome.isEmpty ? 'Digite o nome' : dependente.nome),
@@ -121,15 +131,13 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
             foregroundColor: MaterialStateProperty.resolveWith<Color?>(
                 (Set<MaterialState> states) {
               if (states.contains(MaterialState.pressed)) {
-                return Colors.red.withOpacity(0.6);
+                return Colors.pink.withOpacity(0.6);
               }
 
-              return Colors.red;
+              return Colors.pink;
             }),
           ),
-          onPressed: () {
-            _remove(dependente);
-          },
+          onPressed: () => _remove(dependente),
           icon: const Icon(Icons.delete),
           label: const Text('Excluir Regritro'),
         ),
@@ -395,16 +403,10 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
           const SizedBox(height: 16),
           CustomTextFormField(
             label: 'Número',
-            placeholderText: 'Digite o nome do endereço',
+            placeholderText: 'Digite o número do endereço',
             initialValue: controller.cliente.numero,
             onSaved: (String? text) => controller.cliente.numero = text!,
             keyboardType: TextInputType.name,
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Digite o número';
-              }
-              return null;
-            },
           ),
           const SizedBox(height: 16),
           CustomTextFormField(
@@ -427,9 +429,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
           const SizedBox(height: 20),
           Center(
             child: OutlinedButton.icon(
-              onPressed: () {
-                _insert(DependenteModel());
-              },
+              onPressed: () => _insert(ClienteDependenteModel()),
               icon: const Icon(
                 Icons.add,
               ),
