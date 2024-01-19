@@ -6,6 +6,7 @@ import 'package:gs_admin/src/custom_widgets/custom_async_text_button.dart';
 import 'package:gs_admin/src/custom_widgets/custom_card.dart';
 import 'package:gs_admin/src/custom_widgets/custom_form_scaffold.dart';
 import 'package:gs_admin/src/custom_widgets/custom_text_form_field.dart';
+import 'package:gs_admin/src/utils/dialog_helper.dart';
 import 'package:gs_admin/src/utils/formatters/cep_input_formatter.dart';
 import 'package:gs_admin/src/utils/formatters/cpf_input_formatter.dart';
 import 'package:gs_admin/src/utils/formatters/date_input_formatter.dart';
@@ -78,7 +79,17 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
   }
 
   // Remove the selected item from the list model.
-  void _remove(ClienteDependenteModel dependente) {
+  void _remove(ClienteDependenteModel dependente) async {
+    final bool shouldDelete = await DialogHelper.onDelete(
+      context: context,
+      itemDescription: 'Nome: ${dependente.nome}',
+    );
+
+    // if it user cancelled the removal process
+    if (!shouldDelete) {
+      return;
+    }
+
     final index = dependentes.indexOf(dependente);
     _listKey.currentState?.removeItem(
         index,
@@ -116,13 +127,13 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
         ),
       ),
       collapsedBackgroundColor: Theme.of(context).brightness == Brightness.light
-          ? Colors.white.withAlpha(160)
-          : Colors.black.withAlpha(120),
+          ? Theme.of(context).colorScheme.primary.withAlpha(80)
+          : Theme.of(context).colorScheme.primaryContainer.withAlpha(180),
       backgroundColor: Theme.of(context).brightness == Brightness.light
-          ? Colors.white.withAlpha(120)
-          : Colors.black.withAlpha(80),
+          ? Theme.of(context).colorScheme.primary.withAlpha(120)
+          : Theme.of(context).colorScheme.primaryContainer.withAlpha(120),
       childrenPadding: const EdgeInsets.symmetric(horizontal: 8.0),
-      title: const Text('Dependente'),
+      title: const Text('Filho/Dependente'),
       subtitle:
           Text(dependente.nome.isEmpty ? 'Digite o nome' : dependente.nome),
       children: <Widget>[
@@ -131,21 +142,21 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
             foregroundColor: MaterialStateProperty.resolveWith<Color?>(
                 (Set<MaterialState> states) {
               if (states.contains(MaterialState.pressed)) {
-                return Colors.pink.withOpacity(0.6);
+                return Colors.pink.shade300.withOpacity(0.6);
               }
 
-              return Colors.pink;
+              return Colors.pink.shade300;
             }),
           ),
           onPressed: () => _remove(dependente),
           icon: const Icon(Icons.delete),
-          label: const Text('Excluir Regritro'),
+          label: const Text('Excluir Registro'),
         ),
         const SizedBox(height: 8.0),
         CustomTextFormField(
           isEnabled: !isRemoving,
-          label: 'Nome do dependente',
-          placeholderText: 'Digite o nome do dependente',
+          label: 'Nome do filho/dependente',
+          placeholderText: 'Digite o nome do filho/dependente',
           initialValue: dependente.nome,
           // onSaved: (String? text) => controller.cliente.nome = text!, // TODO
           onChanged: (String? text) => setState(() {
@@ -434,7 +445,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
                 Icons.add,
               ),
               label: const Text(
-                'Adicionar depedente',
+                'Adicionar filho/dependente',
                 style: TextStyle(),
               ),
             ),

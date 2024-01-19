@@ -41,7 +41,7 @@ class _CustomAsyncTextButtonState extends State<CustomAsyncTextButton> {
           if (widget.isDelete) {
             return Theme.of(context).brightness == Brightness.light
                 ? Colors.pink.shade300
-                : Colors.pink.shade400;
+                : Colors.pink.shade200;
           }
 
           return Theme.of(context).colorScheme.primary;

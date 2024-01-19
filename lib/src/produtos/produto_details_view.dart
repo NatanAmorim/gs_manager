@@ -6,6 +6,7 @@ import 'package:gs_admin/src/custom_widgets/custom_form_scaffold.dart';
 import 'package:gs_admin/src/custom_widgets/custom_text_form_field.dart';
 import 'package:gs_admin/src/produtos/produto_details_controller.dart';
 import 'package:gs_admin/src/produtos/produto_model.dart';
+import 'package:gs_admin/src/utils/dialog_helper.dart';
 import 'package:gs_admin/src/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/src/utils/values_converter.dart';
 
@@ -155,7 +156,16 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
   }
 
   // Remove the selected item from the list model.
-  void _remove(ProdutoVarianteModel variante) {
+  void _remove(ProdutoVarianteModel variante) async {
+    final bool shouldDelete = await DialogHelper.onDelete(
+      context: context,
+      itemDescription: 'Descrição: ${variante.descricao}',
+    );
+
+    // if it user cancelled the removal process
+    if (!shouldDelete) {
+      return;
+    }
     final index = variantes.indexOf(variante);
     _listKey.currentState?.removeItem(
         index,
@@ -193,11 +203,11 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
         ),
       ),
       collapsedBackgroundColor: Theme.of(context).brightness == Brightness.light
-          ? Colors.white.withAlpha(160)
-          : Colors.black.withAlpha(120),
+          ? Theme.of(context).colorScheme.primary.withAlpha(80)
+          : Theme.of(context).colorScheme.primaryContainer.withAlpha(180),
       backgroundColor: Theme.of(context).brightness == Brightness.light
-          ? Colors.white.withAlpha(120)
-          : Colors.black.withAlpha(80),
+          ? Theme.of(context).colorScheme.primary.withAlpha(120)
+          : Theme.of(context).colorScheme.primaryContainer.withAlpha(120),
       childrenPadding: const EdgeInsets.all(8.0),
       title: const Text('Variante'),
       subtitle: Text(
@@ -211,10 +221,10 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
             foregroundColor: MaterialStateProperty.resolveWith<Color?>(
                 (Set<MaterialState> states) {
               if (states.contains(MaterialState.pressed)) {
-                return Colors.pink.withOpacity(0.6);
+                return Colors.pink.shade300.withOpacity(0.6);
               }
 
-              return Colors.pink;
+              return Colors.pink.shade300;
             }),
           ),
           onPressed: () => _remove(variante),
