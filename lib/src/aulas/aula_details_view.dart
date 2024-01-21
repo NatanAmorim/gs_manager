@@ -121,7 +121,7 @@ class _AulaDetailsViewState extends State<AulaDetailsView> {
               }
 
               if (ValuesConverter.convertBrl(value) < 30.0) {
-                return 'Preço mínimo de 30 reais';
+                return r'Valor mínimo é de R$ 30,00';
               }
 
               return null;

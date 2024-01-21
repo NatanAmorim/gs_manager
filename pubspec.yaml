@@ -13,10 +13,12 @@ dependencies:
   flutter_secure_storage: ^8.0.0
   flutter_svg: ^2.0.7
   freezed_annotation: ^2.2.0
+  grpc: ^3.2.4
   http: ^1.1.0
   intl: ^0.18.0
   local_auth: ^2.1.6
   logging: ^1.2.0
+  protobuf: ^3.1.0
   riverpod_annotation: ^2.0.2
   shared_preferences: ^2.0.15
 
