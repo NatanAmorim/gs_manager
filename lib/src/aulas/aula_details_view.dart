@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gs_admin/src/aulas/aula_details_controller.dart';
 import 'package:gs_admin/src/aulas/aula_model.dart';
-import 'package:gs_admin/src/custom_widgets/custom_async_text_button.dart';
-import 'package:gs_admin/src/custom_widgets/custom_card.dart';
-import 'package:gs_admin/src/custom_widgets/custom_dropdown_button_form_field.dart';
-import 'package:gs_admin/src/custom_widgets/custom_form_scaffold.dart';
-import 'package:gs_admin/src/custom_widgets/custom_text_form_field.dart';
-import 'package:gs_admin/src/custom_widgets/custom_time_field.dart';
+import 'package:gs_admin/src/components/card_component.dart';
+import 'package:gs_admin/src/components/dropdown_form_field_component.dart';
+import 'package:gs_admin/src/components/scaffold_form_component.dart';
+import 'package:gs_admin/src/components/text_button_async_component.dart';
+import 'package:gs_admin/src/components/text_form_field_component.dart';
+import 'package:gs_admin/src/components/time_field_component.dart';
 import 'package:gs_admin/src/professores/professor_model.dart';
 import 'package:gs_admin/src/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/src/utils/values_converter.dart';
@@ -64,17 +64,17 @@ class _AulaDetailsViewState extends State<AulaDetailsView> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomFormScaffold(
+    return ScaffoldFormComponent(
       formKey: controller.formKey,
-      child: CustomCard(
+      child: CardComponent(
         actions: [
-          CustomAsyncTextButton(
+          TextButtonAsyncComponent(
             icon: Icons.delete_forever,
             label: 'Deletar',
             isDelete: true,
             onPressed: () => controller.delete(context),
           ),
-          CustomAsyncTextButton(
+          TextButtonAsyncComponent(
             icon: Icons.save,
             label: 'Salvar',
             onPressed: () => controller.submit(context),
@@ -91,7 +91,7 @@ class _AulaDetailsViewState extends State<AulaDetailsView> {
                   ),
             ),
           ),
-          CustomTextFormField(
+          TextFormFieldComponent(
             label: 'Nome',
             placeholderText: 'Digite o nome da aula',
             autofocus: widget.aulaAtualizando == null,
@@ -110,7 +110,7 @@ class _AulaDetailsViewState extends State<AulaDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          CustomTextFormField(
+          TextFormFieldComponent(
             label: 'Preço',
             keyboardType: TextInputType.number,
             initialValue: controller.lecture.preco,
@@ -132,7 +132,7 @@ class _AulaDetailsViewState extends State<AulaDetailsView> {
             ],
           ),
           const SizedBox(height: 16),
-          CustomDropdownButtonFormField<ProfessorModel>(
+          DropdownFormFieldComponent<ProfessorModel>(
             fieldName: "Professor",
             selectedValue: controller.lecture.professor,
             onChanged: (dynamic newValue) {
@@ -159,7 +159,7 @@ class _AulaDetailsViewState extends State<AulaDetailsView> {
             children: [
               Flexible(
                 flex: 1,
-                child: CustomTimeField(
+                child: TimeFieldComponent(
                   label: 'Hora começa',
                   time: controller.lecture.horaInicio.format(context),
                   icon: const Icon(Icons.timer_outlined),
@@ -182,7 +182,7 @@ class _AulaDetailsViewState extends State<AulaDetailsView> {
               const SizedBox(width: 16),
               Flexible(
                 flex: 1,
-                child: CustomTimeField(
+                child: TimeFieldComponent(
                   label: 'Hora acaba',
                   time: controller.lecture.horaFim.format(context),
                   icon: const Icon(Icons.timer_off_outlined),

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gs_admin/src/clientes/cliente_details_controller.dart';
 import 'package:gs_admin/src/clientes/cliente_model.dart';
-import 'package:gs_admin/src/custom_widgets/custom_async_text_button.dart';
-import 'package:gs_admin/src/custom_widgets/custom_card.dart';
-import 'package:gs_admin/src/custom_widgets/custom_form_scaffold.dart';
-import 'package:gs_admin/src/custom_widgets/custom_text_form_field.dart';
+import 'package:gs_admin/src/components/card_component.dart';
+import 'package:gs_admin/src/components/scaffold_form_component.dart';
+import 'package:gs_admin/src/components/text_button_async_component.dart';
+import 'package:gs_admin/src/components/text_form_field_component.dart';
 import 'package:gs_admin/src/utils/dialog_helper.dart';
 import 'package:gs_admin/src/utils/formatters/cep_input_formatter.dart';
 import 'package:gs_admin/src/utils/formatters/cpf_input_formatter.dart';
@@ -153,7 +153,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
           label: const Text('Excluir Registro'),
         ),
         const SizedBox(height: 8.0),
-        CustomTextFormField(
+        TextFormFieldComponent(
           isEnabled: !isRemoving,
           label: 'Nome do filho/dependente',
           placeholderText: 'Digite o nome do filho/dependente',
@@ -176,7 +176,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
           },
         ),
         const SizedBox(height: 16),
-        CustomTextFormField(
+        TextFormFieldComponent(
           label: 'Data de nascimento',
           placeholderText: 'Digite a data',
           initialValue: dependente.dataNascimento,
@@ -239,17 +239,17 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
       TextEditingController(text: widget.clienteAtualizando?.endereco ?? ''),
     );
 
-    return CustomFormScaffold(
+    return ScaffoldFormComponent(
       formKey: controller.formKey,
-      child: CustomCard(
+      child: CardComponent(
         actions: [
-          CustomAsyncTextButton(
+          TextButtonAsyncComponent(
             icon: Icons.delete_forever,
             label: 'Deletar',
             isDelete: true,
             onPressed: () => controller.delete(context),
           ),
-          CustomAsyncTextButton(
+          TextButtonAsyncComponent(
             icon: Icons.save,
             label: 'Salvar',
             onPressed: () => controller.submit(context),
@@ -266,7 +266,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
                   ),
             ),
           ),
-          CustomTextFormField(
+          TextFormFieldComponent(
             autofocus: widget.clienteAtualizando == null,
             label: 'Nome',
             placeholderText: 'Digite o nome do cliente',
@@ -286,7 +286,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          CustomTextFormField(
+          TextFormFieldComponent(
             label: 'Celular',
             placeholderText: 'Digite o número de celular',
             keyboardType: TextInputType.phone,
@@ -298,7 +298,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
             onSaved: (String? text) => controller.cliente.celular = text!,
           ),
           const SizedBox(height: 16),
-          CustomTextFormField(
+          TextFormFieldComponent(
             label: 'Data de nascimento',
             placeholderText: 'Digite a data',
             initialValue: controller.cliente.dataNascimento,
@@ -338,7 +338,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
                 controller.cliente.dataNascimento = text!,
           ),
           const SizedBox(height: 16),
-          CustomTextFormField(
+          TextFormFieldComponent(
             label: 'CPF',
             placeholderText: 'Digite o número de cpf',
             validator: (String? value) {
@@ -361,7 +361,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          CustomTextFormField(
+          TextFormFieldComponent(
             label: 'CEP',
             initialValue: controller.cliente.cep,
             placeholderText: 'Digite o número de cep',
@@ -402,7 +402,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
               TextEditingController value,
               Widget? child,
             ) {
-              return CustomTextFormField(
+              return TextFormFieldComponent(
                 controller: value,
                 label: 'Endereço',
                 placeholderText: 'Digite o endereço',
@@ -412,7 +412,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          CustomTextFormField(
+          TextFormFieldComponent(
             label: 'Número',
             placeholderText: 'Digite o número do endereço',
             initialValue: controller.cliente.numero,
@@ -420,7 +420,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
             keyboardType: TextInputType.name,
           ),
           const SizedBox(height: 16),
-          CustomTextFormField(
+          TextFormFieldComponent(
             label: 'Nome PIX',
             placeholderText: 'Digite o nome no recibo do PIX',
             initialValue: controller.cliente.nomePix,

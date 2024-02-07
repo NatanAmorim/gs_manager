@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/src/custom_widgets/custom_async_filled_button.dart';
-import 'package:gs_admin/src/custom_widgets/custom_text_form_field.dart';
+import 'package:gs_admin/src/components/filled_button_async_component.dart';
+import 'package:gs_admin/src/components/text_form_field_component.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -44,13 +44,13 @@ class _LoginViewState extends State<LoginView> {
                             ),
                           ),
                           const SizedBox(height: 10),
-                          const CustomTextFormField(
+                          const TextFormFieldComponent(
                             prefixIcon: Icon(Icons.badge_outlined),
                             label: 'Login',
                             placeholderText: 'Digite seu login',
                           ),
                           const SizedBox(height: 10),
-                          const CustomTextFormField(
+                          const TextFormFieldComponent(
                             isObscure: true,
                             prefixIcon: Icon(Icons.lock_open),
                             label: 'Senha',
@@ -73,7 +73,7 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   Positioned(
                     bottom: -30,
-                    child: CustomAsyncFilledButton(
+                    child: FilledButtonAsyncComponent(
                       icon: Icons.login,
                       label: ' Entrar',
                       onPressed: () async {

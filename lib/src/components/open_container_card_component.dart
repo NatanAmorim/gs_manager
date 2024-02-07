@@ -1,8 +1,8 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
-class CustomOpenContainerCard extends StatelessWidget {
-  const CustomOpenContainerCard({
+class OpenContainerCardComponent extends StatelessWidget {
+  const OpenContainerCardComponent({
     super.key,
     required this.destination,
     required this.child,

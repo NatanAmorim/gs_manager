@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomTimeField extends StatefulWidget {
-  const CustomTimeField({
+class TimeFieldComponent extends StatefulWidget {
+  const TimeFieldComponent({
     super.key,
     required this.label,
     required this.time,
@@ -15,10 +15,10 @@ class CustomTimeField extends StatefulWidget {
   final VoidCallback onPressed;
 
   @override
-  State<CustomTimeField> createState() => _CustomTimeFieldState();
+  State<TimeFieldComponent> createState() => _TimeFieldComponentState();
 }
 
-class _CustomTimeFieldState extends State<CustomTimeField> {
+class _TimeFieldComponentState extends State<TimeFieldComponent> {
   @override
   Widget build(BuildContext context) {
     return InkWell(

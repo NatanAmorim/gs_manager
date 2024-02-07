@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gs_admin/src/clientes/cliente_model.dart';
-import 'package:gs_admin/src/custom_widgets/custom_async_text_button.dart';
-import 'package:gs_admin/src/custom_widgets/custom_card.dart';
-import 'package:gs_admin/src/custom_widgets/custom_dropdown_button_form_field.dart';
-import 'package:gs_admin/src/custom_widgets/custom_form_scaffold.dart';
+import 'package:gs_admin/src/components/card_component.dart';
+import 'package:gs_admin/src/components/dropdown_form_field_component.dart';
+import 'package:gs_admin/src/components/scaffold_form_component.dart';
+import 'package:gs_admin/src/components/text_button_async_component.dart';
 import 'package:gs_admin/src/encomendas/encomenda_details_controller.dart';
 
 class EncomendaDetailsView extends StatefulWidget {
@@ -24,11 +24,11 @@ class _EncomendaDetailsViewState extends State<EncomendaDetailsView> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomFormScaffold(
+    return ScaffoldFormComponent(
       formKey: controller.formKey,
-      child: CustomCard(
+      child: CardComponent(
         actions: [
-          CustomAsyncTextButton(
+          TextButtonAsyncComponent(
             onPressed: () => controller.submit(context),
             icon: Icons.save,
             label: 'Salvar',
@@ -45,7 +45,7 @@ class _EncomendaDetailsViewState extends State<EncomendaDetailsView> {
                   ),
             ),
           ),
-          CustomDropdownButtonFormField<ClienteModel>(
+          DropdownFormFieldComponent<ClienteModel>(
             fieldName: "Cliente",
             selectedValue: controller.clienteSelecionado,
             onChanged: (dynamic newValue) {

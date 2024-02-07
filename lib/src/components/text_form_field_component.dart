@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class CustomTextFormField extends StatefulWidget {
-  const CustomTextFormField({
+class TextFormFieldComponent extends StatefulWidget {
+  const TextFormFieldComponent({
     this.autofocus = false,
     this.label,
     this.initialValue,
@@ -60,10 +60,10 @@ class CustomTextFormField extends StatefulWidget {
   final TextAlign textAlign;
 
   @override
-  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+  State<TextFormFieldComponent> createState() => _TextFormFieldComponentState();
 }
 
-class _CustomTextFormFieldState extends State<CustomTextFormField> {
+class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(

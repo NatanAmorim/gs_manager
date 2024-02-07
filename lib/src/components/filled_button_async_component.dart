@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
 
-class CustomAsyncTextButton extends StatefulWidget {
-  const CustomAsyncTextButton({
+class FilledButtonAsyncComponent extends StatefulWidget {
+  const FilledButtonAsyncComponent({
     Key? key,
     required this.icon,
     required this.label,
     required this.onPressed,
-    this.isDelete = false,
+    this.isTonal = false,
   }) : super(key: key);
 
   final IconData icon;
   final String label;
   final Future<bool> Function() onPressed;
-  final bool isDelete;
+  final bool isTonal;
 
   @override
-  State<CustomAsyncTextButton> createState() => _CustomAsyncTextButtonState();
+  State<FilledButtonAsyncComponent> createState() =>
+      _FilledButtonAsyncComponentState();
 }
 
-class _CustomAsyncTextButtonState extends State<CustomAsyncTextButton> {
+class _FilledButtonAsyncComponentState
+    extends State<FilledButtonAsyncComponent> {
   final double contentSize = 20;
   final ValueNotifier<bool> _isLoadingNotifier = ValueNotifier<bool>(false);
 
@@ -30,23 +32,25 @@ class _CustomAsyncTextButtonState extends State<CustomAsyncTextButton> {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton.icon(
+    return FilledButton.icon(
       style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+        backgroundColor: MaterialStateProperty.resolveWith<Color?>(
             (Set<MaterialState> states) {
           if (states.contains(MaterialState.pressed)) {
-            return Colors.grey;
+            return Theme.of(context).colorScheme.primary.withOpacity(0.6);
           }
 
-          if (widget.isDelete) {
-            return Theme.of(context).brightness == Brightness.light
-                ? Colors.pink.shade300
-                : Colors.pink.shade200;
+          if (widget.isTonal) {
+            return Theme.of(context).colorScheme.secondary;
           }
 
-          return Theme.of(context).colorScheme.primary;
+          if (widget.isTonal && states.contains(MaterialState.pressed)) {
+            return Theme.of(context).colorScheme.primary.withOpacity(0.6);
+          }
+
+          return null;
         }),
-        padding: MaterialStateProperty.all(const EdgeInsets.all(8.0)),
+        padding: MaterialStateProperty.all(const EdgeInsets.all(25.0)),
       ),
       label: Text(
         widget.label,

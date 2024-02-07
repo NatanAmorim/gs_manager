@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:gs_admin/src/custom_widgets/custom_slider.dart';
+import 'package:gs_admin/src/components/slider_component.dart';
 
 class PontoDeVendaView extends StatefulWidget {
   const PontoDeVendaView({super.key});
@@ -68,7 +68,7 @@ class _PontoDeVendaViewState extends State<PontoDeVendaView> {
                 ),
               )
             : Center(
-                child: CustomSlider(
+                child: SliderComponent(
                   text: 'Arraste para finalizar',
                   onSubmit: runSuccessAnimation,
                 ),

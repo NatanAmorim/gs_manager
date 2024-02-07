@@ -1,8 +1,8 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
-class CustomIndexedStack extends StatefulWidget {
-  const CustomIndexedStack({
+class IndexedStackComponent extends StatefulWidget {
+  const IndexedStackComponent({
     Key? key,
     required this.index,
     required this.children,
@@ -16,15 +16,15 @@ class CustomIndexedStack extends StatefulWidget {
   final Duration duration;
 
   @override
-  State<CustomIndexedStack> createState() => _CustomIndexedStackState();
+  State<IndexedStackComponent> createState() => _IndexedStackComponentState();
 }
 
-class _CustomIndexedStackState extends State<CustomIndexedStack>
+class _IndexedStackComponentState extends State<IndexedStackComponent>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
-  void didUpdateWidget(CustomIndexedStack oldWidget) {
+  void didUpdateWidget(IndexedStackComponent oldWidget) {
     if (widget.index != oldWidget.index) {
       _controller.forward(from: 0.0);
     }

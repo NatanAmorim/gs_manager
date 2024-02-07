@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-class CustomSlider extends StatefulWidget {
-  const CustomSlider({
+class SliderComponent extends StatefulWidget {
+  const SliderComponent({
     super.key,
     this.onSubmit,
     required this.text,
@@ -72,10 +72,10 @@ class CustomSlider extends StatefulWidget {
   final bool isDisabled;
 
   @override
-  State<CustomSlider> createState() => _CustomSliderState();
+  State<SliderComponent> createState() => _SliderComponentState();
 }
 
-class _CustomSliderState extends State<CustomSlider>
+class _SliderComponentState extends State<SliderComponent>
     with TickerProviderStateMixin {
   final Key dismissibleKey = UniqueKey();
   bool isTextVisible = true;

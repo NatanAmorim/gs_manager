@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gs_admin/src/utils/dialog_helper.dart';
 
-class CustomFormScaffold extends StatefulWidget {
-  const CustomFormScaffold({
+class ScaffoldFormComponent extends StatefulWidget {
+  const ScaffoldFormComponent({
     super.key,
     required this.formKey,
     required this.child,
@@ -12,10 +12,10 @@ class CustomFormScaffold extends StatefulWidget {
   final Widget child;
 
   @override
-  State<CustomFormScaffold> createState() => _CustomFormScaffoldState();
+  State<ScaffoldFormComponent> createState() => _ScaffoldFormComponentState();
 }
 
-class _CustomFormScaffoldState extends State<CustomFormScaffold> {
+class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
   bool hasFormChanged = false;
 
   @override

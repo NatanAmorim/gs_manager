@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gs_admin/src/custom_widgets/custom_async_text_button.dart';
-import 'package:gs_admin/src/custom_widgets/custom_card.dart';
-import 'package:gs_admin/src/custom_widgets/custom_form_scaffold.dart';
-import 'package:gs_admin/src/custom_widgets/custom_text_form_field.dart';
+import 'package:gs_admin/src/components/card_component.dart';
+import 'package:gs_admin/src/components/scaffold_form_component.dart';
+import 'package:gs_admin/src/components/text_button_async_component.dart';
+import 'package:gs_admin/src/components/text_form_field_component.dart';
 import 'package:gs_admin/src/produtos/produto_details_controller.dart';
 import 'package:gs_admin/src/produtos/produto_model.dart';
 import 'package:gs_admin/src/utils/dialog_helper.dart';
@@ -34,17 +34,17 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomFormScaffold(
+    return ScaffoldFormComponent(
       formKey: controller.formKey,
-      child: CustomCard(
+      child: CardComponent(
         actions: [
-          CustomAsyncTextButton(
+          TextButtonAsyncComponent(
             icon: Icons.delete_forever,
             label: 'Deletar',
             isDelete: true,
             onPressed: () => controller.delete(context),
           ),
-          CustomAsyncTextButton(
+          TextButtonAsyncComponent(
             onPressed: () => controller.submit(context),
             icon: Icons.save,
             label: 'Salvar',
@@ -61,7 +61,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
                   ),
             ),
           ),
-          CustomTextFormField(
+          TextFormFieldComponent(
             label: 'Nome',
             placeholderText: 'Digite o nome do produto',
             autofocus: widget.produtoAtualizando == null,
@@ -232,7 +232,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
           label: const Text('Excluir variante'),
         ),
         const SizedBox(height: 8.0),
-        CustomTextFormField(
+        TextFormFieldComponent(
           isEnabled: !isRemoving,
           label: 'Descrição',
           placeholderText: 'Digite a descrição do produto',
@@ -257,7 +257,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
           children: [
             Flexible(
               flex: 1,
-              child: CustomTextFormField(
+              child: TextFormFieldComponent(
                 isEnabled: !isRemoving,
                 label: 'Código de barras',
                 placeholderText: 'Digite a Código de barras',
@@ -273,7 +273,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
             const SizedBox(width: 8),
             Flexible(
               flex: 1,
-              child: CustomTextFormField(
+              child: TextFormFieldComponent(
                 isEnabled: !isRemoving,
                 label: 'Preço unitário',
                 initialValue: r'R$ 0,00',
@@ -302,7 +302,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
           children: [
             Flexible(
               flex: 1,
-              child: CustomTextFormField(
+              child: TextFormFieldComponent(
                 isEnabled: !isRemoving,
                 label: 'Estoque mínimo',
                 placeholderText: 'Digite a quantidade mínima',
@@ -339,7 +339,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
             const SizedBox(width: 8),
             Flexible(
               flex: 1,
-              child: CustomTextFormField(
+              child: TextFormFieldComponent(
                 isEnabled: !isRemoving,
                 label: 'Estoque',
                 placeholderText: 'Digite a quantidade',

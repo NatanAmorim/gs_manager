@@ -9,8 +9,8 @@ import 'package:flutter/material.dart';
 //   });
 // }
 
-class CustomCounterField extends StatefulWidget {
-  const CustomCounterField({
+class CounterFieldComponent extends StatefulWidget {
+  const CounterFieldComponent({
     super.key,
     required this.value,
     this.enabled,
@@ -28,10 +28,10 @@ class CustomCounterField extends StatefulWidget {
   final VoidCallback onSubtract;
 
   @override
-  State<CustomCounterField> createState() => _CustomCounterFieldState();
+  State<CounterFieldComponent> createState() => _CounterFieldComponentState();
 }
 
-class _CustomCounterFieldState extends State<CustomCounterField> {
+class _CounterFieldComponentState extends State<CounterFieldComponent> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(

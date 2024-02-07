@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gs_admin/src/custom_widgets/custom_async_text_button.dart';
-import 'package:gs_admin/src/custom_widgets/custom_card.dart';
-import 'package:gs_admin/src/custom_widgets/custom_form_scaffold.dart';
-import 'package:gs_admin/src/custom_widgets/custom_text_form_field.dart';
+import 'package:gs_admin/src/components/card_component.dart';
+import 'package:gs_admin/src/components/scaffold_form_component.dart';
+import 'package:gs_admin/src/components/text_button_async_component.dart';
+import 'package:gs_admin/src/components/text_form_field_component.dart';
 import 'package:gs_admin/src/professores/professor_details_controller.dart';
 import 'package:gs_admin/src/professores/professor_model.dart';
 import 'package:gs_admin/src/utils/formatters/cep_input_formatter.dart';
@@ -50,17 +50,17 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
       TextEditingController(text: widget.professorAtualizando?.endereco ?? ''),
     );
 
-    return CustomFormScaffold(
+    return ScaffoldFormComponent(
       formKey: controller.formKey,
-      child: CustomCard(
+      child: CardComponent(
         actions: [
-          CustomAsyncTextButton(
+          TextButtonAsyncComponent(
             icon: Icons.delete_forever,
             label: 'Deletar',
             isDelete: true,
             onPressed: () => controller.delete(context),
           ),
-          CustomAsyncTextButton(
+          TextButtonAsyncComponent(
             icon: Icons.save,
             label: 'Salvar',
             onPressed: () => controller.submit(context),
@@ -77,7 +77,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
                   ),
             ),
           ),
-          CustomTextFormField(
+          TextFormFieldComponent(
             autofocus: widget.professorAtualizando == null,
             label: 'Nome',
             placeholderText: 'Digite o nome do professor',
@@ -97,7 +97,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          CustomTextFormField(
+          TextFormFieldComponent(
             label: 'Celular',
             placeholderText: 'Digite o número de celular do professor',
             keyboardType: TextInputType.phone,
@@ -109,7 +109,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
             onSaved: (String? text) => controller.teacher.celular = text!,
           ),
           const SizedBox(height: 16),
-          CustomTextFormField(
+          TextFormFieldComponent(
             label: 'Data de nascimento',
             placeholderText: 'Digite a data',
             initialValue: controller.teacher.dataNascimento,
@@ -149,7 +149,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
                 controller.teacher.dataNascimento = text!,
           ),
           const SizedBox(height: 16),
-          CustomTextFormField(
+          TextFormFieldComponent(
             label: 'CPF',
             placeholderText: 'Digite o número de cpf',
             validator: (String? value) {
@@ -172,7 +172,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          CustomTextFormField(
+          TextFormFieldComponent(
             label: 'CEP',
             initialValue: controller.teacher.cep,
             placeholderText: 'Digite o número de cep',
@@ -213,7 +213,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
               TextEditingController value,
               Widget? child,
             ) {
-              return CustomTextFormField(
+              return TextFormFieldComponent(
                 controller: value,
                 label: 'Endereço',
                 placeholderText: 'Digite o endereço',
@@ -223,7 +223,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          CustomTextFormField(
+          TextFormFieldComponent(
             label: 'Número',
             placeholderText: 'Digite o número do endereço',
             initialValue: controller.teacher.numero,
