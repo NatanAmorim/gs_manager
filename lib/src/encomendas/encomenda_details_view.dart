@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gs_admin/components.dart';
 import 'package:gs_admin/src/clientes/cliente_model.dart';
-import 'package:gs_admin/src/components/card_component.dart';
-import 'package:gs_admin/src/components/dropdown_form_field_component.dart';
-import 'package:gs_admin/src/components/scaffold_form_component.dart';
-import 'package:gs_admin/src/components/text_button_async_component.dart';
 import 'package:gs_admin/src/encomendas/encomenda_details_controller.dart';
 
 class EncomendaDetailsView extends StatefulWidget {
-  const EncomendaDetailsView({Key? key}) : super(key: key);
+  const EncomendaDetailsView({
+    super.key,
+  });
 
   @override
   State<EncomendaDetailsView> createState() => _EncomendaDetailsViewState();
@@ -45,7 +44,7 @@ class _EncomendaDetailsViewState extends State<EncomendaDetailsView> {
                   ),
             ),
           ),
-          DropdownFormFieldComponent<ClienteModel>(
+          DropdownComponent<ClienteModel>(
             fieldName: "Cliente",
             selectedValue: controller.clienteSelecionado,
             onChanged: (dynamic newValue) {

@@ -20,11 +20,11 @@ class DialogHelper {
               style: Theme.of(context).textTheme.bodyLarge,
             ),
             actions: <Widget>[
-              OutlinedButton(
+              TextButton(
                 onPressed: () => Navigator.pop(context, false),
                 child: const Text('Não, continue editando'),
               ),
-              FilledButton(
+              TextButton(
                 onPressed: () => Navigator.pop(context, true),
                 child: const Text('Sim, descarte minhas alterações'),
               ),
@@ -64,11 +64,11 @@ class DialogHelper {
               ),
             ),
             actions: <Widget>[
-              OutlinedButton(
+              TextButton(
                 onPressed: () => Navigator.pop(context, false),
                 child: const Text('Não, cancelar'),
               ),
-              FilledButton(
+              TextButton(
                 onPressed: () => Navigator.pop(context, true),
                 child: const Text('Sim, excluir'),
               ),
@@ -93,11 +93,11 @@ class DialogHelper {
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           actions: <Widget>[
-            OutlinedButton(
+            TextButton(
               onPressed: () => Navigator.pop(context),
               child: const Text('Não, continue conectado'),
             ),
-            FilledButton(
+            TextButton(
               onPressed: () async {
                 // final NavigatorState navigator = Navigator.of(context);
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:gs_admin/src/components/slider_component.dart';
+import 'package:gs_admin/src/greeter/greeter_service.dart';
 
 class PontoDeVendaView extends StatefulWidget {
   const PontoDeVendaView({super.key});
@@ -25,6 +25,15 @@ class _PontoDeVendaViewState extends State<PontoDeVendaView> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(),
+        floatingActionButton: FloatingActionButton.extended(
+          icon: const Icon(Icons.send),
+          label: const Text('Send gRPC Greet'),
+          onPressed: () {
+            var greeter = GreeterService();
+
+            greeter.greet();
+          },
+        ),
         body: isPlaying
             ? Center(
                 child: Stack(
@@ -68,9 +77,9 @@ class _PontoDeVendaViewState extends State<PontoDeVendaView> {
                 ),
               )
             : Center(
-                child: SliderComponent(
-                  text: 'Arraste para finalizar',
-                  onSubmit: runSuccessAnimation,
+                child: FilledButton(
+                  onPressed: runSuccessAnimation,
+                  child: const Text('Finalizar Venda'),
                 ),
               ),
       ),

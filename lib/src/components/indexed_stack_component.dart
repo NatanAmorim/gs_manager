@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 class IndexedStackComponent extends StatefulWidget {
   const IndexedStackComponent({
-    Key? key,
+    super.key,
     required this.index,
     required this.children,
     this.duration = const Duration(
       milliseconds: 600,
     ),
-  }) : super(key: key);
+  });
 
   final int index;
   final List<Widget> children;
@@ -49,7 +49,7 @@ class _IndexedStackComponentState extends State<IndexedStackComponent>
     if (widget.index == 4) {
       return FadeTransition(
         opacity: CurveTween(curve: Curves.easeInOutCirc).animate(_controller),
-        child: IndexedStack(
+        child: IndexedStackComponent(
           index: widget.index,
           children: widget.children,
         ),

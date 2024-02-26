@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/src/clientes/cliente_view.dart';
 
-class PessoasSubview extends StatefulWidget {
-  const PessoasSubview({Key? key}) : super(key: key);
+class DashboardTab extends StatefulWidget {
+  const DashboardTab({
+    super.key,
+  });
 
   @override
-  State<PessoasSubview> createState() => _PessoasSubviewState();
+  State<DashboardTab> createState() => _DashboardTabState();
 }
 
-class _PessoasSubviewState extends State<PessoasSubview>
+class _DashboardTabState extends State<DashboardTab>
     with TickerProviderStateMixin {
   late TabController _tabController;
 
@@ -26,12 +27,12 @@ class _PessoasSubviewState extends State<PessoasSubview>
           controller: _tabController,
           tabs: const <Tab>[
             Tab(
-              text: 'Clientes',
-              icon: Icon(Icons.groups),
+              icon: Icon(Icons.school),
+              text: 'Aulas',
             ),
             Tab(
-              icon: Icon(Icons.sports_gymnastics),
-              text: 'Professores',
+              text: "Análise",
+              icon: Icon(Icons.bar_chart_rounded),
             ),
           ],
         ),
@@ -40,10 +41,10 @@ class _PessoasSubviewState extends State<PessoasSubview>
             controller: _tabController,
             children: const <Widget>[
               Center(
-                child: ClienteView(),
+                child: Text("Aulas"),
               ),
               Center(
-                child: Text("Professores"),
+                child: Text("Análise"),
               ),
             ],
           ),

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gs_admin/helpers.dart';
 import 'package:gs_admin/main.dart';
-import 'package:gs_admin/src/utils/dialog_helper.dart';
 
 /// Displays the various settings that can be customized by the user.
 ///
 /// When a user changes a setting, the SettingsController is updated and
 /// Widgets that listen to the SettingsController are rebuilt.
-class ConfiguracoesSubview extends ConsumerWidget {
-  const ConfiguracoesSubview({
-    Key? key,
-  }) : super(key: key);
+class SettingsTab extends ConsumerWidget {
+  const SettingsTab({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

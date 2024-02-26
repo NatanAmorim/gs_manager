@@ -1,24 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gs_admin/src/components/card_component.dart';
-import 'package:gs_admin/src/components/scaffold_form_component.dart';
-import 'package:gs_admin/src/components/text_button_async_component.dart';
-import 'package:gs_admin/src/components/text_form_field_component.dart';
+import 'package:gs_admin/components.dart';
+import 'package:gs_admin/formatters.dart';
 import 'package:gs_admin/src/professores/professor_details_controller.dart';
 import 'package:gs_admin/src/professores/professor_model.dart';
-import 'package:gs_admin/src/utils/formatters/cep_input_formatter.dart';
-import 'package:gs_admin/src/utils/formatters/cpf_input_formatter.dart';
-import 'package:gs_admin/src/utils/formatters/date_input_formatter.dart';
-import 'package:gs_admin/src/utils/formatters/phone_input_formatter.dart';
 import 'package:gs_admin/src/utils/validators/cpf_validator.dart';
 import 'package:gs_admin/src/viacep/viacep_service.dart';
 import 'package:intl/intl.dart';
 
 class ProfessorDetailsView extends StatefulWidget {
   const ProfessorDetailsView({
-    Key? key,
+    super.key,
     this.professorAtualizando,
-  }) : super(key: key);
+  });
 
   final ProfessorModel? professorAtualizando;
 
@@ -77,7 +71,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
                   ),
             ),
           ),
-          TextFormFieldComponent(
+          TextInputComponent(
             autofocus: widget.professorAtualizando == null,
             label: 'Nome',
             placeholderText: 'Digite o nome do professor',
@@ -97,7 +91,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          TextFormFieldComponent(
+          TextInputComponent(
             label: 'Celular',
             placeholderText: 'Digite o número de celular do professor',
             keyboardType: TextInputType.phone,
@@ -109,7 +103,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
             onSaved: (String? text) => controller.teacher.celular = text!,
           ),
           const SizedBox(height: 16),
-          TextFormFieldComponent(
+          TextInputComponent(
             label: 'Data de nascimento',
             placeholderText: 'Digite a data',
             initialValue: controller.teacher.dataNascimento,
@@ -149,7 +143,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
                 controller.teacher.dataNascimento = text!,
           ),
           const SizedBox(height: 16),
-          TextFormFieldComponent(
+          TextInputComponent(
             label: 'CPF',
             placeholderText: 'Digite o número de cpf',
             validator: (String? value) {
@@ -172,7 +166,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          TextFormFieldComponent(
+          TextInputComponent(
             label: 'CEP',
             initialValue: controller.teacher.cep,
             placeholderText: 'Digite o número de cep',
@@ -213,7 +207,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
               TextEditingController value,
               Widget? child,
             ) {
-              return TextFormFieldComponent(
+              return TextInputComponent(
                 controller: value,
                 label: 'Endereço',
                 placeholderText: 'Digite o endereço',
@@ -223,7 +217,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          TextFormFieldComponent(
+          TextInputComponent(
             label: 'Número',
             placeholderText: 'Digite o número do endereço',
             initialValue: controller.teacher.numero,

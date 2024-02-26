@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class DropdownFormFieldComponent<T> extends StatefulWidget {
-  const DropdownFormFieldComponent({
+class DropdownComponent<T> extends StatefulWidget {
+  const DropdownComponent({
+    super.key,
     required this.fieldName,
     required this.selectedValue,
     required this.items,
     required this.onChanged,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String fieldName;
   final List<DropdownMenuItem<T>>? items;
@@ -15,12 +15,10 @@ class DropdownFormFieldComponent<T> extends StatefulWidget {
   final void Function(T?) onChanged;
 
   @override
-  State<DropdownFormFieldComponent> createState() =>
-      _DropdownFormFieldComponentState();
+  State<DropdownComponent> createState() => _DropdownComponentState();
 }
 
-class _DropdownFormFieldComponentState<T>
-    extends State<DropdownFormFieldComponent> {
+class _DropdownComponentState<T> extends State<DropdownComponent> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<T>(

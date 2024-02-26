@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/src/utils/dialog_helper.dart';
+import 'package:gs_admin/helpers.dart';
 
 class ScaffoldFormComponent extends StatefulWidget {
   const ScaffoldFormComponent({
@@ -16,7 +16,11 @@ class ScaffoldFormComponent extends StatefulWidget {
 }
 
 class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
-  bool hasFormChanged = false;
+  // A "dirty" state refers to a situation where data has been modified but not
+  // yet saved or synchronized with its final destination, until the changes are
+  // persisted back to the database, file on disk or cache, the object remains
+  // in a “dirty” state.
+  bool _isFormDirty = false;
 
   @override
   Widget build(BuildContext context) {
@@ -43,18 +47,27 @@ class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
                         key: widget.formKey,
                         autovalidateMode: AutovalidateMode.disabled,
                         onChanged: () {
-                          if (hasFormChanged == false) {
-                            hasFormChanged = true;
+                          if (_isFormDirty == false) {
+                            setState(() {
+                              _isFormDirty = true;
+                            });
                           }
                         },
-                        onWillPop: () async {
-                          if (hasFormChanged) {
-                            return DialogHelper.discardChanges(
-                              context: context,
-                            );
+                        canPop: _isFormDirty == false,
+                        onPopInvoked: (bool didPop) async {
+                          if (didPop) {
+                            return;
                           }
 
-                          return true;
+                          NavigatorState navigator = Navigator.of(context);
+                          bool shouldPop = await DialogHelper.discardChanges(
+                            context: context,
+                          );
+                          if (shouldPop) {
+                            navigator.pop();
+                          }
+
+                          return;
                         },
                         child: widget.child,
                       ),

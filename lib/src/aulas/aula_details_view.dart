@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gs_admin/components.dart';
 import 'package:gs_admin/src/aulas/aula_details_controller.dart';
 import 'package:gs_admin/src/aulas/aula_model.dart';
-import 'package:gs_admin/src/components/card_component.dart';
-import 'package:gs_admin/src/components/dropdown_form_field_component.dart';
-import 'package:gs_admin/src/components/scaffold_form_component.dart';
-import 'package:gs_admin/src/components/text_button_async_component.dart';
-import 'package:gs_admin/src/components/text_form_field_component.dart';
-import 'package:gs_admin/src/components/time_field_component.dart';
 import 'package:gs_admin/src/professores/professor_model.dart';
 import 'package:gs_admin/src/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/src/utils/values_converter.dart';
@@ -43,9 +38,9 @@ extension TimeOfDayExtension on TimeOfDay {
 
 class AulaDetailsView extends StatefulWidget {
   const AulaDetailsView({
-    Key? key,
+    super.key,
     this.aulaAtualizando,
-  }) : super(key: key);
+  });
 
   final AulaModel? aulaAtualizando;
 
@@ -91,7 +86,7 @@ class _AulaDetailsViewState extends State<AulaDetailsView> {
                   ),
             ),
           ),
-          TextFormFieldComponent(
+          TextInputComponent(
             label: 'Nome',
             placeholderText: 'Digite o nome da aula',
             autofocus: widget.aulaAtualizando == null,
@@ -110,7 +105,7 @@ class _AulaDetailsViewState extends State<AulaDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          TextFormFieldComponent(
+          TextInputComponent(
             label: 'Preço',
             keyboardType: TextInputType.number,
             initialValue: controller.lecture.preco,
@@ -132,7 +127,7 @@ class _AulaDetailsViewState extends State<AulaDetailsView> {
             ],
           ),
           const SizedBox(height: 16),
-          DropdownFormFieldComponent<ProfessorModel>(
+          DropdownComponent<ProfessorModel>(
             fieldName: "Professor",
             selectedValue: controller.lecture.professor,
             onChanged: (dynamic newValue) {
@@ -159,7 +154,7 @@ class _AulaDetailsViewState extends State<AulaDetailsView> {
             children: [
               Flexible(
                 flex: 1,
-                child: TimeFieldComponent(
+                child: TimeInputComponent(
                   label: 'Hora começa',
                   time: controller.lecture.horaInicio.format(context),
                   icon: const Icon(Icons.timer_outlined),
@@ -182,7 +177,7 @@ class _AulaDetailsViewState extends State<AulaDetailsView> {
               const SizedBox(width: 16),
               Flexible(
                 flex: 1,
-                child: TimeFieldComponent(
+                child: TimeInputComponent(
                   label: 'Hora acaba',
                   time: controller.lecture.horaFim.format(context),
                   icon: const Icon(Icons.timer_off_outlined),

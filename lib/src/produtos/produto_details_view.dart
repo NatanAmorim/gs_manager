@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gs_admin/src/components/card_component.dart';
-import 'package:gs_admin/src/components/scaffold_form_component.dart';
-import 'package:gs_admin/src/components/text_button_async_component.dart';
-import 'package:gs_admin/src/components/text_form_field_component.dart';
+import 'package:gs_admin/components.dart';
+import 'package:gs_admin/helpers.dart';
 import 'package:gs_admin/src/produtos/produto_details_controller.dart';
 import 'package:gs_admin/src/produtos/produto_model.dart';
-import 'package:gs_admin/src/utils/dialog_helper.dart';
 import 'package:gs_admin/src/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_admin/src/utils/values_converter.dart';
 
 class ProdutoDetailsView extends StatefulWidget {
   const ProdutoDetailsView({
-    Key? key,
+    super.key,
     this.produtoAtualizando,
-  }) : super(key: key);
+  });
 
   final ProdutoModel? produtoAtualizando;
 
@@ -61,7 +58,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
                   ),
             ),
           ),
-          TextFormFieldComponent(
+          TextInputComponent(
             label: 'Nome',
             placeholderText: 'Digite o nome do produto',
             autofocus: widget.produtoAtualizando == null,
@@ -232,7 +229,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
           label: const Text('Excluir variante'),
         ),
         const SizedBox(height: 8.0),
-        TextFormFieldComponent(
+        TextInputComponent(
           isEnabled: !isRemoving,
           label: 'Descrição',
           placeholderText: 'Digite a descrição do produto',
@@ -257,7 +254,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
           children: [
             Flexible(
               flex: 1,
-              child: TextFormFieldComponent(
+              child: TextInputComponent(
                 isEnabled: !isRemoving,
                 label: 'Código de barras',
                 placeholderText: 'Digite a Código de barras',
@@ -273,7 +270,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
             const SizedBox(width: 8),
             Flexible(
               flex: 1,
-              child: TextFormFieldComponent(
+              child: TextInputComponent(
                 isEnabled: !isRemoving,
                 label: 'Preço unitário',
                 initialValue: r'R$ 0,00',
@@ -302,7 +299,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
           children: [
             Flexible(
               flex: 1,
-              child: TextFormFieldComponent(
+              child: TextInputComponent(
                 isEnabled: !isRemoving,
                 label: 'Estoque mínimo',
                 placeholderText: 'Digite a quantidade mínima',
@@ -339,7 +336,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
             const SizedBox(width: 8),
             Flexible(
               flex: 1,
-              child: TextFormFieldComponent(
+              child: TextInputComponent(
                 isEnabled: !isRemoving,
                 label: 'Estoque',
                 placeholderText: 'Digite a quantidade',

@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gs_admin/components.dart';
+import 'package:gs_admin/formatters.dart';
+import 'package:gs_admin/helpers.dart';
 import 'package:gs_admin/src/clientes/cliente_details_controller.dart';
 import 'package:gs_admin/src/clientes/cliente_model.dart';
-import 'package:gs_admin/src/components/card_component.dart';
-import 'package:gs_admin/src/components/scaffold_form_component.dart';
-import 'package:gs_admin/src/components/text_button_async_component.dart';
-import 'package:gs_admin/src/components/text_form_field_component.dart';
-import 'package:gs_admin/src/utils/dialog_helper.dart';
-import 'package:gs_admin/src/utils/formatters/cep_input_formatter.dart';
-import 'package:gs_admin/src/utils/formatters/cpf_input_formatter.dart';
-import 'package:gs_admin/src/utils/formatters/date_input_formatter.dart';
-import 'package:gs_admin/src/utils/formatters/phone_input_formatter.dart';
-import 'package:gs_admin/src/utils/validators/cpf_validator.dart';
 import 'package:gs_admin/src/viacep/viacep_service.dart';
+import 'package:gs_admin/validators.dart';
 import 'package:intl/intl.dart';
 
 class ClienteDetailsView extends StatefulWidget {
   const ClienteDetailsView({
-    Key? key,
+    super.key,
     this.clienteAtualizando,
-  }) : super(key: key);
+  });
 
   final ClienteModel? clienteAtualizando;
 
@@ -153,7 +147,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
           label: const Text('Excluir Registro'),
         ),
         const SizedBox(height: 8.0),
-        TextFormFieldComponent(
+        TextInputComponent(
           isEnabled: !isRemoving,
           label: 'Nome do filho/dependente',
           placeholderText: 'Digite o nome do filho/dependente',
@@ -176,7 +170,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
           },
         ),
         const SizedBox(height: 16),
-        TextFormFieldComponent(
+        TextInputComponent(
           label: 'Data de nascimento',
           placeholderText: 'Digite a data',
           initialValue: dependente.dataNascimento,
@@ -266,7 +260,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
                   ),
             ),
           ),
-          TextFormFieldComponent(
+          TextInputComponent(
             autofocus: widget.clienteAtualizando == null,
             label: 'Nome',
             placeholderText: 'Digite o nome do cliente',
@@ -286,7 +280,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          TextFormFieldComponent(
+          TextInputComponent(
             label: 'Celular',
             placeholderText: 'Digite o número de celular',
             keyboardType: TextInputType.phone,
@@ -298,7 +292,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
             onSaved: (String? text) => controller.cliente.celular = text!,
           ),
           const SizedBox(height: 16),
-          TextFormFieldComponent(
+          TextInputComponent(
             label: 'Data de nascimento',
             placeholderText: 'Digite a data',
             initialValue: controller.cliente.dataNascimento,
@@ -338,7 +332,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
                 controller.cliente.dataNascimento = text!,
           ),
           const SizedBox(height: 16),
-          TextFormFieldComponent(
+          TextInputComponent(
             label: 'CPF',
             placeholderText: 'Digite o número de cpf',
             validator: (String? value) {
@@ -361,7 +355,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          TextFormFieldComponent(
+          TextInputComponent(
             label: 'CEP',
             initialValue: controller.cliente.cep,
             placeholderText: 'Digite o número de cep',
@@ -402,7 +396,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
               TextEditingController value,
               Widget? child,
             ) {
-              return TextFormFieldComponent(
+              return TextInputComponent(
                 controller: value,
                 label: 'Endereço',
                 placeholderText: 'Digite o endereço',
@@ -412,7 +406,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
             },
           ),
           const SizedBox(height: 16),
-          TextFormFieldComponent(
+          TextInputComponent(
             label: 'Número',
             placeholderText: 'Digite o número do endereço',
             initialValue: controller.cliente.numero,
@@ -420,7 +414,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
             keyboardType: TextInputType.name,
           ),
           const SizedBox(height: 16),
-          TextFormFieldComponent(
+          TextInputComponent(
             label: 'Nome PIX',
             placeholderText: 'Digite o nome no recibo do PIX',
             initialValue: controller.cliente.nomePix,

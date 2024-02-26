@@ -4,8 +4,8 @@ import 'package:gs_admin/src/home/home_view.dart';
 class ErroView extends StatelessWidget {
   const ErroView(
     this.errorDetails, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final FlutterErrorDetails errorDetails;
 

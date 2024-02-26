@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:gs_admin/components.dart';
 import 'package:gs_admin/src/aulas/aula_details_view.dart';
 import 'package:gs_admin/src/clientes/cliente_details_view.dart';
-import 'package:gs_admin/src/components/indexed_stack_component.dart';
 import 'package:gs_admin/src/encomendas/encomenda_details_view.dart';
 import 'package:gs_admin/src/global_variables.dart';
-import 'package:gs_admin/src/home/subviews/configuracoes_subview.dart';
-import 'package:gs_admin/src/home/subviews/inventario_subview.dart';
-import 'package:gs_admin/src/home/subviews/pessoas_subviews.dart';
-import 'package:gs_admin/src/home/subviews/transacoes_subview.dart';
-import 'package:gs_admin/src/home/subviews/visao_geral_subview.dart';
+import 'package:gs_admin/src/home/tabs/dashboard_tab.dart';
+import 'package:gs_admin/src/home/tabs/inventory_tab.dart';
+import 'package:gs_admin/src/home/tabs/people_tab.dart';
+import 'package:gs_admin/src/home/tabs/settings_tab.dart';
+import 'package:gs_admin/src/home/tabs/transactions_tab.dart';
 import 'package:gs_admin/src/ponto_de_vendas/ponto_de_venda_view.dart';
 import 'package:gs_admin/src/produtos/produto_details_view.dart';
 import 'package:gs_admin/src/professores/professor_details_view.dart';
@@ -30,11 +30,11 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
         body: IndexedStackComponent(
           index: _currentIndex,
           children: const [
-            VisaoGeralSubview(),
-            InventarioSubview(),
-            TransacoesSubview(),
-            PessoasSubview(),
-            ConfiguracoesSubview(),
+            DashboardTab(),
+            InventoryTab(),
+            TransactionsTab(),
+            PeopleTab(),
+            SettingsTab(),
           ],
         ),
         floatingActionButton: Row(

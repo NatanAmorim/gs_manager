@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:gs_admin/components.dart';
 import 'package:gs_admin/src/clientes/cliente_details_view.dart';
 import 'package:gs_admin/src/clientes/cliente_model.dart';
-import 'package:gs_admin/src/components/open_container_card_component.dart';
 import 'package:gs_admin/src/global_variables.dart';
 
 class ClienteView extends StatefulWidget {

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class InventarioSubview extends StatefulWidget {
-  const InventarioSubview({Key? key}) : super(key: key);
+class TransactionsTab extends StatefulWidget {
+  const TransactionsTab({
+    super.key,
+  });
 
   @override
-  State<InventarioSubview> createState() => _InventarioSubviewState();
+  State<TransactionsTab> createState() => _TransactionsTabState();
 }
 
-class _InventarioSubviewState extends State<InventarioSubview>
+class _TransactionsTabState extends State<TransactionsTab>
     with TickerProviderStateMixin {
   late TabController _tabController;
 
@@ -25,12 +27,12 @@ class _InventarioSubviewState extends State<InventarioSubview>
           controller: _tabController,
           tabs: const <Tab>[
             Tab(
-              text: "Produtos",
-              icon: Icon(Icons.sell),
+              text: "Vendas",
+              icon: Icon(Icons.shopping_cart_outlined),
             ),
             Tab(
-              icon: Icon(Icons.local_shipping),
-              text: "Encomendas",
+              text: "Mensalidades",
+              icon: Icon(Icons.receipt_long),
             ),
           ],
         ),
@@ -39,10 +41,10 @@ class _InventarioSubviewState extends State<InventarioSubview>
             controller: _tabController,
             children: const <Widget>[
               Center(
-                child: Text("Produtos"),
+                child: Text("Vendas"),
               ),
               Center(
-                child: Text("Encomendas"),
+                child: Text("Mensalidades"),
               ),
             ],
           ),

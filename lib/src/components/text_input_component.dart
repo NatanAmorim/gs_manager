@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class TextFormFieldComponent extends StatefulWidget {
-  const TextFormFieldComponent({
+class TextInputComponent extends StatefulWidget {
+  const TextInputComponent({
+    super.key,
     this.autofocus = false,
     this.label,
     this.initialValue,
@@ -29,8 +30,7 @@ class TextFormFieldComponent extends StatefulWidget {
     this.inputFormatters,
     this.keyboardType,
     this.textAlign = TextAlign.start,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final bool autofocus;
   final String? helperText;
@@ -60,10 +60,10 @@ class TextFormFieldComponent extends StatefulWidget {
   final TextAlign textAlign;
 
   @override
-  State<TextFormFieldComponent> createState() => _TextFormFieldComponentState();
+  State<TextInputComponent> createState() => _TextInputComponentState();
 }
 
-class _TextFormFieldComponentState extends State<TextFormFieldComponent> {
+class _TextInputComponentState extends State<TextInputComponent> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(

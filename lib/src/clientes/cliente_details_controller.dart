@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gs_admin/helpers.dart';
 import 'package:gs_admin/src/clientes/cliente_model.dart';
-import 'package:gs_admin/src/utils/dialog_helper.dart';
-import 'package:gs_admin/src/utils/snackbar_helper.dart';
 
 class ClienteDetailsController {
   ClienteDetailsController({

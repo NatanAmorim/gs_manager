@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class TextButtonAsyncComponent extends StatefulWidget {
   const TextButtonAsyncComponent({
-    Key? key,
+    super.key,
     required this.icon,
     required this.label,
     required this.onPressed,
     this.isDelete = false,
-  }) : super(key: key);
+  });
 
   final IconData icon;
   final String label;

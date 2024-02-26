@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gs_admin/src/app.dart';
-import 'package:gs_admin/src/home/subviews/configuracoes_controller.dart';
-import 'package:gs_admin/src/home/subviews/configuracoes_service.dart';
+import 'package:gs_admin/src/home/tabs/settings_controller.dart';
+import 'package:gs_admin/src/home/tabs/settings_service.dart';
 
-// Set up the SettingsController, which will glue user settings to multiple
 // Flutter Widgets.
 /*
+* TODO: See if i can use another provider, and which one should be used.
+*
 * WARNING!
 * According to https://docs-v2.riverpod.dev/docs/concepts/providers
 * While all providers have their purpose, ChangeNotifierProviders are not
@@ -14,11 +15,10 @@ import 'package:gs_admin/src/home/subviews/configuracoes_service.dart';
 * It exists in the flutter_riverpod package to provide an easy migration
 * path from package:provider, and allows for some flutter specific use-cases
 * such as integration with some Navigator 2 packages.
-*
-* TODO: See if i can use another provider, and which one should be used.
 */
+// Set up the SettingsController, which will glue user settings to multiple
 final settingsProvider = ChangeNotifierProvider(
-  (ref) => ConfiguracoesController(ConfiguracoesService()),
+  (ref) => SettingsController(SettingsService()),
 );
 
 void main() async {

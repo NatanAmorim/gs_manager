@@ -7,7 +7,7 @@ final int __int64MaxValue = double.maxFinite.toInt();
 /// Widget that renders a string with sub-string highlighting.
 class StringHighlight extends StatelessWidget {
   const StringHighlight({
-    Key? key,
+    super.key,
     this.caseSensitive = false,
     this.maxLines,
     this.overflow = TextOverflow.clip,
@@ -19,14 +19,13 @@ class StringHighlight extends StatelessWidget {
       color: Colors.black,
     ),
     this.textStyleHighlight = const TextStyle(
-      color: Colors.deepOrangeAccent,
+      color: Colors.amberAccent,
     ),
     // this.wordDelimiters = ' .,;?!<>[]~`@#\$%^&*()+-=|\/_', // Warning: alterado esse é o filtro original
     this.wordDelimiters = '',
     this.words =
         false, // default is to match substrings (hence the package name!)
-  })  : assert(term != null || terms != null),
-        super(key: key);
+  }) : assert(term != null || terms != null);
 
   /// By default the search terms are case insensitive.  Pass false to force case sensitive matches.
   final bool caseSensitive;
@@ -57,7 +56,7 @@ class StringHighlight extends StatelessWidget {
   /// The {TextStyle} of the {StringHighlight.text} that isn't highlighted.
   final TextStyle textStyle;
 
-  /// The {TextStyle} of the {StringHighlight.term}/{StringHighlight.ters} matched.
+  /// The {TextStyle} of the {StringHighlight.term}/{StringHighlight.terms} matched.
   final TextStyle textStyleHighlight;
 
   /// String of characters that define word delimiters if {words} flag is true.
@@ -160,10 +159,10 @@ class StringHighlight extends StatelessWidget {
     }
 
     return RichText(
-        maxLines: maxLines,
-        overflow: overflow,
-        text: TextSpan(children: children, style: textStyle),
-        textAlign: textAlign,
-        textScaleFactor: MediaQuery.of(context).textScaleFactor);
+      maxLines: maxLines,
+      overflow: overflow,
+      text: TextSpan(children: children, style: textStyle),
+      textAlign: textAlign,
+    );
   }
 }

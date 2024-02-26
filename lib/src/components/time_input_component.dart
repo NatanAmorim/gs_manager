@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
-class TimeFieldComponent extends StatefulWidget {
-  const TimeFieldComponent({
+// TODO Conver to form field to be able to use validators on handleSubmit
+// class TimeFormField extends FormField<T> {
+//   TimeFormField({
+//     super.key,
+//     String? initialValue,
+//     super.onSaved,
+//     super.validator,
+//   });
+// }
+class TimeInputComponent extends StatefulWidget {
+  const TimeInputComponent({
     super.key,
     required this.label,
     required this.time,
@@ -15,10 +24,10 @@ class TimeFieldComponent extends StatefulWidget {
   final VoidCallback onPressed;
 
   @override
-  State<TimeFieldComponent> createState() => _TimeFieldComponentState();
+  State<TimeInputComponent> createState() => _TimeInputComponentState();
 }
 
-class _TimeFieldComponentState extends State<TimeFieldComponent> {
+class _TimeInputComponentState extends State<TimeInputComponent> {
   @override
   Widget build(BuildContext context) {
     return InkWell(

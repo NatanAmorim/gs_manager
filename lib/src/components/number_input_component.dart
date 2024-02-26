@@ -1,16 +1,7 @@
 import 'package:flutter/material.dart';
 
-// class CounterFormField extends FormField<int> {
-//   CounterFormField({
-//     super.key,
-//     String? initialValue,
-//     super.onSaved,
-//     super.validator,
-//   });
-// }
-
-class CounterFieldComponent extends StatefulWidget {
-  const CounterFieldComponent({
+class NumberInputComponent extends StatefulWidget {
+  const NumberInputComponent({
     super.key,
     required this.value,
     this.enabled,
@@ -28,10 +19,10 @@ class CounterFieldComponent extends StatefulWidget {
   final VoidCallback onSubtract;
 
   @override
-  State<CounterFieldComponent> createState() => _CounterFieldComponentState();
+  State<NumberInputComponent> createState() => _NumberInputComponentState();
 }
 
-class _CounterFieldComponentState extends State<CounterFieldComponent> {
+class _NumberInputComponentState extends State<NumberInputComponent> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(

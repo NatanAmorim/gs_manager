@@ -2,8 +2,7 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:grpc/grpc.dart';
-import 'package:gs_admin/generated/greet.pbgrpc.dart';
+import 'package:gs_admin/protos.dart';
 
 class GreeterService {
   Future<void> greet() async {
