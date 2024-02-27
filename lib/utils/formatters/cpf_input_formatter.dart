@@ -3,14 +3,14 @@
 // https://github.com/flutterbootcamp/brasil_fields
 
 import 'package:flutter/services.dart';
-import 'package:gs_admin/src/utils/formatters/compoundable_input_formatter.dart';
+import 'package:gs_admin/utils/formatters/compoundable_input_formatter.dart';
 
-/// Formata o valor do campo com a mascara de CNPJ `99.999.999/9999-99`
-class CnpjInputFormatter extends TextInputFormatter
+/// Formata o valor do campo com a mascara de CPF `XXX.XXX.XXX-XX`
+class CpfInputFormatter extends TextInputFormatter
     implements CompoundableFormatter {
   /// Define o tamanho máximo do campo.
   @override
-  int get maxLength => 14;
+  int get maxLength => 11;
 
   @override
   TextEditingValue formatEditUpdate(
@@ -25,21 +25,17 @@ class CnpjInputFormatter extends TextInputFormatter
     var substrIndex = 0;
     final newText = StringBuffer();
 
-    if (newValueLength >= 3) {
-      newText.write('${newValue.text.substring(0, substrIndex = 2)}.');
-      if (newValue.selection.end >= 2) selectionIndex++;
+    if (newValueLength >= 4) {
+      newText.write('${newValue.text.substring(0, substrIndex = 3)}.');
+      if (newValue.selection.end >= 3) selectionIndex++;
     }
-    if (newValueLength >= 6) {
-      newText.write('${newValue.text.substring(2, substrIndex = 5)}.');
-      if (newValue.selection.end >= 5) selectionIndex++;
+    if (newValueLength >= 7) {
+      newText.write('${newValue.text.substring(3, substrIndex = 6)}.');
+      if (newValue.selection.end >= 6) selectionIndex++;
     }
-    if (newValueLength >= 9) {
-      newText.write('${newValue.text.substring(5, substrIndex = 8)}/');
-      if (newValue.selection.end >= 8) selectionIndex++;
-    }
-    if (newValueLength >= 13) {
-      newText.write('${newValue.text.substring(8, substrIndex = 12)}-');
-      if (newValue.selection.end >= 12) selectionIndex++;
+    if (newValueLength >= 10) {
+      newText.write('${newValue.text.substring(6, substrIndex = 9)}-');
+      if (newValue.selection.end >= 9) selectionIndex++;
     }
     if (newValueLength >= substrIndex) {
       newText.write(newValue.text.substring(substrIndex));

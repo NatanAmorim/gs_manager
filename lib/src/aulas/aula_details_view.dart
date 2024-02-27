@@ -4,8 +4,8 @@ import 'package:gs_admin/components.dart';
 import 'package:gs_admin/src/aulas/aula_details_controller.dart';
 import 'package:gs_admin/src/aulas/aula_model.dart';
 import 'package:gs_admin/src/professores/professor_model.dart';
-import 'package:gs_admin/src/utils/formatters/brl_input_formatter.dart';
-import 'package:gs_admin/src/utils/values_converter.dart';
+import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';
+import 'package:gs_admin/utils/values_converter.dart';
 
 enum Dias {
   dom, // Domingo
