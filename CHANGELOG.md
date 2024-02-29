@@ -15,7 +15,7 @@ O formato é baseado em [Keep a Changelog (PT-BR)](https://keepachangelog.com/pt
 e este projeto adere a [Versionamento Calendário (PT-BR)](https://calver.org/overview_pt_br.html).
 
 <!--
-Utils for quick Copy and paste
+for copy and paste
 ### Added
 ### Changed
 ### Fixed
@@ -23,4 +23,4 @@ Utils for quick Copy and paste
 
 ## CalVer (Feb 27, 2024)
 
-* Initial public release
+- Initial public release
