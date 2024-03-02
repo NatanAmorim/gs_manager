@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:gs_admin/src/greeter/greeter_service.dart';
 
 class PontoDeVendaView extends StatefulWidget {
   const PontoDeVendaView({super.key});
@@ -25,15 +24,6 @@ class _PontoDeVendaViewState extends State<PontoDeVendaView> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(),
-        floatingActionButton: FloatingActionButton.extended(
-          icon: const Icon(Icons.send),
-          label: const Text('Send gRPC Greet'),
-          onPressed: () {
-            var greeter = GreeterService();
-
-            greeter.greet();
-          },
-        ),
         body: isPlaying
             ? Center(
                 child: Stack(
@@ -46,9 +36,9 @@ class _PontoDeVendaViewState extends State<PontoDeVendaView> {
                           onPlay:
                               (AnimationController animationController) async {
                             await Future.delayed(
-                                const Duration(milliseconds: 2400));
+                              const Duration(milliseconds: 2400),
+                            );
                             if (!mounted) return;
-
                             animationController.repeat();
                           },
                         )
@@ -92,7 +82,7 @@ class _PontoDeVendaViewState extends State<PontoDeVendaView> {
     }
     setState(() => isPlaying = true);
     await Future.delayed(const Duration(milliseconds: 500));
-    // await audioPlayer.play(AssetSource(heroCelebrationAudioPath));
+    // await audioPlayer.play(AssetSource(heroCelebrationAudioPath)); // TODO
     await Future.delayed(const Duration(seconds: 4));
     if (!mounted) return;
     setState(() {

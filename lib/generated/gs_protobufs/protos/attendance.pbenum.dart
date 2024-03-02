@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: greet.proto
+//  source: gs_protobufs/protos/attendance.proto
 //
 // @dart = 2.12
 
