@@ -49,10 +49,7 @@ class _IndexedStackComponentState extends State<IndexedStackComponent>
     if (widget.index == 4) {
       return FadeTransition(
         opacity: CurveTween(curve: Curves.easeInOutCirc).animate(_controller),
-        child: IndexedStackComponent(
-          index: widget.index,
-          children: widget.children,
-        ),
+        child: widget.children[widget.index],
       );
     }
 

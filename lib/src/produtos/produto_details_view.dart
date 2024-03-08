@@ -39,10 +39,10 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
             icon: Icons.delete_forever,
             label: 'Deletar',
             isDelete: true,
-            onPressed: () => controller.delete(context),
+            onPressed: () => controller.handleDelete(context),
           ),
           TextButtonAsyncComponent(
-            onPressed: () => controller.submit(context),
+            onPressed: () => controller.handleSubmit(context),
             icon: Icons.save,
             label: 'Salvar',
           ),
@@ -154,7 +154,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
 
   // Remove the selected item from the list model.
   void _remove(ProdutoVarianteModel variante) async {
-    final bool shouldDelete = await DialogHelper.onDelete(
+    final bool shouldDelete = await DialogHelper.onhandleDelete(
       context: context,
       itemDescription: 'Descrição: ${variante.descricao}',
     );

@@ -67,12 +67,12 @@ class _AulaDetailsViewState extends State<AulaDetailsView> {
             icon: Icons.delete_forever,
             label: 'Deletar',
             isDelete: true,
-            onPressed: () => controller.delete(context),
+            onPressed: () => controller.handleDelete(context),
           ),
           TextButtonAsyncComponent(
             icon: Icons.save,
             label: 'Salvar',
-            onPressed: () => controller.submit(context),
+            onPressed: () => controller.handleSubmit(context),
           ),
         ],
         children: [

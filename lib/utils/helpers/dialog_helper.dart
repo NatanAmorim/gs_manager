@@ -34,7 +34,7 @@ class DialogHelper {
         false;
   }
 
-  static Future<bool> onDelete({
+  static Future<bool> onhandleDelete({
     required BuildContext context,
     required String itemDescription,
   }) async {
@@ -99,6 +99,9 @@ class DialogHelper {
             ),
             TextButton(
               onPressed: () async {
+                // TODO call api to invalidate RefreshToken
+                // TODO clear secure storage
+
                 // final NavigatorState navigator = Navigator.of(context);
 
                 // await navigator.pushAndRemoveUntil(
@@ -108,7 +111,7 @@ class DialogHelper {
                 //     ),
                 //     (Route<dynamic> route) => false);
               },
-              child: const Text('Sim, desconecte-me'),
+              child: const Text('Sim, desconectar'),
             ),
           ],
         ),

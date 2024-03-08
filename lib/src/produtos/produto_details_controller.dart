@@ -4,7 +4,7 @@ import 'package:gs_admin/helpers.dart';
 class ProdutoDetailsController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  Future<bool> submit(BuildContext context) async {
+  Future<bool> handleSubmit(BuildContext context) async {
     final bool isValid = formKey.currentState!.validate();
 
     // Theme, NavigatorState and ScaffoldMessengerState are stored
@@ -31,7 +31,7 @@ class ProdutoDetailsController {
     return true;
   }
 
-  delete(BuildContext context) {
+  handleDelete(BuildContext context) {
     // TODO
   }
 }

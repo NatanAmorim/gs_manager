@@ -19,7 +19,7 @@ class EncomendaDetailsController {
     nomePix: "Larissa Novaes",
   );
 
-  Future<bool> submit(BuildContext context) async {
+  Future<bool> handleSubmit(BuildContext context) async {
     final bool isValid = formKey.currentState!.validate();
 
     // Theme, NavigatorState and ScaffoldMessengerState are stored

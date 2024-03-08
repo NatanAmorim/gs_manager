@@ -28,7 +28,7 @@ class _EncomendaDetailsViewState extends State<EncomendaDetailsView> {
       child: CardComponent(
         actions: [
           TextButtonAsyncComponent(
-            onPressed: () => controller.submit(context),
+            onPressed: () => controller.handleSubmit(context),
             icon: Icons.save,
             label: 'Salvar',
           ),

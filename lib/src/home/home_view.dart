@@ -51,8 +51,8 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                     child: FloatingActionButton.extended(
                       clipBehavior: Clip.hardEdge,
                       isExtended: value,
-                      tooltip: 'Ponto de Vendas',
-                      heroTag: 'fab-ponto-de-vendas',
+                      tooltip: 'Ponto de Venda',
+                      heroTag: 'fab-ponto-de-venda',
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(20),
@@ -89,22 +89,25 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                         mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                'Cadastrar',
-                                style:
-                                    Theme.of(context).textTheme.headlineLarge,
-                              ),
-                              IconButton(
-                                onPressed: () => Navigator.pop(context),
-                                iconSize: 40,
-                                icon: const Icon(Icons.close),
-                              ),
-                            ],
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'Adicionar',
+                                  style:
+                                      Theme.of(context).textTheme.headlineLarge,
+                                ),
+                                IconButton.filledTonal(
+                                  onPressed: () => Navigator.pop(context),
+                                  icon: const Icon(Icons.close),
+                                ),
+                              ],
+                            ),
                           ),
                           const Divider(),
                           ListTile(
@@ -220,7 +223,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
           destinations: const [
             NavigationDestination(
               icon: Icon(Icons.store_outlined),
-              label: 'Geral',
+              label: 'Início',
             ),
             NavigationDestination(
               icon: Icon(Icons.inventory_outlined),

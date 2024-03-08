@@ -70,7 +70,6 @@ class SettingsTab extends ConsumerWidget {
                   context: context,
                   tiles: [
                     ListTile(
-                      tileColor: Theme.of(context).cardTheme.color!,
                       title: const Text("Tema do Aplicativo"),
                       textColor: Theme.of(context).colorScheme.secondary,
                       leading: const Icon(Icons.palette),
@@ -135,7 +134,7 @@ class SettingsTab extends ConsumerWidget {
                             ),
                             actionsAlignment: MainAxisAlignment.spaceBetween,
                             actions: [
-                              OutlinedButton(
+                              TextButton(
                                 onPressed: () {
                                   if (oldTheme !=
                                       ref.read(
@@ -146,22 +145,20 @@ class SettingsTab extends ConsumerWidget {
                                         .read(settingsProvider)
                                         .updateThemeMode(oldTheme);
                                   }
-
                                   Navigator.of(context).pop();
                                 },
-                                child: const Text("CANCELAR"),
+                                child: const Text("Cancelar, reverter tema"),
                               ),
-                              FilledButton(
+                              TextButton(
                                 onPressed: () => Navigator.of(context).pop(),
-                                child: const Text("CONFIRMAR"),
-                              )
+                                child: const Text("Confirmar, aplicar tema"),
+                              ),
                             ],
                           ),
                         );
                       },
                     ),
                     ListTile(
-                      tileColor: Theme.of(context).cardTheme.color!,
                       title: const Text("Jurídico e Conformidade"),
                       textColor: Theme.of(context).colorScheme.secondary,
                       leading: const Icon(Icons.gavel),
@@ -172,7 +169,6 @@ class SettingsTab extends ConsumerWidget {
                       },
                     ),
                     ListTile(
-                      tileColor: Theme.of(context).cardTheme.color!,
                       title: const Text("Sobre o App"),
                       textColor: Theme.of(context).colorScheme.secondary,
                       leading: const Icon(Icons.info),
@@ -193,7 +189,6 @@ class SettingsTab extends ConsumerWidget {
                       ),
                     ),
                     ListTile(
-                      tileColor: Theme.of(context).cardTheme.color!,
                       title: const Text("Encerrar Sessão"),
                       textColor: Theme.of(context).colorScheme.secondary,
                       leading: const Icon(Icons.logout),

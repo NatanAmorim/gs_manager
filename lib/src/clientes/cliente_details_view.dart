@@ -74,7 +74,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
 
   // Remove the selected item from the list model.
   void _remove(ClienteDependenteModel dependente) async {
-    final bool shouldDelete = await DialogHelper.onDelete(
+    final bool shouldDelete = await DialogHelper.onhandleDelete(
       context: context,
       itemDescription: 'Nome: ${dependente.nome}',
     );
@@ -241,12 +241,12 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
             icon: Icons.delete_forever,
             label: 'Deletar',
             isDelete: true,
-            onPressed: () => controller.delete(context),
+            onPressed: () => controller.handleDelete(context),
           ),
           TextButtonAsyncComponent(
             icon: Icons.save,
             label: 'Salvar',
-            onPressed: () => controller.submit(context),
+            onPressed: () => controller.handleSubmit(context),
           ),
         ],
         children: [

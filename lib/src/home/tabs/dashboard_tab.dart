@@ -28,10 +28,10 @@ class _DashboardTabState extends State<DashboardTab>
           tabs: const <Tab>[
             Tab(
               icon: Icon(Icons.school),
-              text: 'Aulas',
+              text: 'Disciplinas',
             ),
             Tab(
-              text: "Análise",
+              text: "Relatórios",
               icon: Icon(Icons.bar_chart_rounded),
             ),
           ],
@@ -41,10 +41,10 @@ class _DashboardTabState extends State<DashboardTab>
             controller: _tabController,
             children: const <Widget>[
               Center(
-                child: Text("Aulas"),
+                child: Text("Disciplinas"),
               ),
               Center(
-                child: Text("Análise"),
+                child: Text("Relatórios"),
               ),
             ],
           ),

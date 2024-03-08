@@ -11,7 +11,7 @@ class ProfessorDetailsController {
   late ProfessorModel teacher = professorAtualizando ?? ProfessorModel();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  Future<bool> submit(BuildContext context) async {
+  Future<bool> handleSubmit(BuildContext context) async {
     final bool isValid = formKey.currentState!.validate();
 
     // Theme, NavigatorState and ScaffoldMessengerState are stored
@@ -38,13 +38,13 @@ class ProfessorDetailsController {
     return true;
   }
 
-  Future<bool> delete(BuildContext context) async {
+  Future<bool> handleDelete(BuildContext context) async {
     // Theme, NavigatorState and ScaffoldMessengerState are stored
     // to avoid the error use_build_context_synchronously
     final NavigatorState navigator = Navigator.of(context);
     final ThemeData theme = Theme.of(context);
 
-    final bool shouldDelete = await DialogHelper.onDelete(
+    final bool shouldDelete = await DialogHelper.onhandleDelete(
       context: context,
       itemDescription: 'Nome: ${teacher.nome}',
     );
@@ -53,7 +53,7 @@ class ProfessorDetailsController {
       bool success = true;
 
       try {
-        // await teacher.delete();
+        // await teacher.handleDelete();
       } on Exception {
         success = false;
       }
