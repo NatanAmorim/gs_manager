@@ -61,6 +61,7 @@ class _AulaDetailsViewState extends State<AulaDetailsView> {
   Widget build(BuildContext context) {
     return ScaffoldFormComponent(
       formKey: controller.formKey,
+      handleSubmit: () => controller.handleSubmit(context),
       child: CardComponent(
         children: [
           Padding(

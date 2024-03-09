@@ -46,6 +46,7 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
 
     return ScaffoldFormComponent(
       formKey: controller.formKey,
+      handleSubmit: () => controller.handleSubmit(context),
       child: CardComponent(
         children: [
           Padding(

@@ -1,23 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gs_admin/helpers.dart';
-import 'package:gs_admin/src/clientes/cliente_model.dart';
 
 class EncomendaDetailsController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   // TODO a default client can lead to problems...
   // maybe don't? what if someone gets a order because they are first in the list?
-  // TODO This is not a client from the DB.
-  ClienteModel clienteSelecionado = ClienteModel(
-    nome: "Lúcia Novaes",
-    celular: "(91) 98785-2258",
-    dataNascimento: "17/06/2014",
-    cep: "69900-363",
-    endereco: "Rua Silvestre Coelho",
-    numero: "641",
-    nomeResponsavel: "Renan Lorenzo Novaes",
-    cpfResponsavel: "043.960.785-01",
-    nomePix: "Larissa Novaes",
-  );
 
   Future<bool> handleSubmit(BuildContext context) async {
     final bool isValid = formKey.currentState!.validate();

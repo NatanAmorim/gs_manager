@@ -7,10 +7,12 @@ class ScaffoldFormComponent extends StatefulWidget {
     super.key,
     required this.formKey,
     required this.child,
+    required this.handleSubmit,
   });
 
   final GlobalKey<FormState> formKey;
   final Widget child;
+  final Future<bool> Function() handleSubmit;
 
   @override
   State<ScaffoldFormComponent> createState() => _ScaffoldFormComponentState();
@@ -75,28 +77,33 @@ class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
             ],
           ),
         ),
-        bottomNavigationBar: SizedBox(
-          height: 80,
-          width: double.maxFinite,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 8,
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const BackButton(),
-                TextButtonAsyncComponent(
-                  icon: Icons.save,
-                  label: 'Salvar alterações',
-                  // TODO
-                  // onPressed: () => handleDelete(context),
-                  onPressed: () async => false,
+        bottomNavigationBar: SafeArea(
+          child: Material(
+            elevation: 8,
+            borderOnForeground: true,
+            surfaceTintColor: Theme.of(context).colorScheme.inverseSurface,
+            child: SizedBox(
+              height: 80,
+              width: double.maxFinite,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 8,
                 ),
-              ],
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const BackButton(),
+                    TextButtonAsyncComponent(
+                      icon: Icons.save,
+                      label: 'Salvar',
+                      onPressed: () => widget.handleSubmit(),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
         ),

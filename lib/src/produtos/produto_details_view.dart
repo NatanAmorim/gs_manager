@@ -33,6 +33,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
   Widget build(BuildContext context) {
     return ScaffoldFormComponent(
       formKey: controller.formKey,
+      handleSubmit: () => controller.handleSubmit(context),
       child: CardComponent(
         children: [
           Padding(

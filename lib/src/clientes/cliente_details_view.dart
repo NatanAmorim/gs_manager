@@ -230,6 +230,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
 
     return ScaffoldFormComponent(
       formKey: controller.formKey,
+      handleSubmit: () => controller.handleSubmit(context),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gs_admin/components.dart';
-import 'package:gs_admin/src/clientes/cliente_model.dart';
 import 'package:gs_admin/src/encomendas/encomenda_details_controller.dart';
 
 class EncomendaDetailsView extends StatefulWidget {
@@ -25,6 +24,7 @@ class _EncomendaDetailsViewState extends State<EncomendaDetailsView> {
   Widget build(BuildContext context) {
     return ScaffoldFormComponent(
       formKey: controller.formKey,
+      handleSubmit: () => controller.handleSubmit(context),
       child: CardComponent(
         children: [
           Padding(
@@ -37,20 +37,20 @@ class _EncomendaDetailsViewState extends State<EncomendaDetailsView> {
                   ),
             ),
           ),
-          DropdownComponent<ClienteModel>(
-            fieldName: "Cliente",
-            selectedValue: controller.clienteSelecionado,
-            onChanged: (dynamic newValue) {
-              if (newValue == null) {
-                return;
-              }
+          // DropdownComponent<ClienteModel>(
+          //   fieldName: "Cliente",
+          //   selectedValue: controller.clienteSelecionado,
+          //   onChanged: (dynamic newValue) {
+          //     if (newValue == null) {
+          //       return;
+          //     }
 
-              setState(() {
-                controller.clienteSelecionado = newValue;
-              });
-            },
-            items: const [],
-          ),
+          //     setState(() {
+          //       controller.clienteSelecionado = newValue;
+          //     });
+          //   },
+          //   items: const [],
+          // ),
           const SizedBox(height: 16),
           Text(
             'TODO',
