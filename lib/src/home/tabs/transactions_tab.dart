@@ -28,7 +28,7 @@ class _TransactionsTabState extends State<TransactionsTab>
           tabs: const <Tab>[
             Tab(
               text: "Vendas",
-              icon: Icon(Icons.shopping_cart_outlined),
+              icon: Icon(Icons.shopping_cart),
             ),
             Tab(
               text: "Mensalidades",

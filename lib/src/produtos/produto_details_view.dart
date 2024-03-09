@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gs_manager/components.dart';
+import 'package:gs_manager/formatters.dart';
 import 'package:gs_manager/helpers.dart';
 import 'package:gs_manager/src/produtos/produto_details_controller.dart';
 import 'package:gs_manager/src/produtos/produto_model.dart';
-import 'package:gs_manager/utils/formatters/brl_input_formatter.dart';
 import 'package:gs_manager/utils/values_converter.dart';
 
 class ProdutoDetailsView extends StatefulWidget {
@@ -34,62 +34,58 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
     return ScaffoldFormComponent(
       formKey: controller.formKey,
       handleSubmit: () => controller.handleSubmit(context),
-      child: CardComponent(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: Text(
-              'Cadastro de produto',
-              style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                    color: Theme.of(context).colorScheme.secondary,
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
-          ),
-          TextInputComponent(
-            label: 'Nome',
-            placeholderText: 'Digite o nome do produto',
-            autofocus: widget.produtoAtualizando == null,
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Digite o nome';
-              }
-
-              if (value.length < 3) {
-                return 'Insira um nome válido';
-              }
-
-              return null;
-            },
-          ),
-          const SizedBox(height: 16),
-          Flexible(
-            flex: 1,
-            child: AnimatedList(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              key: _listKey,
-              initialItemCount: variantes.length,
-              itemBuilder: _buildItem,
-            ),
-          ),
-          const SizedBox(height: 16),
-          Center(
-            child: OutlinedButton.icon(
-              onPressed: () => _insert(ProdutoVarianteModel()),
-              icon: Icon(
-                Icons.add,
-                color: Theme.of(context).colorScheme.tertiary,
-              ),
-              label: Text(
-                'Adicionar Variante',
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.tertiary,
+          CardComponent(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Text(
+                  'Cadastro de produto',
+                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                        color: Theme.of(context).colorScheme.secondary,
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
               ),
+              TextInputComponent(
+                label: 'Nome',
+                placeholderText: 'Digite o nome do produto',
+                autofocus: widget.produtoAtualizando == null,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Digite o nome';
+                  }
+
+                  if (value.length < 3) {
+                    return 'Insira um nome válido';
+                  }
+
+                  return null;
+                },
+              ),
+              const SizedBox(height: 16),
+            ],
+          ),
+          AnimatedList(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            key: _listKey,
+            initialItemCount: variantes.length,
+            itemBuilder: _buildItem,
+          ),
+          OutlinedButton.icon(
+            onPressed: () => _insert(ProdutoVarianteModel()),
+            icon: const Icon(
+              Icons.add,
+            ),
+            label: const Text(
+              'Adicionar Variante',
             ),
           ),
-          const SizedBox(height: 16),
         ],
       ),
     );
@@ -172,49 +168,38 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
     ProdutoVarianteModel variante, {
     bool isRemoving = false,
   }) {
-    return ExpansionTile(
-      shape: const Border(
-        top: BorderSide.none,
-        bottom: BorderSide(
-          color: Colors.grey,
-          width: 1.0,
-        ),
-      ),
-      collapsedShape: const Border(
-        top: BorderSide.none,
-        bottom: BorderSide(
-          color: Colors.grey,
-          width: 1.0,
-        ),
-      ),
-      collapsedBackgroundColor: Theme.of(context).brightness == Brightness.light
-          ? Theme.of(context).colorScheme.primary.withAlpha(80)
-          : Theme.of(context).colorScheme.primaryContainer.withAlpha(180),
-      backgroundColor: Theme.of(context).brightness == Brightness.light
-          ? Theme.of(context).colorScheme.primary.withAlpha(120)
-          : Theme.of(context).colorScheme.primaryContainer.withAlpha(120),
-      childrenPadding: const EdgeInsets.all(8.0),
-      title: const Text('Variante'),
-      subtitle: Text(
-        variante.descricao.isEmpty
-            ? 'Digite uma descrição'
-            : variante.descricao,
-      ),
+    return CardComponent(
       children: [
-        TextButton.icon(
-          style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-                (Set<MaterialState> states) {
-              if (states.contains(MaterialState.pressed)) {
-                return Colors.pink.shade300.withOpacity(0.6);
-              }
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Text(
+                'Cadastro de variante',
+                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                      color: Theme.of(context).colorScheme.secondary,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              TextButton.icon(
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return Colors.pink.shade300.withOpacity(0.6);
+                    }
 
-              return Colors.pink.shade300;
-            }),
+                    return Colors.pink.shade300;
+                  }),
+                ),
+                onPressed: () => _remove(variante),
+                icon: const Icon(Icons.delete),
+                label: const Text('Excluir variante'),
+              ),
+            ],
           ),
-          onPressed: () => _remove(variante),
-          icon: const Icon(Icons.delete),
-          label: const Text('Excluir variante'),
         ),
         const SizedBox(height: 8.0),
         TextInputComponent(

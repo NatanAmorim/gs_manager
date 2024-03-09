@@ -59,7 +59,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                           topLeft: Radius.circular(20),
                         ),
                       ),
-                      label: const Text("Ponto de Vendas"),
+                      label: const Text("Ponto de Venda"),
                       icon: const Icon(Icons.point_of_sale),
                       onPressed: () async => await Navigator.of(context).push(
                         MaterialPageRoute(

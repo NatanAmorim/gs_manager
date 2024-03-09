@@ -66,21 +66,21 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
     );
   }
 
-  // Insert the "next item" into the list model.
+  /// Insert the "next item" into the list model.
   void _insert(ClienteDependenteModel dependente) {
     dependentes.add(dependente);
     _listKey.currentState?.insertItem(dependentes.length - 1);
     setState(() {}); // TODO does this cause problems?
   }
 
-  // Remove the selected item from the list model.
+  /// Remove the selected item from the list model.
   void _remove(ClienteDependenteModel dependente) async {
     final bool shouldDelete = await DialogHelper.onHandleDelete(
       context: context,
       itemDescription: 'Nome: ${dependente.nome}',
     );
 
-    // if it user cancelled the removal process
+    // if user cancelled the removal process
     if (!shouldDelete) {
       return;
     }
@@ -106,40 +106,38 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
     ClienteDependenteModel dependente, {
     bool isRemoving = false,
   }) {
-    return ExpansionTile(
-      shape: const Border(
-        top: BorderSide.none,
-        bottom: BorderSide(
-          color: Colors.grey,
-          width: 1.0,
-        ),
-      ),
-      collapsedShape: const Border(
-        top: BorderSide.none,
-        bottom: BorderSide(
-          color: Colors.grey,
-          width: 1.0,
-        ),
-      ),
-      childrenPadding: const EdgeInsets.symmetric(horizontal: 8.0),
-      title: const Text('Filho/Dependente'),
-      subtitle:
-          Text(dependente.nome.isEmpty ? 'Digite o nome' : dependente.nome),
-      children: <Widget>[
-        TextButton.icon(
-          style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-                (Set<MaterialState> states) {
-              if (states.contains(MaterialState.pressed)) {
-                return Colors.pink.shade300.withOpacity(0.6);
-              }
+    return CardComponent(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Text(
+                'Cadastro de dependente',
+                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                      color: Theme.of(context).colorScheme.secondary,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              TextButton.icon(
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return Colors.pink.shade300.withOpacity(0.6);
+                    }
 
-              return Colors.pink.shade300;
-            }),
+                    return Colors.pink.shade300;
+                  }),
+                ),
+                onPressed: () => _remove(dependente),
+                icon: const Icon(Icons.delete),
+                label: const Text('Excluir Registro'),
+              ),
+            ],
           ),
-          onPressed: () => _remove(dependente),
-          icon: const Icon(Icons.delete),
-          label: const Text('Excluir Registro'),
         ),
         const SizedBox(height: 8.0),
         TextInputComponent(
@@ -204,7 +202,7 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
             DateInputFormatter(),
           ],
         ),
-        const SizedBox(height: 16.0),
+        const SizedBox(height: 8),
       ],
     );
   }
@@ -412,42 +410,13 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
               const SizedBox(height: 16),
             ],
           ),
-          const SizedBox(height: 16),
-          CardComponent(
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: Text(
-                  'Cadastro de dependentes',
-                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                        color: Theme.of(context).colorScheme.secondary,
-                        fontWeight: FontWeight.bold,
-                      ),
-                ),
-              ),
-              AnimatedList(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                key: _listKey,
-                initialItemCount: dependentes.length,
-                itemBuilder: _buildItem,
-              ),
-              Visibility(
-                visible: dependentes.isEmpty,
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Center(
-                    child: Text(
-                      "Nenhum dependente",
-                      style: Theme.of(context).textTheme.displaySmall,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 8),
-            ],
+          AnimatedList(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            key: _listKey,
+            initialItemCount: dependentes.length,
+            itemBuilder: _buildItem,
           ),
-          const SizedBox(height: 16),
           OutlinedButton.icon(
             onPressed: () => _insert(ClienteDependenteModel()),
             icon: const Icon(
@@ -458,7 +427,6 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
               style: TextStyle(),
             ),
           ),
-          const SizedBox(height: 20),
         ],
       ),
     );
