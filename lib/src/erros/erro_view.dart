@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/src/home/home_view.dart';
+import 'package:gs_manager/src/home/home_view.dart';
 
 class ErroView extends StatelessWidget {
   const ErroView(

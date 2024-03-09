@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:gs_admin/src/viacep/viacep_dto.dart';
-import 'package:gs_admin/utils/values_converter.dart';
+import 'package:gs_manager/src/viacep/viacep_dto.dart';
+import 'package:gs_manager/utils/values_converter.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 

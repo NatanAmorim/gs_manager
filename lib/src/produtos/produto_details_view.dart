@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gs_admin/components.dart';
-import 'package:gs_admin/helpers.dart';
-import 'package:gs_admin/src/produtos/produto_details_controller.dart';
-import 'package:gs_admin/src/produtos/produto_model.dart';
-import 'package:gs_admin/utils/formatters/brl_input_formatter.dart';
-import 'package:gs_admin/utils/values_converter.dart';
+import 'package:gs_manager/components.dart';
+import 'package:gs_manager/helpers.dart';
+import 'package:gs_manager/src/produtos/produto_details_controller.dart';
+import 'package:gs_manager/src/produtos/produto_model.dart';
+import 'package:gs_manager/utils/formatters/brl_input_formatter.dart';
+import 'package:gs_manager/utils/values_converter.dart';
 
 class ProdutoDetailsView extends StatefulWidget {
   const ProdutoDetailsView({

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gs_admin/components.dart';
-import 'package:gs_admin/formatters.dart';
-import 'package:gs_admin/src/professores/professor_details_controller.dart';
-import 'package:gs_admin/src/professores/professor_model.dart';
-import 'package:gs_admin/src/viacep/viacep_service.dart';
-import 'package:gs_admin/utils/validators/cpf_validator.dart';
+import 'package:gs_manager/components.dart';
+import 'package:gs_manager/formatters.dart';
+import 'package:gs_manager/src/professores/professor_details_controller.dart';
+import 'package:gs_manager/src/professores/professor_model.dart';
+import 'package:gs_manager/src/viacep/viacep_service.dart';
+import 'package:gs_manager/utils/validators/cpf_validator.dart';
 import 'package:intl/intl.dart';
 
 class ProfessorDetailsView extends StatefulWidget {

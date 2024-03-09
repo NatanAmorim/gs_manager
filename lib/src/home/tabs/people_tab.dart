@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/src/clientes/cliente_view.dart';
+import 'package:gs_manager/src/clientes/cliente_view.dart';
 
 class PeopleTab extends StatefulWidget {
   const PeopleTab({

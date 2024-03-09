@@ -1,4 +1,4 @@
-import 'package:gs_admin/src/aulas/aula_model.dart';
+import 'package:gs_manager/src/aulas/aula_model.dart';
 
 class ClienteModel {
   ClienteModel({

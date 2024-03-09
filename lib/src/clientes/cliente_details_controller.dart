@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/helpers.dart';
-import 'package:gs_admin/src/clientes/cliente_model.dart';
+import 'package:gs_manager/helpers.dart';
+import 'package:gs_manager/src/clientes/cliente_model.dart';
 
 class ClienteDetailsController {
   ClienteDetailsController({

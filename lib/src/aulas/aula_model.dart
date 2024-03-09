@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/src/aulas/aula_details_view.dart';
-import 'package:gs_admin/src/professores/professor_model.dart';
+import 'package:gs_manager/src/aulas/aula_details_view.dart';
+import 'package:gs_manager/src/professores/professor_model.dart';
 
 class AulaModel {
   AulaModel({

@@ -94,7 +94,7 @@ protoc --dart_out=grpc:lib/generated gs_protobufs/protos/*.proto
 
 ## How to contribute
 
-- If you want to contribute code to this repository check [CONTRIBUTING.md](https://github.com/NatanAmorim/gs_admin/blob/main/CONTRIBUTING.md).
+- If you want to contribute code to this repository check [CONTRIBUTING.md](https://github.com/NatanAmorim/gs_manager/blob/main/CONTRIBUTING.md).
 
 ## Security
 <!--

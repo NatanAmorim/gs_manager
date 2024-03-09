@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/components.dart';
+import 'package:gs_manager/components.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});

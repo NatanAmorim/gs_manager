@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/components.dart';
-import 'package:gs_admin/src/aulas/aula_details_view.dart';
-import 'package:gs_admin/src/clientes/cliente_details_view.dart';
-import 'package:gs_admin/src/encomendas/encomenda_details_view.dart';
-import 'package:gs_admin/src/global_variables.dart';
-import 'package:gs_admin/src/home/tabs/dashboard_tab.dart';
-import 'package:gs_admin/src/home/tabs/inventory_tab.dart';
-import 'package:gs_admin/src/home/tabs/people_tab.dart';
-import 'package:gs_admin/src/home/tabs/settings_tab.dart';
-import 'package:gs_admin/src/home/tabs/transactions_tab.dart';
-import 'package:gs_admin/src/ponto_de_vendas/ponto_de_venda_view.dart';
-import 'package:gs_admin/src/produtos/produto_details_view.dart';
-import 'package:gs_admin/src/professores/professor_details_view.dart';
+import 'package:gs_manager/components.dart';
+import 'package:gs_manager/src/aulas/aula_details_view.dart';
+import 'package:gs_manager/src/clientes/cliente_details_view.dart';
+import 'package:gs_manager/src/encomendas/encomenda_details_view.dart';
+import 'package:gs_manager/src/global_variables.dart';
+import 'package:gs_manager/src/home/tabs/dashboard_tab.dart';
+import 'package:gs_manager/src/home/tabs/inventory_tab.dart';
+import 'package:gs_manager/src/home/tabs/people_tab.dart';
+import 'package:gs_manager/src/home/tabs/settings_tab.dart';
+import 'package:gs_manager/src/home/tabs/transactions_tab.dart';
+import 'package:gs_manager/src/ponto_de_vendas/ponto_de_venda_view.dart';
+import 'package:gs_manager/src/produtos/produto_details_view.dart';
+import 'package:gs_manager/src/professores/professor_details_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});

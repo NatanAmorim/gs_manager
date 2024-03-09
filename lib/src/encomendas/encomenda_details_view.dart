@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/components.dart';
-import 'package:gs_admin/src/encomendas/encomenda_details_controller.dart';
+import 'package:gs_manager/components.dart';
+import 'package:gs_manager/src/encomendas/encomenda_details_controller.dart';
 
 class EncomendaDetailsView extends StatefulWidget {
   const EncomendaDetailsView({

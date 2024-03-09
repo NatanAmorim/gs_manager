@@ -5,18 +5,18 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "gs_admin",
+      "name": "gs_manager",
       "request": "launch",
       "type": "dart"
     },
     {
-      "name": "gs_admin (profile mode)",
+      "name": "gs_manager (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile"
     },
     {
-      "name": "gs_admin (release mode)",
+      "name": "gs_manager (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release"

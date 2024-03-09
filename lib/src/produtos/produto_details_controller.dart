@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/helpers.dart';
+import 'package:gs_manager/helpers.dart';
 
 class ProdutoDetailsController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();

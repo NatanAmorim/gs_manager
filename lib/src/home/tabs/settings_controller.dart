@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/src/home/tabs/settings_service.dart';
+import 'package:gs_manager/src/home/tabs/settings_service.dart';
 
 /// A class that many Widgets can interact with to read user settings, update
 /// user settings, or listen to user settings changes.

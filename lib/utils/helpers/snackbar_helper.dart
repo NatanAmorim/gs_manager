@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/src/global_variables.dart';
+import 'package:gs_manager/src/global_variables.dart';
 
 const double fontSize = 16.0;
 const FontWeight fontWeight = FontWeight.w500;

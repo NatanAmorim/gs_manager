@@ -3,7 +3,7 @@
 // https://github.com/flutterbootcamp/brasil_fields
 
 import 'package:flutter/services.dart';
-import 'package:gs_admin/utils/formatters/compoundable_input_formatter.dart';
+import 'package:gs_manager/utils/formatters/compoundable_input_formatter.dart';
 
 /// Formata o valor do campo com a mascara de CPF `XXX.XXX.XXX-XX`
 class CpfInputFormatter extends TextInputFormatter

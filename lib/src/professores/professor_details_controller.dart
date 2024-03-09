@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/helpers.dart';
-import 'package:gs_admin/src/professores/professor_model.dart';
+import 'package:gs_manager/helpers.dart';
+import 'package:gs_manager/src/professores/professor_model.dart';
 
 class ProfessorDetailsController {
   ProfessorDetailsController({

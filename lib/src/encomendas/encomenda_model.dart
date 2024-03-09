@@ -1,5 +1,5 @@
-import 'package:gs_admin/src/clientes/cliente_model.dart';
-import 'package:gs_admin/src/produtos/produto_model.dart';
+import 'package:gs_manager/src/clientes/cliente_model.dart';
+import 'package:gs_manager/src/produtos/produto_model.dart';
 
 class EncomendaModel {
   EncomendaModel({

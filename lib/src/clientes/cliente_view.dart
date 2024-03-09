@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:gs_admin/components.dart';
-import 'package:gs_admin/src/clientes/cliente_details_view.dart';
-import 'package:gs_admin/src/clientes/cliente_model.dart';
-import 'package:gs_admin/src/global_variables.dart';
+import 'package:gs_manager/components.dart';
+import 'package:gs_manager/src/clientes/cliente_details_view.dart';
+import 'package:gs_manager/src/clientes/cliente_model.dart';
+import 'package:gs_manager/src/global_variables.dart';
 
 class ClienteView extends StatefulWidget {
   const ClienteView({super.key});

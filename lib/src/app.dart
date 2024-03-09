@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gs_admin/main.dart';
-import 'package:gs_admin/src/erros/erro_view.dart';
-import 'package:gs_admin/src/global_variables.dart';
-import 'package:gs_admin/src/home/home_view.dart';
-import 'package:gs_admin/src/theme.dart';
+import 'package:gs_manager/main.dart';
+import 'package:gs_manager/src/erros/erro_view.dart';
+import 'package:gs_manager/src/global_variables.dart';
+import 'package:gs_manager/src/home/home_view.dart';
+import 'package:gs_manager/src/theme.dart';
 
 class App extends ConsumerWidget {
   const App({super.key});

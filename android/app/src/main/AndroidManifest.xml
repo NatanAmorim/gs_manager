@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="gs_admin"
+        android:label="gs_manager"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

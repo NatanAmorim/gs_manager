@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gs_admin/src/app.dart';
-import 'package:gs_admin/src/home/tabs/settings_controller.dart';
-import 'package:gs_admin/src/home/tabs/settings_service.dart';
+import 'package:gs_manager/src/app.dart';
+import 'package:gs_manager/src/home/tabs/settings_controller.dart';
+import 'package:gs_manager/src/home/tabs/settings_service.dart';
 
 // Flutter Widgets.
 /*

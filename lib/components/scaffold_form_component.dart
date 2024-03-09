@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gs_admin/components/text_button_async_component.dart';
-import 'package:gs_admin/helpers.dart';
+import 'package:gs_manager/components/text_button_async_component.dart';
+import 'package:gs_manager/helpers.dart';
 
 class ScaffoldFormComponent extends StatefulWidget {
   const ScaffoldFormComponent({
@@ -83,7 +83,7 @@ class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
             borderOnForeground: true,
             surfaceTintColor: Theme.of(context).colorScheme.inverseSurface,
             child: SizedBox(
-              height: 80,
+              height: 72,
               width: double.maxFinite,
               child: Padding(
                 padding: const EdgeInsets.symmetric(

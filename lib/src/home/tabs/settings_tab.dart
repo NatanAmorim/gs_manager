@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gs_admin/helpers.dart';
-import 'package:gs_admin/main.dart';
+import 'package:gs_manager/helpers.dart';
+import 'package:gs_manager/main.dart';
 
 /// Displays the various settings that can be customized by the user.
 ///
