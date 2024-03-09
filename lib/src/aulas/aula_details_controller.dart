@@ -78,7 +78,7 @@ class AulaDetailsController {
     final NavigatorState navigator = Navigator.of(context);
     final ThemeData theme = Theme.of(context);
 
-    final bool shouldDelete = await DialogHelper.onhandleDelete(
+    final bool shouldDelete = await DialogHelper.onHandleDelete(
       context: context,
       itemDescription: 'Nome: ${lecture.nome}',
     );

@@ -16,11 +16,11 @@ e este projeto adere a [Versionamento Calendário (PT-BR)](https://calver.org/ov
 
 <!--
 for copy and paste
-### Added
-### Changed
-### Fixed
+added:
+changed:
+fixed:
 -->
 
-## CalVer (Feb 27, 2024)
+## CalVer (Mar 02, 2024)
 
-- Initial public release
+- Initial public release.

@@ -70,11 +70,12 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
   void _insert(ClienteDependenteModel dependente) {
     dependentes.add(dependente);
     _listKey.currentState?.insertItem(dependentes.length - 1);
+    setState(() {}); // TODO does this cause problems?
   }
 
   // Remove the selected item from the list model.
   void _remove(ClienteDependenteModel dependente) async {
-    final bool shouldDelete = await DialogHelper.onhandleDelete(
+    final bool shouldDelete = await DialogHelper.onHandleDelete(
       context: context,
       itemDescription: 'Nome: ${dependente.nome}',
     );
@@ -120,12 +121,6 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
           width: 1.0,
         ),
       ),
-      collapsedBackgroundColor: Theme.of(context).brightness == Brightness.light
-          ? Theme.of(context).colorScheme.primary.withAlpha(80)
-          : Theme.of(context).colorScheme.primaryContainer.withAlpha(180),
-      backgroundColor: Theme.of(context).brightness == Brightness.light
-          ? Theme.of(context).colorScheme.primary.withAlpha(120)
-          : Theme.of(context).colorScheme.primaryContainer.withAlpha(120),
       childrenPadding: const EdgeInsets.symmetric(horizontal: 8.0),
       title: const Text('Filho/Dependente'),
       subtitle:
@@ -235,216 +230,234 @@ class _ClienteDetailsViewState extends State<ClienteDetailsView> {
 
     return ScaffoldFormComponent(
       formKey: controller.formKey,
-      child: CardComponent(
-        actions: [
-          TextButtonAsyncComponent(
-            icon: Icons.delete_forever,
-            label: 'Deletar',
-            isDelete: true,
-            onPressed: () => controller.handleDelete(context),
-          ),
-          TextButtonAsyncComponent(
-            icon: Icons.save,
-            label: 'Salvar',
-            onPressed: () => controller.handleSubmit(context),
-          ),
-        ],
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: Text(
-              'Cadastro de cliente',
-              style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                    color: Theme.of(context).colorScheme.secondary,
-                    fontWeight: FontWeight.bold,
+          CardComponent(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Text(
+                  'Cadastro de cliente',
+                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                        color: Theme.of(context).colorScheme.secondary,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+              ),
+              TextInputComponent(
+                autofocus: widget.clienteAtualizando == null,
+                label: 'Nome',
+                placeholderText: 'Digite o nome do cliente',
+                initialValue: controller.cliente.nome,
+                onSaved: (String? text) => controller.cliente.nome = text!,
+                keyboardType: TextInputType.name,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Digite o nome';
+                  }
+
+                  if (value.length < 2) {
+                    return 'Insira um nome válido';
+                  }
+
+                  return null;
+                },
+              ),
+              const SizedBox(height: 16),
+              TextInputComponent(
+                label: 'Celular',
+                placeholderText: 'Digite o número de celular',
+                keyboardType: TextInputType.phone,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  PhoneInputFormatter(),
+                ],
+                initialValue: controller.cliente.celular,
+                onSaved: (String? text) => controller.cliente.celular = text!,
+              ),
+              const SizedBox(height: 16),
+              TextInputComponent(
+                label: 'Data de nascimento',
+                placeholderText: 'Digite a data',
+                initialValue: controller.cliente.dataNascimento,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return null;
+                  }
+
+                  if (value.length != 10) {
+                    return 'Insira uma data válida';
+                  }
+
+                  try {
+                    dateFormatter.parseStrict(
+                      value.trim(),
+                    );
+                  } on Exception {
+                    return 'Insira uma data válida';
+                  }
+
+                  final int year = int.parse(
+                    value.substring(6, 10),
+                  );
+
+                  if (year <= 1900) {
+                    return 'Insira uma data válida';
+                  }
+
+                  return null;
+                },
+                keyboardType: TextInputType.datetime,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  DateInputFormatter(),
+                ],
+                onSaved: (String? text) =>
+                    controller.cliente.dataNascimento = text!,
+              ),
+              const SizedBox(height: 16),
+              TextInputComponent(
+                label: 'CPF',
+                placeholderText: 'Digite o número de cpf',
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return null;
+                  }
+
+                  return CPFValidator.isValid(value)
+                      ? null
+                      : 'Insira um CPF válido';
+                },
+                initialValue: controller.cliente.cpf,
+                keyboardType: TextInputType.number,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  CpfInputFormatter(),
+                ],
+                onSaved: (String? text) {
+                  controller.cliente.cpf = text!;
+                },
+              ),
+              const SizedBox(height: 16),
+              TextInputComponent(
+                label: 'CEP',
+                initialValue: controller.cliente.cep,
+                placeholderText: 'Digite o número de cep',
+                keyboardType: TextInputType.number,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  CepInputFormatter(),
+                ],
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return null;
+                  }
+
+                  if (value.length != 10) {
+                    'Insira um CEP válido';
+                  }
+
+                  return null;
+                },
+                onChanged: (String? text) async {
+                  if (text?.length == 10) {
+                    final String? newAddress = await ViacepService.getAddress(
+                      cep: text!,
+                    );
+
+                    if (newAddress != null) {
+                      addressNotifier.value.text = newAddress;
+                    }
+                  }
+                },
+                onSaved: (String? text) => controller.cliente.cep = text!,
+              ),
+              const SizedBox(height: 16),
+              ValueListenableBuilder<TextEditingController>(
+                valueListenable: addressNotifier,
+                builder: (
+                  BuildContext context,
+                  TextEditingController value,
+                  Widget? child,
+                ) {
+                  return TextInputComponent(
+                    controller: value,
+                    label: 'Endereço',
+                    placeholderText: 'Digite o endereço',
+                    keyboardType: TextInputType.streetAddress,
+                    onSaved: (String? text) =>
+                        controller.cliente.endereco = text!,
+                  );
+                },
+              ),
+              const SizedBox(height: 16),
+              TextInputComponent(
+                label: 'Número',
+                placeholderText: 'Digite o número do endereço',
+                initialValue: controller.cliente.numero,
+                onSaved: (String? text) => controller.cliente.numero = text!,
+                keyboardType: TextInputType.name,
+              ),
+              const SizedBox(height: 16),
+              TextInputComponent(
+                label: 'Nome PIX',
+                placeholderText: 'Digite o nome no recibo do PIX',
+                initialValue: controller.cliente.nomePix,
+                onSaved: (String? text) => controller.cliente.nomePix = text!,
+              ),
+              const SizedBox(height: 16),
+            ],
+          ),
+          const SizedBox(height: 16),
+          CardComponent(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Text(
+                  'Cadastro de dependentes',
+                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                        color: Theme.of(context).colorScheme.secondary,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+              ),
+              AnimatedList(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                key: _listKey,
+                initialItemCount: dependentes.length,
+                itemBuilder: _buildItem,
+              ),
+              Visibility(
+                visible: dependentes.isEmpty,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Center(
+                    child: Text(
+                      "Nenhum dependente",
+                      style: Theme.of(context).textTheme.displaySmall,
+                    ),
                   ),
+                ),
+              ),
+              const SizedBox(height: 8),
+            ],
+          ),
+          const SizedBox(height: 16),
+          OutlinedButton.icon(
+            onPressed: () => _insert(ClienteDependenteModel()),
+            icon: const Icon(
+              Icons.add,
             ),
-          ),
-          TextInputComponent(
-            autofocus: widget.clienteAtualizando == null,
-            label: 'Nome',
-            placeholderText: 'Digite o nome do cliente',
-            initialValue: controller.cliente.nome,
-            onSaved: (String? text) => controller.cliente.nome = text!,
-            keyboardType: TextInputType.name,
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Digite o nome';
-              }
-
-              if (value.length < 2) {
-                return 'Insira um nome válido';
-              }
-
-              return null;
-            },
-          ),
-          const SizedBox(height: 16),
-          TextInputComponent(
-            label: 'Celular',
-            placeholderText: 'Digite o número de celular',
-            keyboardType: TextInputType.phone,
-            inputFormatters: [
-              FilteringTextInputFormatter.digitsOnly,
-              PhoneInputFormatter(),
-            ],
-            initialValue: controller.cliente.celular,
-            onSaved: (String? text) => controller.cliente.celular = text!,
-          ),
-          const SizedBox(height: 16),
-          TextInputComponent(
-            label: 'Data de nascimento',
-            placeholderText: 'Digite a data',
-            initialValue: controller.cliente.dataNascimento,
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return null;
-              }
-
-              if (value.length != 10) {
-                return 'Insira uma data válida';
-              }
-
-              try {
-                dateFormatter.parseStrict(
-                  value.trim(),
-                );
-              } on Exception {
-                return 'Insira uma data válida';
-              }
-
-              final int year = int.parse(
-                value.substring(6, 10),
-              );
-
-              if (year <= 1900) {
-                return 'Insira uma data válida';
-              }
-
-              return null;
-            },
-            keyboardType: TextInputType.datetime,
-            inputFormatters: [
-              FilteringTextInputFormatter.digitsOnly,
-              DateInputFormatter(),
-            ],
-            onSaved: (String? text) =>
-                controller.cliente.dataNascimento = text!,
-          ),
-          const SizedBox(height: 16),
-          TextInputComponent(
-            label: 'CPF',
-            placeholderText: 'Digite o número de cpf',
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return null;
-              }
-
-              return CPFValidator.isValid(value)
-                  ? null
-                  : 'Insira um CPF válido';
-            },
-            initialValue: controller.cliente.cpf,
-            keyboardType: TextInputType.number,
-            inputFormatters: [
-              FilteringTextInputFormatter.digitsOnly,
-              CpfInputFormatter(),
-            ],
-            onSaved: (String? text) {
-              controller.cliente.cpf = text!;
-            },
-          ),
-          const SizedBox(height: 16),
-          TextInputComponent(
-            label: 'CEP',
-            initialValue: controller.cliente.cep,
-            placeholderText: 'Digite o número de cep',
-            keyboardType: TextInputType.number,
-            inputFormatters: [
-              FilteringTextInputFormatter.digitsOnly,
-              CepInputFormatter(),
-            ],
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return null;
-              }
-
-              if (value.length != 10) {
-                'Insira um CEP válido';
-              }
-
-              return null;
-            },
-            onChanged: (String? text) async {
-              if (text?.length == 10) {
-                final String? newAddress = await ViacepService.getAddress(
-                  cep: text!,
-                );
-
-                if (newAddress != null) {
-                  addressNotifier.value.text = newAddress;
-                }
-              }
-            },
-            onSaved: (String? text) => controller.cliente.cep = text!,
-          ),
-          const SizedBox(height: 16),
-          ValueListenableBuilder<TextEditingController>(
-            valueListenable: addressNotifier,
-            builder: (
-              BuildContext context,
-              TextEditingController value,
-              Widget? child,
-            ) {
-              return TextInputComponent(
-                controller: value,
-                label: 'Endereço',
-                placeholderText: 'Digite o endereço',
-                keyboardType: TextInputType.streetAddress,
-                onSaved: (String? text) => controller.cliente.endereco = text!,
-              );
-            },
-          ),
-          const SizedBox(height: 16),
-          TextInputComponent(
-            label: 'Número',
-            placeholderText: 'Digite o número do endereço',
-            initialValue: controller.cliente.numero,
-            onSaved: (String? text) => controller.cliente.numero = text!,
-            keyboardType: TextInputType.name,
-          ),
-          const SizedBox(height: 16),
-          TextInputComponent(
-            label: 'Nome PIX',
-            placeholderText: 'Digite o nome no recibo do PIX',
-            initialValue: controller.cliente.nomePix,
-            onSaved: (String? text) => controller.cliente.nomePix = text!,
-          ),
-          const SizedBox(height: 16),
-          Flexible(
-            flex: 1,
-            child: AnimatedList(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              key: _listKey,
-              initialItemCount: dependentes.length,
-              itemBuilder: _buildItem,
+            label: const Text(
+              'Adicionar filho/dependente',
+              style: TextStyle(),
             ),
           ),
           const SizedBox(height: 20),
-          Center(
-            child: OutlinedButton.icon(
-              onPressed: () => _insert(ClienteDependenteModel()),
-              icon: const Icon(
-                Icons.add,
-              ),
-              label: const Text(
-                'Adicionar filho/dependente',
-                style: TextStyle(),
-              ),
-            ),
-          ),
-          const SizedBox(height: 16),
         ],
       ),
     );

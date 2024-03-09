@@ -26,13 +26,6 @@ class _EncomendaDetailsViewState extends State<EncomendaDetailsView> {
     return ScaffoldFormComponent(
       formKey: controller.formKey,
       child: CardComponent(
-        actions: [
-          TextButtonAsyncComponent(
-            onPressed: () => controller.handleSubmit(context),
-            icon: Icons.save,
-            label: 'Salvar',
-          ),
-        ],
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),

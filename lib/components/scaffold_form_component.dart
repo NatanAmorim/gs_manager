@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gs_admin/components/text_button_async_component.dart';
 import 'package:gs_admin/helpers.dart';
 
 class ScaffoldFormComponent extends StatefulWidget {
@@ -38,11 +39,6 @@ class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
                   child: Column(
                     children: [
                       const SizedBox(height: 24),
-                      const Align(
-                        alignment: Alignment.centerLeft,
-                        child: BackButton(),
-                      ),
-                      const SizedBox(height: 16),
                       Form(
                         key: widget.formKey,
                         autovalidateMode: AutovalidateMode.disabled,
@@ -77,6 +73,31 @@ class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
                 ),
               )
             ],
+          ),
+        ),
+        bottomNavigationBar: SizedBox(
+          height: 80,
+          width: double.maxFinite,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 8,
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const BackButton(),
+                TextButtonAsyncComponent(
+                  icon: Icons.save,
+                  label: 'Salvar alterações',
+                  // TODO
+                  // onPressed: () => handleDelete(context),
+                  onPressed: () async => false,
+                ),
+              ],
+            ),
           ),
         ),
       ),

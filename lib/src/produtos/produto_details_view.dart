@@ -34,19 +34,6 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
     return ScaffoldFormComponent(
       formKey: controller.formKey,
       child: CardComponent(
-        actions: [
-          TextButtonAsyncComponent(
-            icon: Icons.delete_forever,
-            label: 'Deletar',
-            isDelete: true,
-            onPressed: () => controller.handleDelete(context),
-          ),
-          TextButtonAsyncComponent(
-            onPressed: () => controller.handleSubmit(context),
-            icon: Icons.save,
-            label: 'Salvar',
-          ),
-        ],
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -154,7 +141,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
 
   // Remove the selected item from the list model.
   void _remove(ProdutoVarianteModel variante) async {
-    final bool shouldDelete = await DialogHelper.onhandleDelete(
+    final bool shouldDelete = await DialogHelper.onHandleDelete(
       context: context,
       itemDescription: 'Descrição: ${variante.descricao}',
     );

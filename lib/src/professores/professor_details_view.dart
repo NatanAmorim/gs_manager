@@ -47,19 +47,6 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
     return ScaffoldFormComponent(
       formKey: controller.formKey,
       child: CardComponent(
-        actions: [
-          TextButtonAsyncComponent(
-            icon: Icons.delete_forever,
-            label: 'Deletar',
-            isDelete: true,
-            onPressed: () => controller.handleDelete(context),
-          ),
-          TextButtonAsyncComponent(
-            icon: Icons.save,
-            label: 'Salvar',
-            onPressed: () => controller.handleSubmit(context),
-          ),
-        ],
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),

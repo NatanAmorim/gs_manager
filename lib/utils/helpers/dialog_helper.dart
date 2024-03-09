@@ -34,7 +34,7 @@ class DialogHelper {
         false;
   }
 
-  static Future<bool> onhandleDelete({
+  static Future<bool> onHandleDelete({
     required BuildContext context,
     required String itemDescription,
   }) async {

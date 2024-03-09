@@ -4,20 +4,12 @@ class CardComponent extends StatelessWidget {
   const CardComponent({
     super.key,
     required this.children,
-    required this.actions,
   });
 
   final List<Widget> children;
-  final List<Widget> actions;
 
   @override
   Widget build(BuildContext context) {
-    children.add(const SizedBox(height: 16));
-    children.add(Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: actions,
-    ));
-
     return Card(
       child: Container(
         width: double.infinity,

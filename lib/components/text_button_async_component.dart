@@ -6,13 +6,11 @@ class TextButtonAsyncComponent extends StatefulWidget {
     required this.icon,
     required this.label,
     required this.onPressed,
-    this.isDelete = false,
   });
 
   final IconData icon;
   final String label;
   final Future<bool> Function() onPressed;
-  final bool isDelete;
 
   @override
   State<TextButtonAsyncComponent> createState() =>
@@ -20,7 +18,7 @@ class TextButtonAsyncComponent extends StatefulWidget {
 }
 
 class _TextButtonAsyncComponentState extends State<TextButtonAsyncComponent> {
-  final double contentSize = 20;
+  final double contentSize = 16;
   final ValueNotifier<bool> _isLoadingNotifier = ValueNotifier<bool>(false);
 
   @override
@@ -39,20 +37,14 @@ class _TextButtonAsyncComponentState extends State<TextButtonAsyncComponent> {
             return Colors.grey;
           }
 
-          if (widget.isDelete) {
-            return Theme.of(context).brightness == Brightness.light
-                ? Colors.pink.shade300
-                : Colors.pink.shade200;
-          }
-
           return Theme.of(context).colorScheme.primary;
         }),
         padding: MaterialStateProperty.all(const EdgeInsets.all(8.0)),
       ),
       label: Text(
         widget.label,
-        style: TextStyle(
-          fontSize: contentSize,
+        textAlign: TextAlign.center,
+        style: const TextStyle(
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -73,7 +65,7 @@ class _TextButtonAsyncComponentState extends State<TextButtonAsyncComponent> {
                   )
                 : Icon(
                     widget.icon,
-                    size: 20,
+                    size: 24,
                   ),
       ),
       onPressed: () async {

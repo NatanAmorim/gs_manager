@@ -44,7 +44,7 @@ class ProfessorDetailsController {
     final NavigatorState navigator = Navigator.of(context);
     final ThemeData theme = Theme.of(context);
 
-    final bool shouldDelete = await DialogHelper.onhandleDelete(
+    final bool shouldDelete = await DialogHelper.onHandleDelete(
       context: context,
       itemDescription: 'Nome: ${teacher.nome}',
     );
