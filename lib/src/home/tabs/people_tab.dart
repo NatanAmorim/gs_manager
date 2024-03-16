@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gs_manager/src/clientes/cliente_view.dart';
+import 'package:gs_manager/src/customer/customer_listing_view.dart';
 
 class PeopleTab extends StatefulWidget {
   const PeopleTab({
@@ -41,7 +41,7 @@ class _PeopleTabState extends State<PeopleTab> with TickerProviderStateMixin {
             controller: _tabController,
             children: const <Widget>[
               Center(
-                child: ClienteView(),
+                child: ClienteListingView(),
               ),
               Center(
                 child: Text("Professores"),

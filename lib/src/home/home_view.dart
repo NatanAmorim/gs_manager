@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:gs_manager/components.dart';
-import 'package:gs_manager/src/aulas/aula_details_view.dart';
-import 'package:gs_manager/src/clientes/cliente_details_view.dart';
-import 'package:gs_manager/src/encomendas/encomenda_details_view.dart';
+import 'package:gs_manager/src/customer/customer_details_view.dart';
 import 'package:gs_manager/src/global_variables.dart';
 import 'package:gs_manager/src/home/tabs/dashboard_tab.dart';
 import 'package:gs_manager/src/home/tabs/inventory_tab.dart';
 import 'package:gs_manager/src/home/tabs/people_tab.dart';
 import 'package:gs_manager/src/home/tabs/settings_tab.dart';
 import 'package:gs_manager/src/home/tabs/transactions_tab.dart';
-import 'package:gs_manager/src/ponto_de_vendas/ponto_de_venda_view.dart';
-import 'package:gs_manager/src/produtos/produto_details_view.dart';
-import 'package:gs_manager/src/professores/professor_details_view.dart';
+import 'package:gs_manager/src/instructor/instructor_details_view.dart';
+import 'package:gs_manager/src/order/encomenda_details_view.dart';
+import 'package:gs_manager/src/point_of_sale/point_of_sale_view.dart';
+import 'package:gs_manager/src/product/produto_details_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -63,7 +62,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                       icon: const Icon(Icons.point_of_sale),
                       onPressed: () async => await Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => const PontoDeVendaView(),
+                          builder: (context) => const PointOfSaleView(),
                         ),
                       ),
                     ),
@@ -125,7 +124,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                 await navigator.push(
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        const ClienteDetailsView(),
+                                        const CustomerDetailsView(),
                                   ),
                                 );
                               }),
@@ -160,12 +159,13 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
                                 navigator.pop();
 
-                                await navigator.push(
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const AulaDetailsView(),
-                                  ),
-                                );
+                                // TODO
+                                // await navigator.push(
+                                //   MaterialPageRoute(
+                                //     builder: (context) =>
+                                //         const AulaDetailsView(),
+                                //   ),
+                                // );
                               }),
                           ListTile(
                               leading: const Icon(Icons.new_label),
