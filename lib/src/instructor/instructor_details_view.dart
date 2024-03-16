@@ -21,7 +21,6 @@ class ProfessorDetailsView extends StatefulWidget {
 
 class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
   late ProfessorDetailsController controller;
-  late ValueNotifier<TextEditingController> address;
   final DateFormat dateFormatter = DateFormat('dd/MM/yyyy');
 
   @override
@@ -34,16 +33,10 @@ class _ProfessorDetailsViewState extends State<ProfessorDetailsView> {
   @override
   void dispose() {
     super.dispose();
-    address.value.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO
-    // address = ValueNotifier<TextEditingController>(
-    //   TextEditingController(text: widget.instructorUpdating?.endereco ?? ''),
-    // );
-
     return ScaffoldFormComponent(
       formKey: controller.formKey,
       handleSubmit: () => controller.handleSubmit(context),

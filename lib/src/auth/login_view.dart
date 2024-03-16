@@ -44,14 +44,14 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           const SizedBox(height: 10),
                           const TextInputComponent(
-                            prefixIcon: Icon(Icons.badge_outlined),
+                            prefixIcon: Icon(Icons.contact_mail),
                             label: 'Login',
                             placeholderText: 'Digite seu login',
                           ),
                           const SizedBox(height: 10),
                           const TextInputComponent(
                             isObscure: true,
-                            prefixIcon: Icon(Icons.lock_open),
+                            prefixIcon: Icon(Icons.key),
                             label: 'Senha',
                             placeholderText: 'Digite sua senha',
                           ),
@@ -74,7 +74,7 @@ class _LoginViewState extends State<LoginView> {
                     bottom: -30,
                     child: FilledButtonAsyncComponent(
                       icon: Icons.login,
-                      label: ' Entrar',
+                      label: 'Entrar',
                       onPressed: () async {
                         // TODO
                         await Future.delayed(const Duration(seconds: 2));

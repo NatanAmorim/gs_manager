@@ -21,7 +21,6 @@ class DropdownComponent<T> extends StatefulWidget {
 class _DropdownComponentState<T> extends State<DropdownComponent> {
   @override
   Widget build(BuildContext context) {
-    // TODO use DropdownMenu
     return DropdownButtonFormField<T>(
       isExpanded: false,
       decoration: InputDecoration(

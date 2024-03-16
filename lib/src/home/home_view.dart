@@ -10,7 +10,7 @@ import 'package:gs_manager/src/home/tabs/transactions_tab.dart';
 import 'package:gs_manager/src/instructor/instructor_details_view.dart';
 import 'package:gs_manager/src/order/encomenda_details_view.dart';
 import 'package:gs_manager/src/point_of_sale/point_of_sale_view.dart';
-import 'package:gs_manager/src/product/produto_details_view.dart';
+import 'package:gs_manager/src/product/product_details_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -182,7 +182,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                 await navigator.push(
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        const ProdutoDetailsView(),
+                                        const ProductDetailsView(),
                                   ),
                                 );
                               }),

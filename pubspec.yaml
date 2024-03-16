@@ -1,7 +1,7 @@
 name: gs_manager
 description: A new Flutter project.
 publish_to: "none"
-version: 0.1.0
+version: 24.03.0-beta
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

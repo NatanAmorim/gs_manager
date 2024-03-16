@@ -18,7 +18,7 @@ class ErrorView extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Um erro ocorreu.',
+                'Ocorreu um erro desconhecido.',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.displayMedium,
               ),
@@ -36,7 +36,7 @@ class ErrorView extends StatelessWidget {
                   (Route<dynamic> route) => false,
                 ),
                 icon: const Icon(Icons.undo),
-                label: const Text('Voltar ao ínicio'),
+                label: const Text('Voltar ao início'),
               ),
             ],
           ),

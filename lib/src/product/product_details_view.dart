@@ -3,30 +3,30 @@ import 'package:flutter/services.dart';
 import 'package:gs_manager/components.dart';
 import 'package:gs_manager/formatters.dart';
 import 'package:gs_manager/helpers.dart';
-import 'package:gs_manager/src/product/produto_details_controller.dart';
-import 'package:gs_manager/src/product/produto_model.dart';
+import 'package:gs_manager/protos.dart';
+import 'package:gs_manager/src/product/product_details_controller.dart';
 import 'package:gs_manager/utils/values_converter.dart';
 
-class ProdutoDetailsView extends StatefulWidget {
-  const ProdutoDetailsView({
+class ProductDetailsView extends StatefulWidget {
+  const ProductDetailsView({
     super.key,
-    this.produtoAtualizando,
+    this.productUpdating,
   });
 
-  final ProdutoModel? produtoAtualizando;
+  final GetProductByIdResponse? productUpdating;
 
   @override
-  State<ProdutoDetailsView> createState() => _ProdutoDetailsViewState();
+  State<ProductDetailsView> createState() => _ProductDetailsViewState();
 }
 
-class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
-  late ProdutoDetailsController controller;
-  List<ProdutoVarianteModel> variantes = [];
+class _ProductDetailsViewState extends State<ProductDetailsView> {
+  late ProductDetailsController controller;
+  late List<ProductVariant> variants = widget.productUpdating?.variants ?? [];
 
   @override
   void initState() {
     super.initState();
-    controller = ProdutoDetailsController();
+    controller = ProductDetailsController();
   }
 
   @override
@@ -54,7 +54,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
               TextInputComponent(
                 label: 'Nome',
                 placeholderText: 'Digite o nome do produto',
-                autofocus: widget.produtoAtualizando == null,
+                autofocus: widget.productUpdating == null,
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return 'Digite o nome';
@@ -74,11 +74,11 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             key: _listKey,
-            initialItemCount: variantes.length,
+            initialItemCount: variants.length,
             itemBuilder: _buildItem,
           ),
           OutlinedButton.icon(
-            onPressed: () => _insert(ProdutoVarianteModel()),
+            onPressed: () => _insert(ProductVariant()),
             icon: const Icon(
               Icons.add,
             ),
@@ -101,7 +101,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
   ) {
     return SizeTransition(
       sizeFactor: animation,
-      child: _buildDependentesWidget(variantes[index]),
+      child: _buildDependentesWidget(variants[index]),
     );
   }
 
@@ -113,7 +113,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
   /// The widget will be used by the [AnimatedListState.removeItem] method's
   /// [AnimatedRemovedItemBuilder] parameter.
   Widget _buildRemovedItem(
-    ProdutoVarianteModel variante,
+    ProductVariant variant,
     BuildContext context,
     Animation<double> animation,
   ) {
@@ -123,7 +123,7 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
       child: FadeTransition(
         opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
         child: _buildDependentesWidget(
-          variante,
+          variant,
           isRemoving: true,
         ),
       ),
@@ -131,23 +131,24 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
   }
 
   // Insert the "next item" into the list model.
-  void _insert(ProdutoVarianteModel variante) {
-    variantes.add(variante);
-    _listKey.currentState?.insertItem(variantes.length - 1);
+  void _insert(ProductVariant variant) {
+    variants.add(variant);
+    _listKey.currentState?.insertItem(variants.length - 1);
   }
 
   // Remove the selected item from the list model.
-  void _remove(ProdutoVarianteModel variante) async {
+  void _remove(ProductVariant variant) async {
     final bool shouldDelete = await DialogHelper.onHandleDelete(
       context: context,
-      itemDescription: 'Descrição: ${variante.descricao}',
+      itemDescription:
+          'Descrição: Cor ${variant.color}, Tamanho ${variant.size}',
     );
 
     // if it user cancelled the removal process
     if (!shouldDelete) {
       return;
     }
-    final index = variantes.indexOf(variante);
+    final index = variants.indexOf(variant);
     _listKey.currentState?.removeItem(
         index,
         (
@@ -155,17 +156,17 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
           Animation<double> animation,
         ) =>
             _buildRemovedItem(
-              variante,
+              variant,
               context,
               animation,
             ));
 
-    variantes.removeAt(index);
+    variants.removeAt(index);
     FocusManager.instance.primaryFocus?.unfocus();
   }
 
   Widget _buildDependentesWidget(
-    ProdutoVarianteModel variante, {
+    ProductVariant variant, {
     bool isRemoving = false,
   }) {
     return CardComponent(
@@ -194,33 +195,34 @@ class _ProdutoDetailsViewState extends State<ProdutoDetailsView> {
                     return Colors.pink.shade300;
                   }),
                 ),
-                onPressed: () => _remove(variante),
+                onPressed: () => _remove(variant),
                 icon: const Icon(Icons.delete),
                 label: const Text('Excluir variante'),
               ),
             ],
           ),
         ),
-        const SizedBox(height: 8.0),
-        TextInputComponent(
-          isEnabled: !isRemoving,
-          label: 'Descrição',
-          placeholderText: 'Digite a descrição do produto',
-          onChanged: (String? text) => setState(() {
-            variante.descricao = text!;
-          }),
-          validator: (String? value) {
-            if (value == null || value.isEmpty) {
-              return 'Digite a descrição';
-            }
+        // TODO
+        // const SizedBox(height: 8.0),
+        // TextInputComponent(
+        //   isEnabled: !isRemoving,
+        //   label: 'Descrição',
+        //   placeholderText: 'Digite a descrição do produto',
+        //   onChanged: (String? text) => setState(() {
+        //     variante.descricao = text!;
+        //   }),
+        //   validator: (String? value) {
+        //     if (value == null || value.isEmpty) {
+        //       return 'Digite a descrição';
+        //     }
 
-            if (value.length < 3) {
-              return 'Insira uma descrição válida';
-            }
+        //     if (value.length < 3) {
+        //       return 'Insira uma descrição válida';
+        //     }
 
-            return null;
-          },
-        ),
+        //     return null;
+        //   },
+        // ),
         const SizedBox(height: 16),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
