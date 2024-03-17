@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gs_manager/helpers.dart';
 import 'package:gs_manager/main.dart';
+import 'package:logging/logging.dart';
 
 /// Displays the various settings that can be customized by the user.
 ///
 /// When a user changes a setting, the SettingsController is updated and
 /// Widgets that listen to the SettingsController are rebuilt.
 class SettingsTab extends ConsumerWidget {
-  const SettingsTab({
+  SettingsTab({
     super.key,
+    logger,
   });
+
+  final Logger logger = Logger('SettingsTabWidget');
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -174,19 +178,20 @@ class SettingsTab extends ConsumerWidget {
                       leading: const Icon(Icons.info),
                       trailing: const Icon(Icons.arrow_right),
                       iconColor: Theme.of(context).colorScheme.secondary,
-                      onTap: () => showAboutDialog(
-                        context: context,
-                        applicationIcon: Image.asset(
-                          'assets/images/gs_manager_logo.png',
-                          width: 128,
-                          height: 128,
-                        ),
-                        applicationName: 'Gislaine Studio Manager App',
-                        applicationVersion: '1.0.0',
-                        applicationLegalese:
-                            '\u{a9} 2024 Natan Amorim S. G. de Moraes',
-                        children: aboutBoxChildren,
-                      ),
+                      onTap: () async {
+                        showAboutDialog(
+                          context: context,
+                          applicationIcon: Image.asset(
+                            'assets/images/gs_manager_logo.png',
+                            width: 128,
+                            height: 128,
+                          ),
+                          applicationName: 'Gislaine Studio Manager App',
+                          applicationLegalese:
+                              '\u{a9} 2024 Natan Amorim S. G. de Moraes',
+                          children: aboutBoxChildren,
+                        );
+                      },
                     ),
                     ListTile(
                       title: const Text("Encerrar Sessão"),

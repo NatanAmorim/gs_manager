@@ -34,7 +34,14 @@ changed:
 fixed:
 -->
 
-## 24.01.0-beta (Mar 16, 2024)
+## 24.03.1-beta (Mar 17, 2024)
+
+- added: Implement logger.
+- added: Environment variables are added to `.vscode/launch.json` and used in the App now with `String.fromEnvironment('MY_VAR')`.
+- added: `package_info_plus` v5.0.1 to get data from `pubspec.yaml`, A Flutter favorite package that apparently has a known issue on iOS  "Plugin returns incorrect app version", WTF? this is what I needed the most, but luckily this project is Android only.
+- changed: Instead of saving states into variables to avoid async gap erros, now the code checks if is mounted and if is **not mounted** it returns `if (!context.mounted) return;`.
+
+## 24.03.0-beta (Mar 16, 2024)
 
 - added: **Initial public release!**
 - changed: Everything except the rendered User UI is now in english;

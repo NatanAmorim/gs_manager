@@ -7,7 +7,13 @@
     {
       "name": "gs_manager",
       "request": "launch",
-      "type": "dart"
+      "type": "dart",
+      "toolArgs": [
+        "--dart-define",
+        "API_URL=10.0.2.2", // 10.0.2.2 == localhost (in Android emulator).
+        "--dart-define",
+			  "API_PORT=7063"
+      ]
     },
     {
       "name": "gs_manager (profile mode)",

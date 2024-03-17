@@ -1,8 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gs_manager/src/app.dart';
 import 'package:gs_manager/src/home/tabs/settings_controller.dart';
 import 'package:gs_manager/src/home/tabs/settings_service.dart';
+import 'package:logging/logging.dart';
 
 // Flutter Widgets.
 /*
@@ -22,6 +24,21 @@ final settingsProvider = ChangeNotifierProvider(
 );
 
 void main() async {
+  if (kReleaseMode) {
+    Logger.root.level = Level.SEVERE; // skip logs less then severe.
+  } else {
+    Logger.root.level = Level.ALL; // defaults to Level.INFO
+    Logger.root.onRecord.listen((record) {
+      debugPrint('${record.level.name}: ${record.time}: ${record.message}');
+    });
+  }
+
+  final Logger logger = Logger('MainClass');
+  logger.info("Application started successfully");
+  // More info in https://dartcode.org/docs/using-dart-define-in-flutter/
+  logger.info("API_URL: ${const String.fromEnvironment('API_URL')}");
+  logger.info("API_PORT: ${const String.fromEnvironment('API_PORT')}");
+
   WidgetsFlutterBinding.ensureInitialized();
 
   // This object is where the state of our providers will be stored.

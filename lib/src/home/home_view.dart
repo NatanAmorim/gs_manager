@@ -28,11 +28,11 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
       child: Scaffold(
         body: IndexedStackComponent(
           index: _currentIndex,
-          children: const [
-            DashboardTab(),
-            InventoryTab(),
-            TransactionsTab(),
-            PeopleTab(),
+          children: [
+            const DashboardTab(),
+            const InventoryTab(),
+            const TransactionsTab(),
+            const PeopleTab(),
             SettingsTab(),
           ],
         ),

@@ -23,13 +23,8 @@ class CustomerDetailsController {
   Future<bool> handleSubmit(BuildContext context) async {
     final bool isValid = formKey.currentState!.validate();
 
-    // Theme, NavigatorState and ScaffoldMessengerState are stored
-    // to avoid the error use_build_context_synchronously
-    final NavigatorState navigator = Navigator.of(context);
-    final ThemeData theme = Theme.of(context);
-
     if (!isValid) {
-      SnackBarHelper.showInvalidFormDataError(theme);
+      SnackBarHelper.showInvalidFormDataError(Theme.of(context));
 
       return false;
     }
@@ -43,16 +38,12 @@ class CustomerDetailsController {
     //   await client.save();
     // }
 
-    navigator.pop();
+    if (!context.mounted) return false;
+    Navigator.of(context).pop();
     return true;
   }
 
   Future<bool> handleDelete(BuildContext context) async {
-    // Theme, NavigatorState and ScaffoldMessengerState are stored
-    // to avoid the error use_build_context_synchronously
-    final NavigatorState navigator = Navigator.of(context);
-    final ThemeData theme = Theme.of(context);
-
     final bool shouldDelete = await DialogHelper.onHandleDelete(
       context: context,
       itemDescription: 'Nome: ${customer.person.name}',
@@ -67,11 +58,12 @@ class CustomerDetailsController {
         success = false;
       }
 
+      if (!context.mounted) return false;
       if (success) {
-        navigator.pop();
-        SnackBarHelper.showSuccessfullyRemoved(theme);
+        Navigator.of(context).pop();
+        SnackBarHelper.showSuccessfullyRemoved(Theme.of(context));
       } else {
-        SnackBarHelper.showUnknownError(theme);
+        SnackBarHelper.showUnknownError(Theme.of(context));
       }
     }
 

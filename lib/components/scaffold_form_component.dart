@@ -57,12 +57,12 @@ class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
                             return;
                           }
 
-                          NavigatorState navigator = Navigator.of(context);
                           bool shouldPop = await DialogHelper.discardChanges(
                             context: context,
                           );
+                          if (!context.mounted) return;
                           if (shouldPop) {
-                            navigator.pop();
+                            Navigator.of(context).pop();
                           }
 
                           return;

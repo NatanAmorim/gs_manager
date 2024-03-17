@@ -1,13 +1,26 @@
+# More information about the pubspec format in <https://dart.dev/tools/pub/pubspec>.
 name: gs_manager
-description: A new Flutter project.
+description: Aplicativo utilizado para gerenciar a empresa "Gislaine Studio de Dança" em Andradina-SP, Brasil.
+homepage: https://gislainestudio.com
+repository: https://github.com/NatanAmorim/gs_manager
+version: 24.03.1-beta
+# Prevent accidental publishing to pub.dev.
 publish_to: "none"
-version: 24.03.0-beta
+# TODO add `false_secrets` more info in <https://dart.dev/tools/pub/pubspec#false_secrets>
+
+# This app supports only Android.
+platforms:
+  android:
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   animations: ^2.0.7
+  # This is overkill, and requires a specific version of the `http` package. I
+  # just wanted to play an audio file. But I don't want to learn how to do "Dart
+  # interoperability with Android" just to play the audio, and the app is only
+  # used by 1 or 2 managers, I don't need to optimize and can use a bloated pkg.
   audioplayers: ^5.2.1
   flutter_animate: ^4.2.0
   flutter_riverpod: ^2.5.1
@@ -20,6 +33,7 @@ dependencies:
   local_auth: ^2.1.6
   logging: ^1.2.0
   protobuf: ^3.1.0
+  pubspec_parse: ^1.2.3
   riverpod_annotation: ^2.3.5
   shared_preferences: ^2.0.15
 
@@ -50,6 +64,7 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/
     - assets/sounds/material_product_sounds/
+    - pubspec.yaml
 
 flutter_native_splash:
   android: true
