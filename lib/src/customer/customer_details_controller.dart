@@ -16,7 +16,7 @@ class CustomerDetailsController {
           dependents: customerUpdating!.dependents,
           billingAddress: customerUpdating!.billingAddress,
           picturePath: customerUpdating!.picturePath,
-          pix: customerUpdating!.pix,
+          additionalInformation: customerUpdating!.additionalInformation,
         );
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 

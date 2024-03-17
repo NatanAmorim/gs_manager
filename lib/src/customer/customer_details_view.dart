@@ -24,7 +24,6 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
   late CustomerDetailsController controller;
   late ValueNotifier<TextEditingController> addressNotifier;
   final DateFormat dateFormatter = DateFormat('dd/MM/yyyy');
-  List<dynamic> dependentes = []; // TODO remove
 
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
 
@@ -36,7 +35,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
   ) {
     return SizeTransition(
       sizeFactor: animation,
-      child: _buildDependentesWidget(dependentes[index]),
+      child: _buildDependentsWidget(controller.customer.dependents[index]),
     );
   }
 
@@ -57,7 +56,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
       sizeFactor: animation,
       child: FadeTransition(
         opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
-        child: _buildDependentesWidget(
+        child: _buildDependentsWidget(
           dependente,
           isRemoving: true,
         ),
@@ -67,8 +66,9 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
 
   /// Insert the "next item" into the list model.
   void _insert(Person dependente) {
-    dependentes.add(dependente);
-    _listKey.currentState?.insertItem(dependentes.length - 1);
+    controller.customer.dependents.add(dependente);
+    _listKey.currentState
+        ?.insertItem(controller.customer.dependents.length - 1);
     setState(() {}); // TODO does this cause problems?
   }
 
@@ -84,7 +84,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
       return;
     }
 
-    final index = dependentes.indexOf(dependente);
+    final index = controller.customer.dependents.indexOf(dependente);
     _listKey.currentState?.removeItem(
         index,
         (
@@ -97,11 +97,11 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
               animation,
             ));
 
-    dependentes.removeAt(index);
+    controller.customer.dependents.removeAt(index);
     FocusManager.instance.primaryFocus?.unfocus();
   }
 
-  Widget _buildDependentesWidget(
+  Widget _buildDependentsWidget(
     Person dependente, {
     bool isRemoving = false,
   }) {
@@ -343,6 +343,22 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                 },
               ),
               const SizedBox(height: 16),
+              // TODO enable when CIN validation is done
+              TextInputComponent(
+                isEnabled: false,
+                autofocus: widget.customerUpdating == null,
+                label: 'CIN',
+                placeholderText: 'Digite o CIN do cliente',
+                initialValue: controller.customer.person.cin,
+                onSaved: (String? text) =>
+                    controller.customer.person.cin = text!,
+                keyboardType: TextInputType.number,
+                validator: (String? value) {
+                  // TODO
+                  return null;
+                },
+              ),
+              const SizedBox(height: 16),
               ValueListenableBuilder<TextEditingController>(
                 valueListenable: addressNotifier,
                 builder: (
@@ -353,6 +369,8 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                   return TextInputComponent(
                     controller: value,
                     label: 'Endereço',
+                    minLines: 2,
+                    maxLines: 4,
                     placeholderText: 'Digite o endereço',
                     keyboardType: TextInputType.streetAddress,
                     onSaved: (String? text) =>
@@ -362,10 +380,13 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
               ),
               const SizedBox(height: 16),
               TextInputComponent(
-                label: 'Nome PIX',
-                placeholderText: 'Digite o nome no recibo do PIX',
-                initialValue: controller.customer.pix,
-                onSaved: (String? text) => controller.customer.pix = text!,
+                label: 'Informações adicionais',
+                minLines: 4,
+                maxLines: 10,
+                placeholderText: 'EX: nome no recibo do PIX',
+                initialValue: controller.customer.additionalInformation,
+                onSaved: (String? text) =>
+                    controller.customer.additionalInformation = text!,
               ),
               const SizedBox(height: 16),
             ],
@@ -374,7 +395,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             key: _listKey,
-            initialItemCount: dependentes.length,
+            initialItemCount: controller.customer.dependents.length,
             itemBuilder: _buildItem,
           ),
           OutlinedButton.icon(

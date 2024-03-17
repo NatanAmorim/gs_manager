@@ -182,7 +182,7 @@ class GetCustomerByIdResponse extends $pb.GeneratedMessage {
     $core.Iterable<$18.Person>? dependents,
     $core.String? billingAddress,
     $core.String? picturePath,
-    $core.String? pix,
+    $core.String? additionalInformation,
   }) {
     final $result = create();
     if (customerId != null) {
@@ -203,8 +203,8 @@ class GetCustomerByIdResponse extends $pb.GeneratedMessage {
     if (picturePath != null) {
       $result.picturePath = picturePath;
     }
-    if (pix != null) {
-      $result.pix = pix;
+    if (additionalInformation != null) {
+      $result.additionalInformation = additionalInformation;
     }
     return $result;
   }
@@ -219,7 +219,7 @@ class GetCustomerByIdResponse extends $pb.GeneratedMessage {
     ..pc<$18.Person>(4, _omitFieldNames ? '' : 'dependents', $pb.PbFieldType.PM, subBuilder: $18.Person.create)
     ..aOS(5, _omitFieldNames ? '' : 'billingAddress')
     ..aOS(6, _omitFieldNames ? '' : 'picturePath')
-    ..aOS(7, _omitFieldNames ? '' : 'pix')
+    ..aOS(7, _omitFieldNames ? '' : 'additionalInformation')
     ..hasRequiredFields = false
   ;
 
@@ -297,13 +297,13 @@ class GetCustomerByIdResponse extends $pb.GeneratedMessage {
   void clearPicturePath() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.String get pix => $_getSZ(6);
+  $core.String get additionalInformation => $_getSZ(6);
   @$pb.TagNumber(7)
-  set pix($core.String v) { $_setString(6, v); }
+  set additionalInformation($core.String v) { $_setString(6, v); }
   @$pb.TagNumber(7)
-  $core.bool hasPix() => $_has(6);
+  $core.bool hasAdditionalInformation() => $_has(6);
   @$pb.TagNumber(7)
-  void clearPix() => clearField(7);
+  void clearAdditionalInformation() => clearField(7);
 }
 
 class CustomerOption extends $pb.GeneratedMessage {
@@ -477,7 +477,7 @@ class CreateCustomerRequest extends $pb.GeneratedMessage {
     $core.Iterable<$18.Person>? dependents,
     $core.String? billingAddress,
     $core.String? picturePath,
-    $core.String? pix,
+    $core.String? additionalInformation,
   }) {
     final $result = create();
     if (user != null) {
@@ -495,8 +495,8 @@ class CreateCustomerRequest extends $pb.GeneratedMessage {
     if (picturePath != null) {
       $result.picturePath = picturePath;
     }
-    if (pix != null) {
-      $result.pix = pix;
+    if (additionalInformation != null) {
+      $result.additionalInformation = additionalInformation;
     }
     return $result;
   }
@@ -510,7 +510,7 @@ class CreateCustomerRequest extends $pb.GeneratedMessage {
     ..pc<$18.Person>(3, _omitFieldNames ? '' : 'dependents', $pb.PbFieldType.PM, subBuilder: $18.Person.create)
     ..aOS(4, _omitFieldNames ? '' : 'billingAddress')
     ..aOS(5, _omitFieldNames ? '' : 'picturePath')
-    ..aOS(6, _omitFieldNames ? '' : 'pix')
+    ..aOS(6, _omitFieldNames ? '' : 'additionalInformation')
     ..hasRequiredFields = false
   ;
 
@@ -579,13 +579,13 @@ class CreateCustomerRequest extends $pb.GeneratedMessage {
   void clearPicturePath() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.String get pix => $_getSZ(5);
+  $core.String get additionalInformation => $_getSZ(5);
   @$pb.TagNumber(6)
-  set pix($core.String v) { $_setString(5, v); }
+  set additionalInformation($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasPix() => $_has(5);
+  $core.bool hasAdditionalInformation() => $_has(5);
   @$pb.TagNumber(6)
-  void clearPix() => clearField(6);
+  void clearAdditionalInformation() => clearField(6);
 }
 
 class CreateCustomerResponse extends $pb.GeneratedMessage {
@@ -628,7 +628,7 @@ class UpdateCustomerRequest extends $pb.GeneratedMessage {
     $core.Iterable<$18.Person>? dependents,
     $core.String? billingAddress,
     $core.String? picturePath,
-    $core.String? pix,
+    $core.String? additionalInformation,
   }) {
     final $result = create();
     if (customerId != null) {
@@ -649,8 +649,8 @@ class UpdateCustomerRequest extends $pb.GeneratedMessage {
     if (picturePath != null) {
       $result.picturePath = picturePath;
     }
-    if (pix != null) {
-      $result.pix = pix;
+    if (additionalInformation != null) {
+      $result.additionalInformation = additionalInformation;
     }
     return $result;
   }
@@ -665,7 +665,7 @@ class UpdateCustomerRequest extends $pb.GeneratedMessage {
     ..pc<$18.Person>(4, _omitFieldNames ? '' : 'dependents', $pb.PbFieldType.PM, subBuilder: $18.Person.create)
     ..aOS(5, _omitFieldNames ? '' : 'billingAddress')
     ..aOS(6, _omitFieldNames ? '' : 'picturePath')
-    ..aOS(7, _omitFieldNames ? '' : 'pix')
+    ..aOS(7, _omitFieldNames ? '' : 'additionalInformation')
     ..hasRequiredFields = false
   ;
 
@@ -743,13 +743,13 @@ class UpdateCustomerRequest extends $pb.GeneratedMessage {
   void clearPicturePath() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.String get pix => $_getSZ(6);
+  $core.String get additionalInformation => $_getSZ(6);
   @$pb.TagNumber(7)
-  set pix($core.String v) { $_setString(6, v); }
+  set additionalInformation($core.String v) { $_setString(6, v); }
   @$pb.TagNumber(7)
-  $core.bool hasPix() => $_has(6);
+  $core.bool hasAdditionalInformation() => $_has(6);
   @$pb.TagNumber(7)
-  void clearPix() => clearField(7);
+  void clearAdditionalInformation() => clearField(7);
 }
 
 class UpdateCustomerResponse extends $pb.GeneratedMessage {

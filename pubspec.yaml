@@ -32,8 +32,8 @@ dependencies:
   intl: ^0.18.1
   local_auth: ^2.1.6
   logging: ^1.2.0
+  package_info_plus: ^5.0.1
   protobuf: ^3.1.0
-  pubspec_parse: ^1.2.3
   riverpod_annotation: ^2.3.5
   shared_preferences: ^2.0.15
 

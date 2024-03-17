@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gs_manager/helpers.dart';
 import 'package:gs_manager/main.dart';
 import 'package:logging/logging.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 /// Displays the various settings that can be customized by the user.
 ///
@@ -11,10 +12,10 @@ import 'package:logging/logging.dart';
 class SettingsTab extends ConsumerWidget {
   SettingsTab({
     super.key,
-    logger,
   });
 
   final Logger logger = Logger('SettingsTabWidget');
+  final String companyName = "Gislaine Studio";
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,16 +25,25 @@ class SettingsTab extends ConsumerWidget {
         text: TextSpan(
           children: <TextSpan>[
             TextSpan(
-              style: Theme.of(context).textTheme.bodyMedium!,
-              text: 'App de gestão de Gislaine Studio em Andradina. '
-                  'Desenvolvido com Flutter, mais informações em ',
+                style: Theme.of(context).textTheme.headlineSmall!,
+                text:
+                    'App de gestão da empresa $companyName em Andradina - SP.'),
+            TextSpan(
+              style: Theme.of(context).textTheme.bodySmall!,
+              text: '\n\n Criado por Natan Amorim S. G. de Moraes',
             ),
             TextSpan(
               style: Theme.of(context)
                   .textTheme
-                  .bodyMedium!
-                  .copyWith(color: Colors.blue),
-              text: 'https://flutter.dev/',
+                  .bodyLarge!
+                  .copyWith(fontWeight: FontWeight.bold),
+              text:
+                  '\n\n\u{a9} $companyName de Dança MEI. Avenida Bandeirantes, 546, Centro, Andradina - SP, 16901-007.',
+            ),
+            TextSpan(
+              style: Theme.of(context).textTheme.bodyLarge!,
+              text: '\n\nCNPJ: 28.127.998/0001-09'
+                  '\nIE: 170.159.941.113',
             ),
           ],
         ),
@@ -179,16 +189,21 @@ class SettingsTab extends ConsumerWidget {
                       trailing: const Icon(Icons.arrow_right),
                       iconColor: Theme.of(context).colorScheme.secondary,
                       onTap: () async {
+                        PackageInfo packageInfo =
+                            await PackageInfo.fromPlatform();
+
+                        if (!context.mounted) return;
                         showAboutDialog(
                           context: context,
                           applicationIcon: Image.asset(
-                            'assets/images/gs_manager_logo.png',
+                            'assets/images/logo.png',
                             width: 128,
                             height: 128,
                           ),
-                          applicationName: 'Gislaine Studio Manager App',
+                          applicationName: '$companyName Manager App',
+                          applicationVersion: 'v${packageInfo.version}',
                           applicationLegalese:
-                              '\u{a9} 2024 Natan Amorim S. G. de Moraes',
+                              '© ${DateTime.now().year} - $companyName - Todos os direitos reservados',
                           children: aboutBoxChildren,
                         );
                       },

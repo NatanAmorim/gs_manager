@@ -101,7 +101,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
   ) {
     return SizeTransition(
       sizeFactor: animation,
-      child: _buildDependentesWidget(variants[index]),
+      child: _buildVariantWidget(variants[index]),
     );
   }
 
@@ -122,7 +122,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
       sizeFactor: animation,
       child: FadeTransition(
         opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
-        child: _buildDependentesWidget(
+        child: _buildVariantWidget(
           variant,
           isRemoving: true,
         ),
@@ -165,7 +165,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
     FocusManager.instance.primaryFocus?.unfocus();
   }
 
-  Widget _buildDependentesWidget(
+  Widget _buildVariantWidget(
     ProductVariant variant, {
     bool isRemoving = false,
   }) {
