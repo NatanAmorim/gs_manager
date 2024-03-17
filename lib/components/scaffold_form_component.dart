@@ -30,7 +30,7 @@ class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
           physics: const BouncingScrollPhysics(),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

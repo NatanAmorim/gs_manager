@@ -5,6 +5,7 @@ import 'package:gs_manager/formatters.dart';
 import 'package:gs_manager/helpers.dart';
 import 'package:gs_manager/protos.dart';
 import 'package:gs_manager/src/customer/customer_details_controller.dart';
+import 'package:gs_manager/src/viacep/viacep_service.dart';
 import 'package:gs_manager/validators.dart';
 import 'package:intl/intl.dart';
 
@@ -359,6 +360,15 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                 },
               ),
               const SizedBox(height: 16),
+              FilledButton.icon(
+                label: const Text('Buscar CEP'),
+                icon: const Icon(Icons.travel_explore),
+                style: ElevatedButton.styleFrom(
+                    fixedSize: const Size.fromWidth(double.maxFinite),
+                    padding: const EdgeInsets.symmetric(vertical: 16.0)),
+                onPressed: () async => showCepDialog(),
+              ),
+              const SizedBox(height: 16),
               ValueListenableBuilder<TextEditingController>(
                 valueListenable: addressNotifier,
                 builder: (
@@ -407,6 +417,225 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
               'Adicionar filho/dependente',
               style: TextStyle(),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<String?> fetchAddress(String cep) async {
+    if (cep.length != 10) return null;
+
+    return await ViacepService.getAddress(
+      cep: cep,
+    );
+  }
+
+  void showCepDialog() {
+    String cep = '';
+    String lastCep = '';
+    String? newAddress;
+
+    bool isLightTheme = Theme.of(context).brightness == Brightness.light;
+
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) => AlertDialog(
+        contentPadding: const EdgeInsets.all(0.0),
+        title: const Text(
+          "Busca por CEP",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        content: ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxWidth: 400,
+          ),
+          child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(
+                vertical: 16.0,
+              ),
+              child: StatefulBuilder(builder: (context, setState) {
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          SizedBox(
+                            width: 200,
+                            child: TextInputComponent(
+                              label: 'CEP',
+                              placeholderText: 'EX: 16901-007',
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                                CepInputFormatter(),
+                              ],
+                              validator: (String? value) {
+                                if (value == null || value.isEmpty) {
+                                  return null;
+                                }
+
+                                if (value.length != 10) {
+                                  return 'Insira um CEP válido';
+                                }
+
+                                cep = value;
+
+                                return null;
+                              },
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 16.0,
+                          ),
+                          Flexible(
+                            child: ElevatedButton(
+                              onPressed: () async {
+                                if (lastCep == cep) return;
+                                lastCep = cep;
+                                try {
+                                  newAddress = await fetchAddress(cep);
+                                } catch (e) {
+                                  newAddress = '';
+                                }
+                                setState(() {});
+                              },
+                              child: const Text('Validar CEP'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    if (lastCep == '')
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(
+                            Icons.info_outline,
+                            size: 36,
+                          ),
+                          const SizedBox(width: 8.0),
+                          Text(
+                            'Nenhum endereço',
+                            style: Theme.of(context).textTheme.headlineMedium!,
+                          ),
+                        ],
+                      ),
+                    if (newAddress == '')
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(
+                            Icons.warning_amber_rounded,
+                            size: 36,
+                            color: Colors.deepOrangeAccent,
+                          ),
+                          const SizedBox(width: 8.0),
+                          Text(
+                            'Endereço invalido',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium!
+                                .copyWith(color: Colors.deepOrangeAccent),
+                          ),
+                        ],
+                      ),
+                    if (newAddress != '' && newAddress != null)
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const SizedBox(height: 8.0),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Icon(
+                                Icons.check_circle_outline,
+                                size: 36,
+                                color: Colors.greenAccent,
+                              ),
+                              const SizedBox(width: 8.0),
+                              Text(
+                                'Endereço valido',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium!
+                                    .copyWith(color: Colors.greenAccent),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 16.0),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16.0,
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: isLightTheme
+                                    ? Theme.of(context)
+                                        .colorScheme
+                                        .tertiaryContainer
+                                    : Theme.of(context).colorScheme.tertiary,
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(8.0),
+                                ),
+                              ),
+                              padding: const EdgeInsets.all(16.0),
+                              child: Text(
+                                newAddress!,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge!
+                                    .copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      color: isLightTheme
+                                          ? Theme.of(context)
+                                              .colorScheme
+                                              .onTertiaryContainer
+                                          : Theme.of(context)
+                                              .colorScheme
+                                              .onTertiary,
+                                    ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                  ],
+                );
+              })),
+        ),
+        actionsAlignment: MainAxisAlignment.spaceBetween,
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text("Cancelar"),
+          ),
+          TextButton(
+            onPressed: () async {
+              if (newAddress == null) {
+                try {
+                  newAddress = await fetchAddress(cep);
+                } catch (e) {
+                  newAddress = '';
+                }
+
+                if (!context.mounted) return;
+                Navigator.of(context).pop();
+              }
+
+              addressNotifier.value.text = newAddress!;
+              Navigator.of(context).pop();
+            },
+            child: const Text("Confirmar"),
           ),
         ],
       ),

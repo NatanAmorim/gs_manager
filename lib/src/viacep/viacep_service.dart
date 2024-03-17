@@ -31,11 +31,11 @@ class ViacepService {
         jsonResponse,
       );
 
-      final String address = '${viacep.logradouro}'
-          ', Bairro ${viacep.bairro}'
+      final String address = '$cep'
           ', ${viacep.localidade}'
-          ' - ${viacep.uf}.';
-
+          ' - ${viacep.uf}, '
+          '${viacep.logradouro}'
+          ', Bairro ${viacep.bairro}.';
       return address;
     }
 

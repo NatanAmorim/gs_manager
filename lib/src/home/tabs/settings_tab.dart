@@ -105,45 +105,43 @@ class SettingsTab extends ConsumerWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            content: Scrollbar(
-                              child: SingleChildScrollView(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 16.0,
-                                ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    RadioListTile<ThemeMode>(
-                                      title: const Text("Tema do sistema"),
-                                      value: ThemeMode.system,
-                                      groupValue: ref.watch(settingsProvider
-                                          .select((s) => s.themeMode)),
-                                      onChanged: ref
-                                          .read(settingsProvider)
-                                          .updateThemeMode,
+                            content: SingleChildScrollView(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 16.0,
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  RadioListTile<ThemeMode>(
+                                    title: const Text("Tema do sistema"),
+                                    value: ThemeMode.system,
+                                    groupValue: ref.watch(settingsProvider
+                                        .select((s) => s.themeMode)),
+                                    onChanged: ref
+                                        .read(settingsProvider)
+                                        .updateThemeMode,
+                                  ),
+                                  RadioListTile<ThemeMode>(
+                                    title: const Text("Tema claro"),
+                                    value: ThemeMode.light,
+                                    groupValue: ref.watch(settingsProvider
+                                        .select((s) => s.themeMode)),
+                                    onChanged: ref
+                                        .read(settingsProvider)
+                                        .updateThemeMode,
+                                  ),
+                                  RadioListTile<ThemeMode>(
+                                    title: const Text("Tema escuro"),
+                                    value: ThemeMode.dark,
+                                    groupValue: ref.watch(
+                                      settingsProvider
+                                          .select((s) => s.themeMode),
                                     ),
-                                    RadioListTile<ThemeMode>(
-                                      title: const Text("Tema claro"),
-                                      value: ThemeMode.light,
-                                      groupValue: ref.watch(settingsProvider
-                                          .select((s) => s.themeMode)),
-                                      onChanged: ref
-                                          .read(settingsProvider)
-                                          .updateThemeMode,
-                                    ),
-                                    RadioListTile<ThemeMode>(
-                                      title: const Text("Tema escuro"),
-                                      value: ThemeMode.dark,
-                                      groupValue: ref.watch(
-                                        settingsProvider
-                                            .select((s) => s.themeMode),
-                                      ),
-                                      onChanged: ref
-                                          .read(settingsProvider)
-                                          .updateThemeMode,
-                                    ),
-                                  ],
-                                ),
+                                    onChanged: ref
+                                        .read(settingsProvider)
+                                        .updateThemeMode,
+                                  ),
+                                ],
                               ),
                             ),
                             actionsAlignment: MainAxisAlignment.spaceBetween,

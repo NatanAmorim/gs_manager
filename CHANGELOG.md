@@ -34,6 +34,11 @@ changed:
 fixed:
 -->
 
+<!-- Compatible with API version `0.10.0-BETA` -->
+## 24.03.3-beta (Mar 17, 2024)
+
+- added: Address now can be filled by searching postal code.
+
 ## 24.03.2-beta (Mar 17, 2024)
 
 - added: `package_info_plus` v5.0.1 to get data from `pubspec.yaml`, A Flutter favorite package that apparently has a known issue on iOS  "Plugin returns incorrect app version", WTF? this is what I needed the most, but luckily this project is Android only.
