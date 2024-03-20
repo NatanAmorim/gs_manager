@@ -8,6 +8,7 @@ import 'package:gs_manager/src/customer/customer_details_controller.dart';
 import 'package:gs_manager/src/viacep/viacep_service.dart';
 import 'package:gs_manager/validators.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomerDetailsView extends StatefulWidget {
   const CustomerDetailsView({
@@ -360,13 +361,14 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                 },
               ),
               const SizedBox(height: 16),
-              FilledButton.icon(
-                label: const Text('Buscar CEP'),
-                icon: const Icon(Icons.travel_explore),
-                style: ElevatedButton.styleFrom(
-                    fixedSize: const Size.fromWidth(double.maxFinite),
-                    padding: const EdgeInsets.symmetric(vertical: 16.0)),
-                onPressed: () async => showCepDialog(),
+              Row(
+                children: [
+                  FilledButton.tonalIcon(
+                    label: const Text('Preencher endereço com CEP'),
+                    icon: const Icon(Icons.travel_explore),
+                    onPressed: () async => showCepDialog(),
+                  ),
+                ],
               ),
               const SizedBox(height: 16),
               ValueListenableBuilder<TextEditingController>(
@@ -449,18 +451,45 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        content: ConstrainedBox(
-          constraints: const BoxConstraints(
-            maxWidth: 400,
-          ),
+        content: SizedBox(
+          width: 408,
           child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(
                 vertical: 16.0,
               ),
               child: StatefulBuilder(builder: (context, setState) {
                 return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            "Não sabe o CEP?",
+                            style: Theme.of(context).textTheme.bodyLarge,
+                          ),
+                          ElevatedButton.icon(
+                            onPressed: () async {
+                              final Uri url = Uri.parse(
+                                'https://buscacepinter.correios.com.br/app/endereco/index.php',
+                              );
+                              if (!await launchUrl(url)) {
+                                throw Exception('Could not launch $url');
+                              }
+                            },
+                            icon: const Icon(Icons.search),
+                            label: const Text("Procura com endereço"),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 16.0),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24.0),
                       child: Row(
@@ -469,7 +498,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           SizedBox(
-                            width: 200,
+                            width: 144,
                             child: TextInputComponent(
                               label: 'CEP',
                               placeholderText: 'EX: 16901-007',
@@ -497,7 +526,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                             width: 16.0,
                           ),
                           Flexible(
-                            child: ElevatedButton(
+                            child: FilledButton.icon(
                               onPressed: () async {
                                 if (lastCep == cep) return;
                                 lastCep = cep;
@@ -508,13 +537,17 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                                 }
                                 setState(() {});
                               },
-                              child: const Text('Validar CEP'),
+                              icon: const Icon(Icons.verified),
+                              label: const Text('Validar CEP'),
                             ),
                           ),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 16.0),
+                    // TODO use FutureBuilder to show loading when getting an Addres from internet
+                    // TODO Remove the things down here, invalid address should be a snackbar or update
+                    // the TextInput warning and everything else a empty state
                     if (lastCep == '')
                       Row(
                         mainAxisSize: MainAxisSize.min,
@@ -557,10 +590,12 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                           Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              const Icon(
+                              Icon(
                                 Icons.check_circle_outline,
                                 size: 36,
-                                color: Colors.greenAccent,
+                                color: isLightTheme
+                                    ? Colors.green
+                                    : Colors.greenAccent,
                               ),
                               const SizedBox(width: 8.0),
                               Text(
@@ -568,7 +603,11 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .headlineMedium!
-                                    .copyWith(color: Colors.greenAccent),
+                                    .copyWith(
+                                      color: isLightTheme
+                                          ? Colors.green
+                                          : Colors.greenAccent,
+                                    ),
                               ),
                             ],
                           ),
@@ -632,7 +671,11 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                 Navigator.of(context).pop();
               }
 
+              if (newAddress == null) {
+                return;
+              }
               addressNotifier.value.text = newAddress!;
+
               Navigator.of(context).pop();
             },
             child: const Text("Confirmar"),

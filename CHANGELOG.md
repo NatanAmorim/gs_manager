@@ -35,6 +35,12 @@ fixed:
 -->
 
 <!-- Compatible with API version `0.10.0-BETA` -->
+## 24.03.4-beta (Mar 20, 2024)
+
+- added: Android Release permissions.
+- added: Add `url_launcher` to open a url in default mobile browser.
+- added: Add a button to access the Brazilian postal service website to find more details about an Address.
+
 ## 24.03.3-beta (Mar 17, 2024)
 
 - added: Address now can be filled by searching postal code.
