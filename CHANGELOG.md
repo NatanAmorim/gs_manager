@@ -28,6 +28,11 @@ Here's a short description of each element
 **0M** - Zero-padded month - 01, 02 ... 11, 12
 
 <!-- TODO: Compatible with API version `1.0.0-RC-1` -->
+
+## 24.03.6-beta (Mar 24, 2024)
+
+- Fix Typos in documentation.
+
 ## 24.03.5-beta (Mar 23, 2024)
 
 - Update Customer Detail Form UI and UX.

@@ -25,12 +25,12 @@ class SettingsTab extends ConsumerWidget {
         text: TextSpan(
           children: <TextSpan>[
             TextSpan(
-                style: Theme.of(context).textTheme.headlineSmall!,
-                text:
-                    'App de gestão da empresa $companyName em Andradina - SP.'),
+              style: Theme.of(context).textTheme.headlineSmall!,
+              text: 'App de gestão da empresa $companyName em Andradina - SP.',
+            ),
             TextSpan(
               style: Theme.of(context).textTheme.bodySmall!,
-              text: '\n\n Criado por Natan Amorim S. G. de Moraes',
+              text: '\n\n Criado por Natan Amorim S. G. de Moraes.\n\n',
             ),
             TextSpan(
               style: Theme.of(context)
@@ -38,7 +38,7 @@ class SettingsTab extends ConsumerWidget {
                   .bodyLarge!
                   .copyWith(fontWeight: FontWeight.bold),
               text:
-                  '\n\n\u{a9} $companyName de Dança MEI. Avenida Bandeirantes, 546, Centro, Andradina - SP, 16901-007.',
+                  '\u{a9} $companyName MEI. Avenida Bandeirantes, N° 546, Bairro Centro, Andradina - SP, 16901-007.',
             ),
             TextSpan(
               style: Theme.of(context).textTheme.bodyLarge!,

@@ -16,7 +16,7 @@ Licensed under the Apache License, Version 2.0; you may not use this app except 
 
 ## About
 
-App used manage the company "Gislaine Studio de Dança" in Andradina/Brazil.
+App used manage the company "Gislaine Studio" in Andradina-SP, Brazil.
 
 > [!Warning]\
 > **Guidelines for copyright and trademarks**
