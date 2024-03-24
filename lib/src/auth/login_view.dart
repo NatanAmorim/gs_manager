@@ -75,6 +75,7 @@ class _LoginViewState extends State<LoginView> {
                     child: FilledButtonAsyncComponent(
                       icon: Icons.login,
                       label: 'Entrar',
+                      asyncLabel: 'Entrando...',
                       onPressed: () async {
                         // TODO
                         await Future.delayed(const Duration(seconds: 2));

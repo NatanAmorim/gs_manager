@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gs_manager/components/text_button_async_component.dart';
+import 'package:gs_manager/components.dart';
 import 'package:gs_manager/helpers.dart';
 
 class ScaffoldFormComponent extends StatefulWidget {
@@ -81,7 +81,9 @@ class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
           child: Material(
             elevation: 8,
             borderOnForeground: true,
-            surfaceTintColor: Theme.of(context).colorScheme.inverseSurface,
+            surfaceTintColor: Theme.of(context).brightness == Brightness.light
+                ? Colors.grey.shade300
+                : Theme.of(context).colorScheme.inverseSurface,
             child: SizedBox(
               height: 72,
               width: double.maxFinite,
@@ -95,10 +97,17 @@ class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const BackButton(),
-                    TextButtonAsyncComponent(
-                      icon: Icons.save,
-                      label: 'Salvar',
+                    TextButton.icon(
+                      onPressed: () {
+                        Navigator.maybePop(context);
+                      },
+                      icon: const BackButtonIcon(),
+                      label: const Text("Voltar"),
+                    ),
+                    FilledButtonAsyncComponent(
+                      icon: Icons.send,
+                      label: 'Enviar',
+                      asyncLabel: 'Enviando...',
                       onPressed: () => widget.handleSubmit(),
                     ),
                   ],

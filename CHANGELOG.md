@@ -27,39 +27,38 @@ Here's a short description of each element
 **MM** - Short month - 1, 2 ... 11, 12
 **0M** - Zero-padded month - 01, 02 ... 11, 12
 
-<!--
-for copy and paste
-added:
-changed:
-fixed:
--->
+<!-- TODO: Compatible with API version `1.0.0-RC-1` -->
+## 24.03.5-beta (Mar 23, 2024)
 
-<!-- Compatible with API version `0.10.0-BETA` -->
+- Update Customer Detail Form UI and UX.
+- Fix `FilledButtonAsyncComponent`.
+- Update `ScaffoldFormComponent`.
+
 ## 24.03.4-beta (Mar 20, 2024)
 
-- added: Android Release permissions.
-- added: Add `url_launcher` to open a url in default mobile browser.
-- added: Add a button to access the Brazilian postal service website to find more details about an Address.
+- Android Release permissions.
+- Add `url_launcher` to open a url in default mobile browser.
+- Add a button to access the Brazilian postal service website to find more details about an Address.
 
 ## 24.03.3-beta (Mar 17, 2024)
 
-- added: Address now can be filled by searching postal code.
+- Address now can be filled by searching postal code.
 
 ## 24.03.2-beta (Mar 17, 2024)
 
-- added: `package_info_plus` v5.0.1 to get data from `pubspec.yaml`, A Flutter favorite package that apparently has a known issue on iOS  "Plugin returns incorrect app version", WTF? this is what I needed the most, but luckily this project is Android only.
-- changed: rename `gs_manager_logo.png` to just `gs_manager_logo.png`.
-- changed: Update protobufs from `775b86846` to `08470ae76`.
-- changed: Updated "about information" in `showAboutDialog()`.
+- `package_info_plus` v5.0.1 to get data from `pubspec.yaml`, A Flutter favorite package that apparently has a known issue on iOS  "Plugin returns incorrect app version", WTF? this is what I needed the most, but luckily this project is Android only.
+- rename `gs_manager_logo.png` to just `gs_manager_logo.png`.
+- Update protobufs from `775b86846` to `08470ae76`.
+- Updated "about information" in `showAboutDialog()`.
 
 ## 24.03.1-beta (Mar 17, 2024)
 
-- added: Implement logger.
-- added: Environment variables are added to `.vscode/launch.json` and used in the App now with `String.fromEnvironment('MY_VAR')`.
-- changed: Instead of saving states into variables to avoid async gap erros, now the code checks if is mounted and if is **not mounted** it returns `if (!context.mounted) return;`.
+- Implement logger.
+- Environment variables are added to `.vscode/launch.json` and used in the App now with `String.fromEnvironment('MY_VAR')`.
+- Instead of saving states into variables to avoid async gap erros, now the code checks if is mounted and if is **not mounted** it returns `if (!context.mounted) return;`.
 
 ## 24.03.0-beta (Mar 16, 2024)
 
-- added: **Initial public release!**
-- changed: Everything except the rendered User UI is now in english;
-- changed: This will all be live now, no more concept widgets and prototypes;
+- **Initial public release!**
+- Everything except the rendered User UI is now in english;
+- This will all be live now, no more concept widgets and prototypes;

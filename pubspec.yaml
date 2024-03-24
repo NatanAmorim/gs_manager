@@ -3,7 +3,7 @@ name: gs_manager
 description: Aplicativo utilizado para gerenciar a empresa "Gislaine Studio de Dança" em Andradina-SP, Brasil.
 homepage: https://gislainestudio.com
 repository: https://github.com/NatanAmorim/gs_manager
-version: 24.03.4-beta
+version: 24.03.5-beta
 # Prevent accidental publishing to pub.dev.
 publish_to: "none"
 # TODO add `false_secrets` more info in <https://dart.dev/tools/pub/pubspec#false_secrets>

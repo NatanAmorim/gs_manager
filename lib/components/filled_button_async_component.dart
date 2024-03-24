@@ -5,14 +5,14 @@ class FilledButtonAsyncComponent extends StatefulWidget {
     super.key,
     required this.icon,
     required this.label,
+    required this.asyncLabel,
     required this.onPressed,
-    this.isTonal = false,
   });
 
   final IconData icon;
   final String label;
+  final String asyncLabel;
   final Future<bool> Function() onPressed;
-  final bool isTonal;
 
   @override
   State<FilledButtonAsyncComponent> createState() =>
@@ -33,32 +33,33 @@ class _FilledButtonAsyncComponentState
   @override
   Widget build(BuildContext context) {
     return FilledButton.icon(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.pressed)) {
-            return Theme.of(context).colorScheme.primary.withOpacity(0.6);
-          }
+      // style: ButtonStyle(
+      //   backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+      //       (Set<MaterialState> states) {
+      //     if (states.contains(MaterialState.pressed)) {
+      //       return Theme.of(context).colorScheme.primary.withOpacity(0.6);
+      //     }
 
-          if (widget.isTonal) {
-            return Theme.of(context).colorScheme.secondary;
-          }
+      //     return null;
+      //   }),
+      //   padding: MaterialStateProperty.all(const EdgeInsets.all(25.0)),
+      // ),
 
-          if (widget.isTonal && states.contains(MaterialState.pressed)) {
-            return Theme.of(context).colorScheme.primary.withOpacity(0.6);
-          }
-
-          return null;
-        }),
-        padding: MaterialStateProperty.all(const EdgeInsets.all(25.0)),
-      ),
-      label: Text(
-        widget.label,
-        style: TextStyle(
-          fontSize: contentSize,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
+      label: ValueListenableBuilder<bool>(
+          valueListenable: _isLoadingNotifier,
+          builder: (
+            BuildContext context,
+            bool value,
+            Widget? child,
+          ) {
+            return Text(
+              value ? widget.asyncLabel : widget.label,
+              style: TextStyle(
+                fontSize: contentSize,
+                fontWeight: FontWeight.bold,
+              ),
+            );
+          }),
       icon: ValueListenableBuilder<bool>(
         valueListenable: _isLoadingNotifier,
         builder: (
@@ -71,6 +72,7 @@ class _FilledButtonAsyncComponentState
                     width: contentSize,
                     height: contentSize,
                     child: CircularProgressIndicator(
+                      strokeWidth: 2.0,
                       color: Theme.of(context).colorScheme.onPrimary,
                     ),
                   )
