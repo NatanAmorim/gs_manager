@@ -29,6 +29,16 @@ Here's a short description of each element
 
 <!-- TODO: Compatible with API version `1.0.0-RC-1` -->
 
+<!-- ## 24.03.8-beta (Mar 26, 2024)
+
+- Update splash screen with new logo using `flutter_native_splash`.
+- Update launch icon with new logo using `flutter_launcher_icons`. -->
+
+## 24.03.7-beta (Mar 26, 2024)
+
+- Update theme using "Material Theme Builder" and "Wild Strawberry" Color as the primary color.
+- Improve UI/UX on multiple pages, but mainly on `customer_details_view.dart`.
+
 ## 24.03.6-beta (Mar 24, 2024)
 
 - Fix Typos in documentation.

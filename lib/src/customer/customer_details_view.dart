@@ -5,6 +5,7 @@ import 'package:gs_manager/formatters.dart';
 import 'package:gs_manager/helpers.dart';
 import 'package:gs_manager/protos.dart';
 import 'package:gs_manager/src/customer/customer_details_controller.dart';
+import 'package:gs_manager/src/viacep/viacep_dto.dart';
 import 'package:gs_manager/src/viacep/viacep_service.dart';
 import 'package:gs_manager/validators.dart';
 import 'package:intl/intl.dart';
@@ -129,16 +130,6 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                     ),
               ),
               OutlinedButton.icon(
-                style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-                      (Set<MaterialState> states) {
-                    if (states.contains(MaterialState.pressed)) {
-                      return Colors.pink.shade300.withOpacity(0.6);
-                    }
-
-                    return Colors.pink.shade300;
-                  }),
-                ),
                 onPressed: () => _remove(dependente),
                 icon: const Icon(Icons.delete),
                 label: const Text('Excluir Registro'),
@@ -149,8 +140,8 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
         const SizedBox(height: 8.0),
         TextInputComponent(
           isEnabled: !isRemoving,
-          label: 'Nome do filho/dependente',
-          placeholderText: 'Digite o nome do filho/dependente',
+          label: 'Nome do filho ou dependente',
+          placeholderText: 'Digite o nome do filho ou dependente',
           initialValue: dependente.name,
           // onSaved: (String? text) => controller.cliente.nome = text!, // TODO
           onChanged: (String? text) => setState(() {
@@ -172,7 +163,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
         const SizedBox(height: 16),
         TextInputComponent(
           label: 'Data de nascimento',
-          placeholderText: 'Digite a data. FORMATO: XX/XX/XXXX',
+          placeholderText: 'Digite a data. Formato: XX/XX/XXXX',
           initialValue: dependente.birthDate,
           // onSaved: (String? text) => // TODO
           //     controller.cliente.dataNascimento = text!,
@@ -207,6 +198,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
       TextEditingController(
           text: widget.customerUpdating?.billingAddress ?? ''),
     );
+    TextEditingController cepTextController = TextEditingController();
 
     return ScaffoldFormComponent(
       formKey: controller.formKey,
@@ -251,7 +243,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
               const SizedBox(height: 16),
               TextInputComponent(
                 label: 'Celular/WhatsApp',
-                placeholderText: 'Digite o número. FORMATO: (XX) XXXXX-XXXX',
+                placeholderText: 'Digite o número. Formato: (XX) XXXXX-XXXX',
                 keyboardType: TextInputType.phone,
                 inputFormatters: [
                   FilteringTextInputFormatter.digitsOnly,
@@ -272,9 +264,14 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                     return TextInputComponent(
                       controller: valueListenable,
                       label: 'Data de nascimento',
-                      placeholderText: 'Digite a data. FORMATO: XX/XX/XXXX',
+                      placeholderText: 'Digite a data. Formato: XX/XX/XXXX',
                       suffixIcon: TextButton.icon(
-                        label: const Text("Escolha uma data"),
+                        label: const Text(
+                          "Escolha uma data",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                         icon: const Icon(Icons.calendar_month),
                         onPressed: () async {
                           final DateTime? newDate = await showDatePicker(
@@ -311,7 +308,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
               const SizedBox(height: 16),
               TextInputComponent(
                 label: 'Número CPF (Cadastro de Pessoas Físicas)',
-                placeholderText: 'Digite o número. FORMATO: XXX.XXX.XXX-XX',
+                placeholderText: 'Digite o número. Formato: XXX.XXX.XXX-XX',
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return null;
@@ -347,17 +344,67 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                   return null;
                 },
               ),
-              const SizedBox(height: 16),
+              TextButton.icon(
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    bool isLightTheme =
+                        Theme.of(context).brightness == Brightness.light;
+
+                    if (states.contains(MaterialState.pressed)) {
+                      return isLightTheme
+                          ? Colors.blue.shade700.withOpacity(0.6)
+                          : Colors.lightBlue.shade300.withOpacity(0.6);
+                    }
+
+                    return isLightTheme
+                        ? Colors.blue.shade700
+                        : Colors.lightBlue.shade300;
+                  }),
+                ),
+                onPressed: () async {
+                  final Uri url = Uri.parse(
+                    'https://buscacepinter.correios.com.br/app/endereco/index.php',
+                  );
+                  if (!await launchUrl(url)) {
+                    throw Exception('Could not launch $url');
+                  }
+                },
+                icon: const Icon(Icons.open_in_browser),
+                label: const Text("Procurar CEP no website correios"),
+              ),
               Row(
                 children: [
+                  Flexible(
+                    child: TextField(
+                      controller: cepTextController,
+                      decoration: const InputDecoration(
+                        filled: true,
+                        border: UnderlineInputBorder(),
+                        prefixIcon: Icon(Icons.search),
+                        labelText: 'Código do CEP',
+                        hintText: 'Digite o CEP. Exemplo: 16.901-007',
+                      ),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.digitsOnly,
+                        CepInputFormatter(),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 16.0),
                   FilledButton.tonalIcon(
-                    label: const Text('Preencher endereço com CEP'),
+                    label: const Text('Buscar endereço'),
                     icon: const Icon(Icons.travel_explore),
-                    onPressed: () async => showCepDialog(),
+                    onPressed: () async {
+                      String address =
+                          await showCepDialog(cepTextController.text);
+                      addressNotifier.value.text = address;
+                    },
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 16.0),
               ValueListenableBuilder<TextEditingController>(
                 valueListenable: addressNotifier,
                 builder: (
@@ -370,7 +417,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                     label: 'Endereço',
                     minLines: 2,
                     maxLines: 4,
-                    placeholderText: 'Digite o endereço. EXEMPLO:'
+                    placeholderText: 'Digite o endereço. Exemplo:'
                         '16.901-007, Andradina - SP, Avenida Bandeirantes, 546,'
                         ' Bairro Centro.',
                     keyboardType: TextInputType.streetAddress,
@@ -385,7 +432,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                 minLines: 4,
                 maxLines: 10,
                 placeholderText:
-                    'Digite qualquer informação adicional útil. EXEMPLO: nome no recibo no PIX',
+                    'Digite qualquer informação adicional útil. Exemplo: nome no recibo no PIX',
                 initialValue: controller.customer.additionalInformation,
                 onSaved: (String? text) =>
                     controller.customer.additionalInformation = text!,
@@ -403,11 +450,14 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
           TextButton.icon(
             onPressed: () => _insert(Person()),
             icon: const Icon(
-              Icons.add,
+              Icons.person_add,
             ),
             label: const Text(
-              'Adicionar filho/dependente',
-              style: TextStyle(),
+              'Adicionar filho ou dependente',
+              style: TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ],
@@ -415,22 +465,14 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
     );
   }
 
-  Future<String?> fetchAddress(String cep) async {
-    if (cep.length != 10) return null;
-
-    return await ViacepService.getAddress(
-      cep: cep,
-    );
-  }
-
-  void showCepDialog() {
-    String cep = '';
-    String lastCep = '';
-    String? newAddress;
+  Future<String> showCepDialog(String cep) async {
+    // TODO warning validation snackbar
+    if (cep.length != 10) return '';
 
     bool isLightTheme = Theme.of(context).brightness == Brightness.light;
+    String address = '';
 
-    showDialog(
+    await showDialog(
       barrierDismissible: false,
       context: context,
       builder: (context) => AlertDialog(
@@ -442,121 +484,21 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
             fontWeight: FontWeight.bold,
           ),
         ),
-        content: SizedBox(
-          width: 408,
-          child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(
-                vertical: 16.0,
-              ),
-              child: StatefulBuilder(builder: (context, setState) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            "Não sabe o CEP?",
-                            style: Theme.of(context).textTheme.bodyLarge,
-                          ),
-                          const SizedBox(width: 8.0),
-                          FilledButton.icon(
-                            onPressed: () async {
-                              final Uri url = Uri.parse(
-                                'https://buscacepinter.correios.com.br/app/endereco/index.php',
-                              );
-                              if (!await launchUrl(url)) {
-                                throw Exception('Could not launch $url');
-                              }
-                            },
-                            icon: const Icon(Icons.open_in_browser),
-                            label: const Text("Buscar CEP nos correios"),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 24.0),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          SizedBox(
-                            width: 144,
-                            child: TextInputComponent(
-                              label: 'Código do CEP',
-                              placeholderText: 'EX: 16901-007',
-                              keyboardType: TextInputType.number,
-                              inputFormatters: [
-                                FilteringTextInputFormatter.digitsOnly,
-                                CepInputFormatter(),
-                              ],
-                              validator: (String? value) {
-                                if (value == null || value.isEmpty) {
-                                  return null;
-                                }
-
-                                if (value.length != 10) {
-                                  return 'Insira um CEP válido';
-                                }
-
-                                cep = value;
-
-                                /// TODO add address validation
-                                /// it requires to press ValidationBtn and for
-                                /// the Address to exist to not give an error
-
-                                return null;
-                              },
-                            ),
-                          ),
-                          const SizedBox(width: 16.0),
-                          SizedBox(
-                            width: 144,
-                            // TODO: Actually use this, right now it is not used
-                            child: TextInputComponent(
-                              label: 'N° do endereço',
-                              placeholderText: 'EXEMPLO: 546',
-                              keyboardType: TextInputType.number,
-                              inputFormatters: [
-                                FilteringTextInputFormatter.digitsOnly,
-                              ],
-                              validator: (String? value) {
-                                return null;
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 16.0),
-                    ElevatedButton.icon(
-                      onPressed: () async {
-                        if (lastCep == cep) return;
-                        lastCep = cep;
-                        try {
-                          newAddress = await fetchAddress(cep);
-                        } catch (e) {
-                          newAddress = '';
-                        }
-                        setState(() {});
-                      },
-                      icon: const Icon(Icons.verified),
-                      label: const Text('Validar CEP'),
-                    ),
-                    const SizedBox(height: 16.0),
-                    // TODO use FutureBuilder to show loading when getting an Addres from internet
-                    // TODO Remove the things down here, invalid address should be a snackbar or update
-                    // the TextInput warning and everything else a empty state
-                    if (lastCep == '')
+        content: StatefulBuilder(builder: (context, snapshot) {
+          return FutureBuilder<ViacepDto?>(
+            future: ViacepService.getAddress(
+              cep: cep,
+            ),
+            builder:
+                (BuildContext context, AsyncSnapshot<ViacepDto?> snapshot) {
+              if (snapshot.hasData) {
+                if (snapshot.data == null) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const SizedBox(height: 8.0),
                       Container(
                         padding: const EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
@@ -580,186 +522,216 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                               Icons.info_outline,
                               color: isLightTheme
                                   ? Colors.grey.shade700
-                                  : Colors.black,
+                                  : Colors.black87,
                               size: 24,
                             ),
                             const SizedBox(width: 8.0),
                             Text(
-                              'Nenhum endereço',
+                              'nenhum endereço',
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyLarge!
                                   .copyWith(
                                     color: isLightTheme
                                         ? Colors.grey.shade700
-                                        : Colors.black,
+                                        : Colors.black87,
                                   ),
                             ),
                           ],
                         ),
                       ),
-                    if (newAddress == '')
-                      Container(
-                        padding: const EdgeInsets.all(8.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: isLightTheme
-                                ? Colors.orange.shade500
-                                : Colors.orange.shade700,
+                    ],
+                  );
+                }
+                TextEditingController addressNumberTextController =
+                    TextEditingController();
+
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const SizedBox(height: 8.0),
+                    Container(
+                      padding: const EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: isLightTheme
+                              ? Colors.green.shade500
+                              : Colors.green.shade900,
+                        ),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(8.0),
+                        ),
+                        color: isLightTheme
+                            ? Colors.green.shade100
+                            : Colors.green.shade200,
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.check_circle_outline,
+                            size: 24,
+                            color: Colors.green.shade900,
                           ),
+                          const SizedBox(width: 8.0),
+                          Text(
+                            'endereço válido',
+                            style:
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                      color: Colors.green.shade900,
+                                    ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 16.0),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                      child: TextInputComponent(
+                        controller: addressNumberTextController,
+                        label: 'Número do endereço',
+                        placeholderText: 'Digite o número. Exemplo: 546',
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                        ],
+                        validator: (String? value) {
+                          return null;
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 16.0),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 32.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: isLightTheme
+                              ? Theme.of(context).colorScheme.tertiaryContainer
+                              : Theme.of(context).colorScheme.tertiary,
                           borderRadius: const BorderRadius.all(
                             Radius.circular(8.0),
                           ),
-                          color: isLightTheme
-                              ? Colors.orange.shade100
-                              : Colors.orange.shade200,
                         ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(
-                              Icons.warning_amber_rounded,
-                              color: isLightTheme
-                                  ? Colors.deepOrangeAccent
-                                  : Colors.deepOrange,
-                              size: 24,
-                            ),
-                            const SizedBox(width: 8.0),
-                            Text(
-                              'Endereço invalido',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .copyWith(
-                                    color: isLightTheme
-                                        ? Colors.deepOrangeAccent
-                                        : Colors.deepOrange,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    if (newAddress != '' && newAddress != null)
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const SizedBox(height: 8.0),
-                          Container(
-                            padding: const EdgeInsets.all(8.0),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: isLightTheme
-                                    ? Colors.green.shade500
-                                    : Colors.green.shade700,
-                              ),
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(8.0),
-                              ),
-                              color: isLightTheme
-                                  ? Colors.green.shade100
-                                  : Colors.green.shade200,
-                            ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Icon(
-                                  Icons.check_circle_outline,
-                                  size: 24,
-                                  color: isLightTheme
-                                      ? Colors.green
-                                      : Colors.green.shade700,
-                                ),
-                                const SizedBox(width: 8.0),
-                                Text(
-                                  'Endereço valido',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyLarge!
-                                      .copyWith(
-                                        color: isLightTheme
-                                            ? Colors.green
-                                            : Colors.green.shade700,
-                                      ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 16.0),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16.0,
-                            ),
-                            child: Container(
-                              decoration: BoxDecoration(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          '$cep'
+                          ', ${snapshot.data!.localidade}'
+                          ' - ${snapshot.data!.uf}, '
+                          '${snapshot.data!.logradouro}'
+                          ', Bairro ${snapshot.data!.bairro}.',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(
+                                fontWeight: FontWeight.bold,
                                 color: isLightTheme
                                     ? Theme.of(context)
                                         .colorScheme
-                                        .tertiaryContainer
-                                    : Theme.of(context).colorScheme.tertiary,
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(8.0),
-                                ),
+                                        .onTertiaryContainer
+                                    : Theme.of(context).colorScheme.onTertiary,
                               ),
-                              padding: const EdgeInsets.all(16.0),
-                              child: Text(
-                                newAddress!,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge!
-                                    .copyWith(
-                                      fontWeight: FontWeight.bold,
-                                      color: isLightTheme
-                                          ? Theme.of(context)
-                                              .colorScheme
-                                              .onTertiaryContainer
-                                          : Theme.of(context)
-                                              .colorScheme
-                                              .onTertiary,
-                                    ),
-                              ),
-                            ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          TextButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: const Text("Cancelar"),
+                          ),
+                          TextButton(
+                            onPressed: () async {
+                              address = '$cep'
+                                  ', ${snapshot.data!.localidade}'
+                                  ' - ${snapshot.data!.uf}, '
+                                  '${snapshot.data!.logradouro}'
+                                  '${addressNumberTextController.text == '' ? '' : ', N° ${addressNumberTextController.text}'}'
+                                  ', Bairro ${snapshot.data!.bairro}.';
+
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text("Preencher endereço"),
                           ),
                         ],
-                      )
+                      ),
+                    ),
                   ],
                 );
-              })),
-        ),
-        actionsAlignment: MainAxisAlignment.spaceBetween,
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text("Cancelar"),
-          ),
-          TextButton(
-            onPressed: () async {
-              if (newAddress == null) {
-                try {
-                  newAddress = await fetchAddress(cep);
-                } catch (e) {
-                  newAddress = '';
-                }
-
-                if (!context.mounted) return;
-                Navigator.of(context).pop();
               }
-
-              if (newAddress == null) {
-                return;
+              if (snapshot.hasError) {
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const SizedBox(height: 8.0),
+                    Container(
+                      padding: const EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: isLightTheme
+                              ? Colors.orange.shade500
+                              : Colors.orange.shade700,
+                        ),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(8.0),
+                        ),
+                        color: isLightTheme
+                            ? Colors.orange.shade100
+                            : Colors.orange.shade200,
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.warning_amber_rounded,
+                            color: Colors.deepOrange.shade900,
+                            size: 24,
+                          ),
+                          const SizedBox(width: 8.0),
+                          Text(
+                            'endereço inválido',
+                            style:
+                                Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                      color: Colors.deepOrange.shade900,
+                                    ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                );
               }
-              addressNotifier.value.text = newAddress!;
-
-              Navigator.of(context).pop();
+              return const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(height: 8.0),
+                    CircularProgressIndicator(),
+                  ],
+                ),
+              );
             },
-            child: const Text("Confirmar"),
-          ),
-        ],
+          );
+        }),
       ),
     );
+
+    return address;
   }
 
   String? validateBirthday(String? value) {

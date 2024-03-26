@@ -8,7 +8,7 @@ import 'package:logging/logging.dart';
 class ViacepService {
   static const String url = 'viacep.com.br';
 
-  static Future<String?> getAddress({
+  static Future<ViacepDto?> getAddress({
     required String cep,
   }) async {
     final Logger log = Logger('ViacepService');
@@ -31,12 +31,7 @@ class ViacepService {
         jsonResponse,
       );
 
-      final String address = '$cep'
-          ', ${viacep.localidade}'
-          ' - ${viacep.uf}, '
-          '${viacep.logradouro}'
-          ', Bairro ${viacep.bairro}.';
-      return address;
+      return viacep;
     }
 
     log.warning('Failed getAddress $cep');

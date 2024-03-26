@@ -185,16 +185,6 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                     ),
               ),
               TextButton.icon(
-                style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-                      (Set<MaterialState> states) {
-                    if (states.contains(MaterialState.pressed)) {
-                      return Colors.pink.shade300.withOpacity(0.6);
-                    }
-
-                    return Colors.pink.shade300;
-                  }),
-                ),
                 onPressed: () => _remove(variant),
                 icon: const Icon(Icons.delete),
                 label: const Text('Excluir variante'),

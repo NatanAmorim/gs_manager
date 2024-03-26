@@ -79,10 +79,10 @@ class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
         ),
         bottomNavigationBar: SafeArea(
           child: Material(
-            elevation: 8,
+            elevation: 16,
             borderOnForeground: true,
             surfaceTintColor: Theme.of(context).brightness == Brightness.light
-                ? Colors.grey.shade300
+                ? Color.lerp(Colors.grey.shade300, Colors.pink.shade700, 0.2)
                 : Theme.of(context).colorScheme.inverseSurface,
             child: SizedBox(
               height: 72,
