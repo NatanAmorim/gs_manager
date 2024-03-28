@@ -89,7 +89,7 @@ and follow the directions to add `~/.pub-cache/bin` to your PATH, if you haven't
 You can now regenerate the Dart files by running:
 
 ```sh
-protoc --dart_out=grpc:lib/generated gs_protobufs/protos/*.proto
+protoc --dart_out=grpc:lib/generated gs_protobufs/protos/*.proto gs_protobufs/protos/custom_types/*.proto
 ```
 
 ## How to contribute

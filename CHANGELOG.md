@@ -28,11 +28,16 @@ Here's a short description of each element
 **0M** - Zero-padded month - 01, 02 ... 11, 12
 
 <!-- TODO: Compatible with API version `1.0.0-RC-1` -->
+<!-- FIX: `customer_details_view.dart` does **NOT** show error on FutureBuilder in AlertDialog when an error occurs -->
 
-<!-- ## 24.03.8-beta (Mar 26, 2024)
+<!-- ## 24.03.9-beta (Mar 28, 2024)
 
-- Update splash screen with new logo using `flutter_native_splash`.
-- Update launch icon with new logo using `flutter_launcher_icons`. -->
+- Update launch icon with new logo using `flutter_launcher_icons`.
+- Update splash screen with new logo using `flutter_native_splash`. -->
+
+## 24.03.8-beta (Mar 28, 2024)
+
+- Update protobufs from `08470ae76` to `3a3d96214`.
 
 ## 24.03.7-beta (Mar 26, 2024)
 
