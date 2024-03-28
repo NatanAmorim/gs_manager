@@ -19,26 +19,26 @@ import 'promotion.pb.dart' as $11;
 
 export 'promotion.pb.dart';
 
-@$pb.GrpcServiceName('gs_protobufs.promotion.PromotionService')
+@$pb.GrpcServiceName('protos.promotion.PromotionService')
 class PromotionServiceClient extends $grpc.Client {
   static final _$getPaginated = $grpc.ClientMethod<$11.GetPaginatedPromotionsRequest, $11.GetPaginatedPromotionsResponse>(
-      '/gs_protobufs.promotion.PromotionService/GetPaginated',
+      '/protos.promotion.PromotionService/GetPaginated',
       ($11.GetPaginatedPromotionsRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $11.GetPaginatedPromotionsResponse.fromBuffer(value));
   static final _$getById = $grpc.ClientMethod<$11.GetPromotionByIdRequest, $11.GetPromotionByIdResponse>(
-      '/gs_protobufs.promotion.PromotionService/GetById',
+      '/protos.promotion.PromotionService/GetById',
       ($11.GetPromotionByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $11.GetPromotionByIdResponse.fromBuffer(value));
   static final _$post = $grpc.ClientMethod<$11.CreatePromotionRequest, $11.CreatePromotionResponse>(
-      '/gs_protobufs.promotion.PromotionService/Post',
+      '/protos.promotion.PromotionService/Post',
       ($11.CreatePromotionRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $11.CreatePromotionResponse.fromBuffer(value));
   static final _$put = $grpc.ClientMethod<$11.UpdatePromotionRequest, $11.UpdatePromotionResponse>(
-      '/gs_protobufs.promotion.PromotionService/Put',
+      '/protos.promotion.PromotionService/Put',
       ($11.UpdatePromotionRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $11.UpdatePromotionResponse.fromBuffer(value));
   static final _$delete = $grpc.ClientMethod<$11.DeletePromotionRequest, $11.DeletePromotionResponse>(
-      '/gs_protobufs.promotion.PromotionService/Delete',
+      '/protos.promotion.PromotionService/Delete',
       ($11.DeletePromotionRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $11.DeletePromotionResponse.fromBuffer(value));
 
@@ -69,9 +69,9 @@ class PromotionServiceClient extends $grpc.Client {
   }
 }
 
-@$pb.GrpcServiceName('gs_protobufs.promotion.PromotionService')
+@$pb.GrpcServiceName('protos.promotion.PromotionService')
 abstract class PromotionServiceBase extends $grpc.Service {
-  $core.String get $name => 'gs_protobufs.promotion.PromotionService';
+  $core.String get $name => 'protos.promotion.PromotionService';
 
   PromotionServiceBase() {
     $addMethod($grpc.ServiceMethod<$11.GetPaginatedPromotionsRequest, $11.GetPaginatedPromotionsResponse>(

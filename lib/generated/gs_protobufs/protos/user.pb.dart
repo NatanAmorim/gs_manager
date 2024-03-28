@@ -13,6 +13,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../google/protobuf/wrappers.pb.dart' as $17;
+
 class GetPaginatedUsersRequest extends $pb.GeneratedMessage {
   factory GetPaginatedUsersRequest({
     $core.int? cursor,
@@ -27,7 +29,7 @@ class GetPaginatedUsersRequest extends $pb.GeneratedMessage {
   factory GetPaginatedUsersRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetPaginatedUsersRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedUsersRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.user'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedUsersRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.user'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'cursor', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -66,7 +68,7 @@ class GetPaginatedUsersRequest extends $pb.GeneratedMessage {
 class GetPaginatedUsersResponse extends $pb.GeneratedMessage {
   factory GetPaginatedUsersResponse({
     $core.Iterable<GetUserByIdResponse>? users,
-    $core.int? nextCursor,
+    $17.Int32Value? nextCursor,
   }) {
     final $result = create();
     if (users != null) {
@@ -81,9 +83,9 @@ class GetPaginatedUsersResponse extends $pb.GeneratedMessage {
   factory GetPaginatedUsersResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetPaginatedUsersResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedUsersResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.user'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedUsersResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.user'), createEmptyInstance: create)
     ..pc<GetUserByIdResponse>(1, _omitFieldNames ? '' : 'users', $pb.PbFieldType.PM, subBuilder: GetUserByIdResponse.create)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'nextCursor', $pb.PbFieldType.O3)
+    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.Int32Value.create)
     ..hasRequiredFields = false
   ;
 
@@ -112,22 +114,24 @@ class GetPaginatedUsersResponse extends $pb.GeneratedMessage {
   $core.List<GetUserByIdResponse> get users => $_getList(0);
 
   @$pb.TagNumber(2)
-  $core.int get nextCursor => $_getIZ(1);
+  $17.Int32Value get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($core.int v) { $_setSignedInt32(1, v); }
+  set nextCursor($17.Int32Value v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
+  @$pb.TagNumber(2)
+  $17.Int32Value ensureNextCursor() => $_ensure(1);
 }
 
 class GetUserByIdRequest extends $pb.GeneratedMessage {
   factory GetUserByIdRequest({
-    $core.int? userId,
+    $core.int? userPk,
   }) {
     final $result = create();
-    if (userId != null) {
-      $result.userId = userId;
+    if (userPk != null) {
+      $result.userPk = userPk;
     }
     return $result;
   }
@@ -135,8 +139,8 @@ class GetUserByIdRequest extends $pb.GeneratedMessage {
   factory GetUserByIdRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetUserByIdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetUserByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.user'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'userId', $pb.PbFieldType.O3)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetUserByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.user'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'userPk', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -162,24 +166,24 @@ class GetUserByIdRequest extends $pb.GeneratedMessage {
   static GetUserByIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get userId => $_getIZ(0);
+  $core.int get userPk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set userId($core.int v) { $_setSignedInt32(0, v); }
+  set userPk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasUserId() => $_has(0);
+  $core.bool hasUserPk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUserId() => clearField(1);
+  void clearUserPk() => clearField(1);
 }
 
 class GetUserByIdResponse extends $pb.GeneratedMessage {
   factory GetUserByIdResponse({
-    $core.int? userId,
+    $core.int? userPk,
     $core.String? email,
     $core.String? role,
   }) {
     final $result = create();
-    if (userId != null) {
-      $result.userId = userId;
+    if (userPk != null) {
+      $result.userPk = userPk;
     }
     if (email != null) {
       $result.email = email;
@@ -193,8 +197,8 @@ class GetUserByIdResponse extends $pb.GeneratedMessage {
   factory GetUserByIdResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetUserByIdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetUserByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.user'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'userId', $pb.PbFieldType.O3)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetUserByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.user'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'userPk', $pb.PbFieldType.O3)
     ..aOS(2, _omitFieldNames ? '' : 'email')
     ..aOS(3, _omitFieldNames ? '' : 'role')
     ..hasRequiredFields = false
@@ -222,13 +226,13 @@ class GetUserByIdResponse extends $pb.GeneratedMessage {
   static GetUserByIdResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get userId => $_getIZ(0);
+  $core.int get userPk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set userId($core.int v) { $_setSignedInt32(0, v); }
+  set userPk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasUserId() => $_has(0);
+  $core.bool hasUserPk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUserId() => clearField(1);
+  void clearUserPk() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get email => $_getSZ(1);
@@ -251,12 +255,12 @@ class GetUserByIdResponse extends $pb.GeneratedMessage {
 
 class UpdateUserRequest extends $pb.GeneratedMessage {
   factory UpdateUserRequest({
-    $core.int? userId,
+    $core.int? userPk,
     $core.String? email,
   }) {
     final $result = create();
-    if (userId != null) {
-      $result.userId = userId;
+    if (userPk != null) {
+      $result.userPk = userPk;
     }
     if (email != null) {
       $result.email = email;
@@ -267,8 +271,8 @@ class UpdateUserRequest extends $pb.GeneratedMessage {
   factory UpdateUserRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UpdateUserRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateUserRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.user'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'userId', $pb.PbFieldType.O3)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateUserRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.user'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'userPk', $pb.PbFieldType.O3)
     ..aOS(2, _omitFieldNames ? '' : 'email')
     ..hasRequiredFields = false
   ;
@@ -295,13 +299,13 @@ class UpdateUserRequest extends $pb.GeneratedMessage {
   static UpdateUserRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get userId => $_getIZ(0);
+  $core.int get userPk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set userId($core.int v) { $_setSignedInt32(0, v); }
+  set userPk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasUserId() => $_has(0);
+  $core.bool hasUserPk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUserId() => clearField(1);
+  void clearUserPk() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get email => $_getSZ(1);
@@ -319,7 +323,7 @@ class UpdateUserResponse extends $pb.GeneratedMessage {
   factory UpdateUserResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UpdateUserResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateUserResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.user'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateUserResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.user'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
@@ -347,11 +351,11 @@ class UpdateUserResponse extends $pb.GeneratedMessage {
 
 class DeleteUserRequest extends $pb.GeneratedMessage {
   factory DeleteUserRequest({
-    $core.int? userId,
+    $core.int? userPk,
   }) {
     final $result = create();
-    if (userId != null) {
-      $result.userId = userId;
+    if (userPk != null) {
+      $result.userPk = userPk;
     }
     return $result;
   }
@@ -359,8 +363,8 @@ class DeleteUserRequest extends $pb.GeneratedMessage {
   factory DeleteUserRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory DeleteUserRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteUserRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.user'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'userId', $pb.PbFieldType.O3)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteUserRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.user'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'userPk', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -386,13 +390,13 @@ class DeleteUserRequest extends $pb.GeneratedMessage {
   static DeleteUserRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get userId => $_getIZ(0);
+  $core.int get userPk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set userId($core.int v) { $_setSignedInt32(0, v); }
+  set userPk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasUserId() => $_has(0);
+  $core.bool hasUserPk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUserId() => clearField(1);
+  void clearUserPk() => clearField(1);
 }
 
 class DeleteUserResponse extends $pb.GeneratedMessage {
@@ -401,7 +405,7 @@ class DeleteUserResponse extends $pb.GeneratedMessage {
   factory DeleteUserResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory DeleteUserResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteUserResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.user'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteUserResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.user'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 

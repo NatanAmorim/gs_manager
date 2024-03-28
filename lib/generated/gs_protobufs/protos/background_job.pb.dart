@@ -13,6 +13,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import '../../google/protobuf/wrappers.pb.dart' as $17;
+
 class GetPaginatedBackgroundJobsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedBackgroundJobsRequest({
     $core.int? cursor,
@@ -27,7 +29,7 @@ class GetPaginatedBackgroundJobsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedBackgroundJobsRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetPaginatedBackgroundJobsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedBackgroundJobsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.background_job'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedBackgroundJobsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.background_job'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'cursor', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -66,7 +68,7 @@ class GetPaginatedBackgroundJobsRequest extends $pb.GeneratedMessage {
 class GetPaginatedBackgroundJobsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedBackgroundJobsResponse({
     $core.Iterable<GetBackgroundJobByIdResponse>? backgroundJobs,
-    $core.int? nextCursor,
+    $17.Int32Value? nextCursor,
   }) {
     final $result = create();
     if (backgroundJobs != null) {
@@ -81,9 +83,9 @@ class GetPaginatedBackgroundJobsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedBackgroundJobsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetPaginatedBackgroundJobsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedBackgroundJobsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.background_job'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedBackgroundJobsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.background_job'), createEmptyInstance: create)
     ..pc<GetBackgroundJobByIdResponse>(1, _omitFieldNames ? '' : 'backgroundJobs', $pb.PbFieldType.PM, subBuilder: GetBackgroundJobByIdResponse.create)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'nextCursor', $pb.PbFieldType.O3)
+    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.Int32Value.create)
     ..hasRequiredFields = false
   ;
 
@@ -112,22 +114,24 @@ class GetPaginatedBackgroundJobsResponse extends $pb.GeneratedMessage {
   $core.List<GetBackgroundJobByIdResponse> get backgroundJobs => $_getList(0);
 
   @$pb.TagNumber(2)
-  $core.int get nextCursor => $_getIZ(1);
+  $17.Int32Value get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($core.int v) { $_setSignedInt32(1, v); }
+  set nextCursor($17.Int32Value v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
+  @$pb.TagNumber(2)
+  $17.Int32Value ensureNextCursor() => $_ensure(1);
 }
 
 class GetBackgroundJobByIdRequest extends $pb.GeneratedMessage {
   factory GetBackgroundJobByIdRequest({
-    $core.int? backgroundJobId,
+    $core.int? backgroundJobPk,
   }) {
     final $result = create();
-    if (backgroundJobId != null) {
-      $result.backgroundJobId = backgroundJobId;
+    if (backgroundJobPk != null) {
+      $result.backgroundJobPk = backgroundJobPk;
     }
     return $result;
   }
@@ -135,8 +139,8 @@ class GetBackgroundJobByIdRequest extends $pb.GeneratedMessage {
   factory GetBackgroundJobByIdRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetBackgroundJobByIdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetBackgroundJobByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.background_job'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'backgroundJobId', $pb.PbFieldType.O3, protoName: 'backgroundJob_id')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetBackgroundJobByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.background_job'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'backgroundJobPk', $pb.PbFieldType.O3, protoName: 'backgroundJob_pk')
     ..hasRequiredFields = false
   ;
 
@@ -162,24 +166,24 @@ class GetBackgroundJobByIdRequest extends $pb.GeneratedMessage {
   static GetBackgroundJobByIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get backgroundJobId => $_getIZ(0);
+  $core.int get backgroundJobPk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set backgroundJobId($core.int v) { $_setSignedInt32(0, v); }
+  set backgroundJobPk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasBackgroundJobId() => $_has(0);
+  $core.bool hasBackgroundJobPk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearBackgroundJobId() => clearField(1);
+  void clearBackgroundJobPk() => clearField(1);
 }
 
 class GetBackgroundJobByIdResponse extends $pb.GeneratedMessage {
   factory GetBackgroundJobByIdResponse({
-    $core.int? backgroundJobId,
+    $core.int? backgroundJobPk,
     $core.String? name,
     $core.bool? hasFinished,
   }) {
     final $result = create();
-    if (backgroundJobId != null) {
-      $result.backgroundJobId = backgroundJobId;
+    if (backgroundJobPk != null) {
+      $result.backgroundJobPk = backgroundJobPk;
     }
     if (name != null) {
       $result.name = name;
@@ -193,8 +197,8 @@ class GetBackgroundJobByIdResponse extends $pb.GeneratedMessage {
   factory GetBackgroundJobByIdResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetBackgroundJobByIdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetBackgroundJobByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.background_job'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'backgroundJobId', $pb.PbFieldType.O3, protoName: 'backgroundJob_id')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetBackgroundJobByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.background_job'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'backgroundJobPk', $pb.PbFieldType.O3, protoName: 'backgroundJob_pk')
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOB(3, _omitFieldNames ? '' : 'hasFinished')
     ..hasRequiredFields = false
@@ -222,13 +226,13 @@ class GetBackgroundJobByIdResponse extends $pb.GeneratedMessage {
   static GetBackgroundJobByIdResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get backgroundJobId => $_getIZ(0);
+  $core.int get backgroundJobPk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set backgroundJobId($core.int v) { $_setSignedInt32(0, v); }
+  set backgroundJobPk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasBackgroundJobId() => $_has(0);
+  $core.bool hasBackgroundJobPk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearBackgroundJobId() => clearField(1);
+  void clearBackgroundJobPk() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get name => $_getSZ(1);

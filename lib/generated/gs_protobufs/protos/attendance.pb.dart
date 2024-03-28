@@ -13,7 +13,10 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'calendar_date.pb.dart' as $17;
+import '../../google/protobuf/wrappers.pb.dart' as $17;
+import 'custom_types/calendar_date.pb.dart' as $22;
+import 'custom_types/person.pb.dart' as $18;
+import 'discipline.pb.dart' as $2;
 
 class GetPaginatedAttendancesRequest extends $pb.GeneratedMessage {
   factory GetPaginatedAttendancesRequest({
@@ -29,7 +32,7 @@ class GetPaginatedAttendancesRequest extends $pb.GeneratedMessage {
   factory GetPaginatedAttendancesRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetPaginatedAttendancesRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedAttendancesRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.attendance'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedAttendancesRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.attendance'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'cursor', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -68,7 +71,7 @@ class GetPaginatedAttendancesRequest extends $pb.GeneratedMessage {
 class GetPaginatedAttendancesResponse extends $pb.GeneratedMessage {
   factory GetPaginatedAttendancesResponse({
     $core.Iterable<GetAttendanceByIdResponse>? attendances,
-    $core.int? nextCursor,
+    $17.Int32Value? nextCursor,
   }) {
     final $result = create();
     if (attendances != null) {
@@ -83,9 +86,9 @@ class GetPaginatedAttendancesResponse extends $pb.GeneratedMessage {
   factory GetPaginatedAttendancesResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetPaginatedAttendancesResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedAttendancesResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.attendance'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedAttendancesResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.attendance'), createEmptyInstance: create)
     ..pc<GetAttendanceByIdResponse>(1, _omitFieldNames ? '' : 'attendances', $pb.PbFieldType.PM, subBuilder: GetAttendanceByIdResponse.create)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'nextCursor', $pb.PbFieldType.O3)
+    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.Int32Value.create)
     ..hasRequiredFields = false
   ;
 
@@ -114,22 +117,24 @@ class GetPaginatedAttendancesResponse extends $pb.GeneratedMessage {
   $core.List<GetAttendanceByIdResponse> get attendances => $_getList(0);
 
   @$pb.TagNumber(2)
-  $core.int get nextCursor => $_getIZ(1);
+  $17.Int32Value get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($core.int v) { $_setSignedInt32(1, v); }
+  set nextCursor($17.Int32Value v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
+  @$pb.TagNumber(2)
+  $17.Int32Value ensureNextCursor() => $_ensure(1);
 }
 
 class GetAttendanceByIdRequest extends $pb.GeneratedMessage {
   factory GetAttendanceByIdRequest({
-    $core.int? attendanceId,
+    $core.int? attendancePk,
   }) {
     final $result = create();
-    if (attendanceId != null) {
-      $result.attendanceId = attendanceId;
+    if (attendancePk != null) {
+      $result.attendancePk = attendancePk;
     }
     return $result;
   }
@@ -137,8 +142,8 @@ class GetAttendanceByIdRequest extends $pb.GeneratedMessage {
   factory GetAttendanceByIdRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetAttendanceByIdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetAttendanceByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.attendance'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'attendanceId', $pb.PbFieldType.O3)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetAttendanceByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.attendance'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'attendancePk', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -164,39 +169,39 @@ class GetAttendanceByIdRequest extends $pb.GeneratedMessage {
   static GetAttendanceByIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get attendanceId => $_getIZ(0);
+  $core.int get attendancePk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set attendanceId($core.int v) { $_setSignedInt32(0, v); }
+  set attendancePk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasAttendanceId() => $_has(0);
+  $core.bool hasAttendancePk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearAttendanceId() => clearField(1);
+  void clearAttendancePk() => clearField(1);
 }
 
 class GetAttendanceByIdResponse extends $pb.GeneratedMessage {
   factory GetAttendanceByIdResponse({
-    $core.int? attendanceId,
-    $core.int? disciplineId,
-    $17.CalendarDate? date,
-    $core.int? presentStudentIds,
-    $core.int? absentStudentIds,
+    $core.int? attendancePk,
+    $2.GetDisciplineByIdResponse? discipline,
+    $22.CalendarDate? date,
+    $core.Iterable<$18.Person>? studentsPresent,
+    $core.Iterable<$18.Person>? studentsAbsent,
     $core.String? observations,
   }) {
     final $result = create();
-    if (attendanceId != null) {
-      $result.attendanceId = attendanceId;
+    if (attendancePk != null) {
+      $result.attendancePk = attendancePk;
     }
-    if (disciplineId != null) {
-      $result.disciplineId = disciplineId;
+    if (discipline != null) {
+      $result.discipline = discipline;
     }
     if (date != null) {
       $result.date = date;
     }
-    if (presentStudentIds != null) {
-      $result.presentStudentIds = presentStudentIds;
+    if (studentsPresent != null) {
+      $result.studentsPresent.addAll(studentsPresent);
     }
-    if (absentStudentIds != null) {
-      $result.absentStudentIds = absentStudentIds;
+    if (studentsAbsent != null) {
+      $result.studentsAbsent.addAll(studentsAbsent);
     }
     if (observations != null) {
       $result.observations = observations;
@@ -207,12 +212,12 @@ class GetAttendanceByIdResponse extends $pb.GeneratedMessage {
   factory GetAttendanceByIdResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetAttendanceByIdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetAttendanceByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.attendance'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'attendanceId', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'disciplineId', $pb.PbFieldType.O3)
-    ..aOM<$17.CalendarDate>(3, _omitFieldNames ? '' : 'date', subBuilder: $17.CalendarDate.create)
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'presentStudentIds', $pb.PbFieldType.O3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'absentStudentIds', $pb.PbFieldType.O3)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetAttendanceByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.attendance'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'attendancePk', $pb.PbFieldType.O3)
+    ..aOM<$2.GetDisciplineByIdResponse>(2, _omitFieldNames ? '' : 'discipline', subBuilder: $2.GetDisciplineByIdResponse.create)
+    ..aOM<$22.CalendarDate>(3, _omitFieldNames ? '' : 'date', subBuilder: $22.CalendarDate.create)
+    ..pc<$18.Person>(4, _omitFieldNames ? '' : 'studentsPresent', $pb.PbFieldType.PM, subBuilder: $18.Person.create)
+    ..pc<$18.Person>(5, _omitFieldNames ? '' : 'studentsAbsent', $pb.PbFieldType.PM, subBuilder: $18.Person.create)
     ..aOS(6, _omitFieldNames ? '' : 'observations')
     ..hasRequiredFields = false
   ;
@@ -239,51 +244,41 @@ class GetAttendanceByIdResponse extends $pb.GeneratedMessage {
   static GetAttendanceByIdResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get attendanceId => $_getIZ(0);
+  $core.int get attendancePk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set attendanceId($core.int v) { $_setSignedInt32(0, v); }
+  set attendancePk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasAttendanceId() => $_has(0);
+  $core.bool hasAttendancePk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearAttendanceId() => clearField(1);
+  void clearAttendancePk() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get disciplineId => $_getIZ(1);
+  $2.GetDisciplineByIdResponse get discipline => $_getN(1);
   @$pb.TagNumber(2)
-  set disciplineId($core.int v) { $_setSignedInt32(1, v); }
+  set discipline($2.GetDisciplineByIdResponse v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasDisciplineId() => $_has(1);
+  $core.bool hasDiscipline() => $_has(1);
   @$pb.TagNumber(2)
-  void clearDisciplineId() => clearField(2);
+  void clearDiscipline() => clearField(2);
+  @$pb.TagNumber(2)
+  $2.GetDisciplineByIdResponse ensureDiscipline() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  $17.CalendarDate get date => $_getN(2);
+  $22.CalendarDate get date => $_getN(2);
   @$pb.TagNumber(3)
-  set date($17.CalendarDate v) { setField(3, v); }
+  set date($22.CalendarDate v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasDate() => $_has(2);
   @$pb.TagNumber(3)
   void clearDate() => clearField(3);
   @$pb.TagNumber(3)
-  $17.CalendarDate ensureDate() => $_ensure(2);
+  $22.CalendarDate ensureDate() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $core.int get presentStudentIds => $_getIZ(3);
-  @$pb.TagNumber(4)
-  set presentStudentIds($core.int v) { $_setSignedInt32(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasPresentStudentIds() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearPresentStudentIds() => clearField(4);
+  $core.List<$18.Person> get studentsPresent => $_getList(3);
 
   @$pb.TagNumber(5)
-  $core.int get absentStudentIds => $_getIZ(4);
-  @$pb.TagNumber(5)
-  set absentStudentIds($core.int v) { $_setSignedInt32(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasAbsentStudentIds() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearAbsentStudentIds() => clearField(5);
+  $core.List<$18.Person> get studentsAbsent => $_getList(4);
 
   @$pb.TagNumber(6)
   $core.String get observations => $_getSZ(5);
@@ -297,24 +292,24 @@ class GetAttendanceByIdResponse extends $pb.GeneratedMessage {
 
 class CreateAttendanceRequest extends $pb.GeneratedMessage {
   factory CreateAttendanceRequest({
-    $core.int? disciplineId,
-    $17.CalendarDate? date,
-    $core.int? presentStudentIds,
-    $core.int? absentStudentIds,
+    $core.int? disciplineFk,
+    $22.CalendarDate? date,
+    $core.Iterable<$core.int>? studentsPresentFks,
+    $core.Iterable<$core.int>? studentsAbsentFks,
     $core.String? observations,
   }) {
     final $result = create();
-    if (disciplineId != null) {
-      $result.disciplineId = disciplineId;
+    if (disciplineFk != null) {
+      $result.disciplineFk = disciplineFk;
     }
     if (date != null) {
       $result.date = date;
     }
-    if (presentStudentIds != null) {
-      $result.presentStudentIds = presentStudentIds;
+    if (studentsPresentFks != null) {
+      $result.studentsPresentFks.addAll(studentsPresentFks);
     }
-    if (absentStudentIds != null) {
-      $result.absentStudentIds = absentStudentIds;
+    if (studentsAbsentFks != null) {
+      $result.studentsAbsentFks.addAll(studentsAbsentFks);
     }
     if (observations != null) {
       $result.observations = observations;
@@ -325,12 +320,12 @@ class CreateAttendanceRequest extends $pb.GeneratedMessage {
   factory CreateAttendanceRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CreateAttendanceRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateAttendanceRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.attendance'), createEmptyInstance: create)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'disciplineId', $pb.PbFieldType.O3)
-    ..aOM<$17.CalendarDate>(3, _omitFieldNames ? '' : 'date', subBuilder: $17.CalendarDate.create)
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'presentStudentIds', $pb.PbFieldType.O3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'absentStudentIds', $pb.PbFieldType.O3)
-    ..aOS(6, _omitFieldNames ? '' : 'observations')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateAttendanceRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.attendance'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'disciplineFk', $pb.PbFieldType.O3)
+    ..aOM<$22.CalendarDate>(2, _omitFieldNames ? '' : 'date', subBuilder: $22.CalendarDate.create)
+    ..p<$core.int>(3, _omitFieldNames ? '' : 'studentsPresentFks', $pb.PbFieldType.K3)
+    ..p<$core.int>(4, _omitFieldNames ? '' : 'studentsAbsentFks', $pb.PbFieldType.K3)
+    ..aOS(5, _omitFieldNames ? '' : 'observations')
     ..hasRequiredFields = false
   ;
 
@@ -355,52 +350,40 @@ class CreateAttendanceRequest extends $pb.GeneratedMessage {
   static CreateAttendanceRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateAttendanceRequest>(create);
   static CreateAttendanceRequest? _defaultInstance;
 
-  @$pb.TagNumber(2)
-  $core.int get disciplineId => $_getIZ(0);
-  @$pb.TagNumber(2)
-  set disciplineId($core.int v) { $_setSignedInt32(0, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasDisciplineId() => $_has(0);
-  @$pb.TagNumber(2)
-  void clearDisciplineId() => clearField(2);
+  @$pb.TagNumber(1)
+  $core.int get disciplineFk => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set disciplineFk($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasDisciplineFk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDisciplineFk() => clearField(1);
 
-  @$pb.TagNumber(3)
-  $17.CalendarDate get date => $_getN(1);
-  @$pb.TagNumber(3)
-  set date($17.CalendarDate v) { setField(3, v); }
-  @$pb.TagNumber(3)
+  @$pb.TagNumber(2)
+  $22.CalendarDate get date => $_getN(1);
+  @$pb.TagNumber(2)
+  set date($22.CalendarDate v) { setField(2, v); }
+  @$pb.TagNumber(2)
   $core.bool hasDate() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDate() => clearField(2);
+  @$pb.TagNumber(2)
+  $22.CalendarDate ensureDate() => $_ensure(1);
+
   @$pb.TagNumber(3)
-  void clearDate() => clearField(3);
-  @$pb.TagNumber(3)
-  $17.CalendarDate ensureDate() => $_ensure(1);
+  $core.List<$core.int> get studentsPresentFks => $_getList(2);
 
   @$pb.TagNumber(4)
-  $core.int get presentStudentIds => $_getIZ(2);
-  @$pb.TagNumber(4)
-  set presentStudentIds($core.int v) { $_setSignedInt32(2, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasPresentStudentIds() => $_has(2);
-  @$pb.TagNumber(4)
-  void clearPresentStudentIds() => clearField(4);
+  $core.List<$core.int> get studentsAbsentFks => $_getList(3);
 
   @$pb.TagNumber(5)
-  $core.int get absentStudentIds => $_getIZ(3);
-  @$pb.TagNumber(5)
-  set absentStudentIds($core.int v) { $_setSignedInt32(3, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasAbsentStudentIds() => $_has(3);
-  @$pb.TagNumber(5)
-  void clearAbsentStudentIds() => clearField(5);
-
-  @$pb.TagNumber(6)
   $core.String get observations => $_getSZ(4);
-  @$pb.TagNumber(6)
+  @$pb.TagNumber(5)
   set observations($core.String v) { $_setString(4, v); }
-  @$pb.TagNumber(6)
+  @$pb.TagNumber(5)
   $core.bool hasObservations() => $_has(4);
-  @$pb.TagNumber(6)
-  void clearObservations() => clearField(6);
+  @$pb.TagNumber(5)
+  void clearObservations() => clearField(5);
 }
 
 class CreateAttendanceResponse extends $pb.GeneratedMessage {
@@ -409,7 +392,7 @@ class CreateAttendanceResponse extends $pb.GeneratedMessage {
   factory CreateAttendanceResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CreateAttendanceResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateAttendanceResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.attendance'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateAttendanceResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.attendance'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
@@ -437,28 +420,28 @@ class CreateAttendanceResponse extends $pb.GeneratedMessage {
 
 class UpdateAttendanceRequest extends $pb.GeneratedMessage {
   factory UpdateAttendanceRequest({
-    $core.int? attendanceId,
-    $core.int? disciplineId,
-    $17.CalendarDate? date,
-    $core.int? presentStudentIds,
-    $core.int? absentStudentIds,
+    $core.int? attendancePk,
+    $core.int? disciplineFk,
+    $22.CalendarDate? date,
+    $core.Iterable<$core.int>? studentsPresentFks,
+    $core.Iterable<$core.int>? studentsAbsentFks,
     $core.String? observations,
   }) {
     final $result = create();
-    if (attendanceId != null) {
-      $result.attendanceId = attendanceId;
+    if (attendancePk != null) {
+      $result.attendancePk = attendancePk;
     }
-    if (disciplineId != null) {
-      $result.disciplineId = disciplineId;
+    if (disciplineFk != null) {
+      $result.disciplineFk = disciplineFk;
     }
     if (date != null) {
       $result.date = date;
     }
-    if (presentStudentIds != null) {
-      $result.presentStudentIds = presentStudentIds;
+    if (studentsPresentFks != null) {
+      $result.studentsPresentFks.addAll(studentsPresentFks);
     }
-    if (absentStudentIds != null) {
-      $result.absentStudentIds = absentStudentIds;
+    if (studentsAbsentFks != null) {
+      $result.studentsAbsentFks.addAll(studentsAbsentFks);
     }
     if (observations != null) {
       $result.observations = observations;
@@ -469,12 +452,12 @@ class UpdateAttendanceRequest extends $pb.GeneratedMessage {
   factory UpdateAttendanceRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UpdateAttendanceRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateAttendanceRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.attendance'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'attendanceId', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'disciplineId', $pb.PbFieldType.O3)
-    ..aOM<$17.CalendarDate>(3, _omitFieldNames ? '' : 'date', subBuilder: $17.CalendarDate.create)
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'presentStudentIds', $pb.PbFieldType.O3)
-    ..a<$core.int>(5, _omitFieldNames ? '' : 'absentStudentIds', $pb.PbFieldType.O3)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateAttendanceRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.attendance'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'attendancePk', $pb.PbFieldType.O3)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'disciplineFk', $pb.PbFieldType.O3)
+    ..aOM<$22.CalendarDate>(3, _omitFieldNames ? '' : 'date', subBuilder: $22.CalendarDate.create)
+    ..p<$core.int>(4, _omitFieldNames ? '' : 'studentsPresentFks', $pb.PbFieldType.K3)
+    ..p<$core.int>(5, _omitFieldNames ? '' : 'studentsAbsentFks', $pb.PbFieldType.K3)
     ..aOS(6, _omitFieldNames ? '' : 'observations')
     ..hasRequiredFields = false
   ;
@@ -501,51 +484,39 @@ class UpdateAttendanceRequest extends $pb.GeneratedMessage {
   static UpdateAttendanceRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get attendanceId => $_getIZ(0);
+  $core.int get attendancePk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set attendanceId($core.int v) { $_setSignedInt32(0, v); }
+  set attendancePk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasAttendanceId() => $_has(0);
+  $core.bool hasAttendancePk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearAttendanceId() => clearField(1);
+  void clearAttendancePk() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get disciplineId => $_getIZ(1);
+  $core.int get disciplineFk => $_getIZ(1);
   @$pb.TagNumber(2)
-  set disciplineId($core.int v) { $_setSignedInt32(1, v); }
+  set disciplineFk($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasDisciplineId() => $_has(1);
+  $core.bool hasDisciplineFk() => $_has(1);
   @$pb.TagNumber(2)
-  void clearDisciplineId() => clearField(2);
+  void clearDisciplineFk() => clearField(2);
 
   @$pb.TagNumber(3)
-  $17.CalendarDate get date => $_getN(2);
+  $22.CalendarDate get date => $_getN(2);
   @$pb.TagNumber(3)
-  set date($17.CalendarDate v) { setField(3, v); }
+  set date($22.CalendarDate v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasDate() => $_has(2);
   @$pb.TagNumber(3)
   void clearDate() => clearField(3);
   @$pb.TagNumber(3)
-  $17.CalendarDate ensureDate() => $_ensure(2);
+  $22.CalendarDate ensureDate() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $core.int get presentStudentIds => $_getIZ(3);
-  @$pb.TagNumber(4)
-  set presentStudentIds($core.int v) { $_setSignedInt32(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasPresentStudentIds() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearPresentStudentIds() => clearField(4);
+  $core.List<$core.int> get studentsPresentFks => $_getList(3);
 
   @$pb.TagNumber(5)
-  $core.int get absentStudentIds => $_getIZ(4);
-  @$pb.TagNumber(5)
-  set absentStudentIds($core.int v) { $_setSignedInt32(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasAbsentStudentIds() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearAbsentStudentIds() => clearField(5);
+  $core.List<$core.int> get studentsAbsentFks => $_getList(4);
 
   @$pb.TagNumber(6)
   $core.String get observations => $_getSZ(5);
@@ -563,7 +534,7 @@ class UpdateAttendanceResponse extends $pb.GeneratedMessage {
   factory UpdateAttendanceResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UpdateAttendanceResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateAttendanceResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.attendance'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateAttendanceResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.attendance'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
@@ -591,11 +562,11 @@ class UpdateAttendanceResponse extends $pb.GeneratedMessage {
 
 class DeleteAttendanceRequest extends $pb.GeneratedMessage {
   factory DeleteAttendanceRequest({
-    $core.int? attendanceId,
+    $core.int? attendancePk,
   }) {
     final $result = create();
-    if (attendanceId != null) {
-      $result.attendanceId = attendanceId;
+    if (attendancePk != null) {
+      $result.attendancePk = attendancePk;
     }
     return $result;
   }
@@ -603,8 +574,8 @@ class DeleteAttendanceRequest extends $pb.GeneratedMessage {
   factory DeleteAttendanceRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory DeleteAttendanceRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteAttendanceRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.attendance'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'attendanceId', $pb.PbFieldType.O3)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteAttendanceRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.attendance'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'attendancePk', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -630,13 +601,13 @@ class DeleteAttendanceRequest extends $pb.GeneratedMessage {
   static DeleteAttendanceRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get attendanceId => $_getIZ(0);
+  $core.int get attendancePk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set attendanceId($core.int v) { $_setSignedInt32(0, v); }
+  set attendancePk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasAttendanceId() => $_has(0);
+  $core.bool hasAttendancePk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearAttendanceId() => clearField(1);
+  void clearAttendancePk() => clearField(1);
 }
 
 class DeleteAttendanceResponse extends $pb.GeneratedMessage {
@@ -645,7 +616,7 @@ class DeleteAttendanceResponse extends $pb.GeneratedMessage {
   factory DeleteAttendanceResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory DeleteAttendanceResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteAttendanceResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.attendance'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteAttendanceResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.attendance'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 

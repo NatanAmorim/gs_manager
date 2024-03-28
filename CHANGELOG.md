@@ -30,10 +30,10 @@ Here's a short description of each element
 <!-- TODO: Compatible with API version `1.0.0-RC-1` -->
 <!-- FIX: `customer_details_view.dart` does **NOT** show error on FutureBuilder in AlertDialog when an error occurs -->
 
-<!-- ## 24.03.9-beta (Mar 28, 2024)
+## 24.03.9-beta (Mar 28, 2024)
 
-- Update launch icon with new logo using `flutter_launcher_icons`.
-- Update splash screen with new logo using `flutter_native_splash`. -->
+- Update protobufs from `3a3d96214` to `7ea611446`.
+- Update data and docs to work with latests protobufs
 
 ## 24.03.8-beta (Mar 28, 2024)
 

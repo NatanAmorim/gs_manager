@@ -15,36 +15,36 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'instructor.pb.dart' as $5;
+import 'instructor.pb.dart' as $1;
 
 export 'instructor.pb.dart';
 
-@$pb.GrpcServiceName('gs_protobufs.instructor.InstructorService')
+@$pb.GrpcServiceName('protos.instructor.InstructorService')
 class InstructorServiceClient extends $grpc.Client {
-  static final _$getPaginated = $grpc.ClientMethod<$5.GetPaginatedInstructorsRequest, $5.GetPaginatedInstructorsResponse>(
-      '/gs_protobufs.instructor.InstructorService/GetPaginated',
-      ($5.GetPaginatedInstructorsRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $5.GetPaginatedInstructorsResponse.fromBuffer(value));
-  static final _$getById = $grpc.ClientMethod<$5.GetInstructorByIdRequest, $5.GetInstructorByIdResponse>(
-      '/gs_protobufs.instructor.InstructorService/GetById',
-      ($5.GetInstructorByIdRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $5.GetInstructorByIdResponse.fromBuffer(value));
-  static final _$getAllOptions = $grpc.ClientMethod<$5.GetAllInstructorsOptionsRequest, $5.GetAllInstructorsOptionsResponse>(
-      '/gs_protobufs.instructor.InstructorService/GetAllOptions',
-      ($5.GetAllInstructorsOptionsRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $5.GetAllInstructorsOptionsResponse.fromBuffer(value));
-  static final _$post = $grpc.ClientMethod<$5.CreateInstructorRequest, $5.CreateInstructorResponse>(
-      '/gs_protobufs.instructor.InstructorService/Post',
-      ($5.CreateInstructorRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $5.CreateInstructorResponse.fromBuffer(value));
-  static final _$put = $grpc.ClientMethod<$5.UpdateInstructorRequest, $5.UpdateInstructorResponse>(
-      '/gs_protobufs.instructor.InstructorService/Put',
-      ($5.UpdateInstructorRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $5.UpdateInstructorResponse.fromBuffer(value));
-  static final _$delete = $grpc.ClientMethod<$5.DeleteInstructorRequest, $5.DeleteInstructorResponse>(
-      '/gs_protobufs.instructor.InstructorService/Delete',
-      ($5.DeleteInstructorRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $5.DeleteInstructorResponse.fromBuffer(value));
+  static final _$getPaginated = $grpc.ClientMethod<$1.GetPaginatedInstructorsRequest, $1.GetPaginatedInstructorsResponse>(
+      '/protos.instructor.InstructorService/GetPaginated',
+      ($1.GetPaginatedInstructorsRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetPaginatedInstructorsResponse.fromBuffer(value));
+  static final _$getById = $grpc.ClientMethod<$1.GetInstructorByIdRequest, $1.GetInstructorByIdResponse>(
+      '/protos.instructor.InstructorService/GetById',
+      ($1.GetInstructorByIdRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetInstructorByIdResponse.fromBuffer(value));
+  static final _$getAllOptions = $grpc.ClientMethod<$1.GetAllInstructorsOptionsRequest, $1.GetAllInstructorsOptionsResponse>(
+      '/protos.instructor.InstructorService/GetAllOptions',
+      ($1.GetAllInstructorsOptionsRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.GetAllInstructorsOptionsResponse.fromBuffer(value));
+  static final _$post = $grpc.ClientMethod<$1.CreateInstructorRequest, $1.CreateInstructorResponse>(
+      '/protos.instructor.InstructorService/Post',
+      ($1.CreateInstructorRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.CreateInstructorResponse.fromBuffer(value));
+  static final _$put = $grpc.ClientMethod<$1.UpdateInstructorRequest, $1.UpdateInstructorResponse>(
+      '/protos.instructor.InstructorService/Put',
+      ($1.UpdateInstructorRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.UpdateInstructorResponse.fromBuffer(value));
+  static final _$delete = $grpc.ClientMethod<$1.DeleteInstructorRequest, $1.DeleteInstructorResponse>(
+      '/protos.instructor.InstructorService/Delete',
+      ($1.DeleteInstructorRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.DeleteInstructorResponse.fromBuffer(value));
 
   InstructorServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -52,108 +52,108 @@ class InstructorServiceClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$5.GetPaginatedInstructorsResponse> getPaginated($5.GetPaginatedInstructorsRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.GetPaginatedInstructorsResponse> getPaginated($1.GetPaginatedInstructorsRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getPaginated, request, options: options);
   }
 
-  $grpc.ResponseFuture<$5.GetInstructorByIdResponse> getById($5.GetInstructorByIdRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.GetInstructorByIdResponse> getById($1.GetInstructorByIdRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getById, request, options: options);
   }
 
-  $grpc.ResponseFuture<$5.GetAllInstructorsOptionsResponse> getAllOptions($5.GetAllInstructorsOptionsRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.GetAllInstructorsOptionsResponse> getAllOptions($1.GetAllInstructorsOptionsRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getAllOptions, request, options: options);
   }
 
-  $grpc.ResponseFuture<$5.CreateInstructorResponse> post($5.CreateInstructorRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.CreateInstructorResponse> post($1.CreateInstructorRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$post, request, options: options);
   }
 
-  $grpc.ResponseFuture<$5.UpdateInstructorResponse> put($5.UpdateInstructorRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.UpdateInstructorResponse> put($1.UpdateInstructorRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$put, request, options: options);
   }
 
-  $grpc.ResponseFuture<$5.DeleteInstructorResponse> delete($5.DeleteInstructorRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.DeleteInstructorResponse> delete($1.DeleteInstructorRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$delete, request, options: options);
   }
 }
 
-@$pb.GrpcServiceName('gs_protobufs.instructor.InstructorService')
+@$pb.GrpcServiceName('protos.instructor.InstructorService')
 abstract class InstructorServiceBase extends $grpc.Service {
-  $core.String get $name => 'gs_protobufs.instructor.InstructorService';
+  $core.String get $name => 'protos.instructor.InstructorService';
 
   InstructorServiceBase() {
-    $addMethod($grpc.ServiceMethod<$5.GetPaginatedInstructorsRequest, $5.GetPaginatedInstructorsResponse>(
+    $addMethod($grpc.ServiceMethod<$1.GetPaginatedInstructorsRequest, $1.GetPaginatedInstructorsResponse>(
         'GetPaginated',
         getPaginated_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $5.GetPaginatedInstructorsRequest.fromBuffer(value),
-        ($5.GetPaginatedInstructorsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$5.GetInstructorByIdRequest, $5.GetInstructorByIdResponse>(
+        ($core.List<$core.int> value) => $1.GetPaginatedInstructorsRequest.fromBuffer(value),
+        ($1.GetPaginatedInstructorsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetInstructorByIdRequest, $1.GetInstructorByIdResponse>(
         'GetById',
         getById_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $5.GetInstructorByIdRequest.fromBuffer(value),
-        ($5.GetInstructorByIdResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$5.GetAllInstructorsOptionsRequest, $5.GetAllInstructorsOptionsResponse>(
+        ($core.List<$core.int> value) => $1.GetInstructorByIdRequest.fromBuffer(value),
+        ($1.GetInstructorByIdResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.GetAllInstructorsOptionsRequest, $1.GetAllInstructorsOptionsResponse>(
         'GetAllOptions',
         getAllOptions_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $5.GetAllInstructorsOptionsRequest.fromBuffer(value),
-        ($5.GetAllInstructorsOptionsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$5.CreateInstructorRequest, $5.CreateInstructorResponse>(
+        ($core.List<$core.int> value) => $1.GetAllInstructorsOptionsRequest.fromBuffer(value),
+        ($1.GetAllInstructorsOptionsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.CreateInstructorRequest, $1.CreateInstructorResponse>(
         'Post',
         post_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $5.CreateInstructorRequest.fromBuffer(value),
-        ($5.CreateInstructorResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$5.UpdateInstructorRequest, $5.UpdateInstructorResponse>(
+        ($core.List<$core.int> value) => $1.CreateInstructorRequest.fromBuffer(value),
+        ($1.CreateInstructorResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.UpdateInstructorRequest, $1.UpdateInstructorResponse>(
         'Put',
         put_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $5.UpdateInstructorRequest.fromBuffer(value),
-        ($5.UpdateInstructorResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$5.DeleteInstructorRequest, $5.DeleteInstructorResponse>(
+        ($core.List<$core.int> value) => $1.UpdateInstructorRequest.fromBuffer(value),
+        ($1.UpdateInstructorResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.DeleteInstructorRequest, $1.DeleteInstructorResponse>(
         'Delete',
         delete_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $5.DeleteInstructorRequest.fromBuffer(value),
-        ($5.DeleteInstructorResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $1.DeleteInstructorRequest.fromBuffer(value),
+        ($1.DeleteInstructorResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$5.GetPaginatedInstructorsResponse> getPaginated_Pre($grpc.ServiceCall call, $async.Future<$5.GetPaginatedInstructorsRequest> request) async {
+  $async.Future<$1.GetPaginatedInstructorsResponse> getPaginated_Pre($grpc.ServiceCall call, $async.Future<$1.GetPaginatedInstructorsRequest> request) async {
     return getPaginated(call, await request);
   }
 
-  $async.Future<$5.GetInstructorByIdResponse> getById_Pre($grpc.ServiceCall call, $async.Future<$5.GetInstructorByIdRequest> request) async {
+  $async.Future<$1.GetInstructorByIdResponse> getById_Pre($grpc.ServiceCall call, $async.Future<$1.GetInstructorByIdRequest> request) async {
     return getById(call, await request);
   }
 
-  $async.Future<$5.GetAllInstructorsOptionsResponse> getAllOptions_Pre($grpc.ServiceCall call, $async.Future<$5.GetAllInstructorsOptionsRequest> request) async {
+  $async.Future<$1.GetAllInstructorsOptionsResponse> getAllOptions_Pre($grpc.ServiceCall call, $async.Future<$1.GetAllInstructorsOptionsRequest> request) async {
     return getAllOptions(call, await request);
   }
 
-  $async.Future<$5.CreateInstructorResponse> post_Pre($grpc.ServiceCall call, $async.Future<$5.CreateInstructorRequest> request) async {
+  $async.Future<$1.CreateInstructorResponse> post_Pre($grpc.ServiceCall call, $async.Future<$1.CreateInstructorRequest> request) async {
     return post(call, await request);
   }
 
-  $async.Future<$5.UpdateInstructorResponse> put_Pre($grpc.ServiceCall call, $async.Future<$5.UpdateInstructorRequest> request) async {
+  $async.Future<$1.UpdateInstructorResponse> put_Pre($grpc.ServiceCall call, $async.Future<$1.UpdateInstructorRequest> request) async {
     return put(call, await request);
   }
 
-  $async.Future<$5.DeleteInstructorResponse> delete_Pre($grpc.ServiceCall call, $async.Future<$5.DeleteInstructorRequest> request) async {
+  $async.Future<$1.DeleteInstructorResponse> delete_Pre($grpc.ServiceCall call, $async.Future<$1.DeleteInstructorRequest> request) async {
     return delete(call, await request);
   }
 
-  $async.Future<$5.GetPaginatedInstructorsResponse> getPaginated($grpc.ServiceCall call, $5.GetPaginatedInstructorsRequest request);
-  $async.Future<$5.GetInstructorByIdResponse> getById($grpc.ServiceCall call, $5.GetInstructorByIdRequest request);
-  $async.Future<$5.GetAllInstructorsOptionsResponse> getAllOptions($grpc.ServiceCall call, $5.GetAllInstructorsOptionsRequest request);
-  $async.Future<$5.CreateInstructorResponse> post($grpc.ServiceCall call, $5.CreateInstructorRequest request);
-  $async.Future<$5.UpdateInstructorResponse> put($grpc.ServiceCall call, $5.UpdateInstructorRequest request);
-  $async.Future<$5.DeleteInstructorResponse> delete($grpc.ServiceCall call, $5.DeleteInstructorRequest request);
+  $async.Future<$1.GetPaginatedInstructorsResponse> getPaginated($grpc.ServiceCall call, $1.GetPaginatedInstructorsRequest request);
+  $async.Future<$1.GetInstructorByIdResponse> getById($grpc.ServiceCall call, $1.GetInstructorByIdRequest request);
+  $async.Future<$1.GetAllInstructorsOptionsResponse> getAllOptions($grpc.ServiceCall call, $1.GetAllInstructorsOptionsRequest request);
+  $async.Future<$1.CreateInstructorResponse> post($grpc.ServiceCall call, $1.CreateInstructorRequest request);
+  $async.Future<$1.UpdateInstructorResponse> put($grpc.ServiceCall call, $1.UpdateInstructorRequest request);
+  $async.Future<$1.DeleteInstructorResponse> delete($grpc.ServiceCall call, $1.DeleteInstructorRequest request);
 }

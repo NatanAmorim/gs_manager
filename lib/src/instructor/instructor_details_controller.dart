@@ -11,7 +11,6 @@ class ProfessorDetailsController {
   late CreateInstructorRequest instructor = instructorUpdating == null
       ? CreateInstructorRequest()
       : CreateInstructorRequest(
-          user: instructorUpdating!.user,
           person: instructorUpdating!.person,
         );
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();

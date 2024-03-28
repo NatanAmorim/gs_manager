@@ -19,26 +19,26 @@ import 'sale.pb.dart' as $13;
 
 export 'sale.pb.dart';
 
-@$pb.GrpcServiceName('gs_protobufs.sale.SaleService')
+@$pb.GrpcServiceName('protos.sale.SaleService')
 class SaleServiceClient extends $grpc.Client {
   static final _$getPaginated = $grpc.ClientMethod<$13.GetPaginatedSalesRequest, $13.GetPaginatedSalesResponse>(
-      '/gs_protobufs.sale.SaleService/GetPaginated',
+      '/protos.sale.SaleService/GetPaginated',
       ($13.GetPaginatedSalesRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $13.GetPaginatedSalesResponse.fromBuffer(value));
   static final _$getById = $grpc.ClientMethod<$13.GetSaleByIdRequest, $13.GetSaleByIdResponse>(
-      '/gs_protobufs.sale.SaleService/GetById',
+      '/protos.sale.SaleService/GetById',
       ($13.GetSaleByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $13.GetSaleByIdResponse.fromBuffer(value));
   static final _$post = $grpc.ClientMethod<$13.CreateSaleRequest, $13.CreateSaleResponse>(
-      '/gs_protobufs.sale.SaleService/Post',
+      '/protos.sale.SaleService/Post',
       ($13.CreateSaleRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $13.CreateSaleResponse.fromBuffer(value));
   static final _$put = $grpc.ClientMethod<$13.UpdateSaleRequest, $13.UpdateSaleResponse>(
-      '/gs_protobufs.sale.SaleService/Put',
+      '/protos.sale.SaleService/Put',
       ($13.UpdateSaleRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $13.UpdateSaleResponse.fromBuffer(value));
   static final _$delete = $grpc.ClientMethod<$13.DeleteSaleRequest, $13.DeleteSaleResponse>(
-      '/gs_protobufs.sale.SaleService/Delete',
+      '/protos.sale.SaleService/Delete',
       ($13.DeleteSaleRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $13.DeleteSaleResponse.fromBuffer(value));
 
@@ -69,9 +69,9 @@ class SaleServiceClient extends $grpc.Client {
   }
 }
 
-@$pb.GrpcServiceName('gs_protobufs.sale.SaleService')
+@$pb.GrpcServiceName('protos.sale.SaleService')
 abstract class SaleServiceBase extends $grpc.Service {
-  $core.String get $name => 'gs_protobufs.sale.SaleService';
+  $core.String get $name => 'protos.sale.SaleService';
 
   SaleServiceBase() {
     $addMethod($grpc.ServiceMethod<$13.GetPaginatedSalesRequest, $13.GetPaginatedSalesResponse>(

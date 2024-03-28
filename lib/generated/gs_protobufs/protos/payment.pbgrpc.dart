@@ -19,26 +19,26 @@ import 'payment.pb.dart' as $9;
 
 export 'payment.pb.dart';
 
-@$pb.GrpcServiceName('gs_protobufs.payment.PaymentService')
+@$pb.GrpcServiceName('protos.payment.PaymentService')
 class PaymentServiceClient extends $grpc.Client {
   static final _$getPaginated = $grpc.ClientMethod<$9.GetPaginatedPaymentsRequest, $9.GetPaginatedPaymentsResponse>(
-      '/gs_protobufs.payment.PaymentService/GetPaginated',
+      '/protos.payment.PaymentService/GetPaginated',
       ($9.GetPaginatedPaymentsRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $9.GetPaginatedPaymentsResponse.fromBuffer(value));
   static final _$getById = $grpc.ClientMethod<$9.GetPaymentByIdRequest, $9.GetPaymentByIdResponse>(
-      '/gs_protobufs.payment.PaymentService/GetById',
+      '/protos.payment.PaymentService/GetById',
       ($9.GetPaymentByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $9.GetPaymentByIdResponse.fromBuffer(value));
   static final _$post = $grpc.ClientMethod<$9.CreatePaymentRequest, $9.CreatePaymentResponse>(
-      '/gs_protobufs.payment.PaymentService/Post',
+      '/protos.payment.PaymentService/Post',
       ($9.CreatePaymentRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $9.CreatePaymentResponse.fromBuffer(value));
   static final _$put = $grpc.ClientMethod<$9.UpdatePaymentRequest, $9.UpdatePaymentResponse>(
-      '/gs_protobufs.payment.PaymentService/Put',
+      '/protos.payment.PaymentService/Put',
       ($9.UpdatePaymentRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $9.UpdatePaymentResponse.fromBuffer(value));
   static final _$delete = $grpc.ClientMethod<$9.DeletePaymentRequest, $9.DeletePaymentResponse>(
-      '/gs_protobufs.payment.PaymentService/Delete',
+      '/protos.payment.PaymentService/Delete',
       ($9.DeletePaymentRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $9.DeletePaymentResponse.fromBuffer(value));
 
@@ -69,9 +69,9 @@ class PaymentServiceClient extends $grpc.Client {
   }
 }
 
-@$pb.GrpcServiceName('gs_protobufs.payment.PaymentService')
+@$pb.GrpcServiceName('protos.payment.PaymentService')
 abstract class PaymentServiceBase extends $grpc.Service {
-  $core.String get $name => 'gs_protobufs.payment.PaymentService';
+  $core.String get $name => 'protos.payment.PaymentService';
 
   PaymentServiceBase() {
     $addMethod($grpc.ServiceMethod<$9.GetPaginatedPaymentsRequest, $9.GetPaginatedPaymentsResponse>(

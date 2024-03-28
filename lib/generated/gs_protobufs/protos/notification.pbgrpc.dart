@@ -19,26 +19,26 @@ import 'notification.pb.dart' as $7;
 
 export 'notification.pb.dart';
 
-@$pb.GrpcServiceName('gs_protobufs.notification.NotificationService')
+@$pb.GrpcServiceName('protos.notification.NotificationService')
 class NotificationServiceClient extends $grpc.Client {
   static final _$getPaginated = $grpc.ClientMethod<$7.GetPaginatedNotificationsRequest, $7.GetPaginatedNotificationsResponse>(
-      '/gs_protobufs.notification.NotificationService/GetPaginated',
+      '/protos.notification.NotificationService/GetPaginated',
       ($7.GetPaginatedNotificationsRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $7.GetPaginatedNotificationsResponse.fromBuffer(value));
   static final _$getById = $grpc.ClientMethod<$7.GetNotificationByIdRequest, $7.GetNotificationByIdResponse>(
-      '/gs_protobufs.notification.NotificationService/GetById',
+      '/protos.notification.NotificationService/GetById',
       ($7.GetNotificationByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $7.GetNotificationByIdResponse.fromBuffer(value));
   static final _$post = $grpc.ClientMethod<$7.CreateNotificationRequest, $7.CreateNotificationResponse>(
-      '/gs_protobufs.notification.NotificationService/Post',
+      '/protos.notification.NotificationService/Post',
       ($7.CreateNotificationRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $7.CreateNotificationResponse.fromBuffer(value));
   static final _$put = $grpc.ClientMethod<$7.UpdateNotificationRequest, $7.UpdateNotificationResponse>(
-      '/gs_protobufs.notification.NotificationService/Put',
+      '/protos.notification.NotificationService/Put',
       ($7.UpdateNotificationRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $7.UpdateNotificationResponse.fromBuffer(value));
   static final _$delete = $grpc.ClientMethod<$7.DeleteNotificationRequest, $7.DeleteNotificationResponse>(
-      '/gs_protobufs.notification.NotificationService/Delete',
+      '/protos.notification.NotificationService/Delete',
       ($7.DeleteNotificationRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $7.DeleteNotificationResponse.fromBuffer(value));
 
@@ -69,9 +69,9 @@ class NotificationServiceClient extends $grpc.Client {
   }
 }
 
-@$pb.GrpcServiceName('gs_protobufs.notification.NotificationService')
+@$pb.GrpcServiceName('protos.notification.NotificationService')
 abstract class NotificationServiceBase extends $grpc.Service {
-  $core.String get $name => 'gs_protobufs.notification.NotificationService';
+  $core.String get $name => 'protos.notification.NotificationService';
 
   NotificationServiceBase() {
     $addMethod($grpc.ServiceMethod<$7.GetPaginatedNotificationsRequest, $7.GetPaginatedNotificationsResponse>(

@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: gs_protobufs/protos/decimal.proto
+//  source: gs_protobufs/protos/custom_types/decimal_value.proto
 //
 // @dart = 2.12
 

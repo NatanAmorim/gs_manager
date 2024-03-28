@@ -15,32 +15,32 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'attendance.pb.dart' as $0;
+import 'attendance.pb.dart' as $3;
 
 export 'attendance.pb.dart';
 
-@$pb.GrpcServiceName('gs_protobufs.attendance.AttendanceService')
+@$pb.GrpcServiceName('protos.attendance.AttendanceService')
 class AttendanceServiceClient extends $grpc.Client {
-  static final _$getPaginated = $grpc.ClientMethod<$0.GetPaginatedAttendancesRequest, $0.GetPaginatedAttendancesResponse>(
-      '/gs_protobufs.attendance.AttendanceService/GetPaginated',
-      ($0.GetPaginatedAttendancesRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.GetPaginatedAttendancesResponse.fromBuffer(value));
-  static final _$getById = $grpc.ClientMethod<$0.GetAttendanceByIdRequest, $0.GetAttendanceByIdResponse>(
-      '/gs_protobufs.attendance.AttendanceService/GetById',
-      ($0.GetAttendanceByIdRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.GetAttendanceByIdResponse.fromBuffer(value));
-  static final _$post = $grpc.ClientMethod<$0.CreateAttendanceRequest, $0.CreateAttendanceResponse>(
-      '/gs_protobufs.attendance.AttendanceService/Post',
-      ($0.CreateAttendanceRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.CreateAttendanceResponse.fromBuffer(value));
-  static final _$put = $grpc.ClientMethod<$0.UpdateAttendanceRequest, $0.UpdateAttendanceResponse>(
-      '/gs_protobufs.attendance.AttendanceService/Put',
-      ($0.UpdateAttendanceRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.UpdateAttendanceResponse.fromBuffer(value));
-  static final _$delete = $grpc.ClientMethod<$0.DeleteAttendanceRequest, $0.DeleteAttendanceResponse>(
-      '/gs_protobufs.attendance.AttendanceService/Delete',
-      ($0.DeleteAttendanceRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.DeleteAttendanceResponse.fromBuffer(value));
+  static final _$getPaginated = $grpc.ClientMethod<$3.GetPaginatedAttendancesRequest, $3.GetPaginatedAttendancesResponse>(
+      '/protos.attendance.AttendanceService/GetPaginated',
+      ($3.GetPaginatedAttendancesRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $3.GetPaginatedAttendancesResponse.fromBuffer(value));
+  static final _$getById = $grpc.ClientMethod<$3.GetAttendanceByIdRequest, $3.GetAttendanceByIdResponse>(
+      '/protos.attendance.AttendanceService/GetById',
+      ($3.GetAttendanceByIdRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $3.GetAttendanceByIdResponse.fromBuffer(value));
+  static final _$post = $grpc.ClientMethod<$3.CreateAttendanceRequest, $3.CreateAttendanceResponse>(
+      '/protos.attendance.AttendanceService/Post',
+      ($3.CreateAttendanceRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $3.CreateAttendanceResponse.fromBuffer(value));
+  static final _$put = $grpc.ClientMethod<$3.UpdateAttendanceRequest, $3.UpdateAttendanceResponse>(
+      '/protos.attendance.AttendanceService/Put',
+      ($3.UpdateAttendanceRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $3.UpdateAttendanceResponse.fromBuffer(value));
+  static final _$delete = $grpc.ClientMethod<$3.DeleteAttendanceRequest, $3.DeleteAttendanceResponse>(
+      '/protos.attendance.AttendanceService/Delete',
+      ($3.DeleteAttendanceRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $3.DeleteAttendanceResponse.fromBuffer(value));
 
   AttendanceServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -48,92 +48,92 @@ class AttendanceServiceClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$0.GetPaginatedAttendancesResponse> getPaginated($0.GetPaginatedAttendancesRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$3.GetPaginatedAttendancesResponse> getPaginated($3.GetPaginatedAttendancesRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getPaginated, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.GetAttendanceByIdResponse> getById($0.GetAttendanceByIdRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$3.GetAttendanceByIdResponse> getById($3.GetAttendanceByIdRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getById, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.CreateAttendanceResponse> post($0.CreateAttendanceRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$3.CreateAttendanceResponse> post($3.CreateAttendanceRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$post, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.UpdateAttendanceResponse> put($0.UpdateAttendanceRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$3.UpdateAttendanceResponse> put($3.UpdateAttendanceRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$put, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.DeleteAttendanceResponse> delete($0.DeleteAttendanceRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$3.DeleteAttendanceResponse> delete($3.DeleteAttendanceRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$delete, request, options: options);
   }
 }
 
-@$pb.GrpcServiceName('gs_protobufs.attendance.AttendanceService')
+@$pb.GrpcServiceName('protos.attendance.AttendanceService')
 abstract class AttendanceServiceBase extends $grpc.Service {
-  $core.String get $name => 'gs_protobufs.attendance.AttendanceService';
+  $core.String get $name => 'protos.attendance.AttendanceService';
 
   AttendanceServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.GetPaginatedAttendancesRequest, $0.GetPaginatedAttendancesResponse>(
+    $addMethod($grpc.ServiceMethod<$3.GetPaginatedAttendancesRequest, $3.GetPaginatedAttendancesResponse>(
         'GetPaginated',
         getPaginated_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.GetPaginatedAttendancesRequest.fromBuffer(value),
-        ($0.GetPaginatedAttendancesResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.GetAttendanceByIdRequest, $0.GetAttendanceByIdResponse>(
+        ($core.List<$core.int> value) => $3.GetPaginatedAttendancesRequest.fromBuffer(value),
+        ($3.GetPaginatedAttendancesResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$3.GetAttendanceByIdRequest, $3.GetAttendanceByIdResponse>(
         'GetById',
         getById_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.GetAttendanceByIdRequest.fromBuffer(value),
-        ($0.GetAttendanceByIdResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CreateAttendanceRequest, $0.CreateAttendanceResponse>(
+        ($core.List<$core.int> value) => $3.GetAttendanceByIdRequest.fromBuffer(value),
+        ($3.GetAttendanceByIdResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$3.CreateAttendanceRequest, $3.CreateAttendanceResponse>(
         'Post',
         post_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.CreateAttendanceRequest.fromBuffer(value),
-        ($0.CreateAttendanceResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.UpdateAttendanceRequest, $0.UpdateAttendanceResponse>(
+        ($core.List<$core.int> value) => $3.CreateAttendanceRequest.fromBuffer(value),
+        ($3.CreateAttendanceResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$3.UpdateAttendanceRequest, $3.UpdateAttendanceResponse>(
         'Put',
         put_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.UpdateAttendanceRequest.fromBuffer(value),
-        ($0.UpdateAttendanceResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.DeleteAttendanceRequest, $0.DeleteAttendanceResponse>(
+        ($core.List<$core.int> value) => $3.UpdateAttendanceRequest.fromBuffer(value),
+        ($3.UpdateAttendanceResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$3.DeleteAttendanceRequest, $3.DeleteAttendanceResponse>(
         'Delete',
         delete_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.DeleteAttendanceRequest.fromBuffer(value),
-        ($0.DeleteAttendanceResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $3.DeleteAttendanceRequest.fromBuffer(value),
+        ($3.DeleteAttendanceResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.GetPaginatedAttendancesResponse> getPaginated_Pre($grpc.ServiceCall call, $async.Future<$0.GetPaginatedAttendancesRequest> request) async {
+  $async.Future<$3.GetPaginatedAttendancesResponse> getPaginated_Pre($grpc.ServiceCall call, $async.Future<$3.GetPaginatedAttendancesRequest> request) async {
     return getPaginated(call, await request);
   }
 
-  $async.Future<$0.GetAttendanceByIdResponse> getById_Pre($grpc.ServiceCall call, $async.Future<$0.GetAttendanceByIdRequest> request) async {
+  $async.Future<$3.GetAttendanceByIdResponse> getById_Pre($grpc.ServiceCall call, $async.Future<$3.GetAttendanceByIdRequest> request) async {
     return getById(call, await request);
   }
 
-  $async.Future<$0.CreateAttendanceResponse> post_Pre($grpc.ServiceCall call, $async.Future<$0.CreateAttendanceRequest> request) async {
+  $async.Future<$3.CreateAttendanceResponse> post_Pre($grpc.ServiceCall call, $async.Future<$3.CreateAttendanceRequest> request) async {
     return post(call, await request);
   }
 
-  $async.Future<$0.UpdateAttendanceResponse> put_Pre($grpc.ServiceCall call, $async.Future<$0.UpdateAttendanceRequest> request) async {
+  $async.Future<$3.UpdateAttendanceResponse> put_Pre($grpc.ServiceCall call, $async.Future<$3.UpdateAttendanceRequest> request) async {
     return put(call, await request);
   }
 
-  $async.Future<$0.DeleteAttendanceResponse> delete_Pre($grpc.ServiceCall call, $async.Future<$0.DeleteAttendanceRequest> request) async {
+  $async.Future<$3.DeleteAttendanceResponse> delete_Pre($grpc.ServiceCall call, $async.Future<$3.DeleteAttendanceRequest> request) async {
     return delete(call, await request);
   }
 
-  $async.Future<$0.GetPaginatedAttendancesResponse> getPaginated($grpc.ServiceCall call, $0.GetPaginatedAttendancesRequest request);
-  $async.Future<$0.GetAttendanceByIdResponse> getById($grpc.ServiceCall call, $0.GetAttendanceByIdRequest request);
-  $async.Future<$0.CreateAttendanceResponse> post($grpc.ServiceCall call, $0.CreateAttendanceRequest request);
-  $async.Future<$0.UpdateAttendanceResponse> put($grpc.ServiceCall call, $0.UpdateAttendanceRequest request);
-  $async.Future<$0.DeleteAttendanceResponse> delete($grpc.ServiceCall call, $0.DeleteAttendanceRequest request);
+  $async.Future<$3.GetPaginatedAttendancesResponse> getPaginated($grpc.ServiceCall call, $3.GetPaginatedAttendancesRequest request);
+  $async.Future<$3.GetAttendanceByIdResponse> getById($grpc.ServiceCall call, $3.GetAttendanceByIdRequest request);
+  $async.Future<$3.CreateAttendanceResponse> post($grpc.ServiceCall call, $3.CreateAttendanceRequest request);
+  $async.Future<$3.UpdateAttendanceResponse> put($grpc.ServiceCall call, $3.UpdateAttendanceRequest request);
+  $async.Future<$3.DeleteAttendanceResponse> delete($grpc.ServiceCall call, $3.DeleteAttendanceRequest request);
 }

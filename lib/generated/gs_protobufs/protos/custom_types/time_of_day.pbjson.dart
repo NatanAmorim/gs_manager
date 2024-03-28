@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: gs_protobufs/protos/time_of_day.proto
+//  source: gs_protobufs/protos/custom_types/time_of_day.proto
 //
 // @dart = 2.12
 
@@ -17,13 +17,13 @@ import 'dart:typed_data' as $typed_data;
 const TimeOfDay$json = {
   '1': 'TimeOfDay',
   '2': [
-    {'1': 'hours', '3': 1, '4': 1, '5': 5, '10': 'hours'},
-    {'1': 'minutes', '3': 2, '4': 1, '5': 5, '10': 'minutes'},
+    {'1': 'hour', '3': 1, '4': 1, '5': 5, '10': 'hour'},
+    {'1': 'minute', '3': 2, '4': 1, '5': 5, '10': 'minute'},
   ],
 };
 
 /// Descriptor for `TimeOfDay`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List timeOfDayDescriptor = $convert.base64Decode(
-    'CglUaW1lT2ZEYXkSFAoFaG91cnMYASABKAVSBWhvdXJzEhgKB21pbnV0ZXMYAiABKAVSB21pbn'
-    'V0ZXM=');
+    'CglUaW1lT2ZEYXkSEgoEaG91chgBIAEoBVIEaG91chIWCgZtaW51dGUYAiABKAVSBm1pbnV0ZQ'
+    '==');
 

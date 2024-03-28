@@ -29,61 +29,65 @@ final $typed_data.Uint8List getPaginatedReturnsRequestDescriptor = $convert.base
 const GetPaginatedReturnsResponse$json = {
   '1': 'GetPaginatedReturnsResponse',
   '2': [
-    {'1': 'returns', '3': 1, '4': 3, '5': 11, '6': '.gs_protobufs.return.GetReturnByIdResponse', '10': 'returns'},
-    {'1': 'next_cursor', '3': 2, '4': 1, '5': 5, '10': 'nextCursor'},
+    {'1': 'returns', '3': 1, '4': 3, '5': 11, '6': '.protos.return.GetReturnByIdResponse', '10': 'returns'},
+    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'nextCursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedReturnsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedReturnsResponseDescriptor = $convert.base64Decode(
-    'ChtHZXRQYWdpbmF0ZWRSZXR1cm5zUmVzcG9uc2USRAoHcmV0dXJucxgBIAMoCzIqLmdzX3Byb3'
-    'RvYnVmcy5yZXR1cm4uR2V0UmV0dXJuQnlJZFJlc3BvbnNlUgdyZXR1cm5zEh8KC25leHRfY3Vy'
-    'c29yGAIgASgFUgpuZXh0Q3Vyc29y');
+    'ChtHZXRQYWdpbmF0ZWRSZXR1cm5zUmVzcG9uc2USPgoHcmV0dXJucxgBIAMoCzIkLnByb3Rvcy'
+    '5yZXR1cm4uR2V0UmV0dXJuQnlJZFJlc3BvbnNlUgdyZXR1cm5zEjwKC25leHRfY3Vyc29yGAIg'
+    'ASgLMhsuZ29vZ2xlLnByb3RvYnVmLkludDMyVmFsdWVSCm5leHRDdXJzb3I=');
 
 @$core.Deprecated('Use getReturnByIdRequestDescriptor instead')
 const GetReturnByIdRequest$json = {
   '1': 'GetReturnByIdRequest',
   '2': [
-    {'1': 'return_id', '3': 1, '4': 1, '5': 5, '10': 'returnId'},
+    {'1': 'return_pk', '3': 1, '4': 1, '5': 5, '10': 'returnPk'},
   ],
 };
 
 /// Descriptor for `GetReturnByIdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getReturnByIdRequestDescriptor = $convert.base64Decode(
-    'ChRHZXRSZXR1cm5CeUlkUmVxdWVzdBIbCglyZXR1cm5faWQYASABKAVSCHJldHVybklk');
+    'ChRHZXRSZXR1cm5CeUlkUmVxdWVzdBIbCglyZXR1cm5fcGsYASABKAVSCHJldHVyblBr');
 
 @$core.Deprecated('Use getReturnByIdResponseDescriptor instead')
 const GetReturnByIdResponse$json = {
   '1': 'GetReturnByIdResponse',
   '2': [
-    {'1': 'return_id', '3': 1, '4': 1, '5': 5, '10': 'returnId'},
-    {'1': 'total_amount_refunded', '3': 2, '4': 1, '5': 11, '6': '.gs_protobufs.decimal_value.DecimalValue', '10': 'totalAmountRefunded'},
-    {'1': 'ItemsReturned', '3': 3, '4': 3, '5': 11, '6': '.gs_protobufs.return.ReturnItem', '10': 'ItemsReturned'},
+    {'1': 'return_pk', '3': 1, '4': 1, '5': 5, '10': 'returnPk'},
+    {'1': 'sale_fk', '3': 2, '4': 1, '5': 5, '10': 'saleFk'},
+    {'1': 'total_amount_refunded', '3': 3, '4': 1, '5': 11, '6': '.custom_types.decimal_value.DecimalValue', '10': 'totalAmountRefunded'},
+    {'1': 'ItemsReturned', '3': 4, '4': 3, '5': 11, '6': '.protos.return.ReturnItem', '10': 'ItemsReturned'},
   ],
 };
 
 /// Descriptor for `GetReturnByIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getReturnByIdResponseDescriptor = $convert.base64Decode(
-    'ChVHZXRSZXR1cm5CeUlkUmVzcG9uc2USGwoJcmV0dXJuX2lkGAEgASgFUghyZXR1cm5JZBJcCh'
-    'V0b3RhbF9hbW91bnRfcmVmdW5kZWQYAiABKAsyKC5nc19wcm90b2J1ZnMuZGVjaW1hbF92YWx1'
-    'ZS5EZWNpbWFsVmFsdWVSE3RvdGFsQW1vdW50UmVmdW5kZWQSRQoNSXRlbXNSZXR1cm5lZBgDIA'
-    'MoCzIfLmdzX3Byb3RvYnVmcy5yZXR1cm4uUmV0dXJuSXRlbVINSXRlbXNSZXR1cm5lZA==');
+    'ChVHZXRSZXR1cm5CeUlkUmVzcG9uc2USGwoJcmV0dXJuX3BrGAEgASgFUghyZXR1cm5QaxIXCg'
+    'dzYWxlX2ZrGAIgASgFUgZzYWxlRmsSXAoVdG90YWxfYW1vdW50X3JlZnVuZGVkGAMgASgLMigu'
+    'Y3VzdG9tX3R5cGVzLmRlY2ltYWxfdmFsdWUuRGVjaW1hbFZhbHVlUhN0b3RhbEFtb3VudFJlZn'
+    'VuZGVkEj8KDUl0ZW1zUmV0dXJuZWQYBCADKAsyGS5wcm90b3MucmV0dXJuLlJldHVybkl0ZW1S'
+    'DUl0ZW1zUmV0dXJuZWQ=');
 
 @$core.Deprecated('Use createReturnRequestDescriptor instead')
 const CreateReturnRequest$json = {
   '1': 'CreateReturnRequest',
   '2': [
-    {'1': 'total_amount_refunded', '3': 1, '4': 1, '5': 11, '6': '.gs_protobufs.decimal_value.DecimalValue', '10': 'totalAmountRefunded'},
-    {'1': 'ItemsReturned', '3': 2, '4': 3, '5': 11, '6': '.gs_protobufs.return.ReturnItem', '10': 'ItemsReturned'},
+    {'1': 'sale_fk', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'saleFk'},
+    {'1': 'total_amount_refunded', '3': 2, '4': 1, '5': 11, '6': '.custom_types.decimal_value.DecimalValue', '10': 'totalAmountRefunded'},
+    {'1': 'ItemsReturned', '3': 3, '4': 3, '5': 11, '6': '.protos.return.ReturnItem', '10': 'ItemsReturned'},
   ],
 };
 
 /// Descriptor for `CreateReturnRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createReturnRequestDescriptor = $convert.base64Decode(
-    'ChNDcmVhdGVSZXR1cm5SZXF1ZXN0ElwKFXRvdGFsX2Ftb3VudF9yZWZ1bmRlZBgBIAEoCzIoLm'
-    'dzX3Byb3RvYnVmcy5kZWNpbWFsX3ZhbHVlLkRlY2ltYWxWYWx1ZVITdG90YWxBbW91bnRSZWZ1'
-    'bmRlZBJFCg1JdGVtc1JldHVybmVkGAIgAygLMh8uZ3NfcHJvdG9idWZzLnJldHVybi5SZXR1cm'
-    '5JdGVtUg1JdGVtc1JldHVybmVk');
+    'ChNDcmVhdGVSZXR1cm5SZXF1ZXN0EjQKB3NhbGVfZmsYASABKAsyGy5nb29nbGUucHJvdG9idW'
+    'YuSW50MzJWYWx1ZVIGc2FsZUZrElwKFXRvdGFsX2Ftb3VudF9yZWZ1bmRlZBgCIAEoCzIoLmN1'
+    'c3RvbV90eXBlcy5kZWNpbWFsX3ZhbHVlLkRlY2ltYWxWYWx1ZVITdG90YWxBbW91bnRSZWZ1bm'
+    'RlZBI/Cg1JdGVtc1JldHVybmVkGAMgAygLMhkucHJvdG9zLnJldHVybi5SZXR1cm5JdGVtUg1J'
+    'dGVtc1JldHVybmVk');
 
 @$core.Deprecated('Use createReturnResponseDescriptor instead')
 const CreateReturnResponse$json = {
@@ -98,18 +102,20 @@ final $typed_data.Uint8List createReturnResponseDescriptor = $convert.base64Deco
 const UpdateReturnRequest$json = {
   '1': 'UpdateReturnRequest',
   '2': [
-    {'1': 'return_id', '3': 1, '4': 1, '5': 5, '10': 'returnId'},
-    {'1': 'total_amount_refunded', '3': 2, '4': 1, '5': 11, '6': '.gs_protobufs.decimal_value.DecimalValue', '10': 'totalAmountRefunded'},
-    {'1': 'ItemsReturned', '3': 3, '4': 3, '5': 11, '6': '.gs_protobufs.return.ReturnItem', '10': 'ItemsReturned'},
+    {'1': 'return_pk', '3': 1, '4': 1, '5': 5, '10': 'returnPk'},
+    {'1': 'sale_fk', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'saleFk'},
+    {'1': 'total_amount_refunded', '3': 3, '4': 1, '5': 11, '6': '.custom_types.decimal_value.DecimalValue', '10': 'totalAmountRefunded'},
+    {'1': 'ItemsReturned', '3': 4, '4': 3, '5': 11, '6': '.protos.return.ReturnItem', '10': 'ItemsReturned'},
   ],
 };
 
 /// Descriptor for `UpdateReturnRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateReturnRequestDescriptor = $convert.base64Decode(
-    'ChNVcGRhdGVSZXR1cm5SZXF1ZXN0EhsKCXJldHVybl9pZBgBIAEoBVIIcmV0dXJuSWQSXAoVdG'
-    '90YWxfYW1vdW50X3JlZnVuZGVkGAIgASgLMiguZ3NfcHJvdG9idWZzLmRlY2ltYWxfdmFsdWUu'
-    'RGVjaW1hbFZhbHVlUhN0b3RhbEFtb3VudFJlZnVuZGVkEkUKDUl0ZW1zUmV0dXJuZWQYAyADKA'
-    'syHy5nc19wcm90b2J1ZnMucmV0dXJuLlJldHVybkl0ZW1SDUl0ZW1zUmV0dXJuZWQ=');
+    'ChNVcGRhdGVSZXR1cm5SZXF1ZXN0EhsKCXJldHVybl9waxgBIAEoBVIIcmV0dXJuUGsSNAoHc2'
+    'FsZV9maxgCIAEoCzIbLmdvb2dsZS5wcm90b2J1Zi5JbnQzMlZhbHVlUgZzYWxlRmsSXAoVdG90'
+    'YWxfYW1vdW50X3JlZnVuZGVkGAMgASgLMiguY3VzdG9tX3R5cGVzLmRlY2ltYWxfdmFsdWUuRG'
+    'VjaW1hbFZhbHVlUhN0b3RhbEFtb3VudFJlZnVuZGVkEj8KDUl0ZW1zUmV0dXJuZWQYBCADKAsy'
+    'GS5wcm90b3MucmV0dXJuLlJldHVybkl0ZW1SDUl0ZW1zUmV0dXJuZWQ=');
 
 @$core.Deprecated('Use updateReturnResponseDescriptor instead')
 const UpdateReturnResponse$json = {
@@ -124,13 +130,13 @@ final $typed_data.Uint8List updateReturnResponseDescriptor = $convert.base64Deco
 const DeleteReturnRequest$json = {
   '1': 'DeleteReturnRequest',
   '2': [
-    {'1': 'return_id', '3': 1, '4': 1, '5': 5, '10': 'returnId'},
+    {'1': 'return_pk', '3': 1, '4': 1, '5': 5, '10': 'returnPk'},
   ],
 };
 
 /// Descriptor for `DeleteReturnRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteReturnRequestDescriptor = $convert.base64Decode(
-    'ChNEZWxldGVSZXR1cm5SZXF1ZXN0EhsKCXJldHVybl9pZBgBIAEoBVIIcmV0dXJuSWQ=');
+    'ChNEZWxldGVSZXR1cm5SZXF1ZXN0EhsKCXJldHVybl9waxgBIAEoBVIIcmV0dXJuUGs=');
 
 @$core.Deprecated('Use deleteReturnResponseDescriptor instead')
 const DeleteReturnResponse$json = {
@@ -145,15 +151,15 @@ final $typed_data.Uint8List deleteReturnResponseDescriptor = $convert.base64Deco
 const ReturnItem$json = {
   '1': 'ReturnItem',
   '2': [
-    {'1': 'return_item_id', '3': 1, '4': 1, '5': 5, '10': 'returnItemId'},
-    {'1': 'product_variant_id', '3': 2, '4': 1, '5': 5, '10': 'productVariantId'},
+    {'1': 'return_item_pk', '3': 1, '4': 1, '5': 5, '10': 'returnItemPk'},
+    {'1': 'product_variant_fk', '3': 2, '4': 1, '5': 5, '10': 'productVariantFk'},
     {'1': 'quantity_returned', '3': 3, '4': 1, '5': 5, '10': 'quantityReturned'},
   ],
 };
 
 /// Descriptor for `ReturnItem`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List returnItemDescriptor = $convert.base64Decode(
-    'CgpSZXR1cm5JdGVtEiQKDnJldHVybl9pdGVtX2lkGAEgASgFUgxyZXR1cm5JdGVtSWQSLAoScH'
-    'JvZHVjdF92YXJpYW50X2lkGAIgASgFUhBwcm9kdWN0VmFyaWFudElkEisKEXF1YW50aXR5X3Jl'
+    'CgpSZXR1cm5JdGVtEiQKDnJldHVybl9pdGVtX3BrGAEgASgFUgxyZXR1cm5JdGVtUGsSLAoScH'
+    'JvZHVjdF92YXJpYW50X2ZrGAIgASgFUhBwcm9kdWN0VmFyaWFudEZrEisKEXF1YW50aXR5X3Jl'
     'dHVybmVkGAMgASgFUhBxdWFudGl0eVJldHVybmVk');
 

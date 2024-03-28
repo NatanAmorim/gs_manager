@@ -19,26 +19,26 @@ import 'subscription.pb.dart' as $15;
 
 export 'subscription.pb.dart';
 
-@$pb.GrpcServiceName('gs_protobufs.subscription.SubscriptionService')
+@$pb.GrpcServiceName('protos.subscription.SubscriptionService')
 class SubscriptionServiceClient extends $grpc.Client {
   static final _$getPaginated = $grpc.ClientMethod<$15.GetPaginatedSubscriptionsRequest, $15.GetPaginatedSubscriptionsResponse>(
-      '/gs_protobufs.subscription.SubscriptionService/GetPaginated',
+      '/protos.subscription.SubscriptionService/GetPaginated',
       ($15.GetPaginatedSubscriptionsRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $15.GetPaginatedSubscriptionsResponse.fromBuffer(value));
   static final _$getById = $grpc.ClientMethod<$15.GetSubscriptionByIdRequest, $15.GetSubscriptionByIdResponse>(
-      '/gs_protobufs.subscription.SubscriptionService/GetById',
+      '/protos.subscription.SubscriptionService/GetById',
       ($15.GetSubscriptionByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $15.GetSubscriptionByIdResponse.fromBuffer(value));
   static final _$post = $grpc.ClientMethod<$15.CreateSubscriptionRequest, $15.CreateSubscriptionResponse>(
-      '/gs_protobufs.subscription.SubscriptionService/Post',
+      '/protos.subscription.SubscriptionService/Post',
       ($15.CreateSubscriptionRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $15.CreateSubscriptionResponse.fromBuffer(value));
   static final _$put = $grpc.ClientMethod<$15.UpdateSubscriptionRequest, $15.UpdateSubscriptionResponse>(
-      '/gs_protobufs.subscription.SubscriptionService/Put',
+      '/protos.subscription.SubscriptionService/Put',
       ($15.UpdateSubscriptionRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $15.UpdateSubscriptionResponse.fromBuffer(value));
   static final _$delete = $grpc.ClientMethod<$15.DeleteSubscriptionRequest, $15.DeleteSubscriptionResponse>(
-      '/gs_protobufs.subscription.SubscriptionService/Delete',
+      '/protos.subscription.SubscriptionService/Delete',
       ($15.DeleteSubscriptionRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $15.DeleteSubscriptionResponse.fromBuffer(value));
 
@@ -69,9 +69,9 @@ class SubscriptionServiceClient extends $grpc.Client {
   }
 }
 
-@$pb.GrpcServiceName('gs_protobufs.subscription.SubscriptionService')
+@$pb.GrpcServiceName('protos.subscription.SubscriptionService')
 abstract class SubscriptionServiceBase extends $grpc.Service {
-  $core.String get $name => 'gs_protobufs.subscription.SubscriptionService';
+  $core.String get $name => 'protos.subscription.SubscriptionService';
 
   SubscriptionServiceBase() {
     $addMethod($grpc.ServiceMethod<$15.GetPaginatedSubscriptionsRequest, $15.GetPaginatedSubscriptionsResponse>(

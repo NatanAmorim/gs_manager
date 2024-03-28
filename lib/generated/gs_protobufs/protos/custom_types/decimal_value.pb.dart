@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: gs_protobufs/protos/decimal.proto
+//  source: gs_protobufs/protos/custom_types/decimal_value.proto
 //
 // @dart = 2.12
 
@@ -34,7 +34,7 @@ class DecimalValue extends $pb.GeneratedMessage {
   factory DecimalValue.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory DecimalValue.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DecimalValue', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.decimal_value'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DecimalValue', package: const $pb.PackageName(_omitMessageNames ? '' : 'custom_types.decimal_value'), createEmptyInstance: create)
     ..aInt64(1, _omitFieldNames ? '' : 'units')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'nanos', $pb.PbFieldType.OSF3)
     ..hasRequiredFields = false

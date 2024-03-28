@@ -13,87 +13,88 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-@$core.Deprecated('Use getPaginatedSubscriptionsBillingRequestDescriptor instead')
-const GetPaginatedSubscriptionsBillingRequest$json = {
-  '1': 'GetPaginatedSubscriptionsBillingRequest',
+@$core.Deprecated('Use getPaginatedSubscriptionBillingsRequestDescriptor instead')
+const GetPaginatedSubscriptionBillingsRequest$json = {
+  '1': 'GetPaginatedSubscriptionBillingsRequest',
   '2': [
     {'1': 'cursor', '3': 1, '4': 1, '5': 5, '10': 'cursor'},
   ],
 };
 
-/// Descriptor for `GetPaginatedSubscriptionsBillingRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getPaginatedSubscriptionsBillingRequestDescriptor = $convert.base64Decode(
-    'CidHZXRQYWdpbmF0ZWRTdWJzY3JpcHRpb25zQmlsbGluZ1JlcXVlc3QSFgoGY3Vyc29yGAEgAS'
+/// Descriptor for `GetPaginatedSubscriptionBillingsRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getPaginatedSubscriptionBillingsRequestDescriptor = $convert.base64Decode(
+    'CidHZXRQYWdpbmF0ZWRTdWJzY3JpcHRpb25CaWxsaW5nc1JlcXVlc3QSFgoGY3Vyc29yGAEgAS'
     'gFUgZjdXJzb3I=');
 
-@$core.Deprecated('Use getPaginatedSubscriptionsBillingResponseDescriptor instead')
-const GetPaginatedSubscriptionsBillingResponse$json = {
-  '1': 'GetPaginatedSubscriptionsBillingResponse',
+@$core.Deprecated('Use getPaginatedSubscriptionBillingsResponseDescriptor instead')
+const GetPaginatedSubscriptionBillingsResponse$json = {
+  '1': 'GetPaginatedSubscriptionBillingsResponse',
   '2': [
-    {'1': 'subscriptionBillings', '3': 1, '4': 3, '5': 11, '6': '.gs_protobufs.subscription_billing.GetSubscriptionBillingByIdResponse', '10': 'subscriptionBillings'},
-    {'1': 'next_cursor', '3': 2, '4': 1, '5': 5, '10': 'nextCursor'},
+    {'1': 'subscriptionBillings', '3': 1, '4': 3, '5': 11, '6': '.protos.subscription_billing.GetSubscriptionBillingByIdResponse', '10': 'subscriptionBillings'},
+    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'nextCursor'},
   ],
 };
 
-/// Descriptor for `GetPaginatedSubscriptionsBillingResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getPaginatedSubscriptionsBillingResponseDescriptor = $convert.base64Decode(
-    'CihHZXRQYWdpbmF0ZWRTdWJzY3JpcHRpb25zQmlsbGluZ1Jlc3BvbnNlEnkKFHN1YnNjcmlwdG'
-    'lvbkJpbGxpbmdzGAEgAygLMkUuZ3NfcHJvdG9idWZzLnN1YnNjcmlwdGlvbl9iaWxsaW5nLkdl'
-    'dFN1YnNjcmlwdGlvbkJpbGxpbmdCeUlkUmVzcG9uc2VSFHN1YnNjcmlwdGlvbkJpbGxpbmdzEh'
-    '8KC25leHRfY3Vyc29yGAIgASgFUgpuZXh0Q3Vyc29y');
+/// Descriptor for `GetPaginatedSubscriptionBillingsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getPaginatedSubscriptionBillingsResponseDescriptor = $convert.base64Decode(
+    'CihHZXRQYWdpbmF0ZWRTdWJzY3JpcHRpb25CaWxsaW5nc1Jlc3BvbnNlEnMKFHN1YnNjcmlwdG'
+    'lvbkJpbGxpbmdzGAEgAygLMj8ucHJvdG9zLnN1YnNjcmlwdGlvbl9iaWxsaW5nLkdldFN1YnNj'
+    'cmlwdGlvbkJpbGxpbmdCeUlkUmVzcG9uc2VSFHN1YnNjcmlwdGlvbkJpbGxpbmdzEjwKC25leH'
+    'RfY3Vyc29yGAIgASgLMhsuZ29vZ2xlLnByb3RvYnVmLkludDMyVmFsdWVSCm5leHRDdXJzb3I=');
 
 @$core.Deprecated('Use getSubscriptionBillingByIdRequestDescriptor instead')
 const GetSubscriptionBillingByIdRequest$json = {
   '1': 'GetSubscriptionBillingByIdRequest',
   '2': [
-    {'1': 'subscription_billing_id', '3': 1, '4': 1, '5': 5, '10': 'subscriptionBillingId'},
+    {'1': 'subscription_billing_pk', '3': 1, '4': 1, '5': 5, '10': 'subscriptionBillingPk'},
   ],
 };
 
 /// Descriptor for `GetSubscriptionBillingByIdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getSubscriptionBillingByIdRequestDescriptor = $convert.base64Decode(
     'CiFHZXRTdWJzY3JpcHRpb25CaWxsaW5nQnlJZFJlcXVlc3QSNgoXc3Vic2NyaXB0aW9uX2JpbG'
-    'xpbmdfaWQYASABKAVSFXN1YnNjcmlwdGlvbkJpbGxpbmdJZA==');
+    'xpbmdfcGsYASABKAVSFXN1YnNjcmlwdGlvbkJpbGxpbmdQaw==');
 
 @$core.Deprecated('Use getSubscriptionBillingByIdResponseDescriptor instead')
 const GetSubscriptionBillingByIdResponse$json = {
   '1': 'GetSubscriptionBillingByIdResponse',
   '2': [
-    {'1': 'subscription_billing_id', '3': 1, '4': 1, '5': 5, '10': 'subscriptionBillingId'},
-    {'1': 'subscription_id', '3': 2, '4': 1, '5': 5, '10': 'subscriptionId'},
+    {'1': 'subscription_billing_pk', '3': 1, '4': 1, '5': 5, '10': 'subscriptionBillingPk'},
+    {'1': 'subscription', '3': 2, '4': 1, '5': 11, '6': '.protos.subscription.GetSubscriptionByIdResponse', '10': 'subscription'},
     {'1': 'comments', '3': 3, '4': 1, '5': 9, '10': 'comments'},
-    {'1': 'total_discount', '3': 4, '4': 1, '5': 11, '6': '.gs_protobufs.decimal_value.DecimalValue', '10': 'totalDiscount'},
-    {'1': 'payment', '3': 5, '4': 1, '5': 11, '6': '.gs_protobufs.payment.GetPaymentByIdResponse', '10': 'payment'},
+    {'1': 'total_discount', '3': 4, '4': 1, '5': 11, '6': '.custom_types.decimal_value.DecimalValue', '10': 'totalDiscount'},
+    {'1': 'payment', '3': 5, '4': 1, '5': 11, '6': '.protos.payment.GetPaymentByIdResponse', '10': 'payment'},
   ],
 };
 
 /// Descriptor for `GetSubscriptionBillingByIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getSubscriptionBillingByIdResponseDescriptor = $convert.base64Decode(
     'CiJHZXRTdWJzY3JpcHRpb25CaWxsaW5nQnlJZFJlc3BvbnNlEjYKF3N1YnNjcmlwdGlvbl9iaW'
-    'xsaW5nX2lkGAEgASgFUhVzdWJzY3JpcHRpb25CaWxsaW5nSWQSJwoPc3Vic2NyaXB0aW9uX2lk'
-    'GAIgASgFUg5zdWJzY3JpcHRpb25JZBIaCghjb21tZW50cxgDIAEoCVIIY29tbWVudHMSTwoOdG'
-    '90YWxfZGlzY291bnQYBCABKAsyKC5nc19wcm90b2J1ZnMuZGVjaW1hbF92YWx1ZS5EZWNpbWFs'
-    'VmFsdWVSDXRvdGFsRGlzY291bnQSRgoHcGF5bWVudBgFIAEoCzIsLmdzX3Byb3RvYnVmcy5wYX'
-    'ltZW50LkdldFBheW1lbnRCeUlkUmVzcG9uc2VSB3BheW1lbnQ=');
+    'xsaW5nX3BrGAEgASgFUhVzdWJzY3JpcHRpb25CaWxsaW5nUGsSVAoMc3Vic2NyaXB0aW9uGAIg'
+    'ASgLMjAucHJvdG9zLnN1YnNjcmlwdGlvbi5HZXRTdWJzY3JpcHRpb25CeUlkUmVzcG9uc2VSDH'
+    'N1YnNjcmlwdGlvbhIaCghjb21tZW50cxgDIAEoCVIIY29tbWVudHMSTwoOdG90YWxfZGlzY291'
+    'bnQYBCABKAsyKC5jdXN0b21fdHlwZXMuZGVjaW1hbF92YWx1ZS5EZWNpbWFsVmFsdWVSDXRvdG'
+    'FsRGlzY291bnQSQAoHcGF5bWVudBgFIAEoCzImLnByb3Rvcy5wYXltZW50LkdldFBheW1lbnRC'
+    'eUlkUmVzcG9uc2VSB3BheW1lbnQ=');
 
 @$core.Deprecated('Use createSubscriptionBillingRequestDescriptor instead')
 const CreateSubscriptionBillingRequest$json = {
   '1': 'CreateSubscriptionBillingRequest',
   '2': [
-    {'1': 'subscription_id', '3': 1, '4': 1, '5': 5, '10': 'subscriptionId'},
+    {'1': 'subscription_fk', '3': 1, '4': 1, '5': 5, '10': 'subscriptionFk'},
     {'1': 'comments', '3': 2, '4': 1, '5': 9, '10': 'comments'},
-    {'1': 'total_discount', '3': 3, '4': 1, '5': 11, '6': '.gs_protobufs.decimal_value.DecimalValue', '10': 'totalDiscount'},
-    {'1': 'payment', '3': 4, '4': 1, '5': 11, '6': '.gs_protobufs.payment.GetPaymentByIdResponse', '10': 'payment'},
+    {'1': 'total_discount', '3': 3, '4': 1, '5': 11, '6': '.custom_types.decimal_value.DecimalValue', '10': 'totalDiscount'},
+    {'1': 'payment', '3': 4, '4': 1, '5': 11, '6': '.protos.payment.CreatePaymentRequest', '10': 'payment'},
   ],
 };
 
 /// Descriptor for `CreateSubscriptionBillingRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createSubscriptionBillingRequestDescriptor = $convert.base64Decode(
-    'CiBDcmVhdGVTdWJzY3JpcHRpb25CaWxsaW5nUmVxdWVzdBInCg9zdWJzY3JpcHRpb25faWQYAS'
-    'ABKAVSDnN1YnNjcmlwdGlvbklkEhoKCGNvbW1lbnRzGAIgASgJUghjb21tZW50cxJPCg50b3Rh'
-    'bF9kaXNjb3VudBgDIAEoCzIoLmdzX3Byb3RvYnVmcy5kZWNpbWFsX3ZhbHVlLkRlY2ltYWxWYW'
-    'x1ZVINdG90YWxEaXNjb3VudBJGCgdwYXltZW50GAQgASgLMiwuZ3NfcHJvdG9idWZzLnBheW1l'
-    'bnQuR2V0UGF5bWVudEJ5SWRSZXNwb25zZVIHcGF5bWVudA==');
+    'CiBDcmVhdGVTdWJzY3JpcHRpb25CaWxsaW5nUmVxdWVzdBInCg9zdWJzY3JpcHRpb25fZmsYAS'
+    'ABKAVSDnN1YnNjcmlwdGlvbkZrEhoKCGNvbW1lbnRzGAIgASgJUghjb21tZW50cxJPCg50b3Rh'
+    'bF9kaXNjb3VudBgDIAEoCzIoLmN1c3RvbV90eXBlcy5kZWNpbWFsX3ZhbHVlLkRlY2ltYWxWYW'
+    'x1ZVINdG90YWxEaXNjb3VudBI+CgdwYXltZW50GAQgASgLMiQucHJvdG9zLnBheW1lbnQuQ3Jl'
+    'YXRlUGF5bWVudFJlcXVlc3RSB3BheW1lbnQ=');
 
 @$core.Deprecated('Use createSubscriptionBillingResponseDescriptor instead')
 const CreateSubscriptionBillingResponse$json = {
@@ -108,22 +109,22 @@ final $typed_data.Uint8List createSubscriptionBillingResponseDescriptor = $conve
 const UpdateSubscriptionBillingRequest$json = {
   '1': 'UpdateSubscriptionBillingRequest',
   '2': [
-    {'1': 'subscription_billing_id', '3': 1, '4': 1, '5': 5, '10': 'subscriptionBillingId'},
-    {'1': 'subscription_id', '3': 2, '4': 1, '5': 5, '10': 'subscriptionId'},
+    {'1': 'subscription_billing_pk', '3': 1, '4': 1, '5': 5, '10': 'subscriptionBillingPk'},
+    {'1': 'subscription_fk', '3': 2, '4': 1, '5': 5, '10': 'subscriptionFk'},
     {'1': 'comments', '3': 3, '4': 1, '5': 9, '10': 'comments'},
-    {'1': 'total_discount', '3': 4, '4': 1, '5': 11, '6': '.gs_protobufs.decimal_value.DecimalValue', '10': 'totalDiscount'},
-    {'1': 'payment', '3': 5, '4': 1, '5': 11, '6': '.gs_protobufs.payment.GetPaymentByIdResponse', '10': 'payment'},
+    {'1': 'total_discount', '3': 4, '4': 1, '5': 11, '6': '.custom_types.decimal_value.DecimalValue', '10': 'totalDiscount'},
+    {'1': 'payment', '3': 5, '4': 1, '5': 11, '6': '.protos.payment.GetPaymentByIdResponse', '10': 'payment'},
   ],
 };
 
 /// Descriptor for `UpdateSubscriptionBillingRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateSubscriptionBillingRequestDescriptor = $convert.base64Decode(
     'CiBVcGRhdGVTdWJzY3JpcHRpb25CaWxsaW5nUmVxdWVzdBI2ChdzdWJzY3JpcHRpb25fYmlsbG'
-    'luZ19pZBgBIAEoBVIVc3Vic2NyaXB0aW9uQmlsbGluZ0lkEicKD3N1YnNjcmlwdGlvbl9pZBgC'
-    'IAEoBVIOc3Vic2NyaXB0aW9uSWQSGgoIY29tbWVudHMYAyABKAlSCGNvbW1lbnRzEk8KDnRvdG'
-    'FsX2Rpc2NvdW50GAQgASgLMiguZ3NfcHJvdG9idWZzLmRlY2ltYWxfdmFsdWUuRGVjaW1hbFZh'
-    'bHVlUg10b3RhbERpc2NvdW50EkYKB3BheW1lbnQYBSABKAsyLC5nc19wcm90b2J1ZnMucGF5bW'
-    'VudC5HZXRQYXltZW50QnlJZFJlc3BvbnNlUgdwYXltZW50');
+    'luZ19waxgBIAEoBVIVc3Vic2NyaXB0aW9uQmlsbGluZ1BrEicKD3N1YnNjcmlwdGlvbl9maxgC'
+    'IAEoBVIOc3Vic2NyaXB0aW9uRmsSGgoIY29tbWVudHMYAyABKAlSCGNvbW1lbnRzEk8KDnRvdG'
+    'FsX2Rpc2NvdW50GAQgASgLMiguY3VzdG9tX3R5cGVzLmRlY2ltYWxfdmFsdWUuRGVjaW1hbFZh'
+    'bHVlUg10b3RhbERpc2NvdW50EkAKB3BheW1lbnQYBSABKAsyJi5wcm90b3MucGF5bWVudC5HZX'
+    'RQYXltZW50QnlJZFJlc3BvbnNlUgdwYXltZW50');
 
 @$core.Deprecated('Use updateSubscriptionBillingResponseDescriptor instead')
 const UpdateSubscriptionBillingResponse$json = {
@@ -138,14 +139,14 @@ final $typed_data.Uint8List updateSubscriptionBillingResponseDescriptor = $conve
 const DeleteSubscriptionBillingRequest$json = {
   '1': 'DeleteSubscriptionBillingRequest',
   '2': [
-    {'1': 'subscription_billing_id', '3': 1, '4': 1, '5': 5, '10': 'subscriptionBillingId'},
+    {'1': 'subscription_billing_pk', '3': 1, '4': 1, '5': 5, '10': 'subscriptionBillingPk'},
   ],
 };
 
 /// Descriptor for `DeleteSubscriptionBillingRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteSubscriptionBillingRequestDescriptor = $convert.base64Decode(
     'CiBEZWxldGVTdWJzY3JpcHRpb25CaWxsaW5nUmVxdWVzdBI2ChdzdWJzY3JpcHRpb25fYmlsbG'
-    'luZ19pZBgBIAEoBVIVc3Vic2NyaXB0aW9uQmlsbGluZ0lk');
+    'luZ19waxgBIAEoBVIVc3Vic2NyaXB0aW9uQmlsbGluZ1Br');
 
 @$core.Deprecated('Use deleteSubscriptionBillingResponseDescriptor instead')
 const DeleteSubscriptionBillingResponse$json = {

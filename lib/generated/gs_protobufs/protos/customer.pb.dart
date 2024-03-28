@@ -13,8 +13,9 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'person.pb.dart' as $18;
-import 'user.pb.dart' as $3;
+import '../../google/protobuf/wrappers.pb.dart' as $17;
+import 'custom_types/person.pb.dart' as $18;
+import 'user.pb.dart' as $0;
 
 class GetPaginatedCustomersRequest extends $pb.GeneratedMessage {
   factory GetPaginatedCustomersRequest({
@@ -30,7 +31,7 @@ class GetPaginatedCustomersRequest extends $pb.GeneratedMessage {
   factory GetPaginatedCustomersRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetPaginatedCustomersRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedCustomersRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.customer'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedCustomersRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.customer'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'cursor', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -69,7 +70,7 @@ class GetPaginatedCustomersRequest extends $pb.GeneratedMessage {
 class GetPaginatedCustomersResponse extends $pb.GeneratedMessage {
   factory GetPaginatedCustomersResponse({
     $core.Iterable<GetCustomerByIdResponse>? customers,
-    $core.int? nextCursor,
+    $17.Int32Value? nextCursor,
   }) {
     final $result = create();
     if (customers != null) {
@@ -84,9 +85,9 @@ class GetPaginatedCustomersResponse extends $pb.GeneratedMessage {
   factory GetPaginatedCustomersResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetPaginatedCustomersResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedCustomersResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.customer'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedCustomersResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.customer'), createEmptyInstance: create)
     ..pc<GetCustomerByIdResponse>(1, _omitFieldNames ? '' : 'customers', $pb.PbFieldType.PM, subBuilder: GetCustomerByIdResponse.create)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'nextCursor', $pb.PbFieldType.O3)
+    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.Int32Value.create)
     ..hasRequiredFields = false
   ;
 
@@ -115,22 +116,24 @@ class GetPaginatedCustomersResponse extends $pb.GeneratedMessage {
   $core.List<GetCustomerByIdResponse> get customers => $_getList(0);
 
   @$pb.TagNumber(2)
-  $core.int get nextCursor => $_getIZ(1);
+  $17.Int32Value get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($core.int v) { $_setSignedInt32(1, v); }
+  set nextCursor($17.Int32Value v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
+  @$pb.TagNumber(2)
+  $17.Int32Value ensureNextCursor() => $_ensure(1);
 }
 
 class GetCustomerByIdRequest extends $pb.GeneratedMessage {
   factory GetCustomerByIdRequest({
-    $core.int? customerId,
+    $core.int? customerPk,
   }) {
     final $result = create();
-    if (customerId != null) {
-      $result.customerId = customerId;
+    if (customerPk != null) {
+      $result.customerPk = customerPk;
     }
     return $result;
   }
@@ -138,8 +141,8 @@ class GetCustomerByIdRequest extends $pb.GeneratedMessage {
   factory GetCustomerByIdRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetCustomerByIdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetCustomerByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.customer'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'customerId', $pb.PbFieldType.O3)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetCustomerByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.customer'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'customerPk', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -165,28 +168,27 @@ class GetCustomerByIdRequest extends $pb.GeneratedMessage {
   static GetCustomerByIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get customerId => $_getIZ(0);
+  $core.int get customerPk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set customerId($core.int v) { $_setSignedInt32(0, v); }
+  set customerPk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasCustomerId() => $_has(0);
+  $core.bool hasCustomerPk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearCustomerId() => clearField(1);
+  void clearCustomerPk() => clearField(1);
 }
 
 class GetCustomerByIdResponse extends $pb.GeneratedMessage {
   factory GetCustomerByIdResponse({
-    $core.int? customerId,
-    $3.GetUserByIdResponse? user,
+    $core.int? customerPk,
+    $0.GetUserByIdResponse? user,
     $18.Person? person,
     $core.Iterable<$18.Person>? dependents,
     $core.String? billingAddress,
-    $core.String? picturePath,
     $core.String? additionalInformation,
   }) {
     final $result = create();
-    if (customerId != null) {
-      $result.customerId = customerId;
+    if (customerPk != null) {
+      $result.customerPk = customerPk;
     }
     if (user != null) {
       $result.user = user;
@@ -200,9 +202,6 @@ class GetCustomerByIdResponse extends $pb.GeneratedMessage {
     if (billingAddress != null) {
       $result.billingAddress = billingAddress;
     }
-    if (picturePath != null) {
-      $result.picturePath = picturePath;
-    }
     if (additionalInformation != null) {
       $result.additionalInformation = additionalInformation;
     }
@@ -212,14 +211,13 @@ class GetCustomerByIdResponse extends $pb.GeneratedMessage {
   factory GetCustomerByIdResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetCustomerByIdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetCustomerByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.customer'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'customerId', $pb.PbFieldType.O3)
-    ..aOM<$3.GetUserByIdResponse>(2, _omitFieldNames ? '' : 'user', subBuilder: $3.GetUserByIdResponse.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetCustomerByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.customer'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'customerPk', $pb.PbFieldType.O3)
+    ..aOM<$0.GetUserByIdResponse>(2, _omitFieldNames ? '' : 'user', subBuilder: $0.GetUserByIdResponse.create)
     ..aOM<$18.Person>(3, _omitFieldNames ? '' : 'person', subBuilder: $18.Person.create)
     ..pc<$18.Person>(4, _omitFieldNames ? '' : 'dependents', $pb.PbFieldType.PM, subBuilder: $18.Person.create)
     ..aOS(5, _omitFieldNames ? '' : 'billingAddress')
-    ..aOS(6, _omitFieldNames ? '' : 'picturePath')
-    ..aOS(7, _omitFieldNames ? '' : 'additionalInformation')
+    ..aOS(6, _omitFieldNames ? '' : 'additionalInformation')
     ..hasRequiredFields = false
   ;
 
@@ -245,24 +243,24 @@ class GetCustomerByIdResponse extends $pb.GeneratedMessage {
   static GetCustomerByIdResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get customerId => $_getIZ(0);
+  $core.int get customerPk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set customerId($core.int v) { $_setSignedInt32(0, v); }
+  set customerPk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasCustomerId() => $_has(0);
+  $core.bool hasCustomerPk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearCustomerId() => clearField(1);
+  void clearCustomerPk() => clearField(1);
 
   @$pb.TagNumber(2)
-  $3.GetUserByIdResponse get user => $_getN(1);
+  $0.GetUserByIdResponse get user => $_getN(1);
   @$pb.TagNumber(2)
-  set user($3.GetUserByIdResponse v) { setField(2, v); }
+  set user($0.GetUserByIdResponse v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasUser() => $_has(1);
   @$pb.TagNumber(2)
   void clearUser() => clearField(2);
   @$pb.TagNumber(2)
-  $3.GetUserByIdResponse ensureUser() => $_ensure(1);
+  $0.GetUserByIdResponse ensureUser() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $18.Person get person => $_getN(2);
@@ -288,40 +286,27 @@ class GetCustomerByIdResponse extends $pb.GeneratedMessage {
   void clearBillingAddress() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.String get picturePath => $_getSZ(5);
+  $core.String get additionalInformation => $_getSZ(5);
   @$pb.TagNumber(6)
-  set picturePath($core.String v) { $_setString(5, v); }
+  set additionalInformation($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasPicturePath() => $_has(5);
+  $core.bool hasAdditionalInformation() => $_has(5);
   @$pb.TagNumber(6)
-  void clearPicturePath() => clearField(6);
-
-  @$pb.TagNumber(7)
-  $core.String get additionalInformation => $_getSZ(6);
-  @$pb.TagNumber(7)
-  set additionalInformation($core.String v) { $_setString(6, v); }
-  @$pb.TagNumber(7)
-  $core.bool hasAdditionalInformation() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearAdditionalInformation() => clearField(7);
+  void clearAdditionalInformation() => clearField(6);
 }
 
 class CustomerOption extends $pb.GeneratedMessage {
   factory CustomerOption({
-    $core.int? customerId,
+    $core.int? customerPk,
     $18.Person? person,
-    $core.String? picturePath,
     $core.Iterable<$18.Person>? dependents,
   }) {
     final $result = create();
-    if (customerId != null) {
-      $result.customerId = customerId;
+    if (customerPk != null) {
+      $result.customerPk = customerPk;
     }
     if (person != null) {
       $result.person = person;
-    }
-    if (picturePath != null) {
-      $result.picturePath = picturePath;
     }
     if (dependents != null) {
       $result.dependents.addAll(dependents);
@@ -332,11 +317,10 @@ class CustomerOption extends $pb.GeneratedMessage {
   factory CustomerOption.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CustomerOption.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CustomerOption', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.customer'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'customerId', $pb.PbFieldType.O3)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CustomerOption', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.customer'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'customerPk', $pb.PbFieldType.O3)
     ..aOM<$18.Person>(2, _omitFieldNames ? '' : 'person', subBuilder: $18.Person.create)
-    ..aOS(3, _omitFieldNames ? '' : 'picturePath')
-    ..pc<$18.Person>(4, _omitFieldNames ? '' : 'dependents', $pb.PbFieldType.PM, subBuilder: $18.Person.create)
+    ..pc<$18.Person>(3, _omitFieldNames ? '' : 'dependents', $pb.PbFieldType.PM, subBuilder: $18.Person.create)
     ..hasRequiredFields = false
   ;
 
@@ -362,13 +346,13 @@ class CustomerOption extends $pb.GeneratedMessage {
   static CustomerOption? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get customerId => $_getIZ(0);
+  $core.int get customerPk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set customerId($core.int v) { $_setSignedInt32(0, v); }
+  set customerPk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasCustomerId() => $_has(0);
+  $core.bool hasCustomerPk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearCustomerId() => clearField(1);
+  void clearCustomerPk() => clearField(1);
 
   @$pb.TagNumber(2)
   $18.Person get person => $_getN(1);
@@ -382,16 +366,7 @@ class CustomerOption extends $pb.GeneratedMessage {
   $18.Person ensurePerson() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  $core.String get picturePath => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set picturePath($core.String v) { $_setString(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasPicturePath() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearPicturePath() => clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.List<$18.Person> get dependents => $_getList(3);
+  $core.List<$18.Person> get dependents => $_getList(2);
 }
 
 class GetAllCustomersOptionsRequest extends $pb.GeneratedMessage {
@@ -400,7 +375,7 @@ class GetAllCustomersOptionsRequest extends $pb.GeneratedMessage {
   factory GetAllCustomersOptionsRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetAllCustomersOptionsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetAllCustomersOptionsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.customer'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetAllCustomersOptionsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.customer'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
@@ -440,7 +415,7 @@ class GetAllCustomersOptionsResponse extends $pb.GeneratedMessage {
   factory GetAllCustomersOptionsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetAllCustomersOptionsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetAllCustomersOptionsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.customer'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetAllCustomersOptionsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.customer'), createEmptyInstance: create)
     ..pc<CustomerOption>(1, _omitFieldNames ? '' : 'customerOptions', $pb.PbFieldType.PM, subBuilder: CustomerOption.create)
     ..hasRequiredFields = false
   ;
@@ -472,17 +447,12 @@ class GetAllCustomersOptionsResponse extends $pb.GeneratedMessage {
 
 class CreateCustomerRequest extends $pb.GeneratedMessage {
   factory CreateCustomerRequest({
-    $3.GetUserByIdResponse? user,
     $18.Person? person,
     $core.Iterable<$18.Person>? dependents,
     $core.String? billingAddress,
-    $core.String? picturePath,
     $core.String? additionalInformation,
   }) {
     final $result = create();
-    if (user != null) {
-      $result.user = user;
-    }
     if (person != null) {
       $result.person = person;
     }
@@ -491,9 +461,6 @@ class CreateCustomerRequest extends $pb.GeneratedMessage {
     }
     if (billingAddress != null) {
       $result.billingAddress = billingAddress;
-    }
-    if (picturePath != null) {
-      $result.picturePath = picturePath;
     }
     if (additionalInformation != null) {
       $result.additionalInformation = additionalInformation;
@@ -504,13 +471,11 @@ class CreateCustomerRequest extends $pb.GeneratedMessage {
   factory CreateCustomerRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CreateCustomerRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateCustomerRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.customer'), createEmptyInstance: create)
-    ..aOM<$3.GetUserByIdResponse>(1, _omitFieldNames ? '' : 'user', subBuilder: $3.GetUserByIdResponse.create)
-    ..aOM<$18.Person>(2, _omitFieldNames ? '' : 'person', subBuilder: $18.Person.create)
-    ..pc<$18.Person>(3, _omitFieldNames ? '' : 'dependents', $pb.PbFieldType.PM, subBuilder: $18.Person.create)
-    ..aOS(4, _omitFieldNames ? '' : 'billingAddress')
-    ..aOS(5, _omitFieldNames ? '' : 'picturePath')
-    ..aOS(6, _omitFieldNames ? '' : 'additionalInformation')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateCustomerRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.customer'), createEmptyInstance: create)
+    ..aOM<$18.Person>(1, _omitFieldNames ? '' : 'person', subBuilder: $18.Person.create)
+    ..pc<$18.Person>(2, _omitFieldNames ? '' : 'dependents', $pb.PbFieldType.PM, subBuilder: $18.Person.create)
+    ..aOS(3, _omitFieldNames ? '' : 'billingAddress')
+    ..aOS(4, _omitFieldNames ? '' : 'additionalInformation')
     ..hasRequiredFields = false
   ;
 
@@ -536,56 +501,36 @@ class CreateCustomerRequest extends $pb.GeneratedMessage {
   static CreateCustomerRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $3.GetUserByIdResponse get user => $_getN(0);
+  $18.Person get person => $_getN(0);
   @$pb.TagNumber(1)
-  set user($3.GetUserByIdResponse v) { setField(1, v); }
+  set person($18.Person v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasUser() => $_has(0);
+  $core.bool hasPerson() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUser() => clearField(1);
+  void clearPerson() => clearField(1);
   @$pb.TagNumber(1)
-  $3.GetUserByIdResponse ensureUser() => $_ensure(0);
+  $18.Person ensurePerson() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $18.Person get person => $_getN(1);
-  @$pb.TagNumber(2)
-  set person($18.Person v) { setField(2, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasPerson() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearPerson() => clearField(2);
-  @$pb.TagNumber(2)
-  $18.Person ensurePerson() => $_ensure(1);
+  $core.List<$18.Person> get dependents => $_getList(1);
 
   @$pb.TagNumber(3)
-  $core.List<$18.Person> get dependents => $_getList(2);
+  $core.String get billingAddress => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set billingAddress($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasBillingAddress() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearBillingAddress() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get billingAddress => $_getSZ(3);
+  $core.String get additionalInformation => $_getSZ(3);
   @$pb.TagNumber(4)
-  set billingAddress($core.String v) { $_setString(3, v); }
+  set additionalInformation($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasBillingAddress() => $_has(3);
+  $core.bool hasAdditionalInformation() => $_has(3);
   @$pb.TagNumber(4)
-  void clearBillingAddress() => clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.String get picturePath => $_getSZ(4);
-  @$pb.TagNumber(5)
-  set picturePath($core.String v) { $_setString(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasPicturePath() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearPicturePath() => clearField(5);
-
-  @$pb.TagNumber(6)
-  $core.String get additionalInformation => $_getSZ(5);
-  @$pb.TagNumber(6)
-  set additionalInformation($core.String v) { $_setString(5, v); }
-  @$pb.TagNumber(6)
-  $core.bool hasAdditionalInformation() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearAdditionalInformation() => clearField(6);
+  void clearAdditionalInformation() => clearField(4);
 }
 
 class CreateCustomerResponse extends $pb.GeneratedMessage {
@@ -594,7 +539,7 @@ class CreateCustomerResponse extends $pb.GeneratedMessage {
   factory CreateCustomerResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CreateCustomerResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateCustomerResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.customer'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateCustomerResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.customer'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
@@ -622,17 +567,16 @@ class CreateCustomerResponse extends $pb.GeneratedMessage {
 
 class UpdateCustomerRequest extends $pb.GeneratedMessage {
   factory UpdateCustomerRequest({
-    $core.int? customerId,
-    $3.GetUserByIdResponse? user,
+    $core.int? customerPk,
+    $0.GetUserByIdResponse? user,
     $18.Person? person,
     $core.Iterable<$18.Person>? dependents,
     $core.String? billingAddress,
-    $core.String? picturePath,
     $core.String? additionalInformation,
   }) {
     final $result = create();
-    if (customerId != null) {
-      $result.customerId = customerId;
+    if (customerPk != null) {
+      $result.customerPk = customerPk;
     }
     if (user != null) {
       $result.user = user;
@@ -646,9 +590,6 @@ class UpdateCustomerRequest extends $pb.GeneratedMessage {
     if (billingAddress != null) {
       $result.billingAddress = billingAddress;
     }
-    if (picturePath != null) {
-      $result.picturePath = picturePath;
-    }
     if (additionalInformation != null) {
       $result.additionalInformation = additionalInformation;
     }
@@ -658,14 +599,13 @@ class UpdateCustomerRequest extends $pb.GeneratedMessage {
   factory UpdateCustomerRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UpdateCustomerRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateCustomerRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.customer'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'customerId', $pb.PbFieldType.O3)
-    ..aOM<$3.GetUserByIdResponse>(2, _omitFieldNames ? '' : 'user', subBuilder: $3.GetUserByIdResponse.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateCustomerRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.customer'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'customerPk', $pb.PbFieldType.O3)
+    ..aOM<$0.GetUserByIdResponse>(2, _omitFieldNames ? '' : 'user', subBuilder: $0.GetUserByIdResponse.create)
     ..aOM<$18.Person>(3, _omitFieldNames ? '' : 'person', subBuilder: $18.Person.create)
     ..pc<$18.Person>(4, _omitFieldNames ? '' : 'dependents', $pb.PbFieldType.PM, subBuilder: $18.Person.create)
     ..aOS(5, _omitFieldNames ? '' : 'billingAddress')
-    ..aOS(6, _omitFieldNames ? '' : 'picturePath')
-    ..aOS(7, _omitFieldNames ? '' : 'additionalInformation')
+    ..aOS(6, _omitFieldNames ? '' : 'additionalInformation')
     ..hasRequiredFields = false
   ;
 
@@ -691,24 +631,24 @@ class UpdateCustomerRequest extends $pb.GeneratedMessage {
   static UpdateCustomerRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get customerId => $_getIZ(0);
+  $core.int get customerPk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set customerId($core.int v) { $_setSignedInt32(0, v); }
+  set customerPk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasCustomerId() => $_has(0);
+  $core.bool hasCustomerPk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearCustomerId() => clearField(1);
+  void clearCustomerPk() => clearField(1);
 
   @$pb.TagNumber(2)
-  $3.GetUserByIdResponse get user => $_getN(1);
+  $0.GetUserByIdResponse get user => $_getN(1);
   @$pb.TagNumber(2)
-  set user($3.GetUserByIdResponse v) { setField(2, v); }
+  set user($0.GetUserByIdResponse v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasUser() => $_has(1);
   @$pb.TagNumber(2)
   void clearUser() => clearField(2);
   @$pb.TagNumber(2)
-  $3.GetUserByIdResponse ensureUser() => $_ensure(1);
+  $0.GetUserByIdResponse ensureUser() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $18.Person get person => $_getN(2);
@@ -734,22 +674,13 @@ class UpdateCustomerRequest extends $pb.GeneratedMessage {
   void clearBillingAddress() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.String get picturePath => $_getSZ(5);
+  $core.String get additionalInformation => $_getSZ(5);
   @$pb.TagNumber(6)
-  set picturePath($core.String v) { $_setString(5, v); }
+  set additionalInformation($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasPicturePath() => $_has(5);
+  $core.bool hasAdditionalInformation() => $_has(5);
   @$pb.TagNumber(6)
-  void clearPicturePath() => clearField(6);
-
-  @$pb.TagNumber(7)
-  $core.String get additionalInformation => $_getSZ(6);
-  @$pb.TagNumber(7)
-  set additionalInformation($core.String v) { $_setString(6, v); }
-  @$pb.TagNumber(7)
-  $core.bool hasAdditionalInformation() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearAdditionalInformation() => clearField(7);
+  void clearAdditionalInformation() => clearField(6);
 }
 
 class UpdateCustomerResponse extends $pb.GeneratedMessage {
@@ -758,7 +689,7 @@ class UpdateCustomerResponse extends $pb.GeneratedMessage {
   factory UpdateCustomerResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UpdateCustomerResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateCustomerResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.customer'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateCustomerResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.customer'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
@@ -786,11 +717,11 @@ class UpdateCustomerResponse extends $pb.GeneratedMessage {
 
 class DeleteCustomerRequest extends $pb.GeneratedMessage {
   factory DeleteCustomerRequest({
-    $core.int? customerId,
+    $core.int? customerPk,
   }) {
     final $result = create();
-    if (customerId != null) {
-      $result.customerId = customerId;
+    if (customerPk != null) {
+      $result.customerPk = customerPk;
     }
     return $result;
   }
@@ -798,8 +729,8 @@ class DeleteCustomerRequest extends $pb.GeneratedMessage {
   factory DeleteCustomerRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory DeleteCustomerRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteCustomerRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.customer'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'customerId', $pb.PbFieldType.O3)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteCustomerRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.customer'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'customerPk', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -825,13 +756,13 @@ class DeleteCustomerRequest extends $pb.GeneratedMessage {
   static DeleteCustomerRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get customerId => $_getIZ(0);
+  $core.int get customerPk => $_getIZ(0);
   @$pb.TagNumber(1)
-  set customerId($core.int v) { $_setSignedInt32(0, v); }
+  set customerPk($core.int v) { $_setSignedInt32(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasCustomerId() => $_has(0);
+  $core.bool hasCustomerPk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearCustomerId() => clearField(1);
+  void clearCustomerPk() => clearField(1);
 }
 
 class DeleteCustomerResponse extends $pb.GeneratedMessage {
@@ -840,7 +771,7 @@ class DeleteCustomerResponse extends $pb.GeneratedMessage {
   factory DeleteCustomerResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory DeleteCustomerResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteCustomerResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.customer'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteCustomerResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.customer'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 

@@ -29,34 +29,34 @@ final $typed_data.Uint8List getPaginatedUsersRequestDescriptor = $convert.base64
 const GetPaginatedUsersResponse$json = {
   '1': 'GetPaginatedUsersResponse',
   '2': [
-    {'1': 'users', '3': 1, '4': 3, '5': 11, '6': '.gs_protobufs.user.GetUserByIdResponse', '10': 'users'},
-    {'1': 'next_cursor', '3': 2, '4': 1, '5': 5, '10': 'nextCursor'},
+    {'1': 'users', '3': 1, '4': 3, '5': 11, '6': '.protos.user.GetUserByIdResponse', '10': 'users'},
+    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'nextCursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedUsersResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedUsersResponseDescriptor = $convert.base64Decode(
-    'ChlHZXRQYWdpbmF0ZWRVc2Vyc1Jlc3BvbnNlEjwKBXVzZXJzGAEgAygLMiYuZ3NfcHJvdG9idW'
-    'ZzLnVzZXIuR2V0VXNlckJ5SWRSZXNwb25zZVIFdXNlcnMSHwoLbmV4dF9jdXJzb3IYAiABKAVS'
-    'Cm5leHRDdXJzb3I=');
+    'ChlHZXRQYWdpbmF0ZWRVc2Vyc1Jlc3BvbnNlEjYKBXVzZXJzGAEgAygLMiAucHJvdG9zLnVzZX'
+    'IuR2V0VXNlckJ5SWRSZXNwb25zZVIFdXNlcnMSPAoLbmV4dF9jdXJzb3IYAiABKAsyGy5nb29n'
+    'bGUucHJvdG9idWYuSW50MzJWYWx1ZVIKbmV4dEN1cnNvcg==');
 
 @$core.Deprecated('Use getUserByIdRequestDescriptor instead')
 const GetUserByIdRequest$json = {
   '1': 'GetUserByIdRequest',
   '2': [
-    {'1': 'user_id', '3': 1, '4': 1, '5': 5, '10': 'userId'},
+    {'1': 'user_pk', '3': 1, '4': 1, '5': 5, '10': 'userPk'},
   ],
 };
 
 /// Descriptor for `GetUserByIdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getUserByIdRequestDescriptor = $convert.base64Decode(
-    'ChJHZXRVc2VyQnlJZFJlcXVlc3QSFwoHdXNlcl9pZBgBIAEoBVIGdXNlcklk');
+    'ChJHZXRVc2VyQnlJZFJlcXVlc3QSFwoHdXNlcl9waxgBIAEoBVIGdXNlclBr');
 
 @$core.Deprecated('Use getUserByIdResponseDescriptor instead')
 const GetUserByIdResponse$json = {
   '1': 'GetUserByIdResponse',
   '2': [
-    {'1': 'user_id', '3': 1, '4': 1, '5': 5, '10': 'userId'},
+    {'1': 'user_pk', '3': 1, '4': 1, '5': 5, '10': 'userPk'},
     {'1': 'email', '3': 2, '4': 1, '5': 9, '10': 'email'},
     {'1': 'role', '3': 3, '4': 1, '5': 9, '10': 'role'},
   ],
@@ -64,21 +64,21 @@ const GetUserByIdResponse$json = {
 
 /// Descriptor for `GetUserByIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getUserByIdResponseDescriptor = $convert.base64Decode(
-    'ChNHZXRVc2VyQnlJZFJlc3BvbnNlEhcKB3VzZXJfaWQYASABKAVSBnVzZXJJZBIUCgVlbWFpbB'
+    'ChNHZXRVc2VyQnlJZFJlc3BvbnNlEhcKB3VzZXJfcGsYASABKAVSBnVzZXJQaxIUCgVlbWFpbB'
     'gCIAEoCVIFZW1haWwSEgoEcm9sZRgDIAEoCVIEcm9sZQ==');
 
 @$core.Deprecated('Use updateUserRequestDescriptor instead')
 const UpdateUserRequest$json = {
   '1': 'UpdateUserRequest',
   '2': [
-    {'1': 'user_id', '3': 1, '4': 1, '5': 5, '10': 'userId'},
+    {'1': 'user_pk', '3': 1, '4': 1, '5': 5, '10': 'userPk'},
     {'1': 'email', '3': 2, '4': 1, '5': 9, '10': 'email'},
   ],
 };
 
 /// Descriptor for `UpdateUserRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateUserRequestDescriptor = $convert.base64Decode(
-    'ChFVcGRhdGVVc2VyUmVxdWVzdBIXCgd1c2VyX2lkGAEgASgFUgZ1c2VySWQSFAoFZW1haWwYAi'
+    'ChFVcGRhdGVVc2VyUmVxdWVzdBIXCgd1c2VyX3BrGAEgASgFUgZ1c2VyUGsSFAoFZW1haWwYAi'
     'ABKAlSBWVtYWls');
 
 @$core.Deprecated('Use updateUserResponseDescriptor instead')
@@ -94,13 +94,13 @@ final $typed_data.Uint8List updateUserResponseDescriptor = $convert.base64Decode
 const DeleteUserRequest$json = {
   '1': 'DeleteUserRequest',
   '2': [
-    {'1': 'user_id', '3': 1, '4': 1, '5': 5, '10': 'userId'},
+    {'1': 'user_pk', '3': 1, '4': 1, '5': 5, '10': 'userPk'},
   ],
 };
 
 /// Descriptor for `DeleteUserRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteUserRequestDescriptor = $convert.base64Decode(
-    'ChFEZWxldGVVc2VyUmVxdWVzdBIXCgd1c2VyX2lkGAEgASgFUgZ1c2VySWQ=');
+    'ChFEZWxldGVVc2VyUmVxdWVzdBIXCgd1c2VyX3BrGAEgASgFUgZ1c2VyUGs=');
 
 @$core.Deprecated('Use deleteUserResponseDescriptor instead')
 const DeleteUserResponse$json = {

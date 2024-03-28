@@ -19,26 +19,26 @@ import 'subscription_billing.pb.dart' as $16;
 
 export 'subscription_billing.pb.dart';
 
-@$pb.GrpcServiceName('gs_protobufs.subscription_billing.SubscriptionBillingService')
+@$pb.GrpcServiceName('protos.subscription_billing.SubscriptionBillingService')
 class SubscriptionBillingServiceClient extends $grpc.Client {
-  static final _$getPaginated = $grpc.ClientMethod<$16.GetPaginatedSubscriptionsBillingRequest, $16.GetPaginatedSubscriptionsBillingResponse>(
-      '/gs_protobufs.subscription_billing.SubscriptionBillingService/GetPaginated',
-      ($16.GetPaginatedSubscriptionsBillingRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $16.GetPaginatedSubscriptionsBillingResponse.fromBuffer(value));
+  static final _$getPaginated = $grpc.ClientMethod<$16.GetPaginatedSubscriptionBillingsRequest, $16.GetPaginatedSubscriptionBillingsResponse>(
+      '/protos.subscription_billing.SubscriptionBillingService/GetPaginated',
+      ($16.GetPaginatedSubscriptionBillingsRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $16.GetPaginatedSubscriptionBillingsResponse.fromBuffer(value));
   static final _$getById = $grpc.ClientMethod<$16.GetSubscriptionBillingByIdRequest, $16.GetSubscriptionBillingByIdResponse>(
-      '/gs_protobufs.subscription_billing.SubscriptionBillingService/GetById',
+      '/protos.subscription_billing.SubscriptionBillingService/GetById',
       ($16.GetSubscriptionBillingByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $16.GetSubscriptionBillingByIdResponse.fromBuffer(value));
   static final _$post = $grpc.ClientMethod<$16.CreateSubscriptionBillingRequest, $16.CreateSubscriptionBillingResponse>(
-      '/gs_protobufs.subscription_billing.SubscriptionBillingService/Post',
+      '/protos.subscription_billing.SubscriptionBillingService/Post',
       ($16.CreateSubscriptionBillingRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $16.CreateSubscriptionBillingResponse.fromBuffer(value));
   static final _$put = $grpc.ClientMethod<$16.UpdateSubscriptionBillingRequest, $16.UpdateSubscriptionBillingResponse>(
-      '/gs_protobufs.subscription_billing.SubscriptionBillingService/Put',
+      '/protos.subscription_billing.SubscriptionBillingService/Put',
       ($16.UpdateSubscriptionBillingRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $16.UpdateSubscriptionBillingResponse.fromBuffer(value));
   static final _$delete = $grpc.ClientMethod<$16.DeleteSubscriptionBillingRequest, $16.DeleteSubscriptionBillingResponse>(
-      '/gs_protobufs.subscription_billing.SubscriptionBillingService/Delete',
+      '/protos.subscription_billing.SubscriptionBillingService/Delete',
       ($16.DeleteSubscriptionBillingRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $16.DeleteSubscriptionBillingResponse.fromBuffer(value));
 
@@ -48,7 +48,7 @@ class SubscriptionBillingServiceClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$16.GetPaginatedSubscriptionsBillingResponse> getPaginated($16.GetPaginatedSubscriptionsBillingRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$16.GetPaginatedSubscriptionBillingsResponse> getPaginated($16.GetPaginatedSubscriptionBillingsRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getPaginated, request, options: options);
   }
 
@@ -69,18 +69,18 @@ class SubscriptionBillingServiceClient extends $grpc.Client {
   }
 }
 
-@$pb.GrpcServiceName('gs_protobufs.subscription_billing.SubscriptionBillingService')
+@$pb.GrpcServiceName('protos.subscription_billing.SubscriptionBillingService')
 abstract class SubscriptionBillingServiceBase extends $grpc.Service {
-  $core.String get $name => 'gs_protobufs.subscription_billing.SubscriptionBillingService';
+  $core.String get $name => 'protos.subscription_billing.SubscriptionBillingService';
 
   SubscriptionBillingServiceBase() {
-    $addMethod($grpc.ServiceMethod<$16.GetPaginatedSubscriptionsBillingRequest, $16.GetPaginatedSubscriptionsBillingResponse>(
+    $addMethod($grpc.ServiceMethod<$16.GetPaginatedSubscriptionBillingsRequest, $16.GetPaginatedSubscriptionBillingsResponse>(
         'GetPaginated',
         getPaginated_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $16.GetPaginatedSubscriptionsBillingRequest.fromBuffer(value),
-        ($16.GetPaginatedSubscriptionsBillingResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $16.GetPaginatedSubscriptionBillingsRequest.fromBuffer(value),
+        ($16.GetPaginatedSubscriptionBillingsResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$16.GetSubscriptionBillingByIdRequest, $16.GetSubscriptionBillingByIdResponse>(
         'GetById',
         getById_Pre,
@@ -111,7 +111,7 @@ abstract class SubscriptionBillingServiceBase extends $grpc.Service {
         ($16.DeleteSubscriptionBillingResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$16.GetPaginatedSubscriptionsBillingResponse> getPaginated_Pre($grpc.ServiceCall call, $async.Future<$16.GetPaginatedSubscriptionsBillingRequest> request) async {
+  $async.Future<$16.GetPaginatedSubscriptionBillingsResponse> getPaginated_Pre($grpc.ServiceCall call, $async.Future<$16.GetPaginatedSubscriptionBillingsRequest> request) async {
     return getPaginated(call, await request);
   }
 
@@ -131,7 +131,7 @@ abstract class SubscriptionBillingServiceBase extends $grpc.Service {
     return delete(call, await request);
   }
 
-  $async.Future<$16.GetPaginatedSubscriptionsBillingResponse> getPaginated($grpc.ServiceCall call, $16.GetPaginatedSubscriptionsBillingRequest request);
+  $async.Future<$16.GetPaginatedSubscriptionBillingsResponse> getPaginated($grpc.ServiceCall call, $16.GetPaginatedSubscriptionBillingsRequest request);
   $async.Future<$16.GetSubscriptionBillingByIdResponse> getById($grpc.ServiceCall call, $16.GetSubscriptionBillingByIdRequest request);
   $async.Future<$16.CreateSubscriptionBillingResponse> post($grpc.ServiceCall call, $16.CreateSubscriptionBillingRequest request);
   $async.Future<$16.UpdateSubscriptionBillingResponse> put($grpc.ServiceCall call, $16.UpdateSubscriptionBillingRequest request);

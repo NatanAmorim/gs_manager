@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: gs_protobufs/protos/time_of_day.proto
+//  source: gs_protobufs/protos/custom_types/time_of_day.proto
 //
 // @dart = 2.12
 

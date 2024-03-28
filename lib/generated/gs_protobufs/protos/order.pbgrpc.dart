@@ -19,26 +19,26 @@ import 'order.pb.dart' as $8;
 
 export 'order.pb.dart';
 
-@$pb.GrpcServiceName('gs_protobufs.order.OrderService')
+@$pb.GrpcServiceName('protos.order.OrderService')
 class OrderServiceClient extends $grpc.Client {
   static final _$getPaginated = $grpc.ClientMethod<$8.GetPaginatedOrdersRequest, $8.GetPaginatedOrdersResponse>(
-      '/gs_protobufs.order.OrderService/GetPaginated',
+      '/protos.order.OrderService/GetPaginated',
       ($8.GetPaginatedOrdersRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $8.GetPaginatedOrdersResponse.fromBuffer(value));
   static final _$getById = $grpc.ClientMethod<$8.GetOrderByIdRequest, $8.GetOrderByIdResponse>(
-      '/gs_protobufs.order.OrderService/GetById',
+      '/protos.order.OrderService/GetById',
       ($8.GetOrderByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $8.GetOrderByIdResponse.fromBuffer(value));
   static final _$post = $grpc.ClientMethod<$8.CreateOrderRequest, $8.CreateOrderResponse>(
-      '/gs_protobufs.order.OrderService/Post',
+      '/protos.order.OrderService/Post',
       ($8.CreateOrderRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $8.CreateOrderResponse.fromBuffer(value));
   static final _$put = $grpc.ClientMethod<$8.UpdateOrderRequest, $8.UpdateOrderResponse>(
-      '/gs_protobufs.order.OrderService/Put',
+      '/protos.order.OrderService/Put',
       ($8.UpdateOrderRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $8.UpdateOrderResponse.fromBuffer(value));
   static final _$delete = $grpc.ClientMethod<$8.DeleteOrderRequest, $8.DeleteOrderResponse>(
-      '/gs_protobufs.order.OrderService/Delete',
+      '/protos.order.OrderService/Delete',
       ($8.DeleteOrderRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $8.DeleteOrderResponse.fromBuffer(value));
 
@@ -69,9 +69,9 @@ class OrderServiceClient extends $grpc.Client {
   }
 }
 
-@$pb.GrpcServiceName('gs_protobufs.order.OrderService')
+@$pb.GrpcServiceName('protos.order.OrderService')
 abstract class OrderServiceBase extends $grpc.Service {
-  $core.String get $name => 'gs_protobufs.order.OrderService';
+  $core.String get $name => 'protos.order.OrderService';
 
   OrderServiceBase() {
     $addMethod($grpc.ServiceMethod<$8.GetPaginatedOrdersRequest, $8.GetPaginatedOrdersResponse>(

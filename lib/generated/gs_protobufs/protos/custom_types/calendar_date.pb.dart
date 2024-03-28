@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: gs_protobufs/protos/calendar_date.proto
+//  source: gs_protobufs/protos/custom_types/calendar_date.proto
 //
 // @dart = 2.12
 
@@ -38,7 +38,7 @@ class CalendarDate extends $pb.GeneratedMessage {
   factory CalendarDate.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CalendarDate.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CalendarDate', package: const $pb.PackageName(_omitMessageNames ? '' : 'gs_protobufs.calendar_date'), createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CalendarDate', package: const $pb.PackageName(_omitMessageNames ? '' : 'custom_types.calendar_date'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'year', $pb.PbFieldType.O3)
     ..a<$core.int>(2, _omitFieldNames ? '' : 'month', $pb.PbFieldType.O3)
     ..a<$core.int>(3, _omitFieldNames ? '' : 'day', $pb.PbFieldType.O3)

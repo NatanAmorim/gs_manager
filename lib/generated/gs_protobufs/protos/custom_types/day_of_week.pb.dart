@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: gs_protobufs/protos/discipline.proto
+//  source: gs_protobufs/protos/custom_types/day_of_week.proto
 //
 // @dart = 2.12
 
@@ -8,4 +8,8 @@
 // ignore_for_file: constant_identifier_names, library_prefixes
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+
+import 'dart:core' as $core;
+
+export 'day_of_week.pbenum.dart';
 

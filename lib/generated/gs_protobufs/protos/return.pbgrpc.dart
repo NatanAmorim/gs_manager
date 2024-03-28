@@ -19,26 +19,26 @@ import 'return.pb.dart' as $12;
 
 export 'return.pb.dart';
 
-@$pb.GrpcServiceName('gs_protobufs.return.ReturnService')
+@$pb.GrpcServiceName('protos.return.ReturnService')
 class ReturnServiceClient extends $grpc.Client {
   static final _$getPaginated = $grpc.ClientMethod<$12.GetPaginatedReturnsRequest, $12.GetPaginatedReturnsResponse>(
-      '/gs_protobufs.return.ReturnService/GetPaginated',
+      '/protos.return.ReturnService/GetPaginated',
       ($12.GetPaginatedReturnsRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $12.GetPaginatedReturnsResponse.fromBuffer(value));
   static final _$getById = $grpc.ClientMethod<$12.GetReturnByIdRequest, $12.GetReturnByIdResponse>(
-      '/gs_protobufs.return.ReturnService/GetById',
+      '/protos.return.ReturnService/GetById',
       ($12.GetReturnByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $12.GetReturnByIdResponse.fromBuffer(value));
   static final _$post = $grpc.ClientMethod<$12.CreateReturnRequest, $12.CreateReturnResponse>(
-      '/gs_protobufs.return.ReturnService/Post',
+      '/protos.return.ReturnService/Post',
       ($12.CreateReturnRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $12.CreateReturnResponse.fromBuffer(value));
   static final _$put = $grpc.ClientMethod<$12.UpdateReturnRequest, $12.UpdateReturnResponse>(
-      '/gs_protobufs.return.ReturnService/Put',
+      '/protos.return.ReturnService/Put',
       ($12.UpdateReturnRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $12.UpdateReturnResponse.fromBuffer(value));
   static final _$delete = $grpc.ClientMethod<$12.DeleteReturnRequest, $12.DeleteReturnResponse>(
-      '/gs_protobufs.return.ReturnService/Delete',
+      '/protos.return.ReturnService/Delete',
       ($12.DeleteReturnRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $12.DeleteReturnResponse.fromBuffer(value));
 
@@ -69,9 +69,9 @@ class ReturnServiceClient extends $grpc.Client {
   }
 }
 
-@$pb.GrpcServiceName('gs_protobufs.return.ReturnService')
+@$pb.GrpcServiceName('protos.return.ReturnService')
 abstract class ReturnServiceBase extends $grpc.Service {
-  $core.String get $name => 'gs_protobufs.return.ReturnService';
+  $core.String get $name => 'protos.return.ReturnService';
 
   ReturnServiceBase() {
     $addMethod($grpc.ServiceMethod<$12.GetPaginatedReturnsRequest, $12.GetPaginatedReturnsResponse>(

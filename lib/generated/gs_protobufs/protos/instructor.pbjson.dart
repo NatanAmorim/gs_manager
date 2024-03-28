@@ -30,60 +30,64 @@ final $typed_data.Uint8List getPaginatedInstructorsRequestDescriptor = $convert.
 const GetPaginatedInstructorsResponse$json = {
   '1': 'GetPaginatedInstructorsResponse',
   '2': [
-    {'1': 'instructors', '3': 1, '4': 3, '5': 11, '6': '.gs_protobufs.instructor.GetInstructorByIdResponse', '10': 'instructors'},
-    {'1': 'next_cursor', '3': 2, '4': 1, '5': 5, '10': 'nextCursor'},
+    {'1': 'instructors', '3': 1, '4': 3, '5': 11, '6': '.protos.instructor.GetInstructorByIdResponse', '10': 'instructors'},
+    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'nextCursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedInstructorsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedInstructorsResponseDescriptor = $convert.base64Decode(
-    'Ch9HZXRQYWdpbmF0ZWRJbnN0cnVjdG9yc1Jlc3BvbnNlElQKC2luc3RydWN0b3JzGAEgAygLMj'
-    'IuZ3NfcHJvdG9idWZzLmluc3RydWN0b3IuR2V0SW5zdHJ1Y3RvckJ5SWRSZXNwb25zZVILaW5z'
-    'dHJ1Y3RvcnMSHwoLbmV4dF9jdXJzb3IYAiABKAVSCm5leHRDdXJzb3I=');
+    'Ch9HZXRQYWdpbmF0ZWRJbnN0cnVjdG9yc1Jlc3BvbnNlEk4KC2luc3RydWN0b3JzGAEgAygLMi'
+    'wucHJvdG9zLmluc3RydWN0b3IuR2V0SW5zdHJ1Y3RvckJ5SWRSZXNwb25zZVILaW5zdHJ1Y3Rv'
+    'cnMSPAoLbmV4dF9jdXJzb3IYAiABKAsyGy5nb29nbGUucHJvdG9idWYuSW50MzJWYWx1ZVIKbm'
+    'V4dEN1cnNvcg==');
 
 @$core.Deprecated('Use getInstructorByIdRequestDescriptor instead')
 const GetInstructorByIdRequest$json = {
   '1': 'GetInstructorByIdRequest',
   '2': [
-    {'1': 'instructor_id', '3': 1, '4': 1, '5': 5, '10': 'instructorId'},
+    {'1': 'instructor_pk', '3': 1, '4': 1, '5': 5, '10': 'instructorPk'},
   ],
 };
 
 /// Descriptor for `GetInstructorByIdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getInstructorByIdRequestDescriptor = $convert.base64Decode(
-    'ChhHZXRJbnN0cnVjdG9yQnlJZFJlcXVlc3QSIwoNaW5zdHJ1Y3Rvcl9pZBgBIAEoBVIMaW5zdH'
-    'J1Y3Rvcklk');
+    'ChhHZXRJbnN0cnVjdG9yQnlJZFJlcXVlc3QSIwoNaW5zdHJ1Y3Rvcl9waxgBIAEoBVIMaW5zdH'
+    'J1Y3RvclBr');
 
 @$core.Deprecated('Use getInstructorByIdResponseDescriptor instead')
 const GetInstructorByIdResponse$json = {
   '1': 'GetInstructorByIdResponse',
   '2': [
-    {'1': 'instructor_id', '3': 1, '4': 1, '5': 5, '10': 'instructorId'},
-    {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.gs_protobufs.user.GetUserByIdResponse', '10': 'user'},
-    {'1': 'person', '3': 3, '4': 1, '5': 11, '6': '.gs_protobufs.person.Person', '10': 'person'},
+    {'1': 'instructor_pk', '3': 1, '4': 1, '5': 5, '10': 'instructorPk'},
+    {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.protos.user.GetUserByIdResponse', '9': 0, '10': 'user', '17': true},
+    {'1': 'person', '3': 3, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
+  ],
+  '8': [
+    {'1': '_user'},
   ],
 };
 
 /// Descriptor for `GetInstructorByIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getInstructorByIdResponseDescriptor = $convert.base64Decode(
-    'ChlHZXRJbnN0cnVjdG9yQnlJZFJlc3BvbnNlEiMKDWluc3RydWN0b3JfaWQYASABKAVSDGluc3'
-    'RydWN0b3JJZBI6CgR1c2VyGAIgASgLMiYuZ3NfcHJvdG9idWZzLnVzZXIuR2V0VXNlckJ5SWRS'
-    'ZXNwb25zZVIEdXNlchIzCgZwZXJzb24YAyABKAsyGy5nc19wcm90b2J1ZnMucGVyc29uLlBlcn'
-    'NvblIGcGVyc29u');
+    'ChlHZXRJbnN0cnVjdG9yQnlJZFJlc3BvbnNlEiMKDWluc3RydWN0b3JfcGsYASABKAVSDGluc3'
+    'RydWN0b3JQaxI5CgR1c2VyGAIgASgLMiAucHJvdG9zLnVzZXIuR2V0VXNlckJ5SWRSZXNwb25z'
+    'ZUgAUgR1c2VyiAEBEjMKBnBlcnNvbhgDIAEoCzIbLmN1c3RvbV90eXBlcy5wZXJzb24uUGVyc2'
+    '9uUgZwZXJzb25CBwoFX3VzZXI=');
 
 @$core.Deprecated('Use instructorOptionDescriptor instead')
 const InstructorOption$json = {
   '1': 'InstructorOption',
   '2': [
-    {'1': 'instructor_id', '3': 1, '4': 1, '5': 5, '10': 'instructorId'},
-    {'1': 'person', '3': 2, '4': 1, '5': 11, '6': '.gs_protobufs.person.Person', '10': 'person'},
+    {'1': 'instructor_pk', '3': 1, '4': 1, '5': 5, '10': 'instructorPk'},
+    {'1': 'person', '3': 2, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
   ],
 };
 
 /// Descriptor for `InstructorOption`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List instructorOptionDescriptor = $convert.base64Decode(
-    'ChBJbnN0cnVjdG9yT3B0aW9uEiMKDWluc3RydWN0b3JfaWQYASABKAVSDGluc3RydWN0b3JJZB'
-    'IzCgZwZXJzb24YAiABKAsyGy5nc19wcm90b2J1ZnMucGVyc29uLlBlcnNvblIGcGVyc29u');
+    'ChBJbnN0cnVjdG9yT3B0aW9uEiMKDWluc3RydWN0b3JfcGsYASABKAVSDGluc3RydWN0b3JQax'
+    'IzCgZwZXJzb24YAiABKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIGcGVyc29u');
 
 @$core.Deprecated('Use getAllInstructorsOptionsRequestDescriptor instead')
 const GetAllInstructorsOptionsRequest$json = {
@@ -98,30 +102,28 @@ final $typed_data.Uint8List getAllInstructorsOptionsRequestDescriptor = $convert
 const GetAllInstructorsOptionsResponse$json = {
   '1': 'GetAllInstructorsOptionsResponse',
   '2': [
-    {'1': 'instructor_options', '3': 1, '4': 3, '5': 11, '6': '.gs_protobufs.instructor.InstructorOption', '10': 'instructorOptions'},
+    {'1': 'instructor_options', '3': 1, '4': 3, '5': 11, '6': '.protos.instructor.InstructorOption', '10': 'instructorOptions'},
   ],
 };
 
 /// Descriptor for `GetAllInstructorsOptionsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getAllInstructorsOptionsResponseDescriptor = $convert.base64Decode(
-    'CiBHZXRBbGxJbnN0cnVjdG9yc09wdGlvbnNSZXNwb25zZRJYChJpbnN0cnVjdG9yX29wdGlvbn'
-    'MYASADKAsyKS5nc19wcm90b2J1ZnMuaW5zdHJ1Y3Rvci5JbnN0cnVjdG9yT3B0aW9uUhFpbnN0'
-    'cnVjdG9yT3B0aW9ucw==');
+    'CiBHZXRBbGxJbnN0cnVjdG9yc09wdGlvbnNSZXNwb25zZRJSChJpbnN0cnVjdG9yX29wdGlvbn'
+    'MYASADKAsyIy5wcm90b3MuaW5zdHJ1Y3Rvci5JbnN0cnVjdG9yT3B0aW9uUhFpbnN0cnVjdG9y'
+    'T3B0aW9ucw==');
 
 @$core.Deprecated('Use createInstructorRequestDescriptor instead')
 const CreateInstructorRequest$json = {
   '1': 'CreateInstructorRequest',
   '2': [
-    {'1': 'user', '3': 1, '4': 1, '5': 11, '6': '.gs_protobufs.user.GetUserByIdResponse', '10': 'user'},
-    {'1': 'person', '3': 2, '4': 1, '5': 11, '6': '.gs_protobufs.person.Person', '10': 'person'},
+    {'1': 'person', '3': 1, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
   ],
 };
 
 /// Descriptor for `CreateInstructorRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createInstructorRequestDescriptor = $convert.base64Decode(
-    'ChdDcmVhdGVJbnN0cnVjdG9yUmVxdWVzdBI6CgR1c2VyGAEgASgLMiYuZ3NfcHJvdG9idWZzLn'
-    'VzZXIuR2V0VXNlckJ5SWRSZXNwb25zZVIEdXNlchIzCgZwZXJzb24YAiABKAsyGy5nc19wcm90'
-    'b2J1ZnMucGVyc29uLlBlcnNvblIGcGVyc29u');
+    'ChdDcmVhdGVJbnN0cnVjdG9yUmVxdWVzdBIzCgZwZXJzb24YASABKAsyGy5jdXN0b21fdHlwZX'
+    'MucGVyc29uLlBlcnNvblIGcGVyc29u');
 
 @$core.Deprecated('Use createInstructorResponseDescriptor instead')
 const CreateInstructorResponse$json = {
@@ -136,18 +138,18 @@ final $typed_data.Uint8List createInstructorResponseDescriptor = $convert.base64
 const UpdateInstructorRequest$json = {
   '1': 'UpdateInstructorRequest',
   '2': [
-    {'1': 'instructor_id', '3': 1, '4': 1, '5': 5, '10': 'instructorId'},
-    {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.gs_protobufs.user.GetUserByIdResponse', '10': 'user'},
-    {'1': 'person', '3': 3, '4': 1, '5': 11, '6': '.gs_protobufs.person.Person', '10': 'person'},
+    {'1': 'instructor_pk', '3': 1, '4': 1, '5': 5, '10': 'instructorPk'},
+    {'1': 'user_fk', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'userFk'},
+    {'1': 'person', '3': 3, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
   ],
 };
 
 /// Descriptor for `UpdateInstructorRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateInstructorRequestDescriptor = $convert.base64Decode(
-    'ChdVcGRhdGVJbnN0cnVjdG9yUmVxdWVzdBIjCg1pbnN0cnVjdG9yX2lkGAEgASgFUgxpbnN0cn'
-    'VjdG9ySWQSOgoEdXNlchgCIAEoCzImLmdzX3Byb3RvYnVmcy51c2VyLkdldFVzZXJCeUlkUmVz'
-    'cG9uc2VSBHVzZXISMwoGcGVyc29uGAMgASgLMhsuZ3NfcHJvdG9idWZzLnBlcnNvbi5QZXJzb2'
-    '5SBnBlcnNvbg==');
+    'ChdVcGRhdGVJbnN0cnVjdG9yUmVxdWVzdBIjCg1pbnN0cnVjdG9yX3BrGAEgASgFUgxpbnN0cn'
+    'VjdG9yUGsSNAoHdXNlcl9maxgCIAEoCzIbLmdvb2dsZS5wcm90b2J1Zi5JbnQzMlZhbHVlUgZ1'
+    'c2VyRmsSMwoGcGVyc29uGAMgASgLMhsuY3VzdG9tX3R5cGVzLnBlcnNvbi5QZXJzb25SBnBlcn'
+    'Nvbg==');
 
 @$core.Deprecated('Use updateInstructorResponseDescriptor instead')
 const UpdateInstructorResponse$json = {
@@ -162,14 +164,14 @@ final $typed_data.Uint8List updateInstructorResponseDescriptor = $convert.base64
 const DeleteInstructorRequest$json = {
   '1': 'DeleteInstructorRequest',
   '2': [
-    {'1': 'instructor_id', '3': 1, '4': 1, '5': 5, '10': 'instructorId'},
+    {'1': 'instructor_pk', '3': 1, '4': 1, '5': 5, '10': 'instructorPk'},
   ],
 };
 
 /// Descriptor for `DeleteInstructorRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteInstructorRequestDescriptor = $convert.base64Decode(
-    'ChdEZWxldGVJbnN0cnVjdG9yUmVxdWVzdBIjCg1pbnN0cnVjdG9yX2lkGAEgASgFUgxpbnN0cn'
-    'VjdG9ySWQ=');
+    'ChdEZWxldGVJbnN0cnVjdG9yUmVxdWVzdBIjCg1pbnN0cnVjdG9yX3BrGAEgASgFUgxpbnN0cn'
+    'VjdG9yUGs=');
 
 @$core.Deprecated('Use deleteInstructorResponseDescriptor instead')
 const DeleteInstructorResponse$json = {

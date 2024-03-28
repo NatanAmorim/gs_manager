@@ -29,79 +29,71 @@ final $typed_data.Uint8List getPaginatedCustomersRequestDescriptor = $convert.ba
 const GetPaginatedCustomersResponse$json = {
   '1': 'GetPaginatedCustomersResponse',
   '2': [
-    {'1': 'customers', '3': 1, '4': 3, '5': 11, '6': '.gs_protobufs.customer.GetCustomerByIdResponse', '10': 'customers'},
-    {'1': 'next_cursor', '3': 2, '4': 1, '5': 5, '10': 'nextCursor'},
+    {'1': 'customers', '3': 1, '4': 3, '5': 11, '6': '.protos.customer.GetCustomerByIdResponse', '10': 'customers'},
+    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'nextCursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedCustomersResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedCustomersResponseDescriptor = $convert.base64Decode(
-    'Ch1HZXRQYWdpbmF0ZWRDdXN0b21lcnNSZXNwb25zZRJMCgljdXN0b21lcnMYASADKAsyLi5nc1'
-    '9wcm90b2J1ZnMuY3VzdG9tZXIuR2V0Q3VzdG9tZXJCeUlkUmVzcG9uc2VSCWN1c3RvbWVycxIf'
-    'CgtuZXh0X2N1cnNvchgCIAEoBVIKbmV4dEN1cnNvcg==');
+    'Ch1HZXRQYWdpbmF0ZWRDdXN0b21lcnNSZXNwb25zZRJGCgljdXN0b21lcnMYASADKAsyKC5wcm'
+    '90b3MuY3VzdG9tZXIuR2V0Q3VzdG9tZXJCeUlkUmVzcG9uc2VSCWN1c3RvbWVycxI8CgtuZXh0'
+    'X2N1cnNvchgCIAEoCzIbLmdvb2dsZS5wcm90b2J1Zi5JbnQzMlZhbHVlUgpuZXh0Q3Vyc29y');
 
 @$core.Deprecated('Use getCustomerByIdRequestDescriptor instead')
 const GetCustomerByIdRequest$json = {
   '1': 'GetCustomerByIdRequest',
   '2': [
-    {'1': 'customer_id', '3': 1, '4': 1, '5': 5, '10': 'customerId'},
+    {'1': 'customer_pk', '3': 1, '4': 1, '5': 5, '10': 'customerPk'},
   ],
 };
 
 /// Descriptor for `GetCustomerByIdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getCustomerByIdRequestDescriptor = $convert.base64Decode(
-    'ChZHZXRDdXN0b21lckJ5SWRSZXF1ZXN0Eh8KC2N1c3RvbWVyX2lkGAEgASgFUgpjdXN0b21lck'
-    'lk');
+    'ChZHZXRDdXN0b21lckJ5SWRSZXF1ZXN0Eh8KC2N1c3RvbWVyX3BrGAEgASgFUgpjdXN0b21lcl'
+    'Br');
 
 @$core.Deprecated('Use getCustomerByIdResponseDescriptor instead')
 const GetCustomerByIdResponse$json = {
   '1': 'GetCustomerByIdResponse',
   '2': [
-    {'1': 'customer_id', '3': 1, '4': 1, '5': 5, '10': 'customerId'},
-    {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.gs_protobufs.user.GetUserByIdResponse', '9': 0, '10': 'user', '17': true},
-    {'1': 'person', '3': 3, '4': 1, '5': 11, '6': '.gs_protobufs.person.Person', '10': 'person'},
-    {'1': 'dependents', '3': 4, '4': 3, '5': 11, '6': '.gs_protobufs.person.Person', '10': 'dependents'},
+    {'1': 'customer_pk', '3': 1, '4': 1, '5': 5, '10': 'customerPk'},
+    {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.protos.user.GetUserByIdResponse', '9': 0, '10': 'user', '17': true},
+    {'1': 'person', '3': 3, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
+    {'1': 'dependents', '3': 4, '4': 3, '5': 11, '6': '.custom_types.person.Person', '10': 'dependents'},
     {'1': 'billing_address', '3': 5, '4': 1, '5': 9, '10': 'billingAddress'},
-    {'1': 'picture_path', '3': 6, '4': 1, '5': 9, '9': 1, '10': 'picturePath', '17': true},
-    {'1': 'additional_information', '3': 7, '4': 1, '5': 9, '10': 'additionalInformation'},
+    {'1': 'additional_information', '3': 6, '4': 1, '5': 9, '10': 'additionalInformation'},
   ],
   '8': [
     {'1': '_user'},
-    {'1': '_picture_path'},
   ],
 };
 
 /// Descriptor for `GetCustomerByIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getCustomerByIdResponseDescriptor = $convert.base64Decode(
-    'ChdHZXRDdXN0b21lckJ5SWRSZXNwb25zZRIfCgtjdXN0b21lcl9pZBgBIAEoBVIKY3VzdG9tZX'
-    'JJZBI/CgR1c2VyGAIgASgLMiYuZ3NfcHJvdG9idWZzLnVzZXIuR2V0VXNlckJ5SWRSZXNwb25z'
-    'ZUgAUgR1c2VyiAEBEjMKBnBlcnNvbhgDIAEoCzIbLmdzX3Byb3RvYnVmcy5wZXJzb24uUGVyc2'
-    '9uUgZwZXJzb24SOwoKZGVwZW5kZW50cxgEIAMoCzIbLmdzX3Byb3RvYnVmcy5wZXJzb24uUGVy'
-    'c29uUgpkZXBlbmRlbnRzEicKD2JpbGxpbmdfYWRkcmVzcxgFIAEoCVIOYmlsbGluZ0FkZHJlc3'
-    'MSJgoMcGljdHVyZV9wYXRoGAYgASgJSAFSC3BpY3R1cmVQYXRoiAEBEjUKFmFkZGl0aW9uYWxf'
-    'aW5mb3JtYXRpb24YByABKAlSFWFkZGl0aW9uYWxJbmZvcm1hdGlvbkIHCgVfdXNlckIPCg1fcG'
-    'ljdHVyZV9wYXRo');
+    'ChdHZXRDdXN0b21lckJ5SWRSZXNwb25zZRIfCgtjdXN0b21lcl9waxgBIAEoBVIKY3VzdG9tZX'
+    'JQaxI5CgR1c2VyGAIgASgLMiAucHJvdG9zLnVzZXIuR2V0VXNlckJ5SWRSZXNwb25zZUgAUgR1'
+    'c2VyiAEBEjMKBnBlcnNvbhgDIAEoCzIbLmN1c3RvbV90eXBlcy5wZXJzb24uUGVyc29uUgZwZX'
+    'Jzb24SOwoKZGVwZW5kZW50cxgEIAMoCzIbLmN1c3RvbV90eXBlcy5wZXJzb24uUGVyc29uUgpk'
+    'ZXBlbmRlbnRzEicKD2JpbGxpbmdfYWRkcmVzcxgFIAEoCVIOYmlsbGluZ0FkZHJlc3MSNQoWYW'
+    'RkaXRpb25hbF9pbmZvcm1hdGlvbhgGIAEoCVIVYWRkaXRpb25hbEluZm9ybWF0aW9uQgcKBV91'
+    'c2Vy');
 
 @$core.Deprecated('Use customerOptionDescriptor instead')
 const CustomerOption$json = {
   '1': 'CustomerOption',
   '2': [
-    {'1': 'customer_id', '3': 1, '4': 1, '5': 5, '10': 'customerId'},
-    {'1': 'person', '3': 2, '4': 1, '5': 11, '6': '.gs_protobufs.person.Person', '10': 'person'},
-    {'1': 'picture_path', '3': 3, '4': 1, '5': 9, '9': 0, '10': 'picturePath', '17': true},
-    {'1': 'dependents', '3': 4, '4': 3, '5': 11, '6': '.gs_protobufs.person.Person', '10': 'dependents'},
-  ],
-  '8': [
-    {'1': '_picture_path'},
+    {'1': 'customer_pk', '3': 1, '4': 1, '5': 5, '10': 'customerPk'},
+    {'1': 'person', '3': 2, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
+    {'1': 'dependents', '3': 3, '4': 3, '5': 11, '6': '.custom_types.person.Person', '10': 'dependents'},
   ],
 };
 
 /// Descriptor for `CustomerOption`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List customerOptionDescriptor = $convert.base64Decode(
-    'Cg5DdXN0b21lck9wdGlvbhIfCgtjdXN0b21lcl9pZBgBIAEoBVIKY3VzdG9tZXJJZBIzCgZwZX'
-    'Jzb24YAiABKAsyGy5nc19wcm90b2J1ZnMucGVyc29uLlBlcnNvblIGcGVyc29uEiYKDHBpY3R1'
-    'cmVfcGF0aBgDIAEoCUgAUgtwaWN0dXJlUGF0aIgBARI7CgpkZXBlbmRlbnRzGAQgAygLMhsuZ3'
-    'NfcHJvdG9idWZzLnBlcnNvbi5QZXJzb25SCmRlcGVuZGVudHNCDwoNX3BpY3R1cmVfcGF0aA==');
+    'Cg5DdXN0b21lck9wdGlvbhIfCgtjdXN0b21lcl9waxgBIAEoBVIKY3VzdG9tZXJQaxIzCgZwZX'
+    'Jzb24YAiABKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIGcGVyc29uEjsKCmRlcGVu'
+    'ZGVudHMYAyADKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIKZGVwZW5kZW50cw==');
 
 @$core.Deprecated('Use getAllCustomersOptionsRequestDescriptor instead')
 const GetAllCustomersOptionsRequest$json = {
@@ -116,42 +108,33 @@ final $typed_data.Uint8List getAllCustomersOptionsRequestDescriptor = $convert.b
 const GetAllCustomersOptionsResponse$json = {
   '1': 'GetAllCustomersOptionsResponse',
   '2': [
-    {'1': 'customer_options', '3': 1, '4': 3, '5': 11, '6': '.gs_protobufs.customer.CustomerOption', '10': 'customerOptions'},
+    {'1': 'customer_options', '3': 1, '4': 3, '5': 11, '6': '.protos.customer.CustomerOption', '10': 'customerOptions'},
   ],
 };
 
 /// Descriptor for `GetAllCustomersOptionsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getAllCustomersOptionsResponseDescriptor = $convert.base64Decode(
-    'Ch5HZXRBbGxDdXN0b21lcnNPcHRpb25zUmVzcG9uc2USUAoQY3VzdG9tZXJfb3B0aW9ucxgBIA'
-    'MoCzIlLmdzX3Byb3RvYnVmcy5jdXN0b21lci5DdXN0b21lck9wdGlvblIPY3VzdG9tZXJPcHRp'
-    'b25z');
+    'Ch5HZXRBbGxDdXN0b21lcnNPcHRpb25zUmVzcG9uc2USSgoQY3VzdG9tZXJfb3B0aW9ucxgBIA'
+    'MoCzIfLnByb3Rvcy5jdXN0b21lci5DdXN0b21lck9wdGlvblIPY3VzdG9tZXJPcHRpb25z');
 
 @$core.Deprecated('Use createCustomerRequestDescriptor instead')
 const CreateCustomerRequest$json = {
   '1': 'CreateCustomerRequest',
   '2': [
-    {'1': 'user', '3': 1, '4': 1, '5': 11, '6': '.gs_protobufs.user.GetUserByIdResponse', '9': 0, '10': 'user', '17': true},
-    {'1': 'person', '3': 2, '4': 1, '5': 11, '6': '.gs_protobufs.person.Person', '10': 'person'},
-    {'1': 'dependents', '3': 3, '4': 3, '5': 11, '6': '.gs_protobufs.person.Person', '10': 'dependents'},
-    {'1': 'billing_address', '3': 4, '4': 1, '5': 9, '10': 'billingAddress'},
-    {'1': 'picture_path', '3': 5, '4': 1, '5': 9, '9': 1, '10': 'picturePath', '17': true},
-    {'1': 'additional_information', '3': 6, '4': 1, '5': 9, '10': 'additionalInformation'},
-  ],
-  '8': [
-    {'1': '_user'},
-    {'1': '_picture_path'},
+    {'1': 'person', '3': 1, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
+    {'1': 'dependents', '3': 2, '4': 3, '5': 11, '6': '.custom_types.person.Person', '10': 'dependents'},
+    {'1': 'billing_address', '3': 3, '4': 1, '5': 9, '10': 'billingAddress'},
+    {'1': 'additional_information', '3': 4, '4': 1, '5': 9, '10': 'additionalInformation'},
   ],
 };
 
 /// Descriptor for `CreateCustomerRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createCustomerRequestDescriptor = $convert.base64Decode(
-    'ChVDcmVhdGVDdXN0b21lclJlcXVlc3QSPwoEdXNlchgBIAEoCzImLmdzX3Byb3RvYnVmcy51c2'
-    'VyLkdldFVzZXJCeUlkUmVzcG9uc2VIAFIEdXNlcogBARIzCgZwZXJzb24YAiABKAsyGy5nc19w'
-    'cm90b2J1ZnMucGVyc29uLlBlcnNvblIGcGVyc29uEjsKCmRlcGVuZGVudHMYAyADKAsyGy5nc1'
-    '9wcm90b2J1ZnMucGVyc29uLlBlcnNvblIKZGVwZW5kZW50cxInCg9iaWxsaW5nX2FkZHJlc3MY'
-    'BCABKAlSDmJpbGxpbmdBZGRyZXNzEiYKDHBpY3R1cmVfcGF0aBgFIAEoCUgBUgtwaWN0dXJlUG'
-    'F0aIgBARI1ChZhZGRpdGlvbmFsX2luZm9ybWF0aW9uGAYgASgJUhVhZGRpdGlvbmFsSW5mb3Jt'
-    'YXRpb25CBwoFX3VzZXJCDwoNX3BpY3R1cmVfcGF0aA==');
+    'ChVDcmVhdGVDdXN0b21lclJlcXVlc3QSMwoGcGVyc29uGAEgASgLMhsuY3VzdG9tX3R5cGVzLn'
+    'BlcnNvbi5QZXJzb25SBnBlcnNvbhI7CgpkZXBlbmRlbnRzGAIgAygLMhsuY3VzdG9tX3R5cGVz'
+    'LnBlcnNvbi5QZXJzb25SCmRlcGVuZGVudHMSJwoPYmlsbGluZ19hZGRyZXNzGAMgASgJUg5iaW'
+    'xsaW5nQWRkcmVzcxI1ChZhZGRpdGlvbmFsX2luZm9ybWF0aW9uGAQgASgJUhVhZGRpdGlvbmFs'
+    'SW5mb3JtYXRpb24=');
 
 @$core.Deprecated('Use createCustomerResponseDescriptor instead')
 const CreateCustomerResponse$json = {
@@ -166,30 +149,27 @@ final $typed_data.Uint8List createCustomerResponseDescriptor = $convert.base64De
 const UpdateCustomerRequest$json = {
   '1': 'UpdateCustomerRequest',
   '2': [
-    {'1': 'customer_id', '3': 1, '4': 1, '5': 5, '10': 'customerId'},
-    {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.gs_protobufs.user.GetUserByIdResponse', '9': 0, '10': 'user', '17': true},
-    {'1': 'person', '3': 3, '4': 1, '5': 11, '6': '.gs_protobufs.person.Person', '10': 'person'},
-    {'1': 'dependents', '3': 4, '4': 3, '5': 11, '6': '.gs_protobufs.person.Person', '10': 'dependents'},
+    {'1': 'customer_pk', '3': 1, '4': 1, '5': 5, '10': 'customerPk'},
+    {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.protos.user.GetUserByIdResponse', '9': 0, '10': 'user', '17': true},
+    {'1': 'person', '3': 3, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
+    {'1': 'dependents', '3': 4, '4': 3, '5': 11, '6': '.custom_types.person.Person', '10': 'dependents'},
     {'1': 'billing_address', '3': 5, '4': 1, '5': 9, '10': 'billingAddress'},
-    {'1': 'picture_path', '3': 6, '4': 1, '5': 9, '9': 1, '10': 'picturePath', '17': true},
-    {'1': 'additional_information', '3': 7, '4': 1, '5': 9, '10': 'additionalInformation'},
+    {'1': 'additional_information', '3': 6, '4': 1, '5': 9, '10': 'additionalInformation'},
   ],
   '8': [
     {'1': '_user'},
-    {'1': '_picture_path'},
   ],
 };
 
 /// Descriptor for `UpdateCustomerRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateCustomerRequestDescriptor = $convert.base64Decode(
-    'ChVVcGRhdGVDdXN0b21lclJlcXVlc3QSHwoLY3VzdG9tZXJfaWQYASABKAVSCmN1c3RvbWVySW'
-    'QSPwoEdXNlchgCIAEoCzImLmdzX3Byb3RvYnVmcy51c2VyLkdldFVzZXJCeUlkUmVzcG9uc2VI'
-    'AFIEdXNlcogBARIzCgZwZXJzb24YAyABKAsyGy5nc19wcm90b2J1ZnMucGVyc29uLlBlcnNvbl'
-    'IGcGVyc29uEjsKCmRlcGVuZGVudHMYBCADKAsyGy5nc19wcm90b2J1ZnMucGVyc29uLlBlcnNv'
-    'blIKZGVwZW5kZW50cxInCg9iaWxsaW5nX2FkZHJlc3MYBSABKAlSDmJpbGxpbmdBZGRyZXNzEi'
-    'YKDHBpY3R1cmVfcGF0aBgGIAEoCUgBUgtwaWN0dXJlUGF0aIgBARI1ChZhZGRpdGlvbmFsX2lu'
-    'Zm9ybWF0aW9uGAcgASgJUhVhZGRpdGlvbmFsSW5mb3JtYXRpb25CBwoFX3VzZXJCDwoNX3BpY3'
-    'R1cmVfcGF0aA==');
+    'ChVVcGRhdGVDdXN0b21lclJlcXVlc3QSHwoLY3VzdG9tZXJfcGsYASABKAVSCmN1c3RvbWVyUG'
+    'sSOQoEdXNlchgCIAEoCzIgLnByb3Rvcy51c2VyLkdldFVzZXJCeUlkUmVzcG9uc2VIAFIEdXNl'
+    'cogBARIzCgZwZXJzb24YAyABKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIGcGVyc2'
+    '9uEjsKCmRlcGVuZGVudHMYBCADKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIKZGVw'
+    'ZW5kZW50cxInCg9iaWxsaW5nX2FkZHJlc3MYBSABKAlSDmJpbGxpbmdBZGRyZXNzEjUKFmFkZG'
+    'l0aW9uYWxfaW5mb3JtYXRpb24YBiABKAlSFWFkZGl0aW9uYWxJbmZvcm1hdGlvbkIHCgVfdXNl'
+    'cg==');
 
 @$core.Deprecated('Use updateCustomerResponseDescriptor instead')
 const UpdateCustomerResponse$json = {
@@ -204,14 +184,14 @@ final $typed_data.Uint8List updateCustomerResponseDescriptor = $convert.base64De
 const DeleteCustomerRequest$json = {
   '1': 'DeleteCustomerRequest',
   '2': [
-    {'1': 'customer_id', '3': 1, '4': 1, '5': 5, '10': 'customerId'},
+    {'1': 'customer_pk', '3': 1, '4': 1, '5': 5, '10': 'customerPk'},
   ],
 };
 
 /// Descriptor for `DeleteCustomerRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteCustomerRequestDescriptor = $convert.base64Decode(
-    'ChVEZWxldGVDdXN0b21lclJlcXVlc3QSHwoLY3VzdG9tZXJfaWQYASABKAVSCmN1c3RvbWVySW'
-    'Q=');
+    'ChVEZWxldGVDdXN0b21lclJlcXVlc3QSHwoLY3VzdG9tZXJfcGsYASABKAVSCmN1c3RvbWVyUG'
+    's=');
 
 @$core.Deprecated('Use deleteCustomerResponseDescriptor instead')
 const DeleteCustomerResponse$json = {

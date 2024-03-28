@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: gs_protobufs/protos/calendar_date.proto
+//  source: gs_protobufs/protos/custom_types/person.proto
 //
 // @dart = 2.12
 

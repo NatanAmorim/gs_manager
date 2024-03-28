@@ -11,11 +11,9 @@ class CustomerDetailsController {
   late CreateCustomerRequest customer = customerUpdating == null
       ? CreateCustomerRequest()
       : CreateCustomerRequest(
-          user: customerUpdating!.user,
           person: customerUpdating!.person,
           dependents: customerUpdating!.dependents,
           billingAddress: customerUpdating!.billingAddress,
-          picturePath: customerUpdating!.picturePath,
           additionalInformation: customerUpdating!.additionalInformation,
         );
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();

@@ -19,26 +19,26 @@ import 'sale_billing.pb.dart' as $14;
 
 export 'sale_billing.pb.dart';
 
-@$pb.GrpcServiceName('gs_protobufs.sale_billing.SaleBillingService')
+@$pb.GrpcServiceName('protos.sale_billing.SaleBillingService')
 class SaleBillingServiceClient extends $grpc.Client {
-  static final _$getPaginated = $grpc.ClientMethod<$14.GetPaginatedSalesBillingRequest, $14.GetPaginatedSalesBillingResponse>(
-      '/gs_protobufs.sale_billing.SaleBillingService/GetPaginated',
-      ($14.GetPaginatedSalesBillingRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $14.GetPaginatedSalesBillingResponse.fromBuffer(value));
+  static final _$getPaginated = $grpc.ClientMethod<$14.GetPaginatedSaleBillingsRequest, $14.GetPaginatedSaleBillingsResponse>(
+      '/protos.sale_billing.SaleBillingService/GetPaginated',
+      ($14.GetPaginatedSaleBillingsRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $14.GetPaginatedSaleBillingsResponse.fromBuffer(value));
   static final _$getById = $grpc.ClientMethod<$14.GetSaleBillingByIdRequest, $14.GetSaleBillingByIdResponse>(
-      '/gs_protobufs.sale_billing.SaleBillingService/GetById',
+      '/protos.sale_billing.SaleBillingService/GetById',
       ($14.GetSaleBillingByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $14.GetSaleBillingByIdResponse.fromBuffer(value));
   static final _$post = $grpc.ClientMethod<$14.CreateSaleBillingRequest, $14.CreateSaleBillingResponse>(
-      '/gs_protobufs.sale_billing.SaleBillingService/Post',
+      '/protos.sale_billing.SaleBillingService/Post',
       ($14.CreateSaleBillingRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $14.CreateSaleBillingResponse.fromBuffer(value));
   static final _$put = $grpc.ClientMethod<$14.UpdateSaleBillingRequest, $14.UpdateSaleBillingResponse>(
-      '/gs_protobufs.sale_billing.SaleBillingService/Put',
+      '/protos.sale_billing.SaleBillingService/Put',
       ($14.UpdateSaleBillingRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $14.UpdateSaleBillingResponse.fromBuffer(value));
   static final _$delete = $grpc.ClientMethod<$14.DeleteSaleBillingRequest, $14.DeleteSaleBillingResponse>(
-      '/gs_protobufs.sale_billing.SaleBillingService/Delete',
+      '/protos.sale_billing.SaleBillingService/Delete',
       ($14.DeleteSaleBillingRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $14.DeleteSaleBillingResponse.fromBuffer(value));
 
@@ -48,7 +48,7 @@ class SaleBillingServiceClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$14.GetPaginatedSalesBillingResponse> getPaginated($14.GetPaginatedSalesBillingRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$14.GetPaginatedSaleBillingsResponse> getPaginated($14.GetPaginatedSaleBillingsRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getPaginated, request, options: options);
   }
 
@@ -69,18 +69,18 @@ class SaleBillingServiceClient extends $grpc.Client {
   }
 }
 
-@$pb.GrpcServiceName('gs_protobufs.sale_billing.SaleBillingService')
+@$pb.GrpcServiceName('protos.sale_billing.SaleBillingService')
 abstract class SaleBillingServiceBase extends $grpc.Service {
-  $core.String get $name => 'gs_protobufs.sale_billing.SaleBillingService';
+  $core.String get $name => 'protos.sale_billing.SaleBillingService';
 
   SaleBillingServiceBase() {
-    $addMethod($grpc.ServiceMethod<$14.GetPaginatedSalesBillingRequest, $14.GetPaginatedSalesBillingResponse>(
+    $addMethod($grpc.ServiceMethod<$14.GetPaginatedSaleBillingsRequest, $14.GetPaginatedSaleBillingsResponse>(
         'GetPaginated',
         getPaginated_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $14.GetPaginatedSalesBillingRequest.fromBuffer(value),
-        ($14.GetPaginatedSalesBillingResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $14.GetPaginatedSaleBillingsRequest.fromBuffer(value),
+        ($14.GetPaginatedSaleBillingsResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$14.GetSaleBillingByIdRequest, $14.GetSaleBillingByIdResponse>(
         'GetById',
         getById_Pre,
@@ -111,7 +111,7 @@ abstract class SaleBillingServiceBase extends $grpc.Service {
         ($14.DeleteSaleBillingResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$14.GetPaginatedSalesBillingResponse> getPaginated_Pre($grpc.ServiceCall call, $async.Future<$14.GetPaginatedSalesBillingRequest> request) async {
+  $async.Future<$14.GetPaginatedSaleBillingsResponse> getPaginated_Pre($grpc.ServiceCall call, $async.Future<$14.GetPaginatedSaleBillingsRequest> request) async {
     return getPaginated(call, await request);
   }
 
@@ -131,7 +131,7 @@ abstract class SaleBillingServiceBase extends $grpc.Service {
     return delete(call, await request);
   }
 
-  $async.Future<$14.GetPaginatedSalesBillingResponse> getPaginated($grpc.ServiceCall call, $14.GetPaginatedSalesBillingRequest request);
+  $async.Future<$14.GetPaginatedSaleBillingsResponse> getPaginated($grpc.ServiceCall call, $14.GetPaginatedSaleBillingsRequest request);
   $async.Future<$14.GetSaleBillingByIdResponse> getById($grpc.ServiceCall call, $14.GetSaleBillingByIdRequest request);
   $async.Future<$14.CreateSaleBillingResponse> post($grpc.ServiceCall call, $14.CreateSaleBillingRequest request);
   $async.Future<$14.UpdateSaleBillingResponse> put($grpc.ServiceCall call, $14.UpdateSaleBillingRequest request);
