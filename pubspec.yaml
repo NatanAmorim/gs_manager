@@ -3,7 +3,7 @@ name: gs_manager
 description: Aplicativo utilizado para gerenciar a empresa "Gislaine Studio" em Andradina-SP, Brasil.
 homepage: https://gislainestudio.com.br
 repository: https://github.com/NatanAmorim/gs_manager
-version: 24.03.9-beta
+version: 24.03.10-beta
 # Prevent accidental publishing to pub.dev.
 publish_to: "none"
 # TODO add `false_secrets` more info in <https://dart.dev/tools/pub/pubspec#false_secrets>
@@ -67,25 +67,39 @@ flutter:
     - assets/sounds/material_product_sounds/
     - pubspec.yaml
 
+# This package generates native code to customize Flutter's default white native splash screen
+# with background color and splash image.
+# To apply changes run the following command in the terminal:
+# `dart run flutter_native_splash:create`
+# To restore Flutter's default white splash screen, run the following command in the terminal:
+# `dart run flutter_native_splash:remove`
 flutter_native_splash:
   android: true
   ios: true
   web: false
-
-  color: "#000000"
-  image: assets/images/gs_manager_logo.png
+  color: "#F7DFEF"
+  color_dark: "#322633"
+  image: assets/images/gislaine_studio_logo.png
+  image_dark: assets/images/gislaine_studio_logo.png
   android_12:
-    image: assets/images/gs_manager_logo.png
-    icon_background_color: "#ffffff"
-    image_dark: assets/images/gs_manager_logo.png
-    icon_background_color_dark: "#000000"
+    image: assets/images/gislaine_studio_logo.png
+    icon_background_color: "#F7DFEF"
+    image_dark: assets/images/gislaine_studio_logo.png
+    icon_background_color_dark: "#322633"
 
+# A tool that simplifies the task of updating your Flutter APP launcher icon.
+# Run the package
+# After setting up the configuration, all that is left to do is run the package.
+# `dart run flutter_launcher_icons`
 flutter_launcher_icons:
-  android: true
-  ios: false
+  adaptive_icon_background: "#322633"
+  adaptive_icon_foreground: "assets/images/gs_manager_logo.png"
   image_path: "assets/images/gs_manager_logo.png"
+  android: true
   min_sdk_android: 21
-  remove_alpha_ios: true
+  ios: false
+  # remove_alpha_ios: true
+  # background_color_ios: "#322633"
   web:
     generate: false
   windows:

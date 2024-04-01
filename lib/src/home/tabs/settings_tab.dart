@@ -194,7 +194,7 @@ class SettingsTab extends ConsumerWidget {
                         showAboutDialog(
                           context: context,
                           applicationIcon: Image.asset(
-                            'assets/images/logo.png',
+                            'assets/images/gislaine_studio_logo_texto.png',
                             width: 128,
                             height: 128,
                           ),

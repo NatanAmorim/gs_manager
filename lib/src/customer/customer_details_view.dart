@@ -382,7 +382,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                         filled: true,
                         border: UnderlineInputBorder(),
                         prefixIcon: Icon(Icons.search),
-                        labelText: 'Código do CEP',
+                        labelText: 'Preencher endereço com CEP',
                         hintText: 'Digite o CEP. Exemplo: 16.901-007',
                       ),
                       keyboardType: TextInputType.number,
