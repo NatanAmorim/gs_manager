@@ -15,35 +15,57 @@ class SettingsTab extends ConsumerWidget {
   });
 
   final Logger logger = Logger('SettingsTabWidget');
+
   final String companyName = "Gislaine Studio";
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final TextStyle defaultTextStyle =
+        Theme.of(context).textTheme.bodyMedium!.copyWith(height: 1.2);
     final List<Widget> aboutBoxChildren = <Widget>[
       const SizedBox(height: 24),
       RichText(
         text: TextSpan(
+          style: defaultTextStyle,
           children: <TextSpan>[
             TextSpan(
-              style: Theme.of(context).textTheme.headlineSmall!,
-              text: 'App de gestão da empresa $companyName em Andradina - SP.',
+              style: Theme.of(context).textTheme.bodyLarge!,
+              text: 'App de gestão da empresa $companyName ©',
+            ),
+            TextSpan(
+              style: defaultTextStyle.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+              text: '\n\n' 'CNPJ',
+            ),
+            const TextSpan(
+              text: '\n' '28.127.998/0001-09',
+            ),
+            TextSpan(
+              style: defaultTextStyle.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+              text: '\n\n' 'Inscrição Estadual',
+            ),
+            const TextSpan(
+              text: '\n' '170.159.941.113',
+            ),
+            TextSpan(
+              style: defaultTextStyle.copyWith(
+                fontWeight: FontWeight.bold,
+              ),
+              text: '\n\n' 'Endereço',
+            ),
+            const TextSpan(
+              text: '\n'
+                  'Avenida Bandeirantes, N° 546, Bairro Centro,'
+                  '\n'
+                  'Andradina - SP, 16901-007.',
             ),
             TextSpan(
               style: Theme.of(context).textTheme.bodySmall!,
-              text: '\n\n Criado por Natan Amorim S. G. de Moraes.\n\n',
-            ),
-            TextSpan(
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyLarge!
-                  .copyWith(fontWeight: FontWeight.bold),
-              text:
-                  '\u{a9} $companyName MEI. Avenida Bandeirantes, N° 546, Bairro Centro, Andradina - SP, 16901-007.',
-            ),
-            TextSpan(
-              style: Theme.of(context).textTheme.bodyLarge!,
-              text: '\n\nCNPJ: 28.127.998/0001-09'
-                  '\nIE: 170.159.941.113',
+              text: '\n\n'
+                  'Software criado por Natan Amorim S. G. de Moraes.',
             ),
           ],
         ),
@@ -200,14 +222,15 @@ class SettingsTab extends ConsumerWidget {
                           ),
                           applicationName: '$companyName Manager App',
                           applicationVersion: 'v${packageInfo.version}',
-                          applicationLegalese:
-                              '© ${DateTime.now().year} - $companyName - Todos os direitos reservados',
+                          applicationLegalese: '\u{a9} '
+                              '${DateTime.now().year} $companyName MEI, '
+                              'Todos os direitos reservados.',
                           children: aboutBoxChildren,
                         );
                       },
                     ),
                     ListTile(
-                      title: const Text("Encerrar Sessão"),
+                      title: const Text("Desconectar Usuário"),
                       textColor: Theme.of(context).colorScheme.secondary,
                       leading: const Icon(Icons.logout),
                       trailing: const Icon(Icons.arrow_right),

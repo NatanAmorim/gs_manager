@@ -30,10 +30,14 @@ Here's a short description of each element
 <!-- FIX: `customer_details_view.dart` does **NOT** show error on FutureBuilder in AlertDialog when an error occurs -->
 
 <!--
-## 24.04.11-beta (Apr XX, 2024)
+## 24.04.12-beta (Apr XX, 2024)
 
 - TODO: Compatible with Server version `1.0.0-RC-1`
 -->
+
+## 24.04.11-beta (Apr 02, 2024)
+
+- Update "About us".
 
 ## 24.04.10-beta (Apr 01, 2024)
 
