@@ -1,8 +1,8 @@
 // import 'package:flutter/material.dart';
 // import 'package:gs_manager/helpers.dart';
 
-// class AulaDetailsController {
-//   AulaDetailsController({
+// class DisciplineDetailsController {
+//   DisciplineDetailsController({
 //     this.disciplineUpdating,
 //   });
 

@@ -17,13 +17,13 @@ import 'dart:typed_data' as $typed_data;
 const GetPaginatedAttendancesRequest$json = {
   '1': 'GetPaginatedAttendancesRequest',
   '2': [
-    {'1': 'cursor', '3': 1, '4': 1, '5': 5, '10': 'cursor'},
+    {'1': 'cursor', '3': 1, '4': 1, '5': 9, '10': 'cursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedAttendancesRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedAttendancesRequestDescriptor = $convert.base64Decode(
-    'Ch5HZXRQYWdpbmF0ZWRBdHRlbmRhbmNlc1JlcXVlc3QSFgoGY3Vyc29yGAEgASgFUgZjdXJzb3'
+    'Ch5HZXRQYWdpbmF0ZWRBdHRlbmRhbmNlc1JlcXVlc3QSFgoGY3Vyc29yGAEgASgJUgZjdXJzb3'
     'I=');
 
 @$core.Deprecated('Use getPaginatedAttendancesResponseDescriptor instead')
@@ -31,7 +31,7 @@ const GetPaginatedAttendancesResponse$json = {
   '1': 'GetPaginatedAttendancesResponse',
   '2': [
     {'1': 'attendances', '3': 1, '4': 3, '5': 11, '6': '.protos.attendance.GetAttendanceByIdResponse', '10': 'attendances'},
-    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'nextCursor'},
+    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'nextCursor'},
   ],
 };
 
@@ -39,64 +39,61 @@ const GetPaginatedAttendancesResponse$json = {
 final $typed_data.Uint8List getPaginatedAttendancesResponseDescriptor = $convert.base64Decode(
     'Ch9HZXRQYWdpbmF0ZWRBdHRlbmRhbmNlc1Jlc3BvbnNlEk4KC2F0dGVuZGFuY2VzGAEgAygLMi'
     'wucHJvdG9zLmF0dGVuZGFuY2UuR2V0QXR0ZW5kYW5jZUJ5SWRSZXNwb25zZVILYXR0ZW5kYW5j'
-    'ZXMSPAoLbmV4dF9jdXJzb3IYAiABKAsyGy5nb29nbGUucHJvdG9idWYuSW50MzJWYWx1ZVIKbm'
-    'V4dEN1cnNvcg==');
+    'ZXMSPQoLbmV4dF9jdXJzb3IYAiABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWVSCm'
+    '5leHRDdXJzb3I=');
 
 @$core.Deprecated('Use getAttendanceByIdRequestDescriptor instead')
 const GetAttendanceByIdRequest$json = {
   '1': 'GetAttendanceByIdRequest',
   '2': [
-    {'1': 'attendance_pk', '3': 1, '4': 1, '5': 5, '10': 'attendancePk'},
+    {'1': 'attendance_id', '3': 1, '4': 1, '5': 9, '10': 'attendanceId'},
   ],
 };
 
 /// Descriptor for `GetAttendanceByIdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getAttendanceByIdRequestDescriptor = $convert.base64Decode(
-    'ChhHZXRBdHRlbmRhbmNlQnlJZFJlcXVlc3QSIwoNYXR0ZW5kYW5jZV9waxgBIAEoBVIMYXR0ZW'
-    '5kYW5jZVBr');
+    'ChhHZXRBdHRlbmRhbmNlQnlJZFJlcXVlc3QSIwoNYXR0ZW5kYW5jZV9pZBgBIAEoCVIMYXR0ZW'
+    '5kYW5jZUlk');
 
 @$core.Deprecated('Use getAttendanceByIdResponseDescriptor instead')
 const GetAttendanceByIdResponse$json = {
   '1': 'GetAttendanceByIdResponse',
   '2': [
-    {'1': 'attendance_pk', '3': 1, '4': 1, '5': 5, '10': 'attendancePk'},
+    {'1': 'attendance_id', '3': 1, '4': 1, '5': 9, '10': 'attendanceId'},
     {'1': 'discipline', '3': 2, '4': 1, '5': 11, '6': '.protos.discipline.GetDisciplineByIdResponse', '10': 'discipline'},
     {'1': 'date', '3': 3, '4': 1, '5': 11, '6': '.custom_types.calendar_date.CalendarDate', '10': 'date'},
-    {'1': 'students_present', '3': 4, '4': 3, '5': 11, '6': '.custom_types.person.Person', '10': 'studentsPresent'},
-    {'1': 'students_absent', '3': 5, '4': 3, '5': 11, '6': '.custom_types.person.Person', '10': 'studentsAbsent'},
-    {'1': 'observations', '3': 6, '4': 1, '5': 9, '10': 'observations'},
+    {'1': 'attendees_statuses', '3': 4, '4': 3, '5': 11, '6': '.protos.attendance.AttendanceAttendeeStatus', '10': 'attendeesStatuses'},
+    {'1': 'observations', '3': 5, '4': 1, '5': 9, '10': 'observations'},
   ],
 };
 
 /// Descriptor for `GetAttendanceByIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getAttendanceByIdResponseDescriptor = $convert.base64Decode(
-    'ChlHZXRBdHRlbmRhbmNlQnlJZFJlc3BvbnNlEiMKDWF0dGVuZGFuY2VfcGsYASABKAVSDGF0dG'
-    'VuZGFuY2VQaxJMCgpkaXNjaXBsaW5lGAIgASgLMiwucHJvdG9zLmRpc2NpcGxpbmUuR2V0RGlz'
+    'ChlHZXRBdHRlbmRhbmNlQnlJZFJlc3BvbnNlEiMKDWF0dGVuZGFuY2VfaWQYASABKAlSDGF0dG'
+    'VuZGFuY2VJZBJMCgpkaXNjaXBsaW5lGAIgASgLMiwucHJvdG9zLmRpc2NpcGxpbmUuR2V0RGlz'
     'Y2lwbGluZUJ5SWRSZXNwb25zZVIKZGlzY2lwbGluZRI8CgRkYXRlGAMgASgLMiguY3VzdG9tX3'
-    'R5cGVzLmNhbGVuZGFyX2RhdGUuQ2FsZW5kYXJEYXRlUgRkYXRlEkYKEHN0dWRlbnRzX3ByZXNl'
-    'bnQYBCADKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIPc3R1ZGVudHNQcmVzZW50Ek'
-    'QKD3N0dWRlbnRzX2Fic2VudBgFIAMoCzIbLmN1c3RvbV90eXBlcy5wZXJzb24uUGVyc29uUg5z'
-    'dHVkZW50c0Fic2VudBIiCgxvYnNlcnZhdGlvbnMYBiABKAlSDG9ic2VydmF0aW9ucw==');
+    'R5cGVzLmNhbGVuZGFyX2RhdGUuQ2FsZW5kYXJEYXRlUgRkYXRlEloKEmF0dGVuZGVlc19zdGF0'
+    'dXNlcxgEIAMoCzIrLnByb3Rvcy5hdHRlbmRhbmNlLkF0dGVuZGFuY2VBdHRlbmRlZVN0YXR1c1'
+    'IRYXR0ZW5kZWVzU3RhdHVzZXMSIgoMb2JzZXJ2YXRpb25zGAUgASgJUgxvYnNlcnZhdGlvbnM=');
 
 @$core.Deprecated('Use createAttendanceRequestDescriptor instead')
 const CreateAttendanceRequest$json = {
   '1': 'CreateAttendanceRequest',
   '2': [
-    {'1': 'discipline_fk', '3': 1, '4': 1, '5': 5, '10': 'disciplineFk'},
+    {'1': 'discipline_id', '3': 1, '4': 1, '5': 9, '10': 'disciplineId'},
     {'1': 'date', '3': 2, '4': 1, '5': 11, '6': '.custom_types.calendar_date.CalendarDate', '10': 'date'},
-    {'1': 'students_present_fks', '3': 3, '4': 3, '5': 5, '10': 'studentsPresentFks'},
-    {'1': 'students_absent_fks', '3': 4, '4': 3, '5': 5, '10': 'studentsAbsentFks'},
-    {'1': 'observations', '3': 5, '4': 1, '5': 9, '10': 'observations'},
+    {'1': 'attendees_statuses', '3': 3, '4': 3, '5': 11, '6': '.protos.attendance.AttendanceAttendeeStatus', '10': 'attendeesStatuses'},
+    {'1': 'observations', '3': 4, '4': 1, '5': 9, '10': 'observations'},
   ],
 };
 
 /// Descriptor for `CreateAttendanceRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createAttendanceRequestDescriptor = $convert.base64Decode(
-    'ChdDcmVhdGVBdHRlbmRhbmNlUmVxdWVzdBIjCg1kaXNjaXBsaW5lX2ZrGAEgASgFUgxkaXNjaX'
-    'BsaW5lRmsSPAoEZGF0ZRgCIAEoCzIoLmN1c3RvbV90eXBlcy5jYWxlbmRhcl9kYXRlLkNhbGVu'
-    'ZGFyRGF0ZVIEZGF0ZRIwChRzdHVkZW50c19wcmVzZW50X2ZrcxgDIAMoBVISc3R1ZGVudHNQcm'
-    'VzZW50RmtzEi4KE3N0dWRlbnRzX2Fic2VudF9ma3MYBCADKAVSEXN0dWRlbnRzQWJzZW50Rmtz'
-    'EiIKDG9ic2VydmF0aW9ucxgFIAEoCVIMb2JzZXJ2YXRpb25z');
+    'ChdDcmVhdGVBdHRlbmRhbmNlUmVxdWVzdBIjCg1kaXNjaXBsaW5lX2lkGAEgASgJUgxkaXNjaX'
+    'BsaW5lSWQSPAoEZGF0ZRgCIAEoCzIoLmN1c3RvbV90eXBlcy5jYWxlbmRhcl9kYXRlLkNhbGVu'
+    'ZGFyRGF0ZVIEZGF0ZRJaChJhdHRlbmRlZXNfc3RhdHVzZXMYAyADKAsyKy5wcm90b3MuYXR0ZW'
+    '5kYW5jZS5BdHRlbmRhbmNlQXR0ZW5kZWVTdGF0dXNSEWF0dGVuZGVlc1N0YXR1c2VzEiIKDG9i'
+    'c2VydmF0aW9ucxgEIAEoCVIMb2JzZXJ2YXRpb25z');
 
 @$core.Deprecated('Use createAttendanceResponseDescriptor instead')
 const CreateAttendanceResponse$json = {
@@ -111,23 +108,22 @@ final $typed_data.Uint8List createAttendanceResponseDescriptor = $convert.base64
 const UpdateAttendanceRequest$json = {
   '1': 'UpdateAttendanceRequest',
   '2': [
-    {'1': 'attendance_pk', '3': 1, '4': 1, '5': 5, '10': 'attendancePk'},
-    {'1': 'discipline_fk', '3': 2, '4': 1, '5': 5, '10': 'disciplineFk'},
+    {'1': 'attendance_id', '3': 1, '4': 1, '5': 9, '10': 'attendanceId'},
+    {'1': 'discipline_id', '3': 2, '4': 1, '5': 9, '10': 'disciplineId'},
     {'1': 'date', '3': 3, '4': 1, '5': 11, '6': '.custom_types.calendar_date.CalendarDate', '10': 'date'},
-    {'1': 'students_present_fks', '3': 4, '4': 3, '5': 5, '10': 'studentsPresentFks'},
-    {'1': 'students_absent_fks', '3': 5, '4': 3, '5': 5, '10': 'studentsAbsentFks'},
-    {'1': 'observations', '3': 6, '4': 1, '5': 9, '10': 'observations'},
+    {'1': 'attendees_statuses', '3': 4, '4': 3, '5': 11, '6': '.protos.attendance.AttendanceAttendeeStatus', '10': 'attendeesStatuses'},
+    {'1': 'observations', '3': 5, '4': 1, '5': 9, '10': 'observations'},
   ],
 };
 
 /// Descriptor for `UpdateAttendanceRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateAttendanceRequestDescriptor = $convert.base64Decode(
-    'ChdVcGRhdGVBdHRlbmRhbmNlUmVxdWVzdBIjCg1hdHRlbmRhbmNlX3BrGAEgASgFUgxhdHRlbm'
-    'RhbmNlUGsSIwoNZGlzY2lwbGluZV9maxgCIAEoBVIMZGlzY2lwbGluZUZrEjwKBGRhdGUYAyAB'
-    'KAsyKC5jdXN0b21fdHlwZXMuY2FsZW5kYXJfZGF0ZS5DYWxlbmRhckRhdGVSBGRhdGUSMAoUc3'
-    'R1ZGVudHNfcHJlc2VudF9ma3MYBCADKAVSEnN0dWRlbnRzUHJlc2VudEZrcxIuChNzdHVkZW50'
-    'c19hYnNlbnRfZmtzGAUgAygFUhFzdHVkZW50c0Fic2VudEZrcxIiCgxvYnNlcnZhdGlvbnMYBi'
-    'ABKAlSDG9ic2VydmF0aW9ucw==');
+    'ChdVcGRhdGVBdHRlbmRhbmNlUmVxdWVzdBIjCg1hdHRlbmRhbmNlX2lkGAEgASgJUgxhdHRlbm'
+    'RhbmNlSWQSIwoNZGlzY2lwbGluZV9pZBgCIAEoCVIMZGlzY2lwbGluZUlkEjwKBGRhdGUYAyAB'
+    'KAsyKC5jdXN0b21fdHlwZXMuY2FsZW5kYXJfZGF0ZS5DYWxlbmRhckRhdGVSBGRhdGUSWgoSYX'
+    'R0ZW5kZWVzX3N0YXR1c2VzGAQgAygLMisucHJvdG9zLmF0dGVuZGFuY2UuQXR0ZW5kYW5jZUF0'
+    'dGVuZGVlU3RhdHVzUhFhdHRlbmRlZXNTdGF0dXNlcxIiCgxvYnNlcnZhdGlvbnMYBSABKAlSDG'
+    '9ic2VydmF0aW9ucw==');
 
 @$core.Deprecated('Use updateAttendanceResponseDescriptor instead')
 const UpdateAttendanceResponse$json = {
@@ -142,14 +138,14 @@ final $typed_data.Uint8List updateAttendanceResponseDescriptor = $convert.base64
 const DeleteAttendanceRequest$json = {
   '1': 'DeleteAttendanceRequest',
   '2': [
-    {'1': 'attendance_pk', '3': 1, '4': 1, '5': 5, '10': 'attendancePk'},
+    {'1': 'attendance_id', '3': 1, '4': 1, '5': 9, '10': 'attendanceId'},
   ],
 };
 
 /// Descriptor for `DeleteAttendanceRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteAttendanceRequestDescriptor = $convert.base64Decode(
-    'ChdEZWxldGVBdHRlbmRhbmNlUmVxdWVzdBIjCg1hdHRlbmRhbmNlX3BrGAEgASgFUgxhdHRlbm'
-    'RhbmNlUGs=');
+    'ChdEZWxldGVBdHRlbmRhbmNlUmVxdWVzdBIjCg1hdHRlbmRhbmNlX2lkGAEgASgJUgxhdHRlbm'
+    'RhbmNlSWQ=');
 
 @$core.Deprecated('Use deleteAttendanceResponseDescriptor instead')
 const DeleteAttendanceResponse$json = {
@@ -159,4 +155,22 @@ const DeleteAttendanceResponse$json = {
 /// Descriptor for `DeleteAttendanceResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteAttendanceResponseDescriptor = $convert.base64Decode(
     'ChhEZWxldGVBdHRlbmRhbmNlUmVzcG9uc2U=');
+
+@$core.Deprecated('Use attendanceAttendeeStatusDescriptor instead')
+const AttendanceAttendeeStatus$json = {
+  '1': 'AttendanceAttendeeStatus',
+  '2': [
+    {'1': 'attendance_attendee_status_id', '3': 1, '4': 1, '5': 9, '10': 'attendanceAttendeeStatusId'},
+    {'1': 'person_id', '3': 2, '4': 1, '5': 9, '10': 'personId'},
+    {'1': 'is_present', '3': 3, '4': 1, '5': 8, '10': 'isPresent'},
+    {'1': 'is_absent', '3': 4, '4': 1, '5': 8, '10': 'isAbsent'},
+  ],
+};
+
+/// Descriptor for `AttendanceAttendeeStatus`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List attendanceAttendeeStatusDescriptor = $convert.base64Decode(
+    'ChhBdHRlbmRhbmNlQXR0ZW5kZWVTdGF0dXMSQQodYXR0ZW5kYW5jZV9hdHRlbmRlZV9zdGF0dX'
+    'NfaWQYASABKAlSGmF0dGVuZGFuY2VBdHRlbmRlZVN0YXR1c0lkEhsKCXBlcnNvbl9pZBgCIAEo'
+    'CVIIcGVyc29uSWQSHQoKaXNfcHJlc2VudBgDIAEoCFIJaXNQcmVzZW50EhsKCWlzX2Fic2VudB'
+    'gEIAEoCFIIaXNBYnNlbnQ=');
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gs_manager/components.dart';
+import 'package:gs_manager/components/date_picker_button_component.dart';
 import 'package:gs_manager/formatters.dart';
 import 'package:gs_manager/helpers.dart';
 import 'package:gs_manager/protos.dart';
@@ -42,8 +43,13 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
     int index,
     Animation<double> animation,
   ) {
-    return SizeTransition(
-      sizeFactor: animation,
+    return SlideTransition(
+      position: animation.drive(
+        Tween<Offset>(
+          begin: const Offset(-0.1, -0.5),
+          end: Offset.zero,
+        ),
+      ),
       child: _buildDependentsWidget(controller.customer.dependents[index]),
     );
   }
@@ -61,8 +67,13 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
     Animation<double> animation,
   ) {
     // WARNING we don't want removed items to be interactive.
-    return SizeTransition(
-      sizeFactor: animation,
+    return SlideTransition(
+      position: animation.drive(
+        Tween<Offset>(
+          begin: const Offset(-0.8, 0.0),
+          end: Offset.zero,
+        ),
+      ),
       child: FadeTransition(
         opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
         child: _buildDependentsWidget(
@@ -140,13 +151,10 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
         const SizedBox(height: 8.0),
         TextInputComponent(
           isEnabled: !isRemoving,
-          label: 'Nome do filho ou dependente',
-          placeholderText: 'Digite o nome do filho ou dependente',
+          label: 'Nome do dependente',
+          placeholderText: 'Digite o nome do dependente',
           initialValue: dependente.name,
-          // onSaved: (String? text) => controller.cliente.nome = text!, // TODO
-          onChanged: (String? text) => setState(() {
-            dependente.name = text!;
-          }),
+          onChanged: (String? text) => dependente.name = text!,
           keyboardType: TextInputType.name,
           validator: (String? value) {
             if (value == null || value.isEmpty) {
@@ -165,8 +173,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
           label: 'Data de nascimento',
           placeholderText: 'Digite a data. Formato: XX/XX/XXXX',
           initialValue: dependente.birthDate,
-          // onSaved: (String? text) => // TODO
-          //     controller.cliente.dataNascimento = text!,
+          onChanged: (String? text) => dependente.birthDate = text!,
           validator: validateBirthday,
           keyboardType: TextInputType.datetime,
           inputFormatters: [
@@ -265,32 +272,9 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                       controller: valueListenable,
                       label: 'Data de nascimento',
                       placeholderText: 'Digite a data. Formato: XX/XX/XXXX',
-                      suffixIcon: TextButton.icon(
-                        label: const Text(
-                          "Escolha uma data",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        icon: const Icon(Icons.calendar_month),
-                        onPressed: () async {
-                          final DateTime? newDate = await showDatePicker(
-                            context: context,
-                            initialDate: DateTime(
-                              DateTime.now().year - 2,
-                            ),
-                            firstDate: DateTime(
-                              1920,
-                            ),
-                            lastDate: DateTime(
-                              DateTime.now().year - 2,
-                            ),
-                          );
-
-                          if (newDate == null) {
-                            return;
-                          }
-
+                      suffixIcon: datePickerButtonComponent(
+                        context: context,
+                        onDatePicked: (DateTime newDate) {
                           dataNascimentoController.value.text =
                               dateFormatter.format(newDate);
                         },
@@ -335,44 +319,14 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                 autofocus: widget.customerUpdating == null,
                 label: 'Número CIN (Carteira de Identidade Nacional)',
                 placeholderText: 'Digite o CIN do cliente',
-                initialValue: controller.customer.person.cin,
-                onSaved: (String? text) =>
-                    controller.customer.person.cin = text!,
-                keyboardType: TextInputType.number,
-                validator: (String? value) {
-                  // TODO
-                  return null;
-                },
+                // initialValue: controller.customer.person.cin,
+                // onSaved: (String? text) =>
+                //     controller.customer.person.cin = text!,
+                // validator: (String? value) {
+                //   return null;
+                // },
               ),
-              TextButton.icon(
-                style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-                      (Set<MaterialState> states) {
-                    bool isLightTheme =
-                        Theme.of(context).brightness == Brightness.light;
-
-                    if (states.contains(MaterialState.pressed)) {
-                      return isLightTheme
-                          ? Colors.blue.shade700.withOpacity(0.6)
-                          : Colors.lightBlue.shade300.withOpacity(0.6);
-                    }
-
-                    return isLightTheme
-                        ? Colors.blue.shade700
-                        : Colors.lightBlue.shade300;
-                  }),
-                ),
-                onPressed: () async {
-                  final Uri url = Uri.parse(
-                    'https://buscacepinter.correios.com.br/app/endereco/index.php',
-                  );
-                  if (!await launchUrl(url)) {
-                    throw Exception('Could not launch $url');
-                  }
-                },
-                icon: const Icon(Icons.open_in_browser),
-                label: const Text("Procurar CEP no website correios"),
-              ),
+              const SizedBox(height: 16.0),
               Row(
                 children: [
                   Flexible(
@@ -404,7 +358,36 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                   ),
                 ],
               ),
-              const SizedBox(height: 16.0),
+              TextButton.icon(
+                style: ButtonStyle(
+                  foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+                      (Set<WidgetState> states) {
+                    bool isLightTheme =
+                        Theme.of(context).brightness == Brightness.light;
+
+                    if (states.contains(WidgetState.pressed)) {
+                      return isLightTheme
+                          ? Colors.blue.shade700.withOpacity(0.6)
+                          : Colors.lightBlue.shade300.withOpacity(0.6);
+                    }
+
+                    return isLightTheme
+                        ? Colors.blue.shade700
+                        : Colors.lightBlue.shade300;
+                  }),
+                ),
+                onPressed: () async {
+                  final Uri url = Uri.parse(
+                    'https://buscacepinter.correios.com.br/app/endereco/index.php',
+                  );
+                  if (!await launchUrl(url)) {
+                    throw Exception('Could not launch $url');
+                  }
+                },
+                icon: const Icon(Icons.open_in_browser),
+                label: const Text("Procurar CEP no website correios"),
+              ),
+              const SizedBox(height: 4.0),
               ValueListenableBuilder<TextEditingController>(
                 valueListenable: addressNotifier,
                 builder: (
@@ -447,13 +430,13 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
             initialItemCount: controller.customer.dependents.length,
             itemBuilder: _buildItem,
           ),
-          TextButton.icon(
+          OutlinedButton.icon(
             onPressed: () => _insert(Person()),
             icon: const Icon(
               Icons.person_add,
             ),
             label: const Text(
-              'Adicionar filho ou dependente',
+              'Adicionar dependente',
               style: TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold,

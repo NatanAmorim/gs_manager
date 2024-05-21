@@ -21,24 +21,24 @@ export 'subscription_billing.pb.dart';
 
 @$pb.GrpcServiceName('protos.subscription_billing.SubscriptionBillingService')
 class SubscriptionBillingServiceClient extends $grpc.Client {
-  static final _$getPaginated = $grpc.ClientMethod<$16.GetPaginatedSubscriptionBillingsRequest, $16.GetPaginatedSubscriptionBillingsResponse>(
-      '/protos.subscription_billing.SubscriptionBillingService/GetPaginated',
+  static final _$getPaginatedAsync = $grpc.ClientMethod<$16.GetPaginatedSubscriptionBillingsRequest, $16.GetPaginatedSubscriptionBillingsResponse>(
+      '/protos.subscription_billing.SubscriptionBillingService/GetPaginatedAsync',
       ($16.GetPaginatedSubscriptionBillingsRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $16.GetPaginatedSubscriptionBillingsResponse.fromBuffer(value));
-  static final _$getById = $grpc.ClientMethod<$16.GetSubscriptionBillingByIdRequest, $16.GetSubscriptionBillingByIdResponse>(
-      '/protos.subscription_billing.SubscriptionBillingService/GetById',
+  static final _$getByIdAsync = $grpc.ClientMethod<$16.GetSubscriptionBillingByIdRequest, $16.GetSubscriptionBillingByIdResponse>(
+      '/protos.subscription_billing.SubscriptionBillingService/GetByIdAsync',
       ($16.GetSubscriptionBillingByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $16.GetSubscriptionBillingByIdResponse.fromBuffer(value));
-  static final _$post = $grpc.ClientMethod<$16.CreateSubscriptionBillingRequest, $16.CreateSubscriptionBillingResponse>(
-      '/protos.subscription_billing.SubscriptionBillingService/Post',
+  static final _$postAsync = $grpc.ClientMethod<$16.CreateSubscriptionBillingRequest, $16.CreateSubscriptionBillingResponse>(
+      '/protos.subscription_billing.SubscriptionBillingService/PostAsync',
       ($16.CreateSubscriptionBillingRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $16.CreateSubscriptionBillingResponse.fromBuffer(value));
-  static final _$put = $grpc.ClientMethod<$16.UpdateSubscriptionBillingRequest, $16.UpdateSubscriptionBillingResponse>(
-      '/protos.subscription_billing.SubscriptionBillingService/Put',
+  static final _$putAsync = $grpc.ClientMethod<$16.UpdateSubscriptionBillingRequest, $16.UpdateSubscriptionBillingResponse>(
+      '/protos.subscription_billing.SubscriptionBillingService/PutAsync',
       ($16.UpdateSubscriptionBillingRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $16.UpdateSubscriptionBillingResponse.fromBuffer(value));
-  static final _$delete = $grpc.ClientMethod<$16.DeleteSubscriptionBillingRequest, $16.DeleteSubscriptionBillingResponse>(
-      '/protos.subscription_billing.SubscriptionBillingService/Delete',
+  static final _$deleteAsync = $grpc.ClientMethod<$16.DeleteSubscriptionBillingRequest, $16.DeleteSubscriptionBillingResponse>(
+      '/protos.subscription_billing.SubscriptionBillingService/DeleteAsync',
       ($16.DeleteSubscriptionBillingRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $16.DeleteSubscriptionBillingResponse.fromBuffer(value));
 
@@ -48,24 +48,24 @@ class SubscriptionBillingServiceClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$16.GetPaginatedSubscriptionBillingsResponse> getPaginated($16.GetPaginatedSubscriptionBillingsRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getPaginated, request, options: options);
+  $grpc.ResponseFuture<$16.GetPaginatedSubscriptionBillingsResponse> getPaginatedAsync($16.GetPaginatedSubscriptionBillingsRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getPaginatedAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$16.GetSubscriptionBillingByIdResponse> getById($16.GetSubscriptionBillingByIdRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getById, request, options: options);
+  $grpc.ResponseFuture<$16.GetSubscriptionBillingByIdResponse> getByIdAsync($16.GetSubscriptionBillingByIdRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$16.CreateSubscriptionBillingResponse> post($16.CreateSubscriptionBillingRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$post, request, options: options);
+  $grpc.ResponseFuture<$16.CreateSubscriptionBillingResponse> postAsync($16.CreateSubscriptionBillingRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$postAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$16.UpdateSubscriptionBillingResponse> put($16.UpdateSubscriptionBillingRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$put, request, options: options);
+  $grpc.ResponseFuture<$16.UpdateSubscriptionBillingResponse> putAsync($16.UpdateSubscriptionBillingRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$16.DeleteSubscriptionBillingResponse> delete($16.DeleteSubscriptionBillingRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$delete, request, options: options);
+  $grpc.ResponseFuture<$16.DeleteSubscriptionBillingResponse> deleteAsync($16.DeleteSubscriptionBillingRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 }
 
@@ -75,65 +75,65 @@ abstract class SubscriptionBillingServiceBase extends $grpc.Service {
 
   SubscriptionBillingServiceBase() {
     $addMethod($grpc.ServiceMethod<$16.GetPaginatedSubscriptionBillingsRequest, $16.GetPaginatedSubscriptionBillingsResponse>(
-        'GetPaginated',
-        getPaginated_Pre,
+        'GetPaginatedAsync',
+        getPaginatedAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $16.GetPaginatedSubscriptionBillingsRequest.fromBuffer(value),
         ($16.GetPaginatedSubscriptionBillingsResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$16.GetSubscriptionBillingByIdRequest, $16.GetSubscriptionBillingByIdResponse>(
-        'GetById',
-        getById_Pre,
+        'GetByIdAsync',
+        getByIdAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $16.GetSubscriptionBillingByIdRequest.fromBuffer(value),
         ($16.GetSubscriptionBillingByIdResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$16.CreateSubscriptionBillingRequest, $16.CreateSubscriptionBillingResponse>(
-        'Post',
-        post_Pre,
+        'PostAsync',
+        postAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $16.CreateSubscriptionBillingRequest.fromBuffer(value),
         ($16.CreateSubscriptionBillingResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$16.UpdateSubscriptionBillingRequest, $16.UpdateSubscriptionBillingResponse>(
-        'Put',
-        put_Pre,
+        'PutAsync',
+        putAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $16.UpdateSubscriptionBillingRequest.fromBuffer(value),
         ($16.UpdateSubscriptionBillingResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$16.DeleteSubscriptionBillingRequest, $16.DeleteSubscriptionBillingResponse>(
-        'Delete',
-        delete_Pre,
+        'DeleteAsync',
+        deleteAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $16.DeleteSubscriptionBillingRequest.fromBuffer(value),
         ($16.DeleteSubscriptionBillingResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$16.GetPaginatedSubscriptionBillingsResponse> getPaginated_Pre($grpc.ServiceCall call, $async.Future<$16.GetPaginatedSubscriptionBillingsRequest> request) async {
-    return getPaginated(call, await request);
+  $async.Future<$16.GetPaginatedSubscriptionBillingsResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$16.GetPaginatedSubscriptionBillingsRequest> request) async {
+    return getPaginatedAsync(call, await request);
   }
 
-  $async.Future<$16.GetSubscriptionBillingByIdResponse> getById_Pre($grpc.ServiceCall call, $async.Future<$16.GetSubscriptionBillingByIdRequest> request) async {
-    return getById(call, await request);
+  $async.Future<$16.GetSubscriptionBillingByIdResponse> getByIdAsync_Pre($grpc.ServiceCall call, $async.Future<$16.GetSubscriptionBillingByIdRequest> request) async {
+    return getByIdAsync(call, await request);
   }
 
-  $async.Future<$16.CreateSubscriptionBillingResponse> post_Pre($grpc.ServiceCall call, $async.Future<$16.CreateSubscriptionBillingRequest> request) async {
-    return post(call, await request);
+  $async.Future<$16.CreateSubscriptionBillingResponse> postAsync_Pre($grpc.ServiceCall call, $async.Future<$16.CreateSubscriptionBillingRequest> request) async {
+    return postAsync(call, await request);
   }
 
-  $async.Future<$16.UpdateSubscriptionBillingResponse> put_Pre($grpc.ServiceCall call, $async.Future<$16.UpdateSubscriptionBillingRequest> request) async {
-    return put(call, await request);
+  $async.Future<$16.UpdateSubscriptionBillingResponse> putAsync_Pre($grpc.ServiceCall call, $async.Future<$16.UpdateSubscriptionBillingRequest> request) async {
+    return putAsync(call, await request);
   }
 
-  $async.Future<$16.DeleteSubscriptionBillingResponse> delete_Pre($grpc.ServiceCall call, $async.Future<$16.DeleteSubscriptionBillingRequest> request) async {
-    return delete(call, await request);
+  $async.Future<$16.DeleteSubscriptionBillingResponse> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$16.DeleteSubscriptionBillingRequest> request) async {
+    return deleteAsync(call, await request);
   }
 
-  $async.Future<$16.GetPaginatedSubscriptionBillingsResponse> getPaginated($grpc.ServiceCall call, $16.GetPaginatedSubscriptionBillingsRequest request);
-  $async.Future<$16.GetSubscriptionBillingByIdResponse> getById($grpc.ServiceCall call, $16.GetSubscriptionBillingByIdRequest request);
-  $async.Future<$16.CreateSubscriptionBillingResponse> post($grpc.ServiceCall call, $16.CreateSubscriptionBillingRequest request);
-  $async.Future<$16.UpdateSubscriptionBillingResponse> put($grpc.ServiceCall call, $16.UpdateSubscriptionBillingRequest request);
-  $async.Future<$16.DeleteSubscriptionBillingResponse> delete($grpc.ServiceCall call, $16.DeleteSubscriptionBillingRequest request);
+  $async.Future<$16.GetPaginatedSubscriptionBillingsResponse> getPaginatedAsync($grpc.ServiceCall call, $16.GetPaginatedSubscriptionBillingsRequest request);
+  $async.Future<$16.GetSubscriptionBillingByIdResponse> getByIdAsync($grpc.ServiceCall call, $16.GetSubscriptionBillingByIdRequest request);
+  $async.Future<$16.CreateSubscriptionBillingResponse> postAsync($grpc.ServiceCall call, $16.CreateSubscriptionBillingRequest request);
+  $async.Future<$16.UpdateSubscriptionBillingResponse> putAsync($grpc.ServiceCall call, $16.UpdateSubscriptionBillingRequest request);
+  $async.Future<$16.DeleteSubscriptionBillingResponse> deleteAsync($grpc.ServiceCall call, $16.DeleteSubscriptionBillingRequest request);
 }

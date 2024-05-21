@@ -21,24 +21,24 @@ export 'notification.pb.dart';
 
 @$pb.GrpcServiceName('protos.notification.NotificationService')
 class NotificationServiceClient extends $grpc.Client {
-  static final _$getPaginated = $grpc.ClientMethod<$7.GetPaginatedNotificationsRequest, $7.GetPaginatedNotificationsResponse>(
-      '/protos.notification.NotificationService/GetPaginated',
+  static final _$getPaginatedAsync = $grpc.ClientMethod<$7.GetPaginatedNotificationsRequest, $7.GetPaginatedNotificationsResponse>(
+      '/protos.notification.NotificationService/GetPaginatedAsync',
       ($7.GetPaginatedNotificationsRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $7.GetPaginatedNotificationsResponse.fromBuffer(value));
-  static final _$getById = $grpc.ClientMethod<$7.GetNotificationByIdRequest, $7.GetNotificationByIdResponse>(
-      '/protos.notification.NotificationService/GetById',
+  static final _$getByIdAsync = $grpc.ClientMethod<$7.GetNotificationByIdRequest, $7.GetNotificationByIdResponse>(
+      '/protos.notification.NotificationService/GetByIdAsync',
       ($7.GetNotificationByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $7.GetNotificationByIdResponse.fromBuffer(value));
-  static final _$post = $grpc.ClientMethod<$7.CreateNotificationRequest, $7.CreateNotificationResponse>(
-      '/protos.notification.NotificationService/Post',
+  static final _$postAsync = $grpc.ClientMethod<$7.CreateNotificationRequest, $7.CreateNotificationResponse>(
+      '/protos.notification.NotificationService/PostAsync',
       ($7.CreateNotificationRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $7.CreateNotificationResponse.fromBuffer(value));
-  static final _$put = $grpc.ClientMethod<$7.UpdateNotificationRequest, $7.UpdateNotificationResponse>(
-      '/protos.notification.NotificationService/Put',
+  static final _$putAsync = $grpc.ClientMethod<$7.UpdateNotificationRequest, $7.UpdateNotificationResponse>(
+      '/protos.notification.NotificationService/PutAsync',
       ($7.UpdateNotificationRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $7.UpdateNotificationResponse.fromBuffer(value));
-  static final _$delete = $grpc.ClientMethod<$7.DeleteNotificationRequest, $7.DeleteNotificationResponse>(
-      '/protos.notification.NotificationService/Delete',
+  static final _$deleteAsync = $grpc.ClientMethod<$7.DeleteNotificationRequest, $7.DeleteNotificationResponse>(
+      '/protos.notification.NotificationService/DeleteAsync',
       ($7.DeleteNotificationRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $7.DeleteNotificationResponse.fromBuffer(value));
 
@@ -48,24 +48,24 @@ class NotificationServiceClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$7.GetPaginatedNotificationsResponse> getPaginated($7.GetPaginatedNotificationsRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getPaginated, request, options: options);
+  $grpc.ResponseFuture<$7.GetPaginatedNotificationsResponse> getPaginatedAsync($7.GetPaginatedNotificationsRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getPaginatedAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$7.GetNotificationByIdResponse> getById($7.GetNotificationByIdRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getById, request, options: options);
+  $grpc.ResponseFuture<$7.GetNotificationByIdResponse> getByIdAsync($7.GetNotificationByIdRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$7.CreateNotificationResponse> post($7.CreateNotificationRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$post, request, options: options);
+  $grpc.ResponseFuture<$7.CreateNotificationResponse> postAsync($7.CreateNotificationRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$postAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$7.UpdateNotificationResponse> put($7.UpdateNotificationRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$put, request, options: options);
+  $grpc.ResponseFuture<$7.UpdateNotificationResponse> putAsync($7.UpdateNotificationRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$7.DeleteNotificationResponse> delete($7.DeleteNotificationRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$delete, request, options: options);
+  $grpc.ResponseFuture<$7.DeleteNotificationResponse> deleteAsync($7.DeleteNotificationRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 }
 
@@ -75,65 +75,65 @@ abstract class NotificationServiceBase extends $grpc.Service {
 
   NotificationServiceBase() {
     $addMethod($grpc.ServiceMethod<$7.GetPaginatedNotificationsRequest, $7.GetPaginatedNotificationsResponse>(
-        'GetPaginated',
-        getPaginated_Pre,
+        'GetPaginatedAsync',
+        getPaginatedAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $7.GetPaginatedNotificationsRequest.fromBuffer(value),
         ($7.GetPaginatedNotificationsResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$7.GetNotificationByIdRequest, $7.GetNotificationByIdResponse>(
-        'GetById',
-        getById_Pre,
+        'GetByIdAsync',
+        getByIdAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $7.GetNotificationByIdRequest.fromBuffer(value),
         ($7.GetNotificationByIdResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$7.CreateNotificationRequest, $7.CreateNotificationResponse>(
-        'Post',
-        post_Pre,
+        'PostAsync',
+        postAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $7.CreateNotificationRequest.fromBuffer(value),
         ($7.CreateNotificationResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$7.UpdateNotificationRequest, $7.UpdateNotificationResponse>(
-        'Put',
-        put_Pre,
+        'PutAsync',
+        putAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $7.UpdateNotificationRequest.fromBuffer(value),
         ($7.UpdateNotificationResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$7.DeleteNotificationRequest, $7.DeleteNotificationResponse>(
-        'Delete',
-        delete_Pre,
+        'DeleteAsync',
+        deleteAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $7.DeleteNotificationRequest.fromBuffer(value),
         ($7.DeleteNotificationResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$7.GetPaginatedNotificationsResponse> getPaginated_Pre($grpc.ServiceCall call, $async.Future<$7.GetPaginatedNotificationsRequest> request) async {
-    return getPaginated(call, await request);
+  $async.Future<$7.GetPaginatedNotificationsResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$7.GetPaginatedNotificationsRequest> request) async {
+    return getPaginatedAsync(call, await request);
   }
 
-  $async.Future<$7.GetNotificationByIdResponse> getById_Pre($grpc.ServiceCall call, $async.Future<$7.GetNotificationByIdRequest> request) async {
-    return getById(call, await request);
+  $async.Future<$7.GetNotificationByIdResponse> getByIdAsync_Pre($grpc.ServiceCall call, $async.Future<$7.GetNotificationByIdRequest> request) async {
+    return getByIdAsync(call, await request);
   }
 
-  $async.Future<$7.CreateNotificationResponse> post_Pre($grpc.ServiceCall call, $async.Future<$7.CreateNotificationRequest> request) async {
-    return post(call, await request);
+  $async.Future<$7.CreateNotificationResponse> postAsync_Pre($grpc.ServiceCall call, $async.Future<$7.CreateNotificationRequest> request) async {
+    return postAsync(call, await request);
   }
 
-  $async.Future<$7.UpdateNotificationResponse> put_Pre($grpc.ServiceCall call, $async.Future<$7.UpdateNotificationRequest> request) async {
-    return put(call, await request);
+  $async.Future<$7.UpdateNotificationResponse> putAsync_Pre($grpc.ServiceCall call, $async.Future<$7.UpdateNotificationRequest> request) async {
+    return putAsync(call, await request);
   }
 
-  $async.Future<$7.DeleteNotificationResponse> delete_Pre($grpc.ServiceCall call, $async.Future<$7.DeleteNotificationRequest> request) async {
-    return delete(call, await request);
+  $async.Future<$7.DeleteNotificationResponse> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$7.DeleteNotificationRequest> request) async {
+    return deleteAsync(call, await request);
   }
 
-  $async.Future<$7.GetPaginatedNotificationsResponse> getPaginated($grpc.ServiceCall call, $7.GetPaginatedNotificationsRequest request);
-  $async.Future<$7.GetNotificationByIdResponse> getById($grpc.ServiceCall call, $7.GetNotificationByIdRequest request);
-  $async.Future<$7.CreateNotificationResponse> post($grpc.ServiceCall call, $7.CreateNotificationRequest request);
-  $async.Future<$7.UpdateNotificationResponse> put($grpc.ServiceCall call, $7.UpdateNotificationRequest request);
-  $async.Future<$7.DeleteNotificationResponse> delete($grpc.ServiceCall call, $7.DeleteNotificationRequest request);
+  $async.Future<$7.GetPaginatedNotificationsResponse> getPaginatedAsync($grpc.ServiceCall call, $7.GetPaginatedNotificationsRequest request);
+  $async.Future<$7.GetNotificationByIdResponse> getByIdAsync($grpc.ServiceCall call, $7.GetNotificationByIdRequest request);
+  $async.Future<$7.CreateNotificationResponse> postAsync($grpc.ServiceCall call, $7.CreateNotificationRequest request);
+  $async.Future<$7.UpdateNotificationResponse> putAsync($grpc.ServiceCall call, $7.UpdateNotificationRequest request);
+  $async.Future<$7.DeleteNotificationResponse> deleteAsync($grpc.ServiceCall call, $7.DeleteNotificationRequest request);
 }

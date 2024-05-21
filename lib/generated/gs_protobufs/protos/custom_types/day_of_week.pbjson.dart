@@ -17,18 +17,20 @@ import 'dart:typed_data' as $typed_data;
 const DayOfWeek$json = {
   '1': 'DayOfWeek',
   '2': [
-    {'1': 'SUNDAY', '2': 0},
-    {'1': 'MONDAY', '2': 1},
-    {'1': 'TUESDAY', '2': 2},
-    {'1': 'WEDNESDAY', '2': 3},
-    {'1': 'THURSDAY', '2': 4},
-    {'1': 'FRIDAY', '2': 5},
-    {'1': 'SATURDAY', '2': 6},
+    {'1': 'DAY_OF_WEEK_SUNDAY', '2': 0},
+    {'1': 'DAY_OF_WEEK_MONDAY', '2': 1},
+    {'1': 'DAY_OF_WEEK_TUESDAY', '2': 2},
+    {'1': 'DAY_OF_WEEK_WEDNESDAY', '2': 3},
+    {'1': 'DAY_OF_WEEK_THURSDAY', '2': 4},
+    {'1': 'DAY_OF_WEEK_FRIDAY', '2': 5},
+    {'1': 'DAY_OF_WEEK_SATURDAY', '2': 6},
   ],
 };
 
 /// Descriptor for `DayOfWeek`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List dayOfWeekDescriptor = $convert.base64Decode(
-    'CglEYXlPZldlZWsSCgoGU1VOREFZEAASCgoGTU9OREFZEAESCwoHVFVFU0RBWRACEg0KCVdFRE'
-    '5FU0RBWRADEgwKCFRIVVJTREFZEAQSCgoGRlJJREFZEAUSDAoIU0FUVVJEQVkQBg==');
+    'CglEYXlPZldlZWsSFgoSREFZX09GX1dFRUtfU1VOREFZEAASFgoSREFZX09GX1dFRUtfTU9ORE'
+    'FZEAESFwoTREFZX09GX1dFRUtfVFVFU0RBWRACEhkKFURBWV9PRl9XRUVLX1dFRE5FU0RBWRAD'
+    'EhgKFERBWV9PRl9XRUVLX1RIVVJTREFZEAQSFgoSREFZX09GX1dFRUtfRlJJREFZEAUSGAoURE'
+    'FZX09GX1dFRUtfU0FUVVJEQVkQBg==');
 

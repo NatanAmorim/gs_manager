@@ -29,11 +29,16 @@ Here's a short description of each element
 
 <!-- FIX: `customer_details_view.dart` does **NOT** show error on FutureBuilder in AlertDialog when an error occurs -->
 
-<!--
-## 24.04.12-beta (Apr XX, 2024)
+## 24.05.1-beta (May 21, 2024)
 
-- TODO: Compatible with Server version `1.0.0-RC-1`
--->
+- Compatible with Server version `1.0.1-RC-6` (not fully implemented).
+- Create Services to communicate with Server with gRPC.
+- Create "datePickerButtonComponent".
+- Login Screen now uses phone number.
+- Customer CRUD is now working and communicating with the server.
+- Better Animations in Customer AnimatedList for dependents.
+- Update protobufs from `a24eb09dd` to `3d4788411`.
+- Update Package Dependencies: "audioplayers", "intl", "package_info_plus", "flutter_lints".
 
 ## 24.04.11-beta (Apr 02, 2024)
 

@@ -15,28 +15,28 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'user.pb.dart' as $0;
+import 'user.pb.dart' as $4;
 
 export 'user.pb.dart';
 
 @$pb.GrpcServiceName('protos.user.UserService')
 class UserServiceClient extends $grpc.Client {
-  static final _$getPaginated = $grpc.ClientMethod<$0.GetPaginatedUsersRequest, $0.GetPaginatedUsersResponse>(
-      '/protos.user.UserService/GetPaginated',
-      ($0.GetPaginatedUsersRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.GetPaginatedUsersResponse.fromBuffer(value));
-  static final _$getById = $grpc.ClientMethod<$0.GetUserByIdRequest, $0.GetUserByIdResponse>(
-      '/protos.user.UserService/GetById',
-      ($0.GetUserByIdRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.GetUserByIdResponse.fromBuffer(value));
-  static final _$put = $grpc.ClientMethod<$0.UpdateUserRequest, $0.UpdateUserResponse>(
-      '/protos.user.UserService/Put',
-      ($0.UpdateUserRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.UpdateUserResponse.fromBuffer(value));
-  static final _$delete = $grpc.ClientMethod<$0.DeleteUserRequest, $0.DeleteUserResponse>(
-      '/protos.user.UserService/Delete',
-      ($0.DeleteUserRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.DeleteUserResponse.fromBuffer(value));
+  static final _$getPaginatedAsync = $grpc.ClientMethod<$4.GetPaginatedUsersRequest, $4.GetPaginatedUsersResponse>(
+      '/protos.user.UserService/GetPaginatedAsync',
+      ($4.GetPaginatedUsersRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $4.GetPaginatedUsersResponse.fromBuffer(value));
+  static final _$getByIdAsync = $grpc.ClientMethod<$4.GetUserByIdRequest, $4.GetUserByIdResponse>(
+      '/protos.user.UserService/GetByIdAsync',
+      ($4.GetUserByIdRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $4.GetUserByIdResponse.fromBuffer(value));
+  static final _$putAsync = $grpc.ClientMethod<$4.UpdateUserRequest, $4.UpdateUserResponse>(
+      '/protos.user.UserService/PutAsync',
+      ($4.UpdateUserRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $4.UpdateUserResponse.fromBuffer(value));
+  static final _$deleteAsync = $grpc.ClientMethod<$4.DeleteUserRequest, $4.DeleteUserResponse>(
+      '/protos.user.UserService/DeleteAsync',
+      ($4.DeleteUserRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $4.DeleteUserResponse.fromBuffer(value));
 
   UserServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -44,20 +44,20 @@ class UserServiceClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$0.GetPaginatedUsersResponse> getPaginated($0.GetPaginatedUsersRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getPaginated, request, options: options);
+  $grpc.ResponseFuture<$4.GetPaginatedUsersResponse> getPaginatedAsync($4.GetPaginatedUsersRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getPaginatedAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.GetUserByIdResponse> getById($0.GetUserByIdRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getById, request, options: options);
+  $grpc.ResponseFuture<$4.GetUserByIdResponse> getByIdAsync($4.GetUserByIdRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.UpdateUserResponse> put($0.UpdateUserRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$put, request, options: options);
+  $grpc.ResponseFuture<$4.UpdateUserResponse> putAsync($4.UpdateUserRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.DeleteUserResponse> delete($0.DeleteUserRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$delete, request, options: options);
+  $grpc.ResponseFuture<$4.DeleteUserResponse> deleteAsync($4.DeleteUserRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 }
 
@@ -66,54 +66,54 @@ abstract class UserServiceBase extends $grpc.Service {
   $core.String get $name => 'protos.user.UserService';
 
   UserServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.GetPaginatedUsersRequest, $0.GetPaginatedUsersResponse>(
-        'GetPaginated',
-        getPaginated_Pre,
+    $addMethod($grpc.ServiceMethod<$4.GetPaginatedUsersRequest, $4.GetPaginatedUsersResponse>(
+        'GetPaginatedAsync',
+        getPaginatedAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.GetPaginatedUsersRequest.fromBuffer(value),
-        ($0.GetPaginatedUsersResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.GetUserByIdRequest, $0.GetUserByIdResponse>(
-        'GetById',
-        getById_Pre,
+        ($core.List<$core.int> value) => $4.GetPaginatedUsersRequest.fromBuffer(value),
+        ($4.GetPaginatedUsersResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$4.GetUserByIdRequest, $4.GetUserByIdResponse>(
+        'GetByIdAsync',
+        getByIdAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.GetUserByIdRequest.fromBuffer(value),
-        ($0.GetUserByIdResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.UpdateUserRequest, $0.UpdateUserResponse>(
-        'Put',
-        put_Pre,
+        ($core.List<$core.int> value) => $4.GetUserByIdRequest.fromBuffer(value),
+        ($4.GetUserByIdResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$4.UpdateUserRequest, $4.UpdateUserResponse>(
+        'PutAsync',
+        putAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.UpdateUserRequest.fromBuffer(value),
-        ($0.UpdateUserResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.DeleteUserRequest, $0.DeleteUserResponse>(
-        'Delete',
-        delete_Pre,
+        ($core.List<$core.int> value) => $4.UpdateUserRequest.fromBuffer(value),
+        ($4.UpdateUserResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$4.DeleteUserRequest, $4.DeleteUserResponse>(
+        'DeleteAsync',
+        deleteAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $0.DeleteUserRequest.fromBuffer(value),
-        ($0.DeleteUserResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $4.DeleteUserRequest.fromBuffer(value),
+        ($4.DeleteUserResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.GetPaginatedUsersResponse> getPaginated_Pre($grpc.ServiceCall call, $async.Future<$0.GetPaginatedUsersRequest> request) async {
-    return getPaginated(call, await request);
+  $async.Future<$4.GetPaginatedUsersResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$4.GetPaginatedUsersRequest> request) async {
+    return getPaginatedAsync(call, await request);
   }
 
-  $async.Future<$0.GetUserByIdResponse> getById_Pre($grpc.ServiceCall call, $async.Future<$0.GetUserByIdRequest> request) async {
-    return getById(call, await request);
+  $async.Future<$4.GetUserByIdResponse> getByIdAsync_Pre($grpc.ServiceCall call, $async.Future<$4.GetUserByIdRequest> request) async {
+    return getByIdAsync(call, await request);
   }
 
-  $async.Future<$0.UpdateUserResponse> put_Pre($grpc.ServiceCall call, $async.Future<$0.UpdateUserRequest> request) async {
-    return put(call, await request);
+  $async.Future<$4.UpdateUserResponse> putAsync_Pre($grpc.ServiceCall call, $async.Future<$4.UpdateUserRequest> request) async {
+    return putAsync(call, await request);
   }
 
-  $async.Future<$0.DeleteUserResponse> delete_Pre($grpc.ServiceCall call, $async.Future<$0.DeleteUserRequest> request) async {
-    return delete(call, await request);
+  $async.Future<$4.DeleteUserResponse> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$4.DeleteUserRequest> request) async {
+    return deleteAsync(call, await request);
   }
 
-  $async.Future<$0.GetPaginatedUsersResponse> getPaginated($grpc.ServiceCall call, $0.GetPaginatedUsersRequest request);
-  $async.Future<$0.GetUserByIdResponse> getById($grpc.ServiceCall call, $0.GetUserByIdRequest request);
-  $async.Future<$0.UpdateUserResponse> put($grpc.ServiceCall call, $0.UpdateUserRequest request);
-  $async.Future<$0.DeleteUserResponse> delete($grpc.ServiceCall call, $0.DeleteUserRequest request);
+  $async.Future<$4.GetPaginatedUsersResponse> getPaginatedAsync($grpc.ServiceCall call, $4.GetPaginatedUsersRequest request);
+  $async.Future<$4.GetUserByIdResponse> getByIdAsync($grpc.ServiceCall call, $4.GetUserByIdRequest request);
+  $async.Future<$4.UpdateUserResponse> putAsync($grpc.ServiceCall call, $4.UpdateUserRequest request);
+  $async.Future<$4.DeleteUserResponse> deleteAsync($grpc.ServiceCall call, $4.DeleteUserRequest request);
 }

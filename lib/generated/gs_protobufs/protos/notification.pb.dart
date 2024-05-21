@@ -14,11 +14,10 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../google/protobuf/wrappers.pb.dart' as $17;
-import 'user.pb.dart' as $0;
 
 class GetPaginatedNotificationsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedNotificationsRequest({
-    $core.int? cursor,
+    $core.String? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -31,7 +30,7 @@ class GetPaginatedNotificationsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedNotificationsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedNotificationsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.notification'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'cursor', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'cursor')
     ..hasRequiredFields = false
   ;
 
@@ -57,9 +56,9 @@ class GetPaginatedNotificationsRequest extends $pb.GeneratedMessage {
   static GetPaginatedNotificationsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get cursor => $_getIZ(0);
+  $core.String get cursor => $_getSZ(0);
   @$pb.TagNumber(1)
-  set cursor($core.int v) { $_setSignedInt32(0, v); }
+  set cursor($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
@@ -69,7 +68,7 @@ class GetPaginatedNotificationsRequest extends $pb.GeneratedMessage {
 class GetPaginatedNotificationsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedNotificationsResponse({
     $core.Iterable<GetNotificationByIdResponse>? notifications,
-    $17.Int32Value? nextCursor,
+    $17.StringValue? nextCursor,
   }) {
     final $result = create();
     if (notifications != null) {
@@ -86,7 +85,7 @@ class GetPaginatedNotificationsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedNotificationsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.notification'), createEmptyInstance: create)
     ..pc<GetNotificationByIdResponse>(1, _omitFieldNames ? '' : 'notifications', $pb.PbFieldType.PM, subBuilder: GetNotificationByIdResponse.create)
-    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.Int32Value.create)
+    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -115,24 +114,24 @@ class GetPaginatedNotificationsResponse extends $pb.GeneratedMessage {
   $core.List<GetNotificationByIdResponse> get notifications => $_getList(0);
 
   @$pb.TagNumber(2)
-  $17.Int32Value get nextCursor => $_getN(1);
+  $17.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($17.Int32Value v) { setField(2, v); }
+  set nextCursor($17.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $17.Int32Value ensureNextCursor() => $_ensure(1);
+  $17.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetNotificationByIdRequest extends $pb.GeneratedMessage {
   factory GetNotificationByIdRequest({
-    $core.int? notificationPk,
+    $core.String? notificationId,
   }) {
     final $result = create();
-    if (notificationPk != null) {
-      $result.notificationPk = notificationPk;
+    if (notificationId != null) {
+      $result.notificationId = notificationId;
     }
     return $result;
   }
@@ -141,7 +140,7 @@ class GetNotificationByIdRequest extends $pb.GeneratedMessage {
   factory GetNotificationByIdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetNotificationByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.notification'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'notificationPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'notificationId')
     ..hasRequiredFields = false
   ;
 
@@ -167,29 +166,29 @@ class GetNotificationByIdRequest extends $pb.GeneratedMessage {
   static GetNotificationByIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get notificationPk => $_getIZ(0);
+  $core.String get notificationId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set notificationPk($core.int v) { $_setSignedInt32(0, v); }
+  set notificationId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasNotificationPk() => $_has(0);
+  $core.bool hasNotificationId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearNotificationPk() => clearField(1);
+  void clearNotificationId() => clearField(1);
 }
 
 class GetNotificationByIdResponse extends $pb.GeneratedMessage {
   factory GetNotificationByIdResponse({
-    $core.int? notificationPk,
-    $0.GetUserByIdResponse? user,
+    $core.String? notificationId,
+    $core.String? userId,
     $core.String? title,
     $core.String? message,
     $core.bool? isUnread,
   }) {
     final $result = create();
-    if (notificationPk != null) {
-      $result.notificationPk = notificationPk;
+    if (notificationId != null) {
+      $result.notificationId = notificationId;
     }
-    if (user != null) {
-      $result.user = user;
+    if (userId != null) {
+      $result.userId = userId;
     }
     if (title != null) {
       $result.title = title;
@@ -207,8 +206,8 @@ class GetNotificationByIdResponse extends $pb.GeneratedMessage {
   factory GetNotificationByIdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetNotificationByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.notification'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'notificationPk', $pb.PbFieldType.O3)
-    ..aOM<$0.GetUserByIdResponse>(2, _omitFieldNames ? '' : 'user', subBuilder: $0.GetUserByIdResponse.create)
+    ..aOS(1, _omitFieldNames ? '' : 'notificationId')
+    ..aOS(2, _omitFieldNames ? '' : 'userId')
     ..aOS(3, _omitFieldNames ? '' : 'title')
     ..aOS(4, _omitFieldNames ? '' : 'message')
     ..aOB(5, _omitFieldNames ? '' : 'isUnread')
@@ -237,24 +236,22 @@ class GetNotificationByIdResponse extends $pb.GeneratedMessage {
   static GetNotificationByIdResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get notificationPk => $_getIZ(0);
+  $core.String get notificationId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set notificationPk($core.int v) { $_setSignedInt32(0, v); }
+  set notificationId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasNotificationPk() => $_has(0);
+  $core.bool hasNotificationId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearNotificationPk() => clearField(1);
+  void clearNotificationId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $0.GetUserByIdResponse get user => $_getN(1);
+  $core.String get userId => $_getSZ(1);
   @$pb.TagNumber(2)
-  set user($0.GetUserByIdResponse v) { setField(2, v); }
+  set userId($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasUser() => $_has(1);
+  $core.bool hasUserId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearUser() => clearField(2);
-  @$pb.TagNumber(2)
-  $0.GetUserByIdResponse ensureUser() => $_ensure(1);
+  void clearUserId() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get title => $_getSZ(2);
@@ -286,13 +283,13 @@ class GetNotificationByIdResponse extends $pb.GeneratedMessage {
 
 class CreateNotificationRequest extends $pb.GeneratedMessage {
   factory CreateNotificationRequest({
-    $core.int? userFk,
+    $core.String? userId,
     $core.String? title,
     $core.String? message,
   }) {
     final $result = create();
-    if (userFk != null) {
-      $result.userFk = userFk;
+    if (userId != null) {
+      $result.userId = userId;
     }
     if (title != null) {
       $result.title = title;
@@ -307,7 +304,7 @@ class CreateNotificationRequest extends $pb.GeneratedMessage {
   factory CreateNotificationRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateNotificationRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.notification'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'userFk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
     ..aOS(2, _omitFieldNames ? '' : 'title')
     ..aOS(3, _omitFieldNames ? '' : 'message')
     ..hasRequiredFields = false
@@ -335,13 +332,13 @@ class CreateNotificationRequest extends $pb.GeneratedMessage {
   static CreateNotificationRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get userFk => $_getIZ(0);
+  $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set userFk($core.int v) { $_setSignedInt32(0, v); }
+  set userId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasUserFk() => $_has(0);
+  $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUserFk() => clearField(1);
+  void clearUserId() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get title => $_getSZ(1);
@@ -396,14 +393,14 @@ class CreateNotificationResponse extends $pb.GeneratedMessage {
 
 class UpdateNotificationRequest extends $pb.GeneratedMessage {
   factory UpdateNotificationRequest({
-    $core.int? notificationPk,
+    $core.String? notificationId,
     $core.String? title,
     $core.String? message,
     $core.bool? isUnread,
   }) {
     final $result = create();
-    if (notificationPk != null) {
-      $result.notificationPk = notificationPk;
+    if (notificationId != null) {
+      $result.notificationId = notificationId;
     }
     if (title != null) {
       $result.title = title;
@@ -421,7 +418,7 @@ class UpdateNotificationRequest extends $pb.GeneratedMessage {
   factory UpdateNotificationRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateNotificationRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.notification'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'notificationPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'notificationId')
     ..aOS(2, _omitFieldNames ? '' : 'title')
     ..aOS(3, _omitFieldNames ? '' : 'message')
     ..aOB(4, _omitFieldNames ? '' : 'isUnread')
@@ -450,13 +447,13 @@ class UpdateNotificationRequest extends $pb.GeneratedMessage {
   static UpdateNotificationRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get notificationPk => $_getIZ(0);
+  $core.String get notificationId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set notificationPk($core.int v) { $_setSignedInt32(0, v); }
+  set notificationId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasNotificationPk() => $_has(0);
+  $core.bool hasNotificationId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearNotificationPk() => clearField(1);
+  void clearNotificationId() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get title => $_getSZ(1);
@@ -520,11 +517,11 @@ class UpdateNotificationResponse extends $pb.GeneratedMessage {
 
 class DeleteNotificationRequest extends $pb.GeneratedMessage {
   factory DeleteNotificationRequest({
-    $core.int? notificationPk,
+    $core.String? notificationId,
   }) {
     final $result = create();
-    if (notificationPk != null) {
-      $result.notificationPk = notificationPk;
+    if (notificationId != null) {
+      $result.notificationId = notificationId;
     }
     return $result;
   }
@@ -533,7 +530,7 @@ class DeleteNotificationRequest extends $pb.GeneratedMessage {
   factory DeleteNotificationRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteNotificationRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.notification'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'notificationPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'notificationId')
     ..hasRequiredFields = false
   ;
 
@@ -559,13 +556,13 @@ class DeleteNotificationRequest extends $pb.GeneratedMessage {
   static DeleteNotificationRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get notificationPk => $_getIZ(0);
+  $core.String get notificationId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set notificationPk($core.int v) { $_setSignedInt32(0, v); }
+  set notificationId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasNotificationPk() => $_has(0);
+  $core.bool hasNotificationId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearNotificationPk() => clearField(1);
+  void clearNotificationId() => clearField(1);
 }
 
 class DeleteNotificationResponse extends $pb.GeneratedMessage {

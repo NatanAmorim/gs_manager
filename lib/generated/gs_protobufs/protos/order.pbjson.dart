@@ -17,52 +17,52 @@ import 'dart:typed_data' as $typed_data;
 const GetPaginatedOrdersRequest$json = {
   '1': 'GetPaginatedOrdersRequest',
   '2': [
-    {'1': 'cursor', '3': 1, '4': 1, '5': 5, '10': 'cursor'},
+    {'1': 'cursor', '3': 1, '4': 1, '5': 9, '10': 'cursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedOrdersRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedOrdersRequestDescriptor = $convert.base64Decode(
-    'ChlHZXRQYWdpbmF0ZWRPcmRlcnNSZXF1ZXN0EhYKBmN1cnNvchgBIAEoBVIGY3Vyc29y');
+    'ChlHZXRQYWdpbmF0ZWRPcmRlcnNSZXF1ZXN0EhYKBmN1cnNvchgBIAEoCVIGY3Vyc29y');
 
 @$core.Deprecated('Use getPaginatedOrdersResponseDescriptor instead')
 const GetPaginatedOrdersResponse$json = {
   '1': 'GetPaginatedOrdersResponse',
   '2': [
     {'1': 'orders', '3': 1, '4': 3, '5': 11, '6': '.protos.order.GetOrderByIdResponse', '10': 'orders'},
-    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'nextCursor'},
+    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'nextCursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedOrdersResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedOrdersResponseDescriptor = $convert.base64Decode(
     'ChpHZXRQYWdpbmF0ZWRPcmRlcnNSZXNwb25zZRI6CgZvcmRlcnMYASADKAsyIi5wcm90b3Mub3'
-    'JkZXIuR2V0T3JkZXJCeUlkUmVzcG9uc2VSBm9yZGVycxI8CgtuZXh0X2N1cnNvchgCIAEoCzIb'
-    'Lmdvb2dsZS5wcm90b2J1Zi5JbnQzMlZhbHVlUgpuZXh0Q3Vyc29y');
+    'JkZXIuR2V0T3JkZXJCeUlkUmVzcG9uc2VSBm9yZGVycxI9CgtuZXh0X2N1cnNvchgCIAEoCzIc'
+    'Lmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZVIKbmV4dEN1cnNvcg==');
 
 @$core.Deprecated('Use getOrderByIdRequestDescriptor instead')
 const GetOrderByIdRequest$json = {
   '1': 'GetOrderByIdRequest',
   '2': [
-    {'1': 'order_pk', '3': 1, '4': 1, '5': 5, '10': 'orderPk'},
+    {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
   ],
 };
 
 /// Descriptor for `GetOrderByIdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getOrderByIdRequestDescriptor = $convert.base64Decode(
-    'ChNHZXRPcmRlckJ5SWRSZXF1ZXN0EhkKCG9yZGVyX3BrGAEgASgFUgdvcmRlclBr');
+    'ChNHZXRPcmRlckJ5SWRSZXF1ZXN0EhkKCG9yZGVyX2lkGAEgASgJUgdvcmRlcklk');
 
 @$core.Deprecated('Use getOrderByIdResponseDescriptor instead')
 const GetOrderByIdResponse$json = {
   '1': 'GetOrderByIdResponse',
   '2': [
-    {'1': 'order_pk', '3': 1, '4': 1, '5': 5, '10': 'orderPk'},
+    {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
   ],
 };
 
 /// Descriptor for `GetOrderByIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getOrderByIdResponseDescriptor = $convert.base64Decode(
-    'ChRHZXRPcmRlckJ5SWRSZXNwb25zZRIZCghvcmRlcl9waxgBIAEoBVIHb3JkZXJQaw==');
+    'ChRHZXRPcmRlckJ5SWRSZXNwb25zZRIZCghvcmRlcl9pZBgBIAEoCVIHb3JkZXJJZA==');
 
 @$core.Deprecated('Use createOrderRequestDescriptor instead')
 const CreateOrderRequest$json = {
@@ -86,13 +86,13 @@ final $typed_data.Uint8List createOrderResponseDescriptor = $convert.base64Decod
 const UpdateOrderRequest$json = {
   '1': 'UpdateOrderRequest',
   '2': [
-    {'1': 'order_pk', '3': 1, '4': 1, '5': 5, '10': 'orderPk'},
+    {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
   ],
 };
 
 /// Descriptor for `UpdateOrderRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateOrderRequestDescriptor = $convert.base64Decode(
-    'ChJVcGRhdGVPcmRlclJlcXVlc3QSGQoIb3JkZXJfcGsYASABKAVSB29yZGVyUGs=');
+    'ChJVcGRhdGVPcmRlclJlcXVlc3QSGQoIb3JkZXJfaWQYASABKAlSB29yZGVySWQ=');
 
 @$core.Deprecated('Use updateOrderResponseDescriptor instead')
 const UpdateOrderResponse$json = {
@@ -107,13 +107,13 @@ final $typed_data.Uint8List updateOrderResponseDescriptor = $convert.base64Decod
 const DeleteOrderRequest$json = {
   '1': 'DeleteOrderRequest',
   '2': [
-    {'1': 'order_pk', '3': 1, '4': 1, '5': 5, '10': 'orderPk'},
+    {'1': 'order_id', '3': 1, '4': 1, '5': 9, '10': 'orderId'},
   ],
 };
 
 /// Descriptor for `DeleteOrderRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteOrderRequestDescriptor = $convert.base64Decode(
-    'ChJEZWxldGVPcmRlclJlcXVlc3QSGQoIb3JkZXJfcGsYASABKAVSB29yZGVyUGs=');
+    'ChJEZWxldGVPcmRlclJlcXVlc3QSGQoIb3JkZXJfaWQYASABKAlSB29yZGVySWQ=');
 
 @$core.Deprecated('Use deleteOrderResponseDescriptor instead')
 const DeleteOrderResponse$json = {

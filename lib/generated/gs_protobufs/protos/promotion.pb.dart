@@ -14,12 +14,12 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../google/protobuf/wrappers.pb.dart' as $17;
-import 'custom_types/calendar_date.pb.dart' as $22;
-import 'customer.pb.dart' as $6;
+import 'custom_types/calendar_date.pb.dart' as $21;
+import 'customer.pb.dart' as $5;
 
 class GetPaginatedPromotionsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedPromotionsRequest({
-    $core.int? cursor,
+    $core.String? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -32,7 +32,7 @@ class GetPaginatedPromotionsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedPromotionsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedPromotionsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'cursor', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'cursor')
     ..hasRequiredFields = false
   ;
 
@@ -58,9 +58,9 @@ class GetPaginatedPromotionsRequest extends $pb.GeneratedMessage {
   static GetPaginatedPromotionsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get cursor => $_getIZ(0);
+  $core.String get cursor => $_getSZ(0);
   @$pb.TagNumber(1)
-  set cursor($core.int v) { $_setSignedInt32(0, v); }
+  set cursor($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
@@ -70,7 +70,7 @@ class GetPaginatedPromotionsRequest extends $pb.GeneratedMessage {
 class GetPaginatedPromotionsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedPromotionsResponse({
     $core.Iterable<GetPromotionByIdResponse>? promotions,
-    $17.Int32Value? nextCursor,
+    $17.StringValue? nextCursor,
   }) {
     final $result = create();
     if (promotions != null) {
@@ -87,7 +87,7 @@ class GetPaginatedPromotionsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedPromotionsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
     ..pc<GetPromotionByIdResponse>(1, _omitFieldNames ? '' : 'promotions', $pb.PbFieldType.PM, subBuilder: GetPromotionByIdResponse.create)
-    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.Int32Value.create)
+    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -116,24 +116,24 @@ class GetPaginatedPromotionsResponse extends $pb.GeneratedMessage {
   $core.List<GetPromotionByIdResponse> get promotions => $_getList(0);
 
   @$pb.TagNumber(2)
-  $17.Int32Value get nextCursor => $_getN(1);
+  $17.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($17.Int32Value v) { setField(2, v); }
+  set nextCursor($17.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $17.Int32Value ensureNextCursor() => $_ensure(1);
+  $17.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetPromotionByIdRequest extends $pb.GeneratedMessage {
   factory GetPromotionByIdRequest({
-    $core.int? promotionPk,
+    $core.String? promotionId,
   }) {
     final $result = create();
-    if (promotionPk != null) {
-      $result.promotionPk = promotionPk;
+    if (promotionId != null) {
+      $result.promotionId = promotionId;
     }
     return $result;
   }
@@ -142,7 +142,7 @@ class GetPromotionByIdRequest extends $pb.GeneratedMessage {
   factory GetPromotionByIdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPromotionByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'promotionPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'promotionId')
     ..hasRequiredFields = false
   ;
 
@@ -168,29 +168,29 @@ class GetPromotionByIdRequest extends $pb.GeneratedMessage {
   static GetPromotionByIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get promotionPk => $_getIZ(0);
+  $core.String get promotionId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set promotionPk($core.int v) { $_setSignedInt32(0, v); }
+  set promotionId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPromotionPk() => $_has(0);
+  $core.bool hasPromotionId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPromotionPk() => clearField(1);
+  void clearPromotionId() => clearField(1);
 }
 
 class GetPromotionByIdResponse extends $pb.GeneratedMessage {
   factory GetPromotionByIdResponse({
-    $core.int? promotionPk,
-    $6.GetCustomerByIdRequest? customer,
+    $core.String? promotionId,
+    $5.GetCustomerByIdResponse? customer,
     $core.String? name,
     $core.String? description,
     $core.String? discountType,
-    $22.CalendarDate? startDate,
-    $22.CalendarDate? endDate,
+    $21.CalendarDate? startDate,
+    $21.CalendarDate? endDate,
     $core.bool? isActive,
   }) {
     final $result = create();
-    if (promotionPk != null) {
-      $result.promotionPk = promotionPk;
+    if (promotionId != null) {
+      $result.promotionId = promotionId;
     }
     if (customer != null) {
       $result.customer = customer;
@@ -220,13 +220,13 @@ class GetPromotionByIdResponse extends $pb.GeneratedMessage {
   factory GetPromotionByIdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPromotionByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'promotionPk', $pb.PbFieldType.O3)
-    ..aOM<$6.GetCustomerByIdRequest>(2, _omitFieldNames ? '' : 'customer', subBuilder: $6.GetCustomerByIdRequest.create)
+    ..aOS(1, _omitFieldNames ? '' : 'promotionId')
+    ..aOM<$5.GetCustomerByIdResponse>(2, _omitFieldNames ? '' : 'customer', subBuilder: $5.GetCustomerByIdResponse.create)
     ..aOS(3, _omitFieldNames ? '' : 'name')
     ..aOS(4, _omitFieldNames ? '' : 'description')
     ..aOS(5, _omitFieldNames ? '' : 'discountType')
-    ..aOM<$22.CalendarDate>(6, _omitFieldNames ? '' : 'startDate', subBuilder: $22.CalendarDate.create)
-    ..aOM<$22.CalendarDate>(7, _omitFieldNames ? '' : 'endDate', subBuilder: $22.CalendarDate.create)
+    ..aOM<$21.CalendarDate>(6, _omitFieldNames ? '' : 'startDate', subBuilder: $21.CalendarDate.create)
+    ..aOM<$21.CalendarDate>(7, _omitFieldNames ? '' : 'endDate', subBuilder: $21.CalendarDate.create)
     ..aOB(8, _omitFieldNames ? '' : 'isActive')
     ..hasRequiredFields = false
   ;
@@ -253,24 +253,24 @@ class GetPromotionByIdResponse extends $pb.GeneratedMessage {
   static GetPromotionByIdResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get promotionPk => $_getIZ(0);
+  $core.String get promotionId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set promotionPk($core.int v) { $_setSignedInt32(0, v); }
+  set promotionId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPromotionPk() => $_has(0);
+  $core.bool hasPromotionId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPromotionPk() => clearField(1);
+  void clearPromotionId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $6.GetCustomerByIdRequest get customer => $_getN(1);
+  $5.GetCustomerByIdResponse get customer => $_getN(1);
   @$pb.TagNumber(2)
-  set customer($6.GetCustomerByIdRequest v) { setField(2, v); }
+  set customer($5.GetCustomerByIdResponse v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasCustomer() => $_has(1);
   @$pb.TagNumber(2)
   void clearCustomer() => clearField(2);
   @$pb.TagNumber(2)
-  $6.GetCustomerByIdRequest ensureCustomer() => $_ensure(1);
+  $5.GetCustomerByIdResponse ensureCustomer() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.String get name => $_getSZ(2);
@@ -300,26 +300,26 @@ class GetPromotionByIdResponse extends $pb.GeneratedMessage {
   void clearDiscountType() => clearField(5);
 
   @$pb.TagNumber(6)
-  $22.CalendarDate get startDate => $_getN(5);
+  $21.CalendarDate get startDate => $_getN(5);
   @$pb.TagNumber(6)
-  set startDate($22.CalendarDate v) { setField(6, v); }
+  set startDate($21.CalendarDate v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasStartDate() => $_has(5);
   @$pb.TagNumber(6)
   void clearStartDate() => clearField(6);
   @$pb.TagNumber(6)
-  $22.CalendarDate ensureStartDate() => $_ensure(5);
+  $21.CalendarDate ensureStartDate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $22.CalendarDate get endDate => $_getN(6);
+  $21.CalendarDate get endDate => $_getN(6);
   @$pb.TagNumber(7)
-  set endDate($22.CalendarDate v) { setField(7, v); }
+  set endDate($21.CalendarDate v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasEndDate() => $_has(6);
   @$pb.TagNumber(7)
   void clearEndDate() => clearField(7);
   @$pb.TagNumber(7)
-  $22.CalendarDate ensureEndDate() => $_ensure(6);
+  $21.CalendarDate ensureEndDate() => $_ensure(6);
 
   @$pb.TagNumber(8)
   $core.bool get isActive => $_getBF(7);
@@ -333,17 +333,17 @@ class GetPromotionByIdResponse extends $pb.GeneratedMessage {
 
 class CreatePromotionRequest extends $pb.GeneratedMessage {
   factory CreatePromotionRequest({
-    $core.int? customerFk,
+    $core.String? customerId,
     $core.String? name,
     $core.String? description,
     $core.String? discountType,
-    $22.CalendarDate? startDate,
-    $22.CalendarDate? endDate,
+    $21.CalendarDate? startDate,
+    $21.CalendarDate? endDate,
     $core.bool? isActive,
   }) {
     final $result = create();
-    if (customerFk != null) {
-      $result.customerFk = customerFk;
+    if (customerId != null) {
+      $result.customerId = customerId;
     }
     if (name != null) {
       $result.name = name;
@@ -370,12 +370,12 @@ class CreatePromotionRequest extends $pb.GeneratedMessage {
   factory CreatePromotionRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreatePromotionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'customerFk', $pb.PbFieldType.O3)
+    ..aOS(3, _omitFieldNames ? '' : 'customerId')
     ..aOS(4, _omitFieldNames ? '' : 'name')
     ..aOS(5, _omitFieldNames ? '' : 'description')
     ..aOS(6, _omitFieldNames ? '' : 'discountType')
-    ..aOM<$22.CalendarDate>(7, _omitFieldNames ? '' : 'startDate', subBuilder: $22.CalendarDate.create)
-    ..aOM<$22.CalendarDate>(8, _omitFieldNames ? '' : 'endDate', subBuilder: $22.CalendarDate.create)
+    ..aOM<$21.CalendarDate>(7, _omitFieldNames ? '' : 'startDate', subBuilder: $21.CalendarDate.create)
+    ..aOM<$21.CalendarDate>(8, _omitFieldNames ? '' : 'endDate', subBuilder: $21.CalendarDate.create)
     ..aOB(9, _omitFieldNames ? '' : 'isActive')
     ..hasRequiredFields = false
   ;
@@ -402,13 +402,13 @@ class CreatePromotionRequest extends $pb.GeneratedMessage {
   static CreatePromotionRequest? _defaultInstance;
 
   @$pb.TagNumber(3)
-  $core.int get customerFk => $_getIZ(0);
+  $core.String get customerId => $_getSZ(0);
   @$pb.TagNumber(3)
-  set customerFk($core.int v) { $_setSignedInt32(0, v); }
+  set customerId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(3)
-  $core.bool hasCustomerFk() => $_has(0);
+  $core.bool hasCustomerId() => $_has(0);
   @$pb.TagNumber(3)
-  void clearCustomerFk() => clearField(3);
+  void clearCustomerId() => clearField(3);
 
   @$pb.TagNumber(4)
   $core.String get name => $_getSZ(1);
@@ -438,26 +438,26 @@ class CreatePromotionRequest extends $pb.GeneratedMessage {
   void clearDiscountType() => clearField(6);
 
   @$pb.TagNumber(7)
-  $22.CalendarDate get startDate => $_getN(4);
+  $21.CalendarDate get startDate => $_getN(4);
   @$pb.TagNumber(7)
-  set startDate($22.CalendarDate v) { setField(7, v); }
+  set startDate($21.CalendarDate v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasStartDate() => $_has(4);
   @$pb.TagNumber(7)
   void clearStartDate() => clearField(7);
   @$pb.TagNumber(7)
-  $22.CalendarDate ensureStartDate() => $_ensure(4);
+  $21.CalendarDate ensureStartDate() => $_ensure(4);
 
   @$pb.TagNumber(8)
-  $22.CalendarDate get endDate => $_getN(5);
+  $21.CalendarDate get endDate => $_getN(5);
   @$pb.TagNumber(8)
-  set endDate($22.CalendarDate v) { setField(8, v); }
+  set endDate($21.CalendarDate v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasEndDate() => $_has(5);
   @$pb.TagNumber(8)
   void clearEndDate() => clearField(8);
   @$pb.TagNumber(8)
-  $22.CalendarDate ensureEndDate() => $_ensure(5);
+  $21.CalendarDate ensureEndDate() => $_ensure(5);
 
   @$pb.TagNumber(9)
   $core.bool get isActive => $_getBF(6);
@@ -503,21 +503,21 @@ class CreatePromotionResponse extends $pb.GeneratedMessage {
 
 class UpdatePromotionRequest extends $pb.GeneratedMessage {
   factory UpdatePromotionRequest({
-    $core.int? promotionPk,
-    $core.int? customerFk,
+    $core.String? promotionId,
+    $core.String? customerId,
     $core.String? name,
     $core.String? description,
     $core.String? discountType,
-    $22.CalendarDate? startDate,
-    $22.CalendarDate? endDate,
+    $21.CalendarDate? startDate,
+    $21.CalendarDate? endDate,
     $core.bool? isActive,
   }) {
     final $result = create();
-    if (promotionPk != null) {
-      $result.promotionPk = promotionPk;
+    if (promotionId != null) {
+      $result.promotionId = promotionId;
     }
-    if (customerFk != null) {
-      $result.customerFk = customerFk;
+    if (customerId != null) {
+      $result.customerId = customerId;
     }
     if (name != null) {
       $result.name = name;
@@ -544,13 +544,13 @@ class UpdatePromotionRequest extends $pb.GeneratedMessage {
   factory UpdatePromotionRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdatePromotionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'promotionPk', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'customerFk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'promotionId')
+    ..aOS(2, _omitFieldNames ? '' : 'customerId')
     ..aOS(3, _omitFieldNames ? '' : 'name')
     ..aOS(4, _omitFieldNames ? '' : 'description')
     ..aOS(5, _omitFieldNames ? '' : 'discountType')
-    ..aOM<$22.CalendarDate>(6, _omitFieldNames ? '' : 'startDate', subBuilder: $22.CalendarDate.create)
-    ..aOM<$22.CalendarDate>(7, _omitFieldNames ? '' : 'endDate', subBuilder: $22.CalendarDate.create)
+    ..aOM<$21.CalendarDate>(6, _omitFieldNames ? '' : 'startDate', subBuilder: $21.CalendarDate.create)
+    ..aOM<$21.CalendarDate>(7, _omitFieldNames ? '' : 'endDate', subBuilder: $21.CalendarDate.create)
     ..aOB(8, _omitFieldNames ? '' : 'isActive')
     ..hasRequiredFields = false
   ;
@@ -577,22 +577,22 @@ class UpdatePromotionRequest extends $pb.GeneratedMessage {
   static UpdatePromotionRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get promotionPk => $_getIZ(0);
+  $core.String get promotionId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set promotionPk($core.int v) { $_setSignedInt32(0, v); }
+  set promotionId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPromotionPk() => $_has(0);
+  $core.bool hasPromotionId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPromotionPk() => clearField(1);
+  void clearPromotionId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get customerFk => $_getIZ(1);
+  $core.String get customerId => $_getSZ(1);
   @$pb.TagNumber(2)
-  set customerFk($core.int v) { $_setSignedInt32(1, v); }
+  set customerId($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasCustomerFk() => $_has(1);
+  $core.bool hasCustomerId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCustomerFk() => clearField(2);
+  void clearCustomerId() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get name => $_getSZ(2);
@@ -622,26 +622,26 @@ class UpdatePromotionRequest extends $pb.GeneratedMessage {
   void clearDiscountType() => clearField(5);
 
   @$pb.TagNumber(6)
-  $22.CalendarDate get startDate => $_getN(5);
+  $21.CalendarDate get startDate => $_getN(5);
   @$pb.TagNumber(6)
-  set startDate($22.CalendarDate v) { setField(6, v); }
+  set startDate($21.CalendarDate v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasStartDate() => $_has(5);
   @$pb.TagNumber(6)
   void clearStartDate() => clearField(6);
   @$pb.TagNumber(6)
-  $22.CalendarDate ensureStartDate() => $_ensure(5);
+  $21.CalendarDate ensureStartDate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $22.CalendarDate get endDate => $_getN(6);
+  $21.CalendarDate get endDate => $_getN(6);
   @$pb.TagNumber(7)
-  set endDate($22.CalendarDate v) { setField(7, v); }
+  set endDate($21.CalendarDate v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasEndDate() => $_has(6);
   @$pb.TagNumber(7)
   void clearEndDate() => clearField(7);
   @$pb.TagNumber(7)
-  $22.CalendarDate ensureEndDate() => $_ensure(6);
+  $21.CalendarDate ensureEndDate() => $_ensure(6);
 
   @$pb.TagNumber(8)
   $core.bool get isActive => $_getBF(7);
@@ -687,11 +687,11 @@ class UpdatePromotionResponse extends $pb.GeneratedMessage {
 
 class DeletePromotionRequest extends $pb.GeneratedMessage {
   factory DeletePromotionRequest({
-    $core.int? promotionPk,
+    $core.String? promotionId,
   }) {
     final $result = create();
-    if (promotionPk != null) {
-      $result.promotionPk = promotionPk;
+    if (promotionId != null) {
+      $result.promotionId = promotionId;
     }
     return $result;
   }
@@ -700,7 +700,7 @@ class DeletePromotionRequest extends $pb.GeneratedMessage {
   factory DeletePromotionRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeletePromotionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'promotionPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'promotionId')
     ..hasRequiredFields = false
   ;
 
@@ -726,13 +726,13 @@ class DeletePromotionRequest extends $pb.GeneratedMessage {
   static DeletePromotionRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get promotionPk => $_getIZ(0);
+  $core.String get promotionId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set promotionPk($core.int v) { $_setSignedInt32(0, v); }
+  set promotionId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPromotionPk() => $_has(0);
+  $core.bool hasPromotionId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPromotionPk() => clearField(1);
+  void clearPromotionId() => clearField(1);
 }
 
 class DeletePromotionResponse extends $pb.GeneratedMessage {

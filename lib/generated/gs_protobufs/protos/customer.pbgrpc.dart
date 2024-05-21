@@ -15,36 +15,36 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'customer.pb.dart' as $6;
+import 'customer.pb.dart' as $5;
 
 export 'customer.pb.dart';
 
 @$pb.GrpcServiceName('protos.customer.CustomerService')
 class CustomerServiceClient extends $grpc.Client {
-  static final _$getPaginated = $grpc.ClientMethod<$6.GetPaginatedCustomersRequest, $6.GetPaginatedCustomersResponse>(
-      '/protos.customer.CustomerService/GetPaginated',
-      ($6.GetPaginatedCustomersRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $6.GetPaginatedCustomersResponse.fromBuffer(value));
-  static final _$getById = $grpc.ClientMethod<$6.GetCustomerByIdRequest, $6.GetCustomerByIdResponse>(
-      '/protos.customer.CustomerService/GetById',
-      ($6.GetCustomerByIdRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $6.GetCustomerByIdResponse.fromBuffer(value));
-  static final _$getAllOptions = $grpc.ClientMethod<$6.GetAllCustomersOptionsRequest, $6.GetAllCustomersOptionsResponse>(
-      '/protos.customer.CustomerService/GetAllOptions',
-      ($6.GetAllCustomersOptionsRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $6.GetAllCustomersOptionsResponse.fromBuffer(value));
-  static final _$post = $grpc.ClientMethod<$6.CreateCustomerRequest, $6.CreateCustomerResponse>(
-      '/protos.customer.CustomerService/Post',
-      ($6.CreateCustomerRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $6.CreateCustomerResponse.fromBuffer(value));
-  static final _$put = $grpc.ClientMethod<$6.UpdateCustomerRequest, $6.UpdateCustomerResponse>(
-      '/protos.customer.CustomerService/Put',
-      ($6.UpdateCustomerRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $6.UpdateCustomerResponse.fromBuffer(value));
-  static final _$delete = $grpc.ClientMethod<$6.DeleteCustomerRequest, $6.DeleteCustomerResponse>(
-      '/protos.customer.CustomerService/Delete',
-      ($6.DeleteCustomerRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $6.DeleteCustomerResponse.fromBuffer(value));
+  static final _$getPaginatedAsync = $grpc.ClientMethod<$5.GetPaginatedCustomersRequest, $5.GetPaginatedCustomersResponse>(
+      '/protos.customer.CustomerService/GetPaginatedAsync',
+      ($5.GetPaginatedCustomersRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $5.GetPaginatedCustomersResponse.fromBuffer(value));
+  static final _$getByIdAsync = $grpc.ClientMethod<$5.GetCustomerByIdRequest, $5.GetCustomerByIdResponse>(
+      '/protos.customer.CustomerService/GetByIdAsync',
+      ($5.GetCustomerByIdRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $5.GetCustomerByIdResponse.fromBuffer(value));
+  static final _$getAllOptionsAsync = $grpc.ClientMethod<$5.GetAllCustomersOptionsRequest, $5.GetAllCustomersOptionsResponse>(
+      '/protos.customer.CustomerService/GetAllOptionsAsync',
+      ($5.GetAllCustomersOptionsRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $5.GetAllCustomersOptionsResponse.fromBuffer(value));
+  static final _$postAsync = $grpc.ClientMethod<$5.CreateCustomerRequest, $5.CreateCustomerResponse>(
+      '/protos.customer.CustomerService/PostAsync',
+      ($5.CreateCustomerRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $5.CreateCustomerResponse.fromBuffer(value));
+  static final _$putAsync = $grpc.ClientMethod<$5.UpdateCustomerRequest, $5.UpdateCustomerResponse>(
+      '/protos.customer.CustomerService/PutAsync',
+      ($5.UpdateCustomerRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $5.UpdateCustomerResponse.fromBuffer(value));
+  static final _$deleteAsync = $grpc.ClientMethod<$5.DeleteCustomerRequest, $5.DeleteCustomerResponse>(
+      '/protos.customer.CustomerService/DeleteAsync',
+      ($5.DeleteCustomerRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $5.DeleteCustomerResponse.fromBuffer(value));
 
   CustomerServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -52,28 +52,28 @@ class CustomerServiceClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$6.GetPaginatedCustomersResponse> getPaginated($6.GetPaginatedCustomersRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getPaginated, request, options: options);
+  $grpc.ResponseFuture<$5.GetPaginatedCustomersResponse> getPaginatedAsync($5.GetPaginatedCustomersRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getPaginatedAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$6.GetCustomerByIdResponse> getById($6.GetCustomerByIdRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getById, request, options: options);
+  $grpc.ResponseFuture<$5.GetCustomerByIdResponse> getByIdAsync($5.GetCustomerByIdRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$6.GetAllCustomersOptionsResponse> getAllOptions($6.GetAllCustomersOptionsRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getAllOptions, request, options: options);
+  $grpc.ResponseFuture<$5.GetAllCustomersOptionsResponse> getAllOptionsAsync($5.GetAllCustomersOptionsRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getAllOptionsAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$6.CreateCustomerResponse> post($6.CreateCustomerRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$post, request, options: options);
+  $grpc.ResponseFuture<$5.CreateCustomerResponse> postAsync($5.CreateCustomerRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$postAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$6.UpdateCustomerResponse> put($6.UpdateCustomerRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$put, request, options: options);
+  $grpc.ResponseFuture<$5.UpdateCustomerResponse> putAsync($5.UpdateCustomerRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$6.DeleteCustomerResponse> delete($6.DeleteCustomerRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$delete, request, options: options);
+  $grpc.ResponseFuture<$5.DeleteCustomerResponse> deleteAsync($5.DeleteCustomerRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 }
 
@@ -82,78 +82,78 @@ abstract class CustomerServiceBase extends $grpc.Service {
   $core.String get $name => 'protos.customer.CustomerService';
 
   CustomerServiceBase() {
-    $addMethod($grpc.ServiceMethod<$6.GetPaginatedCustomersRequest, $6.GetPaginatedCustomersResponse>(
-        'GetPaginated',
-        getPaginated_Pre,
+    $addMethod($grpc.ServiceMethod<$5.GetPaginatedCustomersRequest, $5.GetPaginatedCustomersResponse>(
+        'GetPaginatedAsync',
+        getPaginatedAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $6.GetPaginatedCustomersRequest.fromBuffer(value),
-        ($6.GetPaginatedCustomersResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$6.GetCustomerByIdRequest, $6.GetCustomerByIdResponse>(
-        'GetById',
-        getById_Pre,
+        ($core.List<$core.int> value) => $5.GetPaginatedCustomersRequest.fromBuffer(value),
+        ($5.GetPaginatedCustomersResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$5.GetCustomerByIdRequest, $5.GetCustomerByIdResponse>(
+        'GetByIdAsync',
+        getByIdAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $6.GetCustomerByIdRequest.fromBuffer(value),
-        ($6.GetCustomerByIdResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$6.GetAllCustomersOptionsRequest, $6.GetAllCustomersOptionsResponse>(
-        'GetAllOptions',
-        getAllOptions_Pre,
+        ($core.List<$core.int> value) => $5.GetCustomerByIdRequest.fromBuffer(value),
+        ($5.GetCustomerByIdResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$5.GetAllCustomersOptionsRequest, $5.GetAllCustomersOptionsResponse>(
+        'GetAllOptionsAsync',
+        getAllOptionsAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $6.GetAllCustomersOptionsRequest.fromBuffer(value),
-        ($6.GetAllCustomersOptionsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$6.CreateCustomerRequest, $6.CreateCustomerResponse>(
-        'Post',
-        post_Pre,
+        ($core.List<$core.int> value) => $5.GetAllCustomersOptionsRequest.fromBuffer(value),
+        ($5.GetAllCustomersOptionsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$5.CreateCustomerRequest, $5.CreateCustomerResponse>(
+        'PostAsync',
+        postAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $6.CreateCustomerRequest.fromBuffer(value),
-        ($6.CreateCustomerResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$6.UpdateCustomerRequest, $6.UpdateCustomerResponse>(
-        'Put',
-        put_Pre,
+        ($core.List<$core.int> value) => $5.CreateCustomerRequest.fromBuffer(value),
+        ($5.CreateCustomerResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$5.UpdateCustomerRequest, $5.UpdateCustomerResponse>(
+        'PutAsync',
+        putAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $6.UpdateCustomerRequest.fromBuffer(value),
-        ($6.UpdateCustomerResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$6.DeleteCustomerRequest, $6.DeleteCustomerResponse>(
-        'Delete',
-        delete_Pre,
+        ($core.List<$core.int> value) => $5.UpdateCustomerRequest.fromBuffer(value),
+        ($5.UpdateCustomerResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$5.DeleteCustomerRequest, $5.DeleteCustomerResponse>(
+        'DeleteAsync',
+        deleteAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $6.DeleteCustomerRequest.fromBuffer(value),
-        ($6.DeleteCustomerResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $5.DeleteCustomerRequest.fromBuffer(value),
+        ($5.DeleteCustomerResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$6.GetPaginatedCustomersResponse> getPaginated_Pre($grpc.ServiceCall call, $async.Future<$6.GetPaginatedCustomersRequest> request) async {
-    return getPaginated(call, await request);
+  $async.Future<$5.GetPaginatedCustomersResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$5.GetPaginatedCustomersRequest> request) async {
+    return getPaginatedAsync(call, await request);
   }
 
-  $async.Future<$6.GetCustomerByIdResponse> getById_Pre($grpc.ServiceCall call, $async.Future<$6.GetCustomerByIdRequest> request) async {
-    return getById(call, await request);
+  $async.Future<$5.GetCustomerByIdResponse> getByIdAsync_Pre($grpc.ServiceCall call, $async.Future<$5.GetCustomerByIdRequest> request) async {
+    return getByIdAsync(call, await request);
   }
 
-  $async.Future<$6.GetAllCustomersOptionsResponse> getAllOptions_Pre($grpc.ServiceCall call, $async.Future<$6.GetAllCustomersOptionsRequest> request) async {
-    return getAllOptions(call, await request);
+  $async.Future<$5.GetAllCustomersOptionsResponse> getAllOptionsAsync_Pre($grpc.ServiceCall call, $async.Future<$5.GetAllCustomersOptionsRequest> request) async {
+    return getAllOptionsAsync(call, await request);
   }
 
-  $async.Future<$6.CreateCustomerResponse> post_Pre($grpc.ServiceCall call, $async.Future<$6.CreateCustomerRequest> request) async {
-    return post(call, await request);
+  $async.Future<$5.CreateCustomerResponse> postAsync_Pre($grpc.ServiceCall call, $async.Future<$5.CreateCustomerRequest> request) async {
+    return postAsync(call, await request);
   }
 
-  $async.Future<$6.UpdateCustomerResponse> put_Pre($grpc.ServiceCall call, $async.Future<$6.UpdateCustomerRequest> request) async {
-    return put(call, await request);
+  $async.Future<$5.UpdateCustomerResponse> putAsync_Pre($grpc.ServiceCall call, $async.Future<$5.UpdateCustomerRequest> request) async {
+    return putAsync(call, await request);
   }
 
-  $async.Future<$6.DeleteCustomerResponse> delete_Pre($grpc.ServiceCall call, $async.Future<$6.DeleteCustomerRequest> request) async {
-    return delete(call, await request);
+  $async.Future<$5.DeleteCustomerResponse> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$5.DeleteCustomerRequest> request) async {
+    return deleteAsync(call, await request);
   }
 
-  $async.Future<$6.GetPaginatedCustomersResponse> getPaginated($grpc.ServiceCall call, $6.GetPaginatedCustomersRequest request);
-  $async.Future<$6.GetCustomerByIdResponse> getById($grpc.ServiceCall call, $6.GetCustomerByIdRequest request);
-  $async.Future<$6.GetAllCustomersOptionsResponse> getAllOptions($grpc.ServiceCall call, $6.GetAllCustomersOptionsRequest request);
-  $async.Future<$6.CreateCustomerResponse> post($grpc.ServiceCall call, $6.CreateCustomerRequest request);
-  $async.Future<$6.UpdateCustomerResponse> put($grpc.ServiceCall call, $6.UpdateCustomerRequest request);
-  $async.Future<$6.DeleteCustomerResponse> delete($grpc.ServiceCall call, $6.DeleteCustomerRequest request);
+  $async.Future<$5.GetPaginatedCustomersResponse> getPaginatedAsync($grpc.ServiceCall call, $5.GetPaginatedCustomersRequest request);
+  $async.Future<$5.GetCustomerByIdResponse> getByIdAsync($grpc.ServiceCall call, $5.GetCustomerByIdRequest request);
+  $async.Future<$5.GetAllCustomersOptionsResponse> getAllOptionsAsync($grpc.ServiceCall call, $5.GetAllCustomersOptionsRequest request);
+  $async.Future<$5.CreateCustomerResponse> postAsync($grpc.ServiceCall call, $5.CreateCustomerRequest request);
+  $async.Future<$5.UpdateCustomerResponse> putAsync($grpc.ServiceCall call, $5.UpdateCustomerRequest request);
+  $async.Future<$5.DeleteCustomerResponse> deleteAsync($grpc.ServiceCall call, $5.DeleteCustomerRequest request);
 }

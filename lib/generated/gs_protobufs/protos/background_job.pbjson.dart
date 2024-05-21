@@ -17,13 +17,13 @@ import 'dart:typed_data' as $typed_data;
 const GetPaginatedBackgroundJobsRequest$json = {
   '1': 'GetPaginatedBackgroundJobsRequest',
   '2': [
-    {'1': 'cursor', '3': 1, '4': 1, '5': 5, '10': 'cursor'},
+    {'1': 'cursor', '3': 1, '4': 1, '5': 9, '10': 'cursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedBackgroundJobsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedBackgroundJobsRequestDescriptor = $convert.base64Decode(
-    'CiFHZXRQYWdpbmF0ZWRCYWNrZ3JvdW5kSm9ic1JlcXVlc3QSFgoGY3Vyc29yGAEgASgFUgZjdX'
+    'CiFHZXRQYWdpbmF0ZWRCYWNrZ3JvdW5kSm9ic1JlcXVlc3QSFgoGY3Vyc29yGAEgASgJUgZjdX'
     'Jzb3I=');
 
 @$core.Deprecated('Use getPaginatedBackgroundJobsResponseDescriptor instead')
@@ -31,7 +31,7 @@ const GetPaginatedBackgroundJobsResponse$json = {
   '1': 'GetPaginatedBackgroundJobsResponse',
   '2': [
     {'1': 'background_jobs', '3': 1, '4': 3, '5': 11, '6': '.protos.background_job.GetBackgroundJobByIdResponse', '10': 'backgroundJobs'},
-    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'nextCursor'},
+    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'nextCursor'},
   ],
 };
 
@@ -39,27 +39,27 @@ const GetPaginatedBackgroundJobsResponse$json = {
 final $typed_data.Uint8List getPaginatedBackgroundJobsResponseDescriptor = $convert.base64Decode(
     'CiJHZXRQYWdpbmF0ZWRCYWNrZ3JvdW5kSm9ic1Jlc3BvbnNlElwKD2JhY2tncm91bmRfam9icx'
     'gBIAMoCzIzLnByb3Rvcy5iYWNrZ3JvdW5kX2pvYi5HZXRCYWNrZ3JvdW5kSm9iQnlJZFJlc3Bv'
-    'bnNlUg5iYWNrZ3JvdW5kSm9icxI8CgtuZXh0X2N1cnNvchgCIAEoCzIbLmdvb2dsZS5wcm90b2'
-    'J1Zi5JbnQzMlZhbHVlUgpuZXh0Q3Vyc29y');
+    'bnNlUg5iYWNrZ3JvdW5kSm9icxI9CgtuZXh0X2N1cnNvchgCIAEoCzIcLmdvb2dsZS5wcm90b2'
+    'J1Zi5TdHJpbmdWYWx1ZVIKbmV4dEN1cnNvcg==');
 
 @$core.Deprecated('Use getBackgroundJobByIdRequestDescriptor instead')
 const GetBackgroundJobByIdRequest$json = {
   '1': 'GetBackgroundJobByIdRequest',
   '2': [
-    {'1': 'backgroundJob_pk', '3': 1, '4': 1, '5': 5, '10': 'backgroundJobPk'},
+    {'1': 'backgroundJob_id', '3': 1, '4': 1, '5': 9, '10': 'backgroundJobId'},
   ],
 };
 
 /// Descriptor for `GetBackgroundJobByIdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getBackgroundJobByIdRequestDescriptor = $convert.base64Decode(
-    'ChtHZXRCYWNrZ3JvdW5kSm9iQnlJZFJlcXVlc3QSKQoQYmFja2dyb3VuZEpvYl9waxgBIAEoBV'
-    'IPYmFja2dyb3VuZEpvYlBr');
+    'ChtHZXRCYWNrZ3JvdW5kSm9iQnlJZFJlcXVlc3QSKQoQYmFja2dyb3VuZEpvYl9pZBgBIAEoCV'
+    'IPYmFja2dyb3VuZEpvYklk');
 
 @$core.Deprecated('Use getBackgroundJobByIdResponseDescriptor instead')
 const GetBackgroundJobByIdResponse$json = {
   '1': 'GetBackgroundJobByIdResponse',
   '2': [
-    {'1': 'backgroundJob_pk', '3': 1, '4': 1, '5': 5, '10': 'backgroundJobPk'},
+    {'1': 'backgroundJob_id', '3': 1, '4': 1, '5': 9, '10': 'backgroundJobId'},
     {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
     {'1': 'has_finished', '3': 3, '4': 1, '5': 8, '10': 'hasFinished'},
   ],
@@ -67,7 +67,7 @@ const GetBackgroundJobByIdResponse$json = {
 
 /// Descriptor for `GetBackgroundJobByIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getBackgroundJobByIdResponseDescriptor = $convert.base64Decode(
-    'ChxHZXRCYWNrZ3JvdW5kSm9iQnlJZFJlc3BvbnNlEikKEGJhY2tncm91bmRKb2JfcGsYASABKA'
-    'VSD2JhY2tncm91bmRKb2JQaxISCgRuYW1lGAIgASgJUgRuYW1lEiEKDGhhc19maW5pc2hlZBgD'
+    'ChxHZXRCYWNrZ3JvdW5kSm9iQnlJZFJlc3BvbnNlEikKEGJhY2tncm91bmRKb2JfaWQYASABKA'
+    'lSD2JhY2tncm91bmRKb2JJZBISCgRuYW1lGAIgASgJUgRuYW1lEiEKDGhhc19maW5pc2hlZBgD'
     'IAEoCFILaGFzRmluaXNoZWQ=');
 

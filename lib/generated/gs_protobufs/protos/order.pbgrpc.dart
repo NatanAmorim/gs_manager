@@ -21,24 +21,24 @@ export 'order.pb.dart';
 
 @$pb.GrpcServiceName('protos.order.OrderService')
 class OrderServiceClient extends $grpc.Client {
-  static final _$getPaginated = $grpc.ClientMethod<$8.GetPaginatedOrdersRequest, $8.GetPaginatedOrdersResponse>(
-      '/protos.order.OrderService/GetPaginated',
+  static final _$getPaginatedAsync = $grpc.ClientMethod<$8.GetPaginatedOrdersRequest, $8.GetPaginatedOrdersResponse>(
+      '/protos.order.OrderService/GetPaginatedAsync',
       ($8.GetPaginatedOrdersRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $8.GetPaginatedOrdersResponse.fromBuffer(value));
-  static final _$getById = $grpc.ClientMethod<$8.GetOrderByIdRequest, $8.GetOrderByIdResponse>(
-      '/protos.order.OrderService/GetById',
+  static final _$getByIdAsync = $grpc.ClientMethod<$8.GetOrderByIdRequest, $8.GetOrderByIdResponse>(
+      '/protos.order.OrderService/GetByIdAsync',
       ($8.GetOrderByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $8.GetOrderByIdResponse.fromBuffer(value));
-  static final _$post = $grpc.ClientMethod<$8.CreateOrderRequest, $8.CreateOrderResponse>(
-      '/protos.order.OrderService/Post',
+  static final _$postAsync = $grpc.ClientMethod<$8.CreateOrderRequest, $8.CreateOrderResponse>(
+      '/protos.order.OrderService/PostAsync',
       ($8.CreateOrderRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $8.CreateOrderResponse.fromBuffer(value));
-  static final _$put = $grpc.ClientMethod<$8.UpdateOrderRequest, $8.UpdateOrderResponse>(
-      '/protos.order.OrderService/Put',
+  static final _$putAsync = $grpc.ClientMethod<$8.UpdateOrderRequest, $8.UpdateOrderResponse>(
+      '/protos.order.OrderService/PutAsync',
       ($8.UpdateOrderRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $8.UpdateOrderResponse.fromBuffer(value));
-  static final _$delete = $grpc.ClientMethod<$8.DeleteOrderRequest, $8.DeleteOrderResponse>(
-      '/protos.order.OrderService/Delete',
+  static final _$deleteAsync = $grpc.ClientMethod<$8.DeleteOrderRequest, $8.DeleteOrderResponse>(
+      '/protos.order.OrderService/DeleteAsync',
       ($8.DeleteOrderRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $8.DeleteOrderResponse.fromBuffer(value));
 
@@ -48,24 +48,24 @@ class OrderServiceClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$8.GetPaginatedOrdersResponse> getPaginated($8.GetPaginatedOrdersRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getPaginated, request, options: options);
+  $grpc.ResponseFuture<$8.GetPaginatedOrdersResponse> getPaginatedAsync($8.GetPaginatedOrdersRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getPaginatedAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$8.GetOrderByIdResponse> getById($8.GetOrderByIdRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getById, request, options: options);
+  $grpc.ResponseFuture<$8.GetOrderByIdResponse> getByIdAsync($8.GetOrderByIdRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$8.CreateOrderResponse> post($8.CreateOrderRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$post, request, options: options);
+  $grpc.ResponseFuture<$8.CreateOrderResponse> postAsync($8.CreateOrderRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$postAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$8.UpdateOrderResponse> put($8.UpdateOrderRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$put, request, options: options);
+  $grpc.ResponseFuture<$8.UpdateOrderResponse> putAsync($8.UpdateOrderRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$8.DeleteOrderResponse> delete($8.DeleteOrderRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$delete, request, options: options);
+  $grpc.ResponseFuture<$8.DeleteOrderResponse> deleteAsync($8.DeleteOrderRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 }
 
@@ -75,65 +75,65 @@ abstract class OrderServiceBase extends $grpc.Service {
 
   OrderServiceBase() {
     $addMethod($grpc.ServiceMethod<$8.GetPaginatedOrdersRequest, $8.GetPaginatedOrdersResponse>(
-        'GetPaginated',
-        getPaginated_Pre,
+        'GetPaginatedAsync',
+        getPaginatedAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $8.GetPaginatedOrdersRequest.fromBuffer(value),
         ($8.GetPaginatedOrdersResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$8.GetOrderByIdRequest, $8.GetOrderByIdResponse>(
-        'GetById',
-        getById_Pre,
+        'GetByIdAsync',
+        getByIdAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $8.GetOrderByIdRequest.fromBuffer(value),
         ($8.GetOrderByIdResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$8.CreateOrderRequest, $8.CreateOrderResponse>(
-        'Post',
-        post_Pre,
+        'PostAsync',
+        postAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $8.CreateOrderRequest.fromBuffer(value),
         ($8.CreateOrderResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$8.UpdateOrderRequest, $8.UpdateOrderResponse>(
-        'Put',
-        put_Pre,
+        'PutAsync',
+        putAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $8.UpdateOrderRequest.fromBuffer(value),
         ($8.UpdateOrderResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$8.DeleteOrderRequest, $8.DeleteOrderResponse>(
-        'Delete',
-        delete_Pre,
+        'DeleteAsync',
+        deleteAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $8.DeleteOrderRequest.fromBuffer(value),
         ($8.DeleteOrderResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$8.GetPaginatedOrdersResponse> getPaginated_Pre($grpc.ServiceCall call, $async.Future<$8.GetPaginatedOrdersRequest> request) async {
-    return getPaginated(call, await request);
+  $async.Future<$8.GetPaginatedOrdersResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$8.GetPaginatedOrdersRequest> request) async {
+    return getPaginatedAsync(call, await request);
   }
 
-  $async.Future<$8.GetOrderByIdResponse> getById_Pre($grpc.ServiceCall call, $async.Future<$8.GetOrderByIdRequest> request) async {
-    return getById(call, await request);
+  $async.Future<$8.GetOrderByIdResponse> getByIdAsync_Pre($grpc.ServiceCall call, $async.Future<$8.GetOrderByIdRequest> request) async {
+    return getByIdAsync(call, await request);
   }
 
-  $async.Future<$8.CreateOrderResponse> post_Pre($grpc.ServiceCall call, $async.Future<$8.CreateOrderRequest> request) async {
-    return post(call, await request);
+  $async.Future<$8.CreateOrderResponse> postAsync_Pre($grpc.ServiceCall call, $async.Future<$8.CreateOrderRequest> request) async {
+    return postAsync(call, await request);
   }
 
-  $async.Future<$8.UpdateOrderResponse> put_Pre($grpc.ServiceCall call, $async.Future<$8.UpdateOrderRequest> request) async {
-    return put(call, await request);
+  $async.Future<$8.UpdateOrderResponse> putAsync_Pre($grpc.ServiceCall call, $async.Future<$8.UpdateOrderRequest> request) async {
+    return putAsync(call, await request);
   }
 
-  $async.Future<$8.DeleteOrderResponse> delete_Pre($grpc.ServiceCall call, $async.Future<$8.DeleteOrderRequest> request) async {
-    return delete(call, await request);
+  $async.Future<$8.DeleteOrderResponse> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$8.DeleteOrderRequest> request) async {
+    return deleteAsync(call, await request);
   }
 
-  $async.Future<$8.GetPaginatedOrdersResponse> getPaginated($grpc.ServiceCall call, $8.GetPaginatedOrdersRequest request);
-  $async.Future<$8.GetOrderByIdResponse> getById($grpc.ServiceCall call, $8.GetOrderByIdRequest request);
-  $async.Future<$8.CreateOrderResponse> post($grpc.ServiceCall call, $8.CreateOrderRequest request);
-  $async.Future<$8.UpdateOrderResponse> put($grpc.ServiceCall call, $8.UpdateOrderRequest request);
-  $async.Future<$8.DeleteOrderResponse> delete($grpc.ServiceCall call, $8.DeleteOrderRequest request);
+  $async.Future<$8.GetPaginatedOrdersResponse> getPaginatedAsync($grpc.ServiceCall call, $8.GetPaginatedOrdersRequest request);
+  $async.Future<$8.GetOrderByIdResponse> getByIdAsync($grpc.ServiceCall call, $8.GetOrderByIdRequest request);
+  $async.Future<$8.CreateOrderResponse> postAsync($grpc.ServiceCall call, $8.CreateOrderRequest request);
+  $async.Future<$8.UpdateOrderResponse> putAsync($grpc.ServiceCall call, $8.UpdateOrderRequest request);
+  $async.Future<$8.DeleteOrderResponse> deleteAsync($grpc.ServiceCall call, $8.DeleteOrderRequest request);
 }

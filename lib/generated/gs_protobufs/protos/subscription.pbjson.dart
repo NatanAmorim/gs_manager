@@ -17,13 +17,13 @@ import 'dart:typed_data' as $typed_data;
 const GetPaginatedSubscriptionsRequest$json = {
   '1': 'GetPaginatedSubscriptionsRequest',
   '2': [
-    {'1': 'cursor', '3': 1, '4': 1, '5': 5, '10': 'cursor'},
+    {'1': 'cursor', '3': 1, '4': 1, '5': 9, '10': 'cursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedSubscriptionsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedSubscriptionsRequestDescriptor = $convert.base64Decode(
-    'CiBHZXRQYWdpbmF0ZWRTdWJzY3JpcHRpb25zUmVxdWVzdBIWCgZjdXJzb3IYASABKAVSBmN1cn'
+    'CiBHZXRQYWdpbmF0ZWRTdWJzY3JpcHRpb25zUmVxdWVzdBIWCgZjdXJzb3IYASABKAlSBmN1cn'
     'Nvcg==');
 
 @$core.Deprecated('Use getPaginatedSubscriptionsResponseDescriptor instead')
@@ -31,7 +31,7 @@ const GetPaginatedSubscriptionsResponse$json = {
   '1': 'GetPaginatedSubscriptionsResponse',
   '2': [
     {'1': 'subscriptions', '3': 1, '4': 3, '5': 11, '6': '.protos.subscription.GetSubscriptionByIdResponse', '10': 'subscriptions'},
-    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'nextCursor'},
+    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'nextCursor'},
   ],
 };
 
@@ -39,27 +39,27 @@ const GetPaginatedSubscriptionsResponse$json = {
 final $typed_data.Uint8List getPaginatedSubscriptionsResponseDescriptor = $convert.base64Decode(
     'CiFHZXRQYWdpbmF0ZWRTdWJzY3JpcHRpb25zUmVzcG9uc2USVgoNc3Vic2NyaXB0aW9ucxgBIA'
     'MoCzIwLnByb3Rvcy5zdWJzY3JpcHRpb24uR2V0U3Vic2NyaXB0aW9uQnlJZFJlc3BvbnNlUg1z'
-    'dWJzY3JpcHRpb25zEjwKC25leHRfY3Vyc29yGAIgASgLMhsuZ29vZ2xlLnByb3RvYnVmLkludD'
-    'MyVmFsdWVSCm5leHRDdXJzb3I=');
+    'dWJzY3JpcHRpb25zEj0KC25leHRfY3Vyc29yGAIgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cm'
+    'luZ1ZhbHVlUgpuZXh0Q3Vyc29y');
 
 @$core.Deprecated('Use getSubscriptionByIdRequestDescriptor instead')
 const GetSubscriptionByIdRequest$json = {
   '1': 'GetSubscriptionByIdRequest',
   '2': [
-    {'1': 'subscription_pk', '3': 1, '4': 1, '5': 5, '10': 'subscriptionPk'},
+    {'1': 'subscription_id', '3': 1, '4': 1, '5': 9, '10': 'subscriptionId'},
   ],
 };
 
 /// Descriptor for `GetSubscriptionByIdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getSubscriptionByIdRequestDescriptor = $convert.base64Decode(
-    'ChpHZXRTdWJzY3JpcHRpb25CeUlkUmVxdWVzdBInCg9zdWJzY3JpcHRpb25fcGsYASABKAVSDn'
-    'N1YnNjcmlwdGlvblBr');
+    'ChpHZXRTdWJzY3JpcHRpb25CeUlkUmVxdWVzdBInCg9zdWJzY3JpcHRpb25faWQYASABKAlSDn'
+    'N1YnNjcmlwdGlvbklk');
 
 @$core.Deprecated('Use getSubscriptionByIdResponseDescriptor instead')
 const GetSubscriptionByIdResponse$json = {
   '1': 'GetSubscriptionByIdResponse',
   '2': [
-    {'1': 'subscription_pk', '3': 1, '4': 1, '5': 5, '10': 'subscriptionPk'},
+    {'1': 'subscription_id', '3': 1, '4': 1, '5': 9, '10': 'subscriptionId'},
     {'1': 'discipline', '3': 2, '4': 1, '5': 11, '6': '.protos.discipline.GetDisciplineByIdResponse', '10': 'discipline'},
     {'1': 'customer', '3': 3, '4': 1, '5': 11, '6': '.protos.customer.GetCustomerByIdResponse', '10': 'customer'},
     {'1': 'pay_day', '3': 4, '4': 1, '5': 5, '10': 'payDay'},
@@ -72,8 +72,8 @@ const GetSubscriptionByIdResponse$json = {
 
 /// Descriptor for `GetSubscriptionByIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getSubscriptionByIdResponseDescriptor = $convert.base64Decode(
-    'ChtHZXRTdWJzY3JpcHRpb25CeUlkUmVzcG9uc2USJwoPc3Vic2NyaXB0aW9uX3BrGAEgASgFUg'
-    '5zdWJzY3JpcHRpb25QaxJMCgpkaXNjaXBsaW5lGAIgASgLMiwucHJvdG9zLmRpc2NpcGxpbmUu'
+    'ChtHZXRTdWJzY3JpcHRpb25CeUlkUmVzcG9uc2USJwoPc3Vic2NyaXB0aW9uX2lkGAEgASgJUg'
+    '5zdWJzY3JpcHRpb25JZBJMCgpkaXNjaXBsaW5lGAIgASgLMiwucHJvdG9zLmRpc2NpcGxpbmUu'
     'R2V0RGlzY2lwbGluZUJ5SWRSZXNwb25zZVIKZGlzY2lwbGluZRJECghjdXN0b21lchgDIAEoCz'
     'IoLnByb3Rvcy5jdXN0b21lci5HZXRDdXN0b21lckJ5SWRSZXNwb25zZVIIY3VzdG9tZXISFwoH'
     'cGF5X2RheRgEIAEoBVIGcGF5RGF5EkcKCnN0YXJ0X2RhdGUYBSABKAsyKC5jdXN0b21fdHlwZX'
@@ -86,8 +86,8 @@ final $typed_data.Uint8List getSubscriptionByIdResponseDescriptor = $convert.bas
 const CreateSubscriptionRequest$json = {
   '1': 'CreateSubscriptionRequest',
   '2': [
-    {'1': 'discipline_fk', '3': 1, '4': 1, '5': 5, '10': 'disciplineFk'},
-    {'1': 'customer_fk', '3': 2, '4': 1, '5': 5, '10': 'customerFk'},
+    {'1': 'discipline_id', '3': 1, '4': 1, '5': 9, '10': 'disciplineId'},
+    {'1': 'customer_id', '3': 2, '4': 1, '5': 9, '10': 'customerId'},
     {'1': 'pay_day', '3': 3, '4': 1, '5': 5, '10': 'payDay'},
     {'1': 'start_date', '3': 4, '4': 1, '5': 11, '6': '.custom_types.calendar_date.CalendarDate', '10': 'startDate'},
     {'1': 'end_date', '3': 5, '4': 1, '5': 11, '6': '.custom_types.calendar_date.CalendarDate', '10': 'endDate'},
@@ -98,8 +98,8 @@ const CreateSubscriptionRequest$json = {
 
 /// Descriptor for `CreateSubscriptionRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createSubscriptionRequestDescriptor = $convert.base64Decode(
-    'ChlDcmVhdGVTdWJzY3JpcHRpb25SZXF1ZXN0EiMKDWRpc2NpcGxpbmVfZmsYASABKAVSDGRpc2'
-    'NpcGxpbmVGaxIfCgtjdXN0b21lcl9maxgCIAEoBVIKY3VzdG9tZXJGaxIXCgdwYXlfZGF5GAMg'
+    'ChlDcmVhdGVTdWJzY3JpcHRpb25SZXF1ZXN0EiMKDWRpc2NpcGxpbmVfaWQYASABKAlSDGRpc2'
+    'NpcGxpbmVJZBIfCgtjdXN0b21lcl9pZBgCIAEoCVIKY3VzdG9tZXJJZBIXCgdwYXlfZGF5GAMg'
     'ASgFUgZwYXlEYXkSRwoKc3RhcnRfZGF0ZRgEIAEoCzIoLmN1c3RvbV90eXBlcy5jYWxlbmRhcl'
     '9kYXRlLkNhbGVuZGFyRGF0ZVIJc3RhcnREYXRlEkMKCGVuZF9kYXRlGAUgASgLMiguY3VzdG9t'
     'X3R5cGVzLmNhbGVuZGFyX2RhdGUuQ2FsZW5kYXJEYXRlUgdlbmREYXRlEj4KBXByaWNlGAYgAS'
@@ -119,9 +119,9 @@ final $typed_data.Uint8List createSubscriptionResponseDescriptor = $convert.base
 const UpdateSubscriptionRequest$json = {
   '1': 'UpdateSubscriptionRequest',
   '2': [
-    {'1': 'subscription_pk', '3': 1, '4': 1, '5': 5, '10': 'subscriptionPk'},
-    {'1': 'discipline_fk', '3': 2, '4': 1, '5': 5, '10': 'disciplineFk'},
-    {'1': 'customer_fk', '3': 3, '4': 1, '5': 5, '10': 'customerFk'},
+    {'1': 'subscription_id', '3': 1, '4': 1, '5': 9, '10': 'subscriptionId'},
+    {'1': 'discipline_id', '3': 2, '4': 1, '5': 9, '10': 'disciplineId'},
+    {'1': 'customer_id', '3': 3, '4': 1, '5': 9, '10': 'customerId'},
     {'1': 'pay_day', '3': 4, '4': 1, '5': 5, '10': 'payDay'},
     {'1': 'start_date', '3': 5, '4': 1, '5': 11, '6': '.custom_types.calendar_date.CalendarDate', '10': 'startDate'},
     {'1': 'end_date', '3': 6, '4': 1, '5': 11, '6': '.custom_types.calendar_date.CalendarDate', '10': 'endDate'},
@@ -132,9 +132,9 @@ const UpdateSubscriptionRequest$json = {
 
 /// Descriptor for `UpdateSubscriptionRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateSubscriptionRequestDescriptor = $convert.base64Decode(
-    'ChlVcGRhdGVTdWJzY3JpcHRpb25SZXF1ZXN0EicKD3N1YnNjcmlwdGlvbl9waxgBIAEoBVIOc3'
-    'Vic2NyaXB0aW9uUGsSIwoNZGlzY2lwbGluZV9maxgCIAEoBVIMZGlzY2lwbGluZUZrEh8KC2N1'
-    'c3RvbWVyX2ZrGAMgASgFUgpjdXN0b21lckZrEhcKB3BheV9kYXkYBCABKAVSBnBheURheRJHCg'
+    'ChlVcGRhdGVTdWJzY3JpcHRpb25SZXF1ZXN0EicKD3N1YnNjcmlwdGlvbl9pZBgBIAEoCVIOc3'
+    'Vic2NyaXB0aW9uSWQSIwoNZGlzY2lwbGluZV9pZBgCIAEoCVIMZGlzY2lwbGluZUlkEh8KC2N1'
+    'c3RvbWVyX2lkGAMgASgJUgpjdXN0b21lcklkEhcKB3BheV9kYXkYBCABKAVSBnBheURheRJHCg'
     'pzdGFydF9kYXRlGAUgASgLMiguY3VzdG9tX3R5cGVzLmNhbGVuZGFyX2RhdGUuQ2FsZW5kYXJE'
     'YXRlUglzdGFydERhdGUSQwoIZW5kX2RhdGUYBiABKAsyKC5jdXN0b21fdHlwZXMuY2FsZW5kYX'
     'JfZGF0ZS5DYWxlbmRhckRhdGVSB2VuZERhdGUSPgoFcHJpY2UYByABKAsyKC5jdXN0b21fdHlw'
@@ -154,14 +154,14 @@ final $typed_data.Uint8List updateSubscriptionResponseDescriptor = $convert.base
 const DeleteSubscriptionRequest$json = {
   '1': 'DeleteSubscriptionRequest',
   '2': [
-    {'1': 'subscription_pk', '3': 1, '4': 1, '5': 5, '10': 'subscriptionPk'},
+    {'1': 'subscription_id', '3': 1, '4': 1, '5': 9, '10': 'subscriptionId'},
   ],
 };
 
 /// Descriptor for `DeleteSubscriptionRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteSubscriptionRequestDescriptor = $convert.base64Decode(
-    'ChlEZWxldGVTdWJzY3JpcHRpb25SZXF1ZXN0EicKD3N1YnNjcmlwdGlvbl9waxgBIAEoBVIOc3'
-    'Vic2NyaXB0aW9uUGs=');
+    'ChlEZWxldGVTdWJzY3JpcHRpb25SZXF1ZXN0EicKD3N1YnNjcmlwdGlvbl9pZBgBIAEoCVIOc3'
+    'Vic2NyaXB0aW9uSWQ=');
 
 @$core.Deprecated('Use deleteSubscriptionResponseDescriptor instead')
 const DeleteSubscriptionResponse$json = {

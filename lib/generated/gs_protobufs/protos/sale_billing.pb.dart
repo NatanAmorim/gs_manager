@@ -14,13 +14,13 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../google/protobuf/wrappers.pb.dart' as $17;
-import 'custom_types/decimal_value.pb.dart' as $19;
+import 'custom_types/decimal_value.pb.dart' as $18;
 import 'payment.pb.dart' as $9;
 import 'sale.pb.dart' as $13;
 
 class GetPaginatedSaleBillingsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedSaleBillingsRequest({
-    $core.int? cursor,
+    $core.String? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -33,7 +33,7 @@ class GetPaginatedSaleBillingsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedSaleBillingsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedSaleBillingsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale_billing'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'cursor', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'cursor')
     ..hasRequiredFields = false
   ;
 
@@ -59,9 +59,9 @@ class GetPaginatedSaleBillingsRequest extends $pb.GeneratedMessage {
   static GetPaginatedSaleBillingsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get cursor => $_getIZ(0);
+  $core.String get cursor => $_getSZ(0);
   @$pb.TagNumber(1)
-  set cursor($core.int v) { $_setSignedInt32(0, v); }
+  set cursor($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
@@ -71,7 +71,7 @@ class GetPaginatedSaleBillingsRequest extends $pb.GeneratedMessage {
 class GetPaginatedSaleBillingsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedSaleBillingsResponse({
     $core.Iterable<GetSaleBillingByIdResponse>? saleBillings,
-    $17.Int32Value? nextCursor,
+    $17.StringValue? nextCursor,
   }) {
     final $result = create();
     if (saleBillings != null) {
@@ -88,7 +88,7 @@ class GetPaginatedSaleBillingsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedSaleBillingsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale_billing'), createEmptyInstance: create)
     ..pc<GetSaleBillingByIdResponse>(1, _omitFieldNames ? '' : 'saleBillings', $pb.PbFieldType.PM, protoName: 'saleBillings', subBuilder: GetSaleBillingByIdResponse.create)
-    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.Int32Value.create)
+    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -117,24 +117,24 @@ class GetPaginatedSaleBillingsResponse extends $pb.GeneratedMessage {
   $core.List<GetSaleBillingByIdResponse> get saleBillings => $_getList(0);
 
   @$pb.TagNumber(2)
-  $17.Int32Value get nextCursor => $_getN(1);
+  $17.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($17.Int32Value v) { setField(2, v); }
+  set nextCursor($17.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $17.Int32Value ensureNextCursor() => $_ensure(1);
+  $17.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetSaleBillingByIdRequest extends $pb.GeneratedMessage {
   factory GetSaleBillingByIdRequest({
-    $core.int? saleBillingPk,
+    $core.String? saleBillingId,
   }) {
     final $result = create();
-    if (saleBillingPk != null) {
-      $result.saleBillingPk = saleBillingPk;
+    if (saleBillingId != null) {
+      $result.saleBillingId = saleBillingId;
     }
     return $result;
   }
@@ -143,7 +143,7 @@ class GetSaleBillingByIdRequest extends $pb.GeneratedMessage {
   factory GetSaleBillingByIdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetSaleBillingByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale_billing'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'saleBillingPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'saleBillingId')
     ..hasRequiredFields = false
   ;
 
@@ -169,32 +169,32 @@ class GetSaleBillingByIdRequest extends $pb.GeneratedMessage {
   static GetSaleBillingByIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get saleBillingPk => $_getIZ(0);
+  $core.String get saleBillingId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set saleBillingPk($core.int v) { $_setSignedInt32(0, v); }
+  set saleBillingId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasSaleBillingPk() => $_has(0);
+  $core.bool hasSaleBillingId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSaleBillingPk() => clearField(1);
+  void clearSaleBillingId() => clearField(1);
 }
 
 class GetSaleBillingByIdResponse extends $pb.GeneratedMessage {
   factory GetSaleBillingByIdResponse({
-    $core.int? saleBillingPk,
+    $core.String? saleBillingId,
     $13.GetSaleByIdResponse? sale,
-    $core.String? comments,
-    $19.DecimalValue? totalDiscount,
+    $core.String? observations,
+    $18.DecimalValue? totalDiscount,
     $9.GetPaymentByIdResponse? payment,
   }) {
     final $result = create();
-    if (saleBillingPk != null) {
-      $result.saleBillingPk = saleBillingPk;
+    if (saleBillingId != null) {
+      $result.saleBillingId = saleBillingId;
     }
     if (sale != null) {
       $result.sale = sale;
     }
-    if (comments != null) {
-      $result.comments = comments;
+    if (observations != null) {
+      $result.observations = observations;
     }
     if (totalDiscount != null) {
       $result.totalDiscount = totalDiscount;
@@ -209,10 +209,10 @@ class GetSaleBillingByIdResponse extends $pb.GeneratedMessage {
   factory GetSaleBillingByIdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetSaleBillingByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale_billing'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'saleBillingPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'saleBillingId')
     ..aOM<$13.GetSaleByIdResponse>(2, _omitFieldNames ? '' : 'sale', subBuilder: $13.GetSaleByIdResponse.create)
-    ..aOS(3, _omitFieldNames ? '' : 'comments')
-    ..aOM<$19.DecimalValue>(4, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $19.DecimalValue.create)
+    ..aOS(3, _omitFieldNames ? '' : 'observations')
+    ..aOM<$18.DecimalValue>(4, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $18.DecimalValue.create)
     ..aOM<$9.GetPaymentByIdResponse>(5, _omitFieldNames ? '' : 'payment', subBuilder: $9.GetPaymentByIdResponse.create)
     ..hasRequiredFields = false
   ;
@@ -239,13 +239,13 @@ class GetSaleBillingByIdResponse extends $pb.GeneratedMessage {
   static GetSaleBillingByIdResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get saleBillingPk => $_getIZ(0);
+  $core.String get saleBillingId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set saleBillingPk($core.int v) { $_setSignedInt32(0, v); }
+  set saleBillingId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasSaleBillingPk() => $_has(0);
+  $core.bool hasSaleBillingId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSaleBillingPk() => clearField(1);
+  void clearSaleBillingId() => clearField(1);
 
   @$pb.TagNumber(2)
   $13.GetSaleByIdResponse get sale => $_getN(1);
@@ -259,24 +259,24 @@ class GetSaleBillingByIdResponse extends $pb.GeneratedMessage {
   $13.GetSaleByIdResponse ensureSale() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  $core.String get comments => $_getSZ(2);
+  $core.String get observations => $_getSZ(2);
   @$pb.TagNumber(3)
-  set comments($core.String v) { $_setString(2, v); }
+  set observations($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasComments() => $_has(2);
+  $core.bool hasObservations() => $_has(2);
   @$pb.TagNumber(3)
-  void clearComments() => clearField(3);
+  void clearObservations() => clearField(3);
 
   @$pb.TagNumber(4)
-  $19.DecimalValue get totalDiscount => $_getN(3);
+  $18.DecimalValue get totalDiscount => $_getN(3);
   @$pb.TagNumber(4)
-  set totalDiscount($19.DecimalValue v) { setField(4, v); }
+  set totalDiscount($18.DecimalValue v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasTotalDiscount() => $_has(3);
   @$pb.TagNumber(4)
   void clearTotalDiscount() => clearField(4);
   @$pb.TagNumber(4)
-  $19.DecimalValue ensureTotalDiscount() => $_ensure(3);
+  $18.DecimalValue ensureTotalDiscount() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $9.GetPaymentByIdResponse get payment => $_getN(4);
@@ -292,17 +292,17 @@ class GetSaleBillingByIdResponse extends $pb.GeneratedMessage {
 
 class CreateSaleBillingRequest extends $pb.GeneratedMessage {
   factory CreateSaleBillingRequest({
-    $core.int? saleFk,
-    $core.String? comments,
-    $19.DecimalValue? totalDiscount,
+    $core.String? saleId,
+    $core.String? observations,
+    $18.DecimalValue? totalDiscount,
     $9.CreatePaymentRequest? payment,
   }) {
     final $result = create();
-    if (saleFk != null) {
-      $result.saleFk = saleFk;
+    if (saleId != null) {
+      $result.saleId = saleId;
     }
-    if (comments != null) {
-      $result.comments = comments;
+    if (observations != null) {
+      $result.observations = observations;
     }
     if (totalDiscount != null) {
       $result.totalDiscount = totalDiscount;
@@ -317,9 +317,9 @@ class CreateSaleBillingRequest extends $pb.GeneratedMessage {
   factory CreateSaleBillingRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateSaleBillingRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale_billing'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'saleFk', $pb.PbFieldType.O3)
-    ..aOS(2, _omitFieldNames ? '' : 'comments')
-    ..aOM<$19.DecimalValue>(3, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $19.DecimalValue.create)
+    ..aOS(1, _omitFieldNames ? '' : 'saleId')
+    ..aOS(2, _omitFieldNames ? '' : 'observations')
+    ..aOM<$18.DecimalValue>(3, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $18.DecimalValue.create)
     ..aOM<$9.CreatePaymentRequest>(4, _omitFieldNames ? '' : 'payment', subBuilder: $9.CreatePaymentRequest.create)
     ..hasRequiredFields = false
   ;
@@ -346,33 +346,33 @@ class CreateSaleBillingRequest extends $pb.GeneratedMessage {
   static CreateSaleBillingRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get saleFk => $_getIZ(0);
+  $core.String get saleId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set saleFk($core.int v) { $_setSignedInt32(0, v); }
+  set saleId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasSaleFk() => $_has(0);
+  $core.bool hasSaleId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSaleFk() => clearField(1);
+  void clearSaleId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get comments => $_getSZ(1);
+  $core.String get observations => $_getSZ(1);
   @$pb.TagNumber(2)
-  set comments($core.String v) { $_setString(1, v); }
+  set observations($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasComments() => $_has(1);
+  $core.bool hasObservations() => $_has(1);
   @$pb.TagNumber(2)
-  void clearComments() => clearField(2);
+  void clearObservations() => clearField(2);
 
   @$pb.TagNumber(3)
-  $19.DecimalValue get totalDiscount => $_getN(2);
+  $18.DecimalValue get totalDiscount => $_getN(2);
   @$pb.TagNumber(3)
-  set totalDiscount($19.DecimalValue v) { setField(3, v); }
+  set totalDiscount($18.DecimalValue v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasTotalDiscount() => $_has(2);
   @$pb.TagNumber(3)
   void clearTotalDiscount() => clearField(3);
   @$pb.TagNumber(3)
-  $19.DecimalValue ensureTotalDiscount() => $_ensure(2);
+  $18.DecimalValue ensureTotalDiscount() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $9.CreatePaymentRequest get payment => $_getN(3);
@@ -420,21 +420,21 @@ class CreateSaleBillingResponse extends $pb.GeneratedMessage {
 
 class UpdateSaleBillingRequest extends $pb.GeneratedMessage {
   factory UpdateSaleBillingRequest({
-    $core.int? saleBillingPk,
-    $core.int? saleFk,
-    $core.String? comments,
-    $19.DecimalValue? totalDiscount,
+    $core.String? saleBillingId,
+    $core.String? saleId,
+    $core.String? observations,
+    $18.DecimalValue? totalDiscount,
     $9.GetPaymentByIdResponse? payment,
   }) {
     final $result = create();
-    if (saleBillingPk != null) {
-      $result.saleBillingPk = saleBillingPk;
+    if (saleBillingId != null) {
+      $result.saleBillingId = saleBillingId;
     }
-    if (saleFk != null) {
-      $result.saleFk = saleFk;
+    if (saleId != null) {
+      $result.saleId = saleId;
     }
-    if (comments != null) {
-      $result.comments = comments;
+    if (observations != null) {
+      $result.observations = observations;
     }
     if (totalDiscount != null) {
       $result.totalDiscount = totalDiscount;
@@ -449,10 +449,10 @@ class UpdateSaleBillingRequest extends $pb.GeneratedMessage {
   factory UpdateSaleBillingRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateSaleBillingRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale_billing'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'saleBillingPk', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'saleFk', $pb.PbFieldType.O3)
-    ..aOS(3, _omitFieldNames ? '' : 'comments')
-    ..aOM<$19.DecimalValue>(4, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $19.DecimalValue.create)
+    ..aOS(1, _omitFieldNames ? '' : 'saleBillingId')
+    ..aOS(2, _omitFieldNames ? '' : 'saleId')
+    ..aOS(3, _omitFieldNames ? '' : 'observations')
+    ..aOM<$18.DecimalValue>(4, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $18.DecimalValue.create)
     ..aOM<$9.GetPaymentByIdResponse>(5, _omitFieldNames ? '' : 'payment', subBuilder: $9.GetPaymentByIdResponse.create)
     ..hasRequiredFields = false
   ;
@@ -479,42 +479,42 @@ class UpdateSaleBillingRequest extends $pb.GeneratedMessage {
   static UpdateSaleBillingRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get saleBillingPk => $_getIZ(0);
+  $core.String get saleBillingId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set saleBillingPk($core.int v) { $_setSignedInt32(0, v); }
+  set saleBillingId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasSaleBillingPk() => $_has(0);
+  $core.bool hasSaleBillingId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSaleBillingPk() => clearField(1);
+  void clearSaleBillingId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get saleFk => $_getIZ(1);
+  $core.String get saleId => $_getSZ(1);
   @$pb.TagNumber(2)
-  set saleFk($core.int v) { $_setSignedInt32(1, v); }
+  set saleId($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasSaleFk() => $_has(1);
+  $core.bool hasSaleId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearSaleFk() => clearField(2);
+  void clearSaleId() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get comments => $_getSZ(2);
+  $core.String get observations => $_getSZ(2);
   @$pb.TagNumber(3)
-  set comments($core.String v) { $_setString(2, v); }
+  set observations($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasComments() => $_has(2);
+  $core.bool hasObservations() => $_has(2);
   @$pb.TagNumber(3)
-  void clearComments() => clearField(3);
+  void clearObservations() => clearField(3);
 
   @$pb.TagNumber(4)
-  $19.DecimalValue get totalDiscount => $_getN(3);
+  $18.DecimalValue get totalDiscount => $_getN(3);
   @$pb.TagNumber(4)
-  set totalDiscount($19.DecimalValue v) { setField(4, v); }
+  set totalDiscount($18.DecimalValue v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasTotalDiscount() => $_has(3);
   @$pb.TagNumber(4)
   void clearTotalDiscount() => clearField(4);
   @$pb.TagNumber(4)
-  $19.DecimalValue ensureTotalDiscount() => $_ensure(3);
+  $18.DecimalValue ensureTotalDiscount() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $9.GetPaymentByIdResponse get payment => $_getN(4);
@@ -562,11 +562,11 @@ class UpdateSaleBillingResponse extends $pb.GeneratedMessage {
 
 class DeleteSaleBillingRequest extends $pb.GeneratedMessage {
   factory DeleteSaleBillingRequest({
-    $core.int? saleBillingPk,
+    $core.String? saleBillingId,
   }) {
     final $result = create();
-    if (saleBillingPk != null) {
-      $result.saleBillingPk = saleBillingPk;
+    if (saleBillingId != null) {
+      $result.saleBillingId = saleBillingId;
     }
     return $result;
   }
@@ -575,7 +575,7 @@ class DeleteSaleBillingRequest extends $pb.GeneratedMessage {
   factory DeleteSaleBillingRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteSaleBillingRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale_billing'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'saleBillingPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'saleBillingId')
     ..hasRequiredFields = false
   ;
 
@@ -601,13 +601,13 @@ class DeleteSaleBillingRequest extends $pb.GeneratedMessage {
   static DeleteSaleBillingRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get saleBillingPk => $_getIZ(0);
+  $core.String get saleBillingId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set saleBillingPk($core.int v) { $_setSignedInt32(0, v); }
+  set saleBillingId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasSaleBillingPk() => $_has(0);
+  $core.bool hasSaleBillingId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSaleBillingPk() => clearField(1);
+  void clearSaleBillingId() => clearField(1);
 }
 
 class DeleteSaleBillingResponse extends $pb.GeneratedMessage {

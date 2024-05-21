@@ -14,7 +14,7 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../google/protobuf/wrappers.pb.dart' as $17;
-import 'custom_types/decimal_value.pb.dart' as $19;
+import 'custom_types/decimal_value.pb.dart' as $18;
 
 class GetAllProductsRequest extends $pb.GeneratedMessage {
   factory GetAllProductsRequest() => create();
@@ -94,11 +94,11 @@ class GetAllProductsResponse extends $pb.GeneratedMessage {
 
 class GetProductByIdRequest extends $pb.GeneratedMessage {
   factory GetProductByIdRequest({
-    $core.int? productPk,
+    $core.String? productId,
   }) {
     final $result = create();
-    if (productPk != null) {
-      $result.productPk = productPk;
+    if (productId != null) {
+      $result.productId = productId;
     }
     return $result;
   }
@@ -107,7 +107,7 @@ class GetProductByIdRequest extends $pb.GeneratedMessage {
   factory GetProductByIdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetProductByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.product'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'productPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'productId')
     ..hasRequiredFields = false
   ;
 
@@ -133,34 +133,30 @@ class GetProductByIdRequest extends $pb.GeneratedMessage {
   static GetProductByIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get productPk => $_getIZ(0);
+  $core.String get productId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set productPk($core.int v) { $_setSignedInt32(0, v); }
+  set productId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasProductPk() => $_has(0);
+  $core.bool hasProductId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearProductPk() => clearField(1);
+  void clearProductId() => clearField(1);
 }
 
 class GetProductByIdResponse extends $pb.GeneratedMessage {
   factory GetProductByIdResponse({
-    $core.int? productPk,
+    $core.String? productId,
     $core.String? name,
-    $core.String? description,
     $17.StringValue? picturePath,
     ProductBrand? productBrand,
     ProductCategory? productCategory,
     $core.Iterable<ProductVariant>? variants,
   }) {
     final $result = create();
-    if (productPk != null) {
-      $result.productPk = productPk;
+    if (productId != null) {
+      $result.productId = productId;
     }
     if (name != null) {
       $result.name = name;
-    }
-    if (description != null) {
-      $result.description = description;
     }
     if (picturePath != null) {
       $result.picturePath = picturePath;
@@ -181,13 +177,12 @@ class GetProductByIdResponse extends $pb.GeneratedMessage {
   factory GetProductByIdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetProductByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.product'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'productPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'productId')
     ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..aOS(3, _omitFieldNames ? '' : 'description')
-    ..aOM<$17.StringValue>(4, _omitFieldNames ? '' : 'picturePath', subBuilder: $17.StringValue.create)
-    ..aOM<ProductBrand>(5, _omitFieldNames ? '' : 'productBrand', subBuilder: ProductBrand.create)
-    ..aOM<ProductCategory>(6, _omitFieldNames ? '' : 'productCategory', subBuilder: ProductCategory.create)
-    ..pc<ProductVariant>(7, _omitFieldNames ? '' : 'variants', $pb.PbFieldType.PM, subBuilder: ProductVariant.create)
+    ..aOM<$17.StringValue>(3, _omitFieldNames ? '' : 'picturePath', subBuilder: $17.StringValue.create)
+    ..aOM<ProductBrand>(4, _omitFieldNames ? '' : 'productBrand', subBuilder: ProductBrand.create)
+    ..aOM<ProductCategory>(5, _omitFieldNames ? '' : 'productCategory', subBuilder: ProductCategory.create)
+    ..pc<ProductVariant>(6, _omitFieldNames ? '' : 'variants', $pb.PbFieldType.PM, subBuilder: ProductVariant.create)
     ..hasRequiredFields = false
   ;
 
@@ -213,13 +208,13 @@ class GetProductByIdResponse extends $pb.GeneratedMessage {
   static GetProductByIdResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get productPk => $_getIZ(0);
+  $core.String get productId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set productPk($core.int v) { $_setSignedInt32(0, v); }
+  set productId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasProductPk() => $_has(0);
+  $core.bool hasProductId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearProductPk() => clearField(1);
+  void clearProductId() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get name => $_getSZ(1);
@@ -231,75 +226,62 @@ class GetProductByIdResponse extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get description => $_getSZ(2);
+  $17.StringValue get picturePath => $_getN(2);
   @$pb.TagNumber(3)
-  set description($core.String v) { $_setString(2, v); }
+  set picturePath($17.StringValue v) { setField(3, v); }
   @$pb.TagNumber(3)
-  $core.bool hasDescription() => $_has(2);
+  $core.bool hasPicturePath() => $_has(2);
   @$pb.TagNumber(3)
-  void clearDescription() => clearField(3);
+  void clearPicturePath() => clearField(3);
+  @$pb.TagNumber(3)
+  $17.StringValue ensurePicturePath() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $17.StringValue get picturePath => $_getN(3);
+  ProductBrand get productBrand => $_getN(3);
   @$pb.TagNumber(4)
-  set picturePath($17.StringValue v) { setField(4, v); }
+  set productBrand(ProductBrand v) { setField(4, v); }
   @$pb.TagNumber(4)
-  $core.bool hasPicturePath() => $_has(3);
+  $core.bool hasProductBrand() => $_has(3);
   @$pb.TagNumber(4)
-  void clearPicturePath() => clearField(4);
+  void clearProductBrand() => clearField(4);
   @$pb.TagNumber(4)
-  $17.StringValue ensurePicturePath() => $_ensure(3);
+  ProductBrand ensureProductBrand() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  ProductBrand get productBrand => $_getN(4);
+  ProductCategory get productCategory => $_getN(4);
   @$pb.TagNumber(5)
-  set productBrand(ProductBrand v) { setField(5, v); }
+  set productCategory(ProductCategory v) { setField(5, v); }
   @$pb.TagNumber(5)
-  $core.bool hasProductBrand() => $_has(4);
+  $core.bool hasProductCategory() => $_has(4);
   @$pb.TagNumber(5)
-  void clearProductBrand() => clearField(5);
+  void clearProductCategory() => clearField(5);
   @$pb.TagNumber(5)
-  ProductBrand ensureProductBrand() => $_ensure(4);
+  ProductCategory ensureProductCategory() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  ProductCategory get productCategory => $_getN(5);
-  @$pb.TagNumber(6)
-  set productCategory(ProductCategory v) { setField(6, v); }
-  @$pb.TagNumber(6)
-  $core.bool hasProductCategory() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearProductCategory() => clearField(6);
-  @$pb.TagNumber(6)
-  ProductCategory ensureProductCategory() => $_ensure(5);
-
-  @$pb.TagNumber(7)
-  $core.List<ProductVariant> get variants => $_getList(6);
+  $core.List<ProductVariant> get variants => $_getList(5);
 }
 
 class CreateProductRequest extends $pb.GeneratedMessage {
   factory CreateProductRequest({
     $core.String? name,
-    $core.String? description,
     $core.List<$core.int>? pictureBinary,
-    CreateProductBrandRequest? productBrand,
-    CreateProductCategoryRequest? productCategory,
+    $core.String? productBrandId,
+    $core.String? productCategoryId,
     $core.Iterable<ProductVariant>? variants,
   }) {
     final $result = create();
     if (name != null) {
       $result.name = name;
     }
-    if (description != null) {
-      $result.description = description;
-    }
     if (pictureBinary != null) {
       $result.pictureBinary = pictureBinary;
     }
-    if (productBrand != null) {
-      $result.productBrand = productBrand;
+    if (productBrandId != null) {
+      $result.productBrandId = productBrandId;
     }
-    if (productCategory != null) {
-      $result.productCategory = productCategory;
+    if (productCategoryId != null) {
+      $result.productCategoryId = productCategoryId;
     }
     if (variants != null) {
       $result.variants.addAll(variants);
@@ -312,11 +294,10 @@ class CreateProductRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateProductRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.product'), createEmptyInstance: create)
     ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..aOS(3, _omitFieldNames ? '' : 'description')
-    ..a<$core.List<$core.int>>(4, _omitFieldNames ? '' : 'pictureBinary', $pb.PbFieldType.OY)
-    ..aOM<CreateProductBrandRequest>(5, _omitFieldNames ? '' : 'productBrand', subBuilder: CreateProductBrandRequest.create)
-    ..aOM<CreateProductCategoryRequest>(6, _omitFieldNames ? '' : 'productCategory', subBuilder: CreateProductCategoryRequest.create)
-    ..pc<ProductVariant>(7, _omitFieldNames ? '' : 'variants', $pb.PbFieldType.PM, subBuilder: ProductVariant.create)
+    ..a<$core.List<$core.int>>(3, _omitFieldNames ? '' : 'pictureBinary', $pb.PbFieldType.OY)
+    ..aOS(4, _omitFieldNames ? '' : 'productBrandId')
+    ..aOS(5, _omitFieldNames ? '' : 'productCategoryId')
+    ..pc<ProductVariant>(6, _omitFieldNames ? '' : 'variants', $pb.PbFieldType.PM, subBuilder: ProductVariant.create)
     ..hasRequiredFields = false
   ;
 
@@ -351,47 +332,34 @@ class CreateProductRequest extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get description => $_getSZ(1);
+  $core.List<$core.int> get pictureBinary => $_getN(1);
   @$pb.TagNumber(3)
-  set description($core.String v) { $_setString(1, v); }
+  set pictureBinary($core.List<$core.int> v) { $_setBytes(1, v); }
   @$pb.TagNumber(3)
-  $core.bool hasDescription() => $_has(1);
+  $core.bool hasPictureBinary() => $_has(1);
   @$pb.TagNumber(3)
-  void clearDescription() => clearField(3);
+  void clearPictureBinary() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.List<$core.int> get pictureBinary => $_getN(2);
+  $core.String get productBrandId => $_getSZ(2);
   @$pb.TagNumber(4)
-  set pictureBinary($core.List<$core.int> v) { $_setBytes(2, v); }
+  set productBrandId($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(4)
-  $core.bool hasPictureBinary() => $_has(2);
+  $core.bool hasProductBrandId() => $_has(2);
   @$pb.TagNumber(4)
-  void clearPictureBinary() => clearField(4);
+  void clearProductBrandId() => clearField(4);
 
   @$pb.TagNumber(5)
-  CreateProductBrandRequest get productBrand => $_getN(3);
+  $core.String get productCategoryId => $_getSZ(3);
   @$pb.TagNumber(5)
-  set productBrand(CreateProductBrandRequest v) { setField(5, v); }
+  set productCategoryId($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(5)
-  $core.bool hasProductBrand() => $_has(3);
+  $core.bool hasProductCategoryId() => $_has(3);
   @$pb.TagNumber(5)
-  void clearProductBrand() => clearField(5);
-  @$pb.TagNumber(5)
-  CreateProductBrandRequest ensureProductBrand() => $_ensure(3);
+  void clearProductCategoryId() => clearField(5);
 
   @$pb.TagNumber(6)
-  CreateProductCategoryRequest get productCategory => $_getN(4);
-  @$pb.TagNumber(6)
-  set productCategory(CreateProductCategoryRequest v) { setField(6, v); }
-  @$pb.TagNumber(6)
-  $core.bool hasProductCategory() => $_has(4);
-  @$pb.TagNumber(6)
-  void clearProductCategory() => clearField(6);
-  @$pb.TagNumber(6)
-  CreateProductCategoryRequest ensureProductCategory() => $_ensure(4);
-
-  @$pb.TagNumber(7)
-  $core.List<ProductVariant> get variants => $_getList(5);
+  $core.List<ProductVariant> get variants => $_getList(4);
 }
 
 class CreateProductResponse extends $pb.GeneratedMessage {
@@ -428,32 +396,28 @@ class CreateProductResponse extends $pb.GeneratedMessage {
 
 class UpdateProductRequest extends $pb.GeneratedMessage {
   factory UpdateProductRequest({
-    $core.int? productPk,
+    $core.String? productId,
     $core.String? name,
-    $core.String? description,
     $core.List<$core.int>? pictureBinary,
-    $17.Int32Value? productBrandFk,
-    $17.Int32Value? productCategoryFk,
+    $17.StringValue? productBrandId,
+    $17.StringValue? productCategoryId,
     $core.Iterable<ProductVariant>? variants,
   }) {
     final $result = create();
-    if (productPk != null) {
-      $result.productPk = productPk;
+    if (productId != null) {
+      $result.productId = productId;
     }
     if (name != null) {
       $result.name = name;
     }
-    if (description != null) {
-      $result.description = description;
-    }
     if (pictureBinary != null) {
       $result.pictureBinary = pictureBinary;
     }
-    if (productBrandFk != null) {
-      $result.productBrandFk = productBrandFk;
+    if (productBrandId != null) {
+      $result.productBrandId = productBrandId;
     }
-    if (productCategoryFk != null) {
-      $result.productCategoryFk = productCategoryFk;
+    if (productCategoryId != null) {
+      $result.productCategoryId = productCategoryId;
     }
     if (variants != null) {
       $result.variants.addAll(variants);
@@ -465,13 +429,12 @@ class UpdateProductRequest extends $pb.GeneratedMessage {
   factory UpdateProductRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateProductRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.product'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'productPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'productId')
     ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..aOS(3, _omitFieldNames ? '' : 'description')
-    ..a<$core.List<$core.int>>(4, _omitFieldNames ? '' : 'pictureBinary', $pb.PbFieldType.OY)
-    ..aOM<$17.Int32Value>(5, _omitFieldNames ? '' : 'productBrandFk', subBuilder: $17.Int32Value.create)
-    ..aOM<$17.Int32Value>(6, _omitFieldNames ? '' : 'productCategoryFk', subBuilder: $17.Int32Value.create)
-    ..pc<ProductVariant>(7, _omitFieldNames ? '' : 'variants', $pb.PbFieldType.PM, subBuilder: ProductVariant.create)
+    ..a<$core.List<$core.int>>(3, _omitFieldNames ? '' : 'pictureBinary', $pb.PbFieldType.OY)
+    ..aOM<$17.StringValue>(4, _omitFieldNames ? '' : 'productBrandId', subBuilder: $17.StringValue.create)
+    ..aOM<$17.StringValue>(5, _omitFieldNames ? '' : 'productCategoryId', subBuilder: $17.StringValue.create)
+    ..pc<ProductVariant>(6, _omitFieldNames ? '' : 'variants', $pb.PbFieldType.PM, subBuilder: ProductVariant.create)
     ..hasRequiredFields = false
   ;
 
@@ -497,13 +460,13 @@ class UpdateProductRequest extends $pb.GeneratedMessage {
   static UpdateProductRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get productPk => $_getIZ(0);
+  $core.String get productId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set productPk($core.int v) { $_setSignedInt32(0, v); }
+  set productId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasProductPk() => $_has(0);
+  $core.bool hasProductId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearProductPk() => clearField(1);
+  void clearProductId() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get name => $_getSZ(1);
@@ -515,47 +478,38 @@ class UpdateProductRequest extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get description => $_getSZ(2);
+  $core.List<$core.int> get pictureBinary => $_getN(2);
   @$pb.TagNumber(3)
-  set description($core.String v) { $_setString(2, v); }
+  set pictureBinary($core.List<$core.int> v) { $_setBytes(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasDescription() => $_has(2);
+  $core.bool hasPictureBinary() => $_has(2);
   @$pb.TagNumber(3)
-  void clearDescription() => clearField(3);
+  void clearPictureBinary() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.List<$core.int> get pictureBinary => $_getN(3);
+  $17.StringValue get productBrandId => $_getN(3);
   @$pb.TagNumber(4)
-  set pictureBinary($core.List<$core.int> v) { $_setBytes(3, v); }
+  set productBrandId($17.StringValue v) { setField(4, v); }
   @$pb.TagNumber(4)
-  $core.bool hasPictureBinary() => $_has(3);
+  $core.bool hasProductBrandId() => $_has(3);
   @$pb.TagNumber(4)
-  void clearPictureBinary() => clearField(4);
+  void clearProductBrandId() => clearField(4);
+  @$pb.TagNumber(4)
+  $17.StringValue ensureProductBrandId() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  $17.Int32Value get productBrandFk => $_getN(4);
+  $17.StringValue get productCategoryId => $_getN(4);
   @$pb.TagNumber(5)
-  set productBrandFk($17.Int32Value v) { setField(5, v); }
+  set productCategoryId($17.StringValue v) { setField(5, v); }
   @$pb.TagNumber(5)
-  $core.bool hasProductBrandFk() => $_has(4);
+  $core.bool hasProductCategoryId() => $_has(4);
   @$pb.TagNumber(5)
-  void clearProductBrandFk() => clearField(5);
+  void clearProductCategoryId() => clearField(5);
   @$pb.TagNumber(5)
-  $17.Int32Value ensureProductBrandFk() => $_ensure(4);
+  $17.StringValue ensureProductCategoryId() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $17.Int32Value get productCategoryFk => $_getN(5);
-  @$pb.TagNumber(6)
-  set productCategoryFk($17.Int32Value v) { setField(6, v); }
-  @$pb.TagNumber(6)
-  $core.bool hasProductCategoryFk() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearProductCategoryFk() => clearField(6);
-  @$pb.TagNumber(6)
-  $17.Int32Value ensureProductCategoryFk() => $_ensure(5);
-
-  @$pb.TagNumber(7)
-  $core.List<ProductVariant> get variants => $_getList(6);
+  $core.List<ProductVariant> get variants => $_getList(5);
 }
 
 class UpdateProductResponse extends $pb.GeneratedMessage {
@@ -592,11 +546,11 @@ class UpdateProductResponse extends $pb.GeneratedMessage {
 
 class DeleteProductRequest extends $pb.GeneratedMessage {
   factory DeleteProductRequest({
-    $core.int? productPk,
+    $core.String? productId,
   }) {
     final $result = create();
-    if (productPk != null) {
-      $result.productPk = productPk;
+    if (productId != null) {
+      $result.productId = productId;
     }
     return $result;
   }
@@ -605,7 +559,7 @@ class DeleteProductRequest extends $pb.GeneratedMessage {
   factory DeleteProductRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteProductRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.product'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'productPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'productId')
     ..hasRequiredFields = false
   ;
 
@@ -631,13 +585,13 @@ class DeleteProductRequest extends $pb.GeneratedMessage {
   static DeleteProductRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get productPk => $_getIZ(0);
+  $core.String get productId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set productPk($core.int v) { $_setSignedInt32(0, v); }
+  set productId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasProductPk() => $_has(0);
+  $core.bool hasProductId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearProductPk() => clearField(1);
+  void clearProductId() => clearField(1);
 }
 
 class DeleteProductResponse extends $pb.GeneratedMessage {
@@ -832,12 +786,12 @@ class CreateProductBrandResponse extends $pb.GeneratedMessage {
 
 class ProductBrand extends $pb.GeneratedMessage {
   factory ProductBrand({
-    $core.int? productBrandPk,
+    $core.String? productBrandId,
     $core.String? name,
   }) {
     final $result = create();
-    if (productBrandPk != null) {
-      $result.productBrandPk = productBrandPk;
+    if (productBrandId != null) {
+      $result.productBrandId = productBrandId;
     }
     if (name != null) {
       $result.name = name;
@@ -849,7 +803,7 @@ class ProductBrand extends $pb.GeneratedMessage {
   factory ProductBrand.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ProductBrand', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.product'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'productBrandPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'productBrandId')
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..hasRequiredFields = false
   ;
@@ -876,13 +830,13 @@ class ProductBrand extends $pb.GeneratedMessage {
   static ProductBrand? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get productBrandPk => $_getIZ(0);
+  $core.String get productBrandId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set productBrandPk($core.int v) { $_setSignedInt32(0, v); }
+  set productBrandId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasProductBrandPk() => $_has(0);
+  $core.bool hasProductBrandId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearProductBrandPk() => clearField(1);
+  void clearProductBrandId() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get name => $_getSZ(1);
@@ -1054,12 +1008,12 @@ class CreateProductCategoryResponse extends $pb.GeneratedMessage {
 
 class ProductCategory extends $pb.GeneratedMessage {
   factory ProductCategory({
-    $core.int? productCategoryPk,
+    $core.String? productCategoryId,
     $core.String? name,
   }) {
     final $result = create();
-    if (productCategoryPk != null) {
-      $result.productCategoryPk = productCategoryPk;
+    if (productCategoryId != null) {
+      $result.productCategoryId = productCategoryId;
     }
     if (name != null) {
       $result.name = name;
@@ -1071,7 +1025,7 @@ class ProductCategory extends $pb.GeneratedMessage {
   factory ProductCategory.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ProductCategory', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.product'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'productCategoryPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'productCategoryId')
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..hasRequiredFields = false
   ;
@@ -1098,13 +1052,13 @@ class ProductCategory extends $pb.GeneratedMessage {
   static ProductCategory? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get productCategoryPk => $_getIZ(0);
+  $core.String get productCategoryId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set productCategoryPk($core.int v) { $_setSignedInt32(0, v); }
+  set productCategoryId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasProductCategoryPk() => $_has(0);
+  $core.bool hasProductCategoryId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearProductCategoryPk() => clearField(1);
+  void clearProductCategoryId() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get name => $_getSZ(1);
@@ -1118,17 +1072,17 @@ class ProductCategory extends $pb.GeneratedMessage {
 
 class ProductVariant extends $pb.GeneratedMessage {
   factory ProductVariant({
-    $core.int? productVariantPk,
+    $core.String? productVariantId,
     $core.String? color,
     $core.String? size,
     $core.String? barCode,
     $core.String? sku,
-    $19.DecimalValue? unitPrice,
+    $18.DecimalValue? unitPrice,
     ProductVariantInventory? inventory,
   }) {
     final $result = create();
-    if (productVariantPk != null) {
-      $result.productVariantPk = productVariantPk;
+    if (productVariantId != null) {
+      $result.productVariantId = productVariantId;
     }
     if (color != null) {
       $result.color = color;
@@ -1155,12 +1109,12 @@ class ProductVariant extends $pb.GeneratedMessage {
   factory ProductVariant.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ProductVariant', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.product'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'productVariantPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'productVariantId')
     ..aOS(2, _omitFieldNames ? '' : 'color')
     ..aOS(3, _omitFieldNames ? '' : 'size')
     ..aOS(4, _omitFieldNames ? '' : 'barCode')
     ..aOS(5, _omitFieldNames ? '' : 'sku')
-    ..aOM<$19.DecimalValue>(6, _omitFieldNames ? '' : 'unitPrice', subBuilder: $19.DecimalValue.create)
+    ..aOM<$18.DecimalValue>(6, _omitFieldNames ? '' : 'unitPrice', subBuilder: $18.DecimalValue.create)
     ..aOM<ProductVariantInventory>(7, _omitFieldNames ? '' : 'inventory', subBuilder: ProductVariantInventory.create)
     ..hasRequiredFields = false
   ;
@@ -1187,13 +1141,13 @@ class ProductVariant extends $pb.GeneratedMessage {
   static ProductVariant? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get productVariantPk => $_getIZ(0);
+  $core.String get productVariantId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set productVariantPk($core.int v) { $_setSignedInt32(0, v); }
+  set productVariantId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasProductVariantPk() => $_has(0);
+  $core.bool hasProductVariantId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearProductVariantPk() => clearField(1);
+  void clearProductVariantId() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get color => $_getSZ(1);
@@ -1232,15 +1186,15 @@ class ProductVariant extends $pb.GeneratedMessage {
   void clearSku() => clearField(5);
 
   @$pb.TagNumber(6)
-  $19.DecimalValue get unitPrice => $_getN(5);
+  $18.DecimalValue get unitPrice => $_getN(5);
   @$pb.TagNumber(6)
-  set unitPrice($19.DecimalValue v) { setField(6, v); }
+  set unitPrice($18.DecimalValue v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasUnitPrice() => $_has(5);
   @$pb.TagNumber(6)
   void clearUnitPrice() => clearField(6);
   @$pb.TagNumber(6)
-  $19.DecimalValue ensureUnitPrice() => $_ensure(5);
+  $18.DecimalValue ensureUnitPrice() => $_ensure(5);
 
   @$pb.TagNumber(7)
   ProductVariantInventory get inventory => $_getN(6);
@@ -1256,17 +1210,13 @@ class ProductVariant extends $pb.GeneratedMessage {
 
 class ProductVariantInventory extends $pb.GeneratedMessage {
   factory ProductVariantInventory({
-    $core.int? productVariantInventoryPk,
-    $core.int? productVariantFk,
+    $core.String? productVariantInventoryId,
     $core.int? quantityAvailable,
     $core.int? minimumStockAmount,
   }) {
     final $result = create();
-    if (productVariantInventoryPk != null) {
-      $result.productVariantInventoryPk = productVariantInventoryPk;
-    }
-    if (productVariantFk != null) {
-      $result.productVariantFk = productVariantFk;
+    if (productVariantInventoryId != null) {
+      $result.productVariantInventoryId = productVariantInventoryId;
     }
     if (quantityAvailable != null) {
       $result.quantityAvailable = quantityAvailable;
@@ -1281,10 +1231,9 @@ class ProductVariantInventory extends $pb.GeneratedMessage {
   factory ProductVariantInventory.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ProductVariantInventory', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.product'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'productVariantInventoryPk', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'productVariantFk', $pb.PbFieldType.O3)
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'quantityAvailable', $pb.PbFieldType.O3)
-    ..a<$core.int>(4, _omitFieldNames ? '' : 'minimumStockAmount', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'productVariantInventoryId')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'quantityAvailable', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'minimumStockAmount', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
 
@@ -1310,40 +1259,31 @@ class ProductVariantInventory extends $pb.GeneratedMessage {
   static ProductVariantInventory? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get productVariantInventoryPk => $_getIZ(0);
+  $core.String get productVariantInventoryId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set productVariantInventoryPk($core.int v) { $_setSignedInt32(0, v); }
+  set productVariantInventoryId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasProductVariantInventoryPk() => $_has(0);
+  $core.bool hasProductVariantInventoryId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearProductVariantInventoryPk() => clearField(1);
+  void clearProductVariantInventoryId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get productVariantFk => $_getIZ(1);
+  $core.int get quantityAvailable => $_getIZ(1);
   @$pb.TagNumber(2)
-  set productVariantFk($core.int v) { $_setSignedInt32(1, v); }
+  set quantityAvailable($core.int v) { $_setSignedInt32(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasProductVariantFk() => $_has(1);
+  $core.bool hasQuantityAvailable() => $_has(1);
   @$pb.TagNumber(2)
-  void clearProductVariantFk() => clearField(2);
+  void clearQuantityAvailable() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.int get quantityAvailable => $_getIZ(2);
+  $core.int get minimumStockAmount => $_getIZ(2);
   @$pb.TagNumber(3)
-  set quantityAvailable($core.int v) { $_setSignedInt32(2, v); }
+  set minimumStockAmount($core.int v) { $_setSignedInt32(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasQuantityAvailable() => $_has(2);
+  $core.bool hasMinimumStockAmount() => $_has(2);
   @$pb.TagNumber(3)
-  void clearQuantityAvailable() => clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.int get minimumStockAmount => $_getIZ(3);
-  @$pb.TagNumber(4)
-  set minimumStockAmount($core.int v) { $_setSignedInt32(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasMinimumStockAmount() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearMinimumStockAmount() => clearField(4);
+  void clearMinimumStockAmount() => clearField(3);
 }
 
 

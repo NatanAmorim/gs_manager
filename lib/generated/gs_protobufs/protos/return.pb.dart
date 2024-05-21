@@ -14,11 +14,11 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../google/protobuf/wrappers.pb.dart' as $17;
-import 'custom_types/decimal_value.pb.dart' as $19;
+import 'custom_types/decimal_value.pb.dart' as $18;
 
 class GetPaginatedReturnsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedReturnsRequest({
-    $core.int? cursor,
+    $core.String? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -31,7 +31,7 @@ class GetPaginatedReturnsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedReturnsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedReturnsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.return'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'cursor', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'cursor')
     ..hasRequiredFields = false
   ;
 
@@ -57,9 +57,9 @@ class GetPaginatedReturnsRequest extends $pb.GeneratedMessage {
   static GetPaginatedReturnsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get cursor => $_getIZ(0);
+  $core.String get cursor => $_getSZ(0);
   @$pb.TagNumber(1)
-  set cursor($core.int v) { $_setSignedInt32(0, v); }
+  set cursor($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
@@ -69,7 +69,7 @@ class GetPaginatedReturnsRequest extends $pb.GeneratedMessage {
 class GetPaginatedReturnsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedReturnsResponse({
     $core.Iterable<GetReturnByIdResponse>? returns,
-    $17.Int32Value? nextCursor,
+    $17.StringValue? nextCursor,
   }) {
     final $result = create();
     if (returns != null) {
@@ -86,7 +86,7 @@ class GetPaginatedReturnsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedReturnsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.return'), createEmptyInstance: create)
     ..pc<GetReturnByIdResponse>(1, _omitFieldNames ? '' : 'returns', $pb.PbFieldType.PM, subBuilder: GetReturnByIdResponse.create)
-    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.Int32Value.create)
+    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -115,24 +115,24 @@ class GetPaginatedReturnsResponse extends $pb.GeneratedMessage {
   $core.List<GetReturnByIdResponse> get returns => $_getList(0);
 
   @$pb.TagNumber(2)
-  $17.Int32Value get nextCursor => $_getN(1);
+  $17.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($17.Int32Value v) { setField(2, v); }
+  set nextCursor($17.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $17.Int32Value ensureNextCursor() => $_ensure(1);
+  $17.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetReturnByIdRequest extends $pb.GeneratedMessage {
   factory GetReturnByIdRequest({
-    $core.int? returnPk,
+    $core.String? returnId,
   }) {
     final $result = create();
-    if (returnPk != null) {
-      $result.returnPk = returnPk;
+    if (returnId != null) {
+      $result.returnId = returnId;
     }
     return $result;
   }
@@ -141,7 +141,7 @@ class GetReturnByIdRequest extends $pb.GeneratedMessage {
   factory GetReturnByIdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetReturnByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.return'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'returnPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'returnId')
     ..hasRequiredFields = false
   ;
 
@@ -167,28 +167,28 @@ class GetReturnByIdRequest extends $pb.GeneratedMessage {
   static GetReturnByIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get returnPk => $_getIZ(0);
+  $core.String get returnId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set returnPk($core.int v) { $_setSignedInt32(0, v); }
+  set returnId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasReturnPk() => $_has(0);
+  $core.bool hasReturnId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearReturnPk() => clearField(1);
+  void clearReturnId() => clearField(1);
 }
 
 class GetReturnByIdResponse extends $pb.GeneratedMessage {
   factory GetReturnByIdResponse({
-    $core.int? returnPk,
-    $core.int? saleFk,
-    $19.DecimalValue? totalAmountRefunded,
+    $core.String? returnId,
+    $core.String? saleId,
+    $18.DecimalValue? totalAmountRefunded,
     $core.Iterable<ReturnItem>? itemsReturned,
   }) {
     final $result = create();
-    if (returnPk != null) {
-      $result.returnPk = returnPk;
+    if (returnId != null) {
+      $result.returnId = returnId;
     }
-    if (saleFk != null) {
-      $result.saleFk = saleFk;
+    if (saleId != null) {
+      $result.saleId = saleId;
     }
     if (totalAmountRefunded != null) {
       $result.totalAmountRefunded = totalAmountRefunded;
@@ -203,9 +203,9 @@ class GetReturnByIdResponse extends $pb.GeneratedMessage {
   factory GetReturnByIdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetReturnByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.return'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'returnPk', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'saleFk', $pb.PbFieldType.O3)
-    ..aOM<$19.DecimalValue>(3, _omitFieldNames ? '' : 'totalAmountRefunded', subBuilder: $19.DecimalValue.create)
+    ..aOS(1, _omitFieldNames ? '' : 'returnId')
+    ..aOS(2, _omitFieldNames ? '' : 'saleId')
+    ..aOM<$18.DecimalValue>(3, _omitFieldNames ? '' : 'totalAmountRefunded', subBuilder: $18.DecimalValue.create)
     ..pc<ReturnItem>(4, _omitFieldNames ? '' : 'ItemsReturned', $pb.PbFieldType.PM, protoName: 'ItemsReturned', subBuilder: ReturnItem.create)
     ..hasRequiredFields = false
   ;
@@ -232,33 +232,33 @@ class GetReturnByIdResponse extends $pb.GeneratedMessage {
   static GetReturnByIdResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get returnPk => $_getIZ(0);
+  $core.String get returnId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set returnPk($core.int v) { $_setSignedInt32(0, v); }
+  set returnId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasReturnPk() => $_has(0);
+  $core.bool hasReturnId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearReturnPk() => clearField(1);
+  void clearReturnId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get saleFk => $_getIZ(1);
+  $core.String get saleId => $_getSZ(1);
   @$pb.TagNumber(2)
-  set saleFk($core.int v) { $_setSignedInt32(1, v); }
+  set saleId($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasSaleFk() => $_has(1);
+  $core.bool hasSaleId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearSaleFk() => clearField(2);
+  void clearSaleId() => clearField(2);
 
   @$pb.TagNumber(3)
-  $19.DecimalValue get totalAmountRefunded => $_getN(2);
+  $18.DecimalValue get totalAmountRefunded => $_getN(2);
   @$pb.TagNumber(3)
-  set totalAmountRefunded($19.DecimalValue v) { setField(3, v); }
+  set totalAmountRefunded($18.DecimalValue v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasTotalAmountRefunded() => $_has(2);
   @$pb.TagNumber(3)
   void clearTotalAmountRefunded() => clearField(3);
   @$pb.TagNumber(3)
-  $19.DecimalValue ensureTotalAmountRefunded() => $_ensure(2);
+  $18.DecimalValue ensureTotalAmountRefunded() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $core.List<ReturnItem> get itemsReturned => $_getList(3);
@@ -266,13 +266,13 @@ class GetReturnByIdResponse extends $pb.GeneratedMessage {
 
 class CreateReturnRequest extends $pb.GeneratedMessage {
   factory CreateReturnRequest({
-    $17.Int32Value? saleFk,
-    $19.DecimalValue? totalAmountRefunded,
+    $17.StringValue? saleId,
+    $18.DecimalValue? totalAmountRefunded,
     $core.Iterable<ReturnItem>? itemsReturned,
   }) {
     final $result = create();
-    if (saleFk != null) {
-      $result.saleFk = saleFk;
+    if (saleId != null) {
+      $result.saleId = saleId;
     }
     if (totalAmountRefunded != null) {
       $result.totalAmountRefunded = totalAmountRefunded;
@@ -287,8 +287,8 @@ class CreateReturnRequest extends $pb.GeneratedMessage {
   factory CreateReturnRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateReturnRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.return'), createEmptyInstance: create)
-    ..aOM<$17.Int32Value>(1, _omitFieldNames ? '' : 'saleFk', subBuilder: $17.Int32Value.create)
-    ..aOM<$19.DecimalValue>(2, _omitFieldNames ? '' : 'totalAmountRefunded', subBuilder: $19.DecimalValue.create)
+    ..aOM<$17.StringValue>(1, _omitFieldNames ? '' : 'saleId', subBuilder: $17.StringValue.create)
+    ..aOM<$18.DecimalValue>(2, _omitFieldNames ? '' : 'totalAmountRefunded', subBuilder: $18.DecimalValue.create)
     ..pc<ReturnItem>(3, _omitFieldNames ? '' : 'ItemsReturned', $pb.PbFieldType.PM, protoName: 'ItemsReturned', subBuilder: ReturnItem.create)
     ..hasRequiredFields = false
   ;
@@ -315,26 +315,26 @@ class CreateReturnRequest extends $pb.GeneratedMessage {
   static CreateReturnRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $17.Int32Value get saleFk => $_getN(0);
+  $17.StringValue get saleId => $_getN(0);
   @$pb.TagNumber(1)
-  set saleFk($17.Int32Value v) { setField(1, v); }
+  set saleId($17.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasSaleFk() => $_has(0);
+  $core.bool hasSaleId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSaleFk() => clearField(1);
+  void clearSaleId() => clearField(1);
   @$pb.TagNumber(1)
-  $17.Int32Value ensureSaleFk() => $_ensure(0);
+  $17.StringValue ensureSaleId() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  $19.DecimalValue get totalAmountRefunded => $_getN(1);
+  $18.DecimalValue get totalAmountRefunded => $_getN(1);
   @$pb.TagNumber(2)
-  set totalAmountRefunded($19.DecimalValue v) { setField(2, v); }
+  set totalAmountRefunded($18.DecimalValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasTotalAmountRefunded() => $_has(1);
   @$pb.TagNumber(2)
   void clearTotalAmountRefunded() => clearField(2);
   @$pb.TagNumber(2)
-  $19.DecimalValue ensureTotalAmountRefunded() => $_ensure(1);
+  $18.DecimalValue ensureTotalAmountRefunded() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.List<ReturnItem> get itemsReturned => $_getList(2);
@@ -374,17 +374,17 @@ class CreateReturnResponse extends $pb.GeneratedMessage {
 
 class UpdateReturnRequest extends $pb.GeneratedMessage {
   factory UpdateReturnRequest({
-    $core.int? returnPk,
-    $17.Int32Value? saleFk,
-    $19.DecimalValue? totalAmountRefunded,
+    $core.String? returnId,
+    $17.StringValue? saleId,
+    $18.DecimalValue? totalAmountRefunded,
     $core.Iterable<ReturnItem>? itemsReturned,
   }) {
     final $result = create();
-    if (returnPk != null) {
-      $result.returnPk = returnPk;
+    if (returnId != null) {
+      $result.returnId = returnId;
     }
-    if (saleFk != null) {
-      $result.saleFk = saleFk;
+    if (saleId != null) {
+      $result.saleId = saleId;
     }
     if (totalAmountRefunded != null) {
       $result.totalAmountRefunded = totalAmountRefunded;
@@ -399,9 +399,9 @@ class UpdateReturnRequest extends $pb.GeneratedMessage {
   factory UpdateReturnRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateReturnRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.return'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'returnPk', $pb.PbFieldType.O3)
-    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'saleFk', subBuilder: $17.Int32Value.create)
-    ..aOM<$19.DecimalValue>(3, _omitFieldNames ? '' : 'totalAmountRefunded', subBuilder: $19.DecimalValue.create)
+    ..aOS(1, _omitFieldNames ? '' : 'returnId')
+    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'saleId', subBuilder: $17.StringValue.create)
+    ..aOM<$18.DecimalValue>(3, _omitFieldNames ? '' : 'totalAmountRefunded', subBuilder: $18.DecimalValue.create)
     ..pc<ReturnItem>(4, _omitFieldNames ? '' : 'ItemsReturned', $pb.PbFieldType.PM, protoName: 'ItemsReturned', subBuilder: ReturnItem.create)
     ..hasRequiredFields = false
   ;
@@ -428,35 +428,35 @@ class UpdateReturnRequest extends $pb.GeneratedMessage {
   static UpdateReturnRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get returnPk => $_getIZ(0);
+  $core.String get returnId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set returnPk($core.int v) { $_setSignedInt32(0, v); }
+  set returnId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasReturnPk() => $_has(0);
+  $core.bool hasReturnId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearReturnPk() => clearField(1);
+  void clearReturnId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $17.Int32Value get saleFk => $_getN(1);
+  $17.StringValue get saleId => $_getN(1);
   @$pb.TagNumber(2)
-  set saleFk($17.Int32Value v) { setField(2, v); }
+  set saleId($17.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasSaleFk() => $_has(1);
+  $core.bool hasSaleId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearSaleFk() => clearField(2);
+  void clearSaleId() => clearField(2);
   @$pb.TagNumber(2)
-  $17.Int32Value ensureSaleFk() => $_ensure(1);
+  $17.StringValue ensureSaleId() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  $19.DecimalValue get totalAmountRefunded => $_getN(2);
+  $18.DecimalValue get totalAmountRefunded => $_getN(2);
   @$pb.TagNumber(3)
-  set totalAmountRefunded($19.DecimalValue v) { setField(3, v); }
+  set totalAmountRefunded($18.DecimalValue v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasTotalAmountRefunded() => $_has(2);
   @$pb.TagNumber(3)
   void clearTotalAmountRefunded() => clearField(3);
   @$pb.TagNumber(3)
-  $19.DecimalValue ensureTotalAmountRefunded() => $_ensure(2);
+  $18.DecimalValue ensureTotalAmountRefunded() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $core.List<ReturnItem> get itemsReturned => $_getList(3);
@@ -496,11 +496,11 @@ class UpdateReturnResponse extends $pb.GeneratedMessage {
 
 class DeleteReturnRequest extends $pb.GeneratedMessage {
   factory DeleteReturnRequest({
-    $core.int? returnPk,
+    $core.String? returnId,
   }) {
     final $result = create();
-    if (returnPk != null) {
-      $result.returnPk = returnPk;
+    if (returnId != null) {
+      $result.returnId = returnId;
     }
     return $result;
   }
@@ -509,7 +509,7 @@ class DeleteReturnRequest extends $pb.GeneratedMessage {
   factory DeleteReturnRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteReturnRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.return'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'returnPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'returnId')
     ..hasRequiredFields = false
   ;
 
@@ -535,13 +535,13 @@ class DeleteReturnRequest extends $pb.GeneratedMessage {
   static DeleteReturnRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get returnPk => $_getIZ(0);
+  $core.String get returnId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set returnPk($core.int v) { $_setSignedInt32(0, v); }
+  set returnId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasReturnPk() => $_has(0);
+  $core.bool hasReturnId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearReturnPk() => clearField(1);
+  void clearReturnId() => clearField(1);
 }
 
 class DeleteReturnResponse extends $pb.GeneratedMessage {
@@ -578,16 +578,16 @@ class DeleteReturnResponse extends $pb.GeneratedMessage {
 
 class ReturnItem extends $pb.GeneratedMessage {
   factory ReturnItem({
-    $core.int? returnItemPk,
-    $core.int? productVariantFk,
+    $core.String? productVariantId,
+    $18.DecimalValue? unitPrice,
     $core.int? quantityReturned,
   }) {
     final $result = create();
-    if (returnItemPk != null) {
-      $result.returnItemPk = returnItemPk;
+    if (productVariantId != null) {
+      $result.productVariantId = productVariantId;
     }
-    if (productVariantFk != null) {
-      $result.productVariantFk = productVariantFk;
+    if (unitPrice != null) {
+      $result.unitPrice = unitPrice;
     }
     if (quantityReturned != null) {
       $result.quantityReturned = quantityReturned;
@@ -599,8 +599,8 @@ class ReturnItem extends $pb.GeneratedMessage {
   factory ReturnItem.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ReturnItem', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.return'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'returnItemPk', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'productVariantFk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'productVariantId')
+    ..aOM<$18.DecimalValue>(2, _omitFieldNames ? '' : 'unitPrice', subBuilder: $18.DecimalValue.create)
     ..a<$core.int>(3, _omitFieldNames ? '' : 'quantityReturned', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -627,22 +627,24 @@ class ReturnItem extends $pb.GeneratedMessage {
   static ReturnItem? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get returnItemPk => $_getIZ(0);
+  $core.String get productVariantId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set returnItemPk($core.int v) { $_setSignedInt32(0, v); }
+  set productVariantId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasReturnItemPk() => $_has(0);
+  $core.bool hasProductVariantId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearReturnItemPk() => clearField(1);
+  void clearProductVariantId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get productVariantFk => $_getIZ(1);
+  $18.DecimalValue get unitPrice => $_getN(1);
   @$pb.TagNumber(2)
-  set productVariantFk($core.int v) { $_setSignedInt32(1, v); }
+  set unitPrice($18.DecimalValue v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasProductVariantFk() => $_has(1);
+  $core.bool hasUnitPrice() => $_has(1);
   @$pb.TagNumber(2)
-  void clearProductVariantFk() => clearField(2);
+  void clearUnitPrice() => clearField(2);
+  @$pb.TagNumber(2)
+  $18.DecimalValue ensureUnitPrice() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.int get quantityReturned => $_getIZ(2);

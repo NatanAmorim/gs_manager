@@ -16,6 +16,7 @@ class SettingsTab extends ConsumerWidget {
 
   final Logger logger = Logger('SettingsTabWidget');
 
+  /// "\u{a9}" == "©"
   final String companyName = "Gislaine Studio";
 
   @override
@@ -30,7 +31,7 @@ class SettingsTab extends ConsumerWidget {
           children: <TextSpan>[
             TextSpan(
               style: Theme.of(context).textTheme.bodyLarge!,
-              text: 'App de gestão da empresa $companyName ©',
+              text: 'App de gestão da empresa $companyName ™',
             ),
             TextSpan(
               style: defaultTextStyle.copyWith(
@@ -222,8 +223,8 @@ class SettingsTab extends ConsumerWidget {
                           ),
                           applicationName: '$companyName Manager App',
                           applicationVersion: 'v${packageInfo.version}',
-                          applicationLegalese: '\u{a9} '
-                              '${DateTime.now().year} $companyName MEI, '
+                          applicationLegalese: '$companyName MEI. '
+                              '\u{a9} ${DateTime.now().year}, '
                               'Todos os direitos reservados.',
                           children: aboutBoxChildren,
                         );

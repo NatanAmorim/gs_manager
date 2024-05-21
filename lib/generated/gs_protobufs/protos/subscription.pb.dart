@@ -14,14 +14,14 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../google/protobuf/wrappers.pb.dart' as $17;
-import 'custom_types/calendar_date.pb.dart' as $22;
-import 'custom_types/decimal_value.pb.dart' as $19;
-import 'customer.pb.dart' as $6;
-import 'discipline.pb.dart' as $2;
+import 'custom_types/calendar_date.pb.dart' as $21;
+import 'custom_types/decimal_value.pb.dart' as $18;
+import 'customer.pb.dart' as $5;
+import 'discipline.pb.dart' as $0;
 
 class GetPaginatedSubscriptionsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedSubscriptionsRequest({
-    $core.int? cursor,
+    $core.String? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -34,7 +34,7 @@ class GetPaginatedSubscriptionsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedSubscriptionsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedSubscriptionsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.subscription'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'cursor', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'cursor')
     ..hasRequiredFields = false
   ;
 
@@ -60,9 +60,9 @@ class GetPaginatedSubscriptionsRequest extends $pb.GeneratedMessage {
   static GetPaginatedSubscriptionsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get cursor => $_getIZ(0);
+  $core.String get cursor => $_getSZ(0);
   @$pb.TagNumber(1)
-  set cursor($core.int v) { $_setSignedInt32(0, v); }
+  set cursor($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
@@ -72,7 +72,7 @@ class GetPaginatedSubscriptionsRequest extends $pb.GeneratedMessage {
 class GetPaginatedSubscriptionsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedSubscriptionsResponse({
     $core.Iterable<GetSubscriptionByIdResponse>? subscriptions,
-    $17.Int32Value? nextCursor,
+    $17.StringValue? nextCursor,
   }) {
     final $result = create();
     if (subscriptions != null) {
@@ -89,7 +89,7 @@ class GetPaginatedSubscriptionsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedSubscriptionsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.subscription'), createEmptyInstance: create)
     ..pc<GetSubscriptionByIdResponse>(1, _omitFieldNames ? '' : 'subscriptions', $pb.PbFieldType.PM, subBuilder: GetSubscriptionByIdResponse.create)
-    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.Int32Value.create)
+    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -118,24 +118,24 @@ class GetPaginatedSubscriptionsResponse extends $pb.GeneratedMessage {
   $core.List<GetSubscriptionByIdResponse> get subscriptions => $_getList(0);
 
   @$pb.TagNumber(2)
-  $17.Int32Value get nextCursor => $_getN(1);
+  $17.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($17.Int32Value v) { setField(2, v); }
+  set nextCursor($17.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $17.Int32Value ensureNextCursor() => $_ensure(1);
+  $17.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetSubscriptionByIdRequest extends $pb.GeneratedMessage {
   factory GetSubscriptionByIdRequest({
-    $core.int? subscriptionPk,
+    $core.String? subscriptionId,
   }) {
     final $result = create();
-    if (subscriptionPk != null) {
-      $result.subscriptionPk = subscriptionPk;
+    if (subscriptionId != null) {
+      $result.subscriptionId = subscriptionId;
     }
     return $result;
   }
@@ -144,7 +144,7 @@ class GetSubscriptionByIdRequest extends $pb.GeneratedMessage {
   factory GetSubscriptionByIdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetSubscriptionByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.subscription'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'subscriptionPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'subscriptionId')
     ..hasRequiredFields = false
   ;
 
@@ -170,29 +170,29 @@ class GetSubscriptionByIdRequest extends $pb.GeneratedMessage {
   static GetSubscriptionByIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get subscriptionPk => $_getIZ(0);
+  $core.String get subscriptionId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set subscriptionPk($core.int v) { $_setSignedInt32(0, v); }
+  set subscriptionId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasSubscriptionPk() => $_has(0);
+  $core.bool hasSubscriptionId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSubscriptionPk() => clearField(1);
+  void clearSubscriptionId() => clearField(1);
 }
 
 class GetSubscriptionByIdResponse extends $pb.GeneratedMessage {
   factory GetSubscriptionByIdResponse({
-    $core.int? subscriptionPk,
-    $2.GetDisciplineByIdResponse? discipline,
-    $6.GetCustomerByIdResponse? customer,
+    $core.String? subscriptionId,
+    $0.GetDisciplineByIdResponse? discipline,
+    $5.GetCustomerByIdResponse? customer,
     $core.int? payDay,
-    $22.CalendarDate? startDate,
-    $22.CalendarDate? endDate,
-    $19.DecimalValue? price,
+    $21.CalendarDate? startDate,
+    $21.CalendarDate? endDate,
+    $18.DecimalValue? price,
     $core.bool? isActive,
   }) {
     final $result = create();
-    if (subscriptionPk != null) {
-      $result.subscriptionPk = subscriptionPk;
+    if (subscriptionId != null) {
+      $result.subscriptionId = subscriptionId;
     }
     if (discipline != null) {
       $result.discipline = discipline;
@@ -222,13 +222,13 @@ class GetSubscriptionByIdResponse extends $pb.GeneratedMessage {
   factory GetSubscriptionByIdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetSubscriptionByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.subscription'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'subscriptionPk', $pb.PbFieldType.O3)
-    ..aOM<$2.GetDisciplineByIdResponse>(2, _omitFieldNames ? '' : 'discipline', subBuilder: $2.GetDisciplineByIdResponse.create)
-    ..aOM<$6.GetCustomerByIdResponse>(3, _omitFieldNames ? '' : 'customer', subBuilder: $6.GetCustomerByIdResponse.create)
+    ..aOS(1, _omitFieldNames ? '' : 'subscriptionId')
+    ..aOM<$0.GetDisciplineByIdResponse>(2, _omitFieldNames ? '' : 'discipline', subBuilder: $0.GetDisciplineByIdResponse.create)
+    ..aOM<$5.GetCustomerByIdResponse>(3, _omitFieldNames ? '' : 'customer', subBuilder: $5.GetCustomerByIdResponse.create)
     ..a<$core.int>(4, _omitFieldNames ? '' : 'payDay', $pb.PbFieldType.O3)
-    ..aOM<$22.CalendarDate>(5, _omitFieldNames ? '' : 'startDate', subBuilder: $22.CalendarDate.create)
-    ..aOM<$22.CalendarDate>(6, _omitFieldNames ? '' : 'endDate', subBuilder: $22.CalendarDate.create)
-    ..aOM<$19.DecimalValue>(7, _omitFieldNames ? '' : 'price', subBuilder: $19.DecimalValue.create)
+    ..aOM<$21.CalendarDate>(5, _omitFieldNames ? '' : 'startDate', subBuilder: $21.CalendarDate.create)
+    ..aOM<$21.CalendarDate>(6, _omitFieldNames ? '' : 'endDate', subBuilder: $21.CalendarDate.create)
+    ..aOM<$18.DecimalValue>(7, _omitFieldNames ? '' : 'price', subBuilder: $18.DecimalValue.create)
     ..aOB(8, _omitFieldNames ? '' : 'isActive')
     ..hasRequiredFields = false
   ;
@@ -255,35 +255,35 @@ class GetSubscriptionByIdResponse extends $pb.GeneratedMessage {
   static GetSubscriptionByIdResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get subscriptionPk => $_getIZ(0);
+  $core.String get subscriptionId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set subscriptionPk($core.int v) { $_setSignedInt32(0, v); }
+  set subscriptionId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasSubscriptionPk() => $_has(0);
+  $core.bool hasSubscriptionId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSubscriptionPk() => clearField(1);
+  void clearSubscriptionId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $2.GetDisciplineByIdResponse get discipline => $_getN(1);
+  $0.GetDisciplineByIdResponse get discipline => $_getN(1);
   @$pb.TagNumber(2)
-  set discipline($2.GetDisciplineByIdResponse v) { setField(2, v); }
+  set discipline($0.GetDisciplineByIdResponse v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasDiscipline() => $_has(1);
   @$pb.TagNumber(2)
   void clearDiscipline() => clearField(2);
   @$pb.TagNumber(2)
-  $2.GetDisciplineByIdResponse ensureDiscipline() => $_ensure(1);
+  $0.GetDisciplineByIdResponse ensureDiscipline() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  $6.GetCustomerByIdResponse get customer => $_getN(2);
+  $5.GetCustomerByIdResponse get customer => $_getN(2);
   @$pb.TagNumber(3)
-  set customer($6.GetCustomerByIdResponse v) { setField(3, v); }
+  set customer($5.GetCustomerByIdResponse v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasCustomer() => $_has(2);
   @$pb.TagNumber(3)
   void clearCustomer() => clearField(3);
   @$pb.TagNumber(3)
-  $6.GetCustomerByIdResponse ensureCustomer() => $_ensure(2);
+  $5.GetCustomerByIdResponse ensureCustomer() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $core.int get payDay => $_getIZ(3);
@@ -295,37 +295,37 @@ class GetSubscriptionByIdResponse extends $pb.GeneratedMessage {
   void clearPayDay() => clearField(4);
 
   @$pb.TagNumber(5)
-  $22.CalendarDate get startDate => $_getN(4);
+  $21.CalendarDate get startDate => $_getN(4);
   @$pb.TagNumber(5)
-  set startDate($22.CalendarDate v) { setField(5, v); }
+  set startDate($21.CalendarDate v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasStartDate() => $_has(4);
   @$pb.TagNumber(5)
   void clearStartDate() => clearField(5);
   @$pb.TagNumber(5)
-  $22.CalendarDate ensureStartDate() => $_ensure(4);
+  $21.CalendarDate ensureStartDate() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $22.CalendarDate get endDate => $_getN(5);
+  $21.CalendarDate get endDate => $_getN(5);
   @$pb.TagNumber(6)
-  set endDate($22.CalendarDate v) { setField(6, v); }
+  set endDate($21.CalendarDate v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasEndDate() => $_has(5);
   @$pb.TagNumber(6)
   void clearEndDate() => clearField(6);
   @$pb.TagNumber(6)
-  $22.CalendarDate ensureEndDate() => $_ensure(5);
+  $21.CalendarDate ensureEndDate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $19.DecimalValue get price => $_getN(6);
+  $18.DecimalValue get price => $_getN(6);
   @$pb.TagNumber(7)
-  set price($19.DecimalValue v) { setField(7, v); }
+  set price($18.DecimalValue v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasPrice() => $_has(6);
   @$pb.TagNumber(7)
   void clearPrice() => clearField(7);
   @$pb.TagNumber(7)
-  $19.DecimalValue ensurePrice() => $_ensure(6);
+  $18.DecimalValue ensurePrice() => $_ensure(6);
 
   @$pb.TagNumber(8)
   $core.bool get isActive => $_getBF(7);
@@ -339,20 +339,20 @@ class GetSubscriptionByIdResponse extends $pb.GeneratedMessage {
 
 class CreateSubscriptionRequest extends $pb.GeneratedMessage {
   factory CreateSubscriptionRequest({
-    $core.int? disciplineFk,
-    $core.int? customerFk,
+    $core.String? disciplineId,
+    $core.String? customerId,
     $core.int? payDay,
-    $22.CalendarDate? startDate,
-    $22.CalendarDate? endDate,
-    $19.DecimalValue? price,
+    $21.CalendarDate? startDate,
+    $21.CalendarDate? endDate,
+    $18.DecimalValue? price,
     $core.bool? isActive,
   }) {
     final $result = create();
-    if (disciplineFk != null) {
-      $result.disciplineFk = disciplineFk;
+    if (disciplineId != null) {
+      $result.disciplineId = disciplineId;
     }
-    if (customerFk != null) {
-      $result.customerFk = customerFk;
+    if (customerId != null) {
+      $result.customerId = customerId;
     }
     if (payDay != null) {
       $result.payDay = payDay;
@@ -376,12 +376,12 @@ class CreateSubscriptionRequest extends $pb.GeneratedMessage {
   factory CreateSubscriptionRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateSubscriptionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.subscription'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'disciplineFk', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'customerFk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'disciplineId')
+    ..aOS(2, _omitFieldNames ? '' : 'customerId')
     ..a<$core.int>(3, _omitFieldNames ? '' : 'payDay', $pb.PbFieldType.O3)
-    ..aOM<$22.CalendarDate>(4, _omitFieldNames ? '' : 'startDate', subBuilder: $22.CalendarDate.create)
-    ..aOM<$22.CalendarDate>(5, _omitFieldNames ? '' : 'endDate', subBuilder: $22.CalendarDate.create)
-    ..aOM<$19.DecimalValue>(6, _omitFieldNames ? '' : 'price', subBuilder: $19.DecimalValue.create)
+    ..aOM<$21.CalendarDate>(4, _omitFieldNames ? '' : 'startDate', subBuilder: $21.CalendarDate.create)
+    ..aOM<$21.CalendarDate>(5, _omitFieldNames ? '' : 'endDate', subBuilder: $21.CalendarDate.create)
+    ..aOM<$18.DecimalValue>(6, _omitFieldNames ? '' : 'price', subBuilder: $18.DecimalValue.create)
     ..aOB(7, _omitFieldNames ? '' : 'isActive')
     ..hasRequiredFields = false
   ;
@@ -408,22 +408,22 @@ class CreateSubscriptionRequest extends $pb.GeneratedMessage {
   static CreateSubscriptionRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get disciplineFk => $_getIZ(0);
+  $core.String get disciplineId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set disciplineFk($core.int v) { $_setSignedInt32(0, v); }
+  set disciplineId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasDisciplineFk() => $_has(0);
+  $core.bool hasDisciplineId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearDisciplineFk() => clearField(1);
+  void clearDisciplineId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get customerFk => $_getIZ(1);
+  $core.String get customerId => $_getSZ(1);
   @$pb.TagNumber(2)
-  set customerFk($core.int v) { $_setSignedInt32(1, v); }
+  set customerId($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasCustomerFk() => $_has(1);
+  $core.bool hasCustomerId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCustomerFk() => clearField(2);
+  void clearCustomerId() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get payDay => $_getIZ(2);
@@ -435,37 +435,37 @@ class CreateSubscriptionRequest extends $pb.GeneratedMessage {
   void clearPayDay() => clearField(3);
 
   @$pb.TagNumber(4)
-  $22.CalendarDate get startDate => $_getN(3);
+  $21.CalendarDate get startDate => $_getN(3);
   @$pb.TagNumber(4)
-  set startDate($22.CalendarDate v) { setField(4, v); }
+  set startDate($21.CalendarDate v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasStartDate() => $_has(3);
   @$pb.TagNumber(4)
   void clearStartDate() => clearField(4);
   @$pb.TagNumber(4)
-  $22.CalendarDate ensureStartDate() => $_ensure(3);
+  $21.CalendarDate ensureStartDate() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  $22.CalendarDate get endDate => $_getN(4);
+  $21.CalendarDate get endDate => $_getN(4);
   @$pb.TagNumber(5)
-  set endDate($22.CalendarDate v) { setField(5, v); }
+  set endDate($21.CalendarDate v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasEndDate() => $_has(4);
   @$pb.TagNumber(5)
   void clearEndDate() => clearField(5);
   @$pb.TagNumber(5)
-  $22.CalendarDate ensureEndDate() => $_ensure(4);
+  $21.CalendarDate ensureEndDate() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $19.DecimalValue get price => $_getN(5);
+  $18.DecimalValue get price => $_getN(5);
   @$pb.TagNumber(6)
-  set price($19.DecimalValue v) { setField(6, v); }
+  set price($18.DecimalValue v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasPrice() => $_has(5);
   @$pb.TagNumber(6)
   void clearPrice() => clearField(6);
   @$pb.TagNumber(6)
-  $19.DecimalValue ensurePrice() => $_ensure(5);
+  $18.DecimalValue ensurePrice() => $_ensure(5);
 
   @$pb.TagNumber(7)
   $core.bool get isActive => $_getBF(6);
@@ -511,24 +511,24 @@ class CreateSubscriptionResponse extends $pb.GeneratedMessage {
 
 class UpdateSubscriptionRequest extends $pb.GeneratedMessage {
   factory UpdateSubscriptionRequest({
-    $core.int? subscriptionPk,
-    $core.int? disciplineFk,
-    $core.int? customerFk,
+    $core.String? subscriptionId,
+    $core.String? disciplineId,
+    $core.String? customerId,
     $core.int? payDay,
-    $22.CalendarDate? startDate,
-    $22.CalendarDate? endDate,
-    $19.DecimalValue? price,
+    $21.CalendarDate? startDate,
+    $21.CalendarDate? endDate,
+    $18.DecimalValue? price,
     $core.bool? isActive,
   }) {
     final $result = create();
-    if (subscriptionPk != null) {
-      $result.subscriptionPk = subscriptionPk;
+    if (subscriptionId != null) {
+      $result.subscriptionId = subscriptionId;
     }
-    if (disciplineFk != null) {
-      $result.disciplineFk = disciplineFk;
+    if (disciplineId != null) {
+      $result.disciplineId = disciplineId;
     }
-    if (customerFk != null) {
-      $result.customerFk = customerFk;
+    if (customerId != null) {
+      $result.customerId = customerId;
     }
     if (payDay != null) {
       $result.payDay = payDay;
@@ -552,13 +552,13 @@ class UpdateSubscriptionRequest extends $pb.GeneratedMessage {
   factory UpdateSubscriptionRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateSubscriptionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.subscription'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'subscriptionPk', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'disciplineFk', $pb.PbFieldType.O3)
-    ..a<$core.int>(3, _omitFieldNames ? '' : 'customerFk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'subscriptionId')
+    ..aOS(2, _omitFieldNames ? '' : 'disciplineId')
+    ..aOS(3, _omitFieldNames ? '' : 'customerId')
     ..a<$core.int>(4, _omitFieldNames ? '' : 'payDay', $pb.PbFieldType.O3)
-    ..aOM<$22.CalendarDate>(5, _omitFieldNames ? '' : 'startDate', subBuilder: $22.CalendarDate.create)
-    ..aOM<$22.CalendarDate>(6, _omitFieldNames ? '' : 'endDate', subBuilder: $22.CalendarDate.create)
-    ..aOM<$19.DecimalValue>(7, _omitFieldNames ? '' : 'price', subBuilder: $19.DecimalValue.create)
+    ..aOM<$21.CalendarDate>(5, _omitFieldNames ? '' : 'startDate', subBuilder: $21.CalendarDate.create)
+    ..aOM<$21.CalendarDate>(6, _omitFieldNames ? '' : 'endDate', subBuilder: $21.CalendarDate.create)
+    ..aOM<$18.DecimalValue>(7, _omitFieldNames ? '' : 'price', subBuilder: $18.DecimalValue.create)
     ..aOB(8, _omitFieldNames ? '' : 'isActive')
     ..hasRequiredFields = false
   ;
@@ -585,31 +585,31 @@ class UpdateSubscriptionRequest extends $pb.GeneratedMessage {
   static UpdateSubscriptionRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get subscriptionPk => $_getIZ(0);
+  $core.String get subscriptionId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set subscriptionPk($core.int v) { $_setSignedInt32(0, v); }
+  set subscriptionId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasSubscriptionPk() => $_has(0);
+  $core.bool hasSubscriptionId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSubscriptionPk() => clearField(1);
+  void clearSubscriptionId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get disciplineFk => $_getIZ(1);
+  $core.String get disciplineId => $_getSZ(1);
   @$pb.TagNumber(2)
-  set disciplineFk($core.int v) { $_setSignedInt32(1, v); }
+  set disciplineId($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasDisciplineFk() => $_has(1);
+  $core.bool hasDisciplineId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearDisciplineFk() => clearField(2);
+  void clearDisciplineId() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.int get customerFk => $_getIZ(2);
+  $core.String get customerId => $_getSZ(2);
   @$pb.TagNumber(3)
-  set customerFk($core.int v) { $_setSignedInt32(2, v); }
+  set customerId($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasCustomerFk() => $_has(2);
+  $core.bool hasCustomerId() => $_has(2);
   @$pb.TagNumber(3)
-  void clearCustomerFk() => clearField(3);
+  void clearCustomerId() => clearField(3);
 
   @$pb.TagNumber(4)
   $core.int get payDay => $_getIZ(3);
@@ -621,37 +621,37 @@ class UpdateSubscriptionRequest extends $pb.GeneratedMessage {
   void clearPayDay() => clearField(4);
 
   @$pb.TagNumber(5)
-  $22.CalendarDate get startDate => $_getN(4);
+  $21.CalendarDate get startDate => $_getN(4);
   @$pb.TagNumber(5)
-  set startDate($22.CalendarDate v) { setField(5, v); }
+  set startDate($21.CalendarDate v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasStartDate() => $_has(4);
   @$pb.TagNumber(5)
   void clearStartDate() => clearField(5);
   @$pb.TagNumber(5)
-  $22.CalendarDate ensureStartDate() => $_ensure(4);
+  $21.CalendarDate ensureStartDate() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $22.CalendarDate get endDate => $_getN(5);
+  $21.CalendarDate get endDate => $_getN(5);
   @$pb.TagNumber(6)
-  set endDate($22.CalendarDate v) { setField(6, v); }
+  set endDate($21.CalendarDate v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasEndDate() => $_has(5);
   @$pb.TagNumber(6)
   void clearEndDate() => clearField(6);
   @$pb.TagNumber(6)
-  $22.CalendarDate ensureEndDate() => $_ensure(5);
+  $21.CalendarDate ensureEndDate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $19.DecimalValue get price => $_getN(6);
+  $18.DecimalValue get price => $_getN(6);
   @$pb.TagNumber(7)
-  set price($19.DecimalValue v) { setField(7, v); }
+  set price($18.DecimalValue v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasPrice() => $_has(6);
   @$pb.TagNumber(7)
   void clearPrice() => clearField(7);
   @$pb.TagNumber(7)
-  $19.DecimalValue ensurePrice() => $_ensure(6);
+  $18.DecimalValue ensurePrice() => $_ensure(6);
 
   @$pb.TagNumber(8)
   $core.bool get isActive => $_getBF(7);
@@ -697,11 +697,11 @@ class UpdateSubscriptionResponse extends $pb.GeneratedMessage {
 
 class DeleteSubscriptionRequest extends $pb.GeneratedMessage {
   factory DeleteSubscriptionRequest({
-    $core.int? subscriptionPk,
+    $core.String? subscriptionId,
   }) {
     final $result = create();
-    if (subscriptionPk != null) {
-      $result.subscriptionPk = subscriptionPk;
+    if (subscriptionId != null) {
+      $result.subscriptionId = subscriptionId;
     }
     return $result;
   }
@@ -710,7 +710,7 @@ class DeleteSubscriptionRequest extends $pb.GeneratedMessage {
   factory DeleteSubscriptionRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteSubscriptionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.subscription'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'subscriptionPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'subscriptionId')
     ..hasRequiredFields = false
   ;
 
@@ -736,13 +736,13 @@ class DeleteSubscriptionRequest extends $pb.GeneratedMessage {
   static DeleteSubscriptionRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get subscriptionPk => $_getIZ(0);
+  $core.String get subscriptionId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set subscriptionPk($core.int v) { $_setSignedInt32(0, v); }
+  set subscriptionId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasSubscriptionPk() => $_has(0);
+  $core.bool hasSubscriptionId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSubscriptionPk() => clearField(1);
+  void clearSubscriptionId() => clearField(1);
 }
 
 class DeleteSubscriptionResponse extends $pb.GeneratedMessage {

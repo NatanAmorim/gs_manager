@@ -17,13 +17,13 @@ import 'dart:typed_data' as $typed_data;
 const GetPaginatedSaleBillingsRequest$json = {
   '1': 'GetPaginatedSaleBillingsRequest',
   '2': [
-    {'1': 'cursor', '3': 1, '4': 1, '5': 5, '10': 'cursor'},
+    {'1': 'cursor', '3': 1, '4': 1, '5': 9, '10': 'cursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedSaleBillingsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedSaleBillingsRequestDescriptor = $convert.base64Decode(
-    'Ch9HZXRQYWdpbmF0ZWRTYWxlQmlsbGluZ3NSZXF1ZXN0EhYKBmN1cnNvchgBIAEoBVIGY3Vyc2'
+    'Ch9HZXRQYWdpbmF0ZWRTYWxlQmlsbGluZ3NSZXF1ZXN0EhYKBmN1cnNvchgBIAEoCVIGY3Vyc2'
     '9y');
 
 @$core.Deprecated('Use getPaginatedSaleBillingsResponseDescriptor instead')
@@ -31,7 +31,7 @@ const GetPaginatedSaleBillingsResponse$json = {
   '1': 'GetPaginatedSaleBillingsResponse',
   '2': [
     {'1': 'saleBillings', '3': 1, '4': 3, '5': 11, '6': '.protos.sale_billing.GetSaleBillingByIdResponse', '10': 'saleBillings'},
-    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'nextCursor'},
+    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'nextCursor'},
   ],
 };
 
@@ -39,29 +39,29 @@ const GetPaginatedSaleBillingsResponse$json = {
 final $typed_data.Uint8List getPaginatedSaleBillingsResponseDescriptor = $convert.base64Decode(
     'CiBHZXRQYWdpbmF0ZWRTYWxlQmlsbGluZ3NSZXNwb25zZRJTCgxzYWxlQmlsbGluZ3MYASADKA'
     'syLy5wcm90b3Muc2FsZV9iaWxsaW5nLkdldFNhbGVCaWxsaW5nQnlJZFJlc3BvbnNlUgxzYWxl'
-    'QmlsbGluZ3MSPAoLbmV4dF9jdXJzb3IYAiABKAsyGy5nb29nbGUucHJvdG9idWYuSW50MzJWYW'
-    'x1ZVIKbmV4dEN1cnNvcg==');
+    'QmlsbGluZ3MSPQoLbmV4dF9jdXJzb3IYAiABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVm'
+    'FsdWVSCm5leHRDdXJzb3I=');
 
 @$core.Deprecated('Use getSaleBillingByIdRequestDescriptor instead')
 const GetSaleBillingByIdRequest$json = {
   '1': 'GetSaleBillingByIdRequest',
   '2': [
-    {'1': 'sale_billing_pk', '3': 1, '4': 1, '5': 5, '10': 'saleBillingPk'},
+    {'1': 'sale_billing_id', '3': 1, '4': 1, '5': 9, '10': 'saleBillingId'},
   ],
 };
 
 /// Descriptor for `GetSaleBillingByIdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getSaleBillingByIdRequestDescriptor = $convert.base64Decode(
-    'ChlHZXRTYWxlQmlsbGluZ0J5SWRSZXF1ZXN0EiYKD3NhbGVfYmlsbGluZ19waxgBIAEoBVINc2'
-    'FsZUJpbGxpbmdQaw==');
+    'ChlHZXRTYWxlQmlsbGluZ0J5SWRSZXF1ZXN0EiYKD3NhbGVfYmlsbGluZ19pZBgBIAEoCVINc2'
+    'FsZUJpbGxpbmdJZA==');
 
 @$core.Deprecated('Use getSaleBillingByIdResponseDescriptor instead')
 const GetSaleBillingByIdResponse$json = {
   '1': 'GetSaleBillingByIdResponse',
   '2': [
-    {'1': 'sale_billing_pk', '3': 1, '4': 1, '5': 5, '10': 'saleBillingPk'},
+    {'1': 'sale_billing_id', '3': 1, '4': 1, '5': 9, '10': 'saleBillingId'},
     {'1': 'sale', '3': 2, '4': 1, '5': 11, '6': '.protos.sale.GetSaleByIdResponse', '10': 'sale'},
-    {'1': 'comments', '3': 3, '4': 1, '5': 9, '10': 'comments'},
+    {'1': 'observations', '3': 3, '4': 1, '5': 9, '10': 'observations'},
     {'1': 'total_discount', '3': 4, '4': 1, '5': 11, '6': '.custom_types.decimal_value.DecimalValue', '10': 'totalDiscount'},
     {'1': 'payment', '3': 5, '4': 1, '5': 11, '6': '.protos.payment.GetPaymentByIdResponse', '10': 'payment'},
   ],
@@ -69,19 +69,19 @@ const GetSaleBillingByIdResponse$json = {
 
 /// Descriptor for `GetSaleBillingByIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getSaleBillingByIdResponseDescriptor = $convert.base64Decode(
-    'ChpHZXRTYWxlQmlsbGluZ0J5SWRSZXNwb25zZRImCg9zYWxlX2JpbGxpbmdfcGsYASABKAVSDX'
-    'NhbGVCaWxsaW5nUGsSNAoEc2FsZRgCIAEoCzIgLnByb3Rvcy5zYWxlLkdldFNhbGVCeUlkUmVz'
-    'cG9uc2VSBHNhbGUSGgoIY29tbWVudHMYAyABKAlSCGNvbW1lbnRzEk8KDnRvdGFsX2Rpc2NvdW'
-    '50GAQgASgLMiguY3VzdG9tX3R5cGVzLmRlY2ltYWxfdmFsdWUuRGVjaW1hbFZhbHVlUg10b3Rh'
-    'bERpc2NvdW50EkAKB3BheW1lbnQYBSABKAsyJi5wcm90b3MucGF5bWVudC5HZXRQYXltZW50Qn'
-    'lJZFJlc3BvbnNlUgdwYXltZW50');
+    'ChpHZXRTYWxlQmlsbGluZ0J5SWRSZXNwb25zZRImCg9zYWxlX2JpbGxpbmdfaWQYASABKAlSDX'
+    'NhbGVCaWxsaW5nSWQSNAoEc2FsZRgCIAEoCzIgLnByb3Rvcy5zYWxlLkdldFNhbGVCeUlkUmVz'
+    'cG9uc2VSBHNhbGUSIgoMb2JzZXJ2YXRpb25zGAMgASgJUgxvYnNlcnZhdGlvbnMSTwoOdG90YW'
+    'xfZGlzY291bnQYBCABKAsyKC5jdXN0b21fdHlwZXMuZGVjaW1hbF92YWx1ZS5EZWNpbWFsVmFs'
+    'dWVSDXRvdGFsRGlzY291bnQSQAoHcGF5bWVudBgFIAEoCzImLnByb3Rvcy5wYXltZW50LkdldF'
+    'BheW1lbnRCeUlkUmVzcG9uc2VSB3BheW1lbnQ=');
 
 @$core.Deprecated('Use createSaleBillingRequestDescriptor instead')
 const CreateSaleBillingRequest$json = {
   '1': 'CreateSaleBillingRequest',
   '2': [
-    {'1': 'sale_fk', '3': 1, '4': 1, '5': 5, '10': 'saleFk'},
-    {'1': 'comments', '3': 2, '4': 1, '5': 9, '10': 'comments'},
+    {'1': 'sale_id', '3': 1, '4': 1, '5': 9, '10': 'saleId'},
+    {'1': 'observations', '3': 2, '4': 1, '5': 9, '10': 'observations'},
     {'1': 'total_discount', '3': 3, '4': 1, '5': 11, '6': '.custom_types.decimal_value.DecimalValue', '10': 'totalDiscount'},
     {'1': 'payment', '3': 4, '4': 1, '5': 11, '6': '.protos.payment.CreatePaymentRequest', '10': 'payment'},
   ],
@@ -89,11 +89,11 @@ const CreateSaleBillingRequest$json = {
 
 /// Descriptor for `CreateSaleBillingRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createSaleBillingRequestDescriptor = $convert.base64Decode(
-    'ChhDcmVhdGVTYWxlQmlsbGluZ1JlcXVlc3QSFwoHc2FsZV9maxgBIAEoBVIGc2FsZUZrEhoKCG'
-    'NvbW1lbnRzGAIgASgJUghjb21tZW50cxJPCg50b3RhbF9kaXNjb3VudBgDIAEoCzIoLmN1c3Rv'
-    'bV90eXBlcy5kZWNpbWFsX3ZhbHVlLkRlY2ltYWxWYWx1ZVINdG90YWxEaXNjb3VudBI+CgdwYX'
-    'ltZW50GAQgASgLMiQucHJvdG9zLnBheW1lbnQuQ3JlYXRlUGF5bWVudFJlcXVlc3RSB3BheW1l'
-    'bnQ=');
+    'ChhDcmVhdGVTYWxlQmlsbGluZ1JlcXVlc3QSFwoHc2FsZV9pZBgBIAEoCVIGc2FsZUlkEiIKDG'
+    '9ic2VydmF0aW9ucxgCIAEoCVIMb2JzZXJ2YXRpb25zEk8KDnRvdGFsX2Rpc2NvdW50GAMgASgL'
+    'MiguY3VzdG9tX3R5cGVzLmRlY2ltYWxfdmFsdWUuRGVjaW1hbFZhbHVlUg10b3RhbERpc2NvdW'
+    '50Ej4KB3BheW1lbnQYBCABKAsyJC5wcm90b3MucGF5bWVudC5DcmVhdGVQYXltZW50UmVxdWVz'
+    'dFIHcGF5bWVudA==');
 
 @$core.Deprecated('Use createSaleBillingResponseDescriptor instead')
 const CreateSaleBillingResponse$json = {
@@ -108,9 +108,9 @@ final $typed_data.Uint8List createSaleBillingResponseDescriptor = $convert.base6
 const UpdateSaleBillingRequest$json = {
   '1': 'UpdateSaleBillingRequest',
   '2': [
-    {'1': 'sale_billing_pk', '3': 1, '4': 1, '5': 5, '10': 'saleBillingPk'},
-    {'1': 'sale_fk', '3': 2, '4': 1, '5': 5, '10': 'saleFk'},
-    {'1': 'comments', '3': 3, '4': 1, '5': 9, '10': 'comments'},
+    {'1': 'sale_billing_id', '3': 1, '4': 1, '5': 9, '10': 'saleBillingId'},
+    {'1': 'sale_id', '3': 2, '4': 1, '5': 9, '10': 'saleId'},
+    {'1': 'observations', '3': 3, '4': 1, '5': 9, '10': 'observations'},
     {'1': 'total_discount', '3': 4, '4': 1, '5': 11, '6': '.custom_types.decimal_value.DecimalValue', '10': 'totalDiscount'},
     {'1': 'payment', '3': 5, '4': 1, '5': 11, '6': '.protos.payment.GetPaymentByIdResponse', '10': 'payment'},
   ],
@@ -118,11 +118,11 @@ const UpdateSaleBillingRequest$json = {
 
 /// Descriptor for `UpdateSaleBillingRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateSaleBillingRequestDescriptor = $convert.base64Decode(
-    'ChhVcGRhdGVTYWxlQmlsbGluZ1JlcXVlc3QSJgoPc2FsZV9iaWxsaW5nX3BrGAEgASgFUg1zYW'
-    'xlQmlsbGluZ1BrEhcKB3NhbGVfZmsYAiABKAVSBnNhbGVGaxIaCghjb21tZW50cxgDIAEoCVII'
-    'Y29tbWVudHMSTwoOdG90YWxfZGlzY291bnQYBCABKAsyKC5jdXN0b21fdHlwZXMuZGVjaW1hbF'
-    '92YWx1ZS5EZWNpbWFsVmFsdWVSDXRvdGFsRGlzY291bnQSQAoHcGF5bWVudBgFIAEoCzImLnBy'
-    'b3Rvcy5wYXltZW50LkdldFBheW1lbnRCeUlkUmVzcG9uc2VSB3BheW1lbnQ=');
+    'ChhVcGRhdGVTYWxlQmlsbGluZ1JlcXVlc3QSJgoPc2FsZV9iaWxsaW5nX2lkGAEgASgJUg1zYW'
+    'xlQmlsbGluZ0lkEhcKB3NhbGVfaWQYAiABKAlSBnNhbGVJZBIiCgxvYnNlcnZhdGlvbnMYAyAB'
+    'KAlSDG9ic2VydmF0aW9ucxJPCg50b3RhbF9kaXNjb3VudBgEIAEoCzIoLmN1c3RvbV90eXBlcy'
+    '5kZWNpbWFsX3ZhbHVlLkRlY2ltYWxWYWx1ZVINdG90YWxEaXNjb3VudBJACgdwYXltZW50GAUg'
+    'ASgLMiYucHJvdG9zLnBheW1lbnQuR2V0UGF5bWVudEJ5SWRSZXNwb25zZVIHcGF5bWVudA==');
 
 @$core.Deprecated('Use updateSaleBillingResponseDescriptor instead')
 const UpdateSaleBillingResponse$json = {
@@ -137,14 +137,14 @@ final $typed_data.Uint8List updateSaleBillingResponseDescriptor = $convert.base6
 const DeleteSaleBillingRequest$json = {
   '1': 'DeleteSaleBillingRequest',
   '2': [
-    {'1': 'sale_billing_pk', '3': 1, '4': 1, '5': 5, '10': 'saleBillingPk'},
+    {'1': 'sale_billing_id', '3': 1, '4': 1, '5': 9, '10': 'saleBillingId'},
   ],
 };
 
 /// Descriptor for `DeleteSaleBillingRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteSaleBillingRequestDescriptor = $convert.base64Decode(
-    'ChhEZWxldGVTYWxlQmlsbGluZ1JlcXVlc3QSJgoPc2FsZV9iaWxsaW5nX3BrGAEgASgFUg1zYW'
-    'xlQmlsbGluZ1Br');
+    'ChhEZWxldGVTYWxlQmlsbGluZ1JlcXVlc3QSJgoPc2FsZV9iaWxsaW5nX2lkGAEgASgJUg1zYW'
+    'xlQmlsbGluZ0lk');
 
 @$core.Deprecated('Use deleteSaleBillingResponseDescriptor instead')
 const DeleteSaleBillingResponse$json = {

@@ -17,7 +17,7 @@ import '../../google/protobuf/wrappers.pb.dart' as $17;
 
 class GetPaginatedOrdersRequest extends $pb.GeneratedMessage {
   factory GetPaginatedOrdersRequest({
-    $core.int? cursor,
+    $core.String? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -30,7 +30,7 @@ class GetPaginatedOrdersRequest extends $pb.GeneratedMessage {
   factory GetPaginatedOrdersRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedOrdersRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.order'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'cursor', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'cursor')
     ..hasRequiredFields = false
   ;
 
@@ -56,9 +56,9 @@ class GetPaginatedOrdersRequest extends $pb.GeneratedMessage {
   static GetPaginatedOrdersRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get cursor => $_getIZ(0);
+  $core.String get cursor => $_getSZ(0);
   @$pb.TagNumber(1)
-  set cursor($core.int v) { $_setSignedInt32(0, v); }
+  set cursor($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
@@ -68,7 +68,7 @@ class GetPaginatedOrdersRequest extends $pb.GeneratedMessage {
 class GetPaginatedOrdersResponse extends $pb.GeneratedMessage {
   factory GetPaginatedOrdersResponse({
     $core.Iterable<GetOrderByIdResponse>? orders,
-    $17.Int32Value? nextCursor,
+    $17.StringValue? nextCursor,
   }) {
     final $result = create();
     if (orders != null) {
@@ -85,7 +85,7 @@ class GetPaginatedOrdersResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedOrdersResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.order'), createEmptyInstance: create)
     ..pc<GetOrderByIdResponse>(1, _omitFieldNames ? '' : 'orders', $pb.PbFieldType.PM, subBuilder: GetOrderByIdResponse.create)
-    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.Int32Value.create)
+    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -114,24 +114,24 @@ class GetPaginatedOrdersResponse extends $pb.GeneratedMessage {
   $core.List<GetOrderByIdResponse> get orders => $_getList(0);
 
   @$pb.TagNumber(2)
-  $17.Int32Value get nextCursor => $_getN(1);
+  $17.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($17.Int32Value v) { setField(2, v); }
+  set nextCursor($17.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $17.Int32Value ensureNextCursor() => $_ensure(1);
+  $17.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetOrderByIdRequest extends $pb.GeneratedMessage {
   factory GetOrderByIdRequest({
-    $core.int? orderPk,
+    $core.String? orderId,
   }) {
     final $result = create();
-    if (orderPk != null) {
-      $result.orderPk = orderPk;
+    if (orderId != null) {
+      $result.orderId = orderId;
     }
     return $result;
   }
@@ -140,7 +140,7 @@ class GetOrderByIdRequest extends $pb.GeneratedMessage {
   factory GetOrderByIdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetOrderByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.order'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'orderPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'orderId')
     ..hasRequiredFields = false
   ;
 
@@ -166,22 +166,22 @@ class GetOrderByIdRequest extends $pb.GeneratedMessage {
   static GetOrderByIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get orderPk => $_getIZ(0);
+  $core.String get orderId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set orderPk($core.int v) { $_setSignedInt32(0, v); }
+  set orderId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasOrderPk() => $_has(0);
+  $core.bool hasOrderId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearOrderPk() => clearField(1);
+  void clearOrderId() => clearField(1);
 }
 
 class GetOrderByIdResponse extends $pb.GeneratedMessage {
   factory GetOrderByIdResponse({
-    $core.int? orderPk,
+    $core.String? orderId,
   }) {
     final $result = create();
-    if (orderPk != null) {
-      $result.orderPk = orderPk;
+    if (orderId != null) {
+      $result.orderId = orderId;
     }
     return $result;
   }
@@ -190,7 +190,7 @@ class GetOrderByIdResponse extends $pb.GeneratedMessage {
   factory GetOrderByIdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetOrderByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.order'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'orderPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'orderId')
     ..hasRequiredFields = false
   ;
 
@@ -216,13 +216,13 @@ class GetOrderByIdResponse extends $pb.GeneratedMessage {
   static GetOrderByIdResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get orderPk => $_getIZ(0);
+  $core.String get orderId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set orderPk($core.int v) { $_setSignedInt32(0, v); }
+  set orderId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasOrderPk() => $_has(0);
+  $core.bool hasOrderId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearOrderPk() => clearField(1);
+  void clearOrderId() => clearField(1);
 }
 
 class CreateOrderRequest extends $pb.GeneratedMessage {
@@ -291,11 +291,11 @@ class CreateOrderResponse extends $pb.GeneratedMessage {
 
 class UpdateOrderRequest extends $pb.GeneratedMessage {
   factory UpdateOrderRequest({
-    $core.int? orderPk,
+    $core.String? orderId,
   }) {
     final $result = create();
-    if (orderPk != null) {
-      $result.orderPk = orderPk;
+    if (orderId != null) {
+      $result.orderId = orderId;
     }
     return $result;
   }
@@ -304,7 +304,7 @@ class UpdateOrderRequest extends $pb.GeneratedMessage {
   factory UpdateOrderRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateOrderRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.order'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'orderPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'orderId')
     ..hasRequiredFields = false
   ;
 
@@ -330,13 +330,13 @@ class UpdateOrderRequest extends $pb.GeneratedMessage {
   static UpdateOrderRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get orderPk => $_getIZ(0);
+  $core.String get orderId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set orderPk($core.int v) { $_setSignedInt32(0, v); }
+  set orderId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasOrderPk() => $_has(0);
+  $core.bool hasOrderId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearOrderPk() => clearField(1);
+  void clearOrderId() => clearField(1);
 }
 
 class UpdateOrderResponse extends $pb.GeneratedMessage {
@@ -373,11 +373,11 @@ class UpdateOrderResponse extends $pb.GeneratedMessage {
 
 class DeleteOrderRequest extends $pb.GeneratedMessage {
   factory DeleteOrderRequest({
-    $core.int? orderPk,
+    $core.String? orderId,
   }) {
     final $result = create();
-    if (orderPk != null) {
-      $result.orderPk = orderPk;
+    if (orderId != null) {
+      $result.orderId = orderId;
     }
     return $result;
   }
@@ -386,7 +386,7 @@ class DeleteOrderRequest extends $pb.GeneratedMessage {
   factory DeleteOrderRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteOrderRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.order'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'orderPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'orderId')
     ..hasRequiredFields = false
   ;
 
@@ -412,13 +412,13 @@ class DeleteOrderRequest extends $pb.GeneratedMessage {
   static DeleteOrderRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get orderPk => $_getIZ(0);
+  $core.String get orderId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set orderPk($core.int v) { $_setSignedInt32(0, v); }
+  set orderId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasOrderPk() => $_has(0);
+  $core.bool hasOrderId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearOrderPk() => clearField(1);
+  void clearOrderId() => clearField(1);
 }
 
 class DeleteOrderResponse extends $pb.GeneratedMessage {

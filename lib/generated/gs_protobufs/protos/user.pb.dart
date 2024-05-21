@@ -17,7 +17,7 @@ import '../../google/protobuf/wrappers.pb.dart' as $17;
 
 class GetPaginatedUsersRequest extends $pb.GeneratedMessage {
   factory GetPaginatedUsersRequest({
-    $core.int? cursor,
+    $core.String? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -30,7 +30,7 @@ class GetPaginatedUsersRequest extends $pb.GeneratedMessage {
   factory GetPaginatedUsersRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedUsersRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.user'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'cursor', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'cursor')
     ..hasRequiredFields = false
   ;
 
@@ -56,9 +56,9 @@ class GetPaginatedUsersRequest extends $pb.GeneratedMessage {
   static GetPaginatedUsersRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get cursor => $_getIZ(0);
+  $core.String get cursor => $_getSZ(0);
   @$pb.TagNumber(1)
-  set cursor($core.int v) { $_setSignedInt32(0, v); }
+  set cursor($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
@@ -68,7 +68,7 @@ class GetPaginatedUsersRequest extends $pb.GeneratedMessage {
 class GetPaginatedUsersResponse extends $pb.GeneratedMessage {
   factory GetPaginatedUsersResponse({
     $core.Iterable<GetUserByIdResponse>? users,
-    $17.Int32Value? nextCursor,
+    $17.StringValue? nextCursor,
   }) {
     final $result = create();
     if (users != null) {
@@ -85,7 +85,7 @@ class GetPaginatedUsersResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedUsersResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.user'), createEmptyInstance: create)
     ..pc<GetUserByIdResponse>(1, _omitFieldNames ? '' : 'users', $pb.PbFieldType.PM, subBuilder: GetUserByIdResponse.create)
-    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.Int32Value.create)
+    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -114,24 +114,24 @@ class GetPaginatedUsersResponse extends $pb.GeneratedMessage {
   $core.List<GetUserByIdResponse> get users => $_getList(0);
 
   @$pb.TagNumber(2)
-  $17.Int32Value get nextCursor => $_getN(1);
+  $17.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($17.Int32Value v) { setField(2, v); }
+  set nextCursor($17.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $17.Int32Value ensureNextCursor() => $_ensure(1);
+  $17.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetUserByIdRequest extends $pb.GeneratedMessage {
   factory GetUserByIdRequest({
-    $core.int? userPk,
+    $core.String? userId,
   }) {
     final $result = create();
-    if (userPk != null) {
-      $result.userPk = userPk;
+    if (userId != null) {
+      $result.userId = userId;
     }
     return $result;
   }
@@ -140,7 +140,7 @@ class GetUserByIdRequest extends $pb.GeneratedMessage {
   factory GetUserByIdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetUserByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.user'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'userPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
     ..hasRequiredFields = false
   ;
 
@@ -166,24 +166,24 @@ class GetUserByIdRequest extends $pb.GeneratedMessage {
   static GetUserByIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get userPk => $_getIZ(0);
+  $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set userPk($core.int v) { $_setSignedInt32(0, v); }
+  set userId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasUserPk() => $_has(0);
+  $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUserPk() => clearField(1);
+  void clearUserId() => clearField(1);
 }
 
 class GetUserByIdResponse extends $pb.GeneratedMessage {
   factory GetUserByIdResponse({
-    $core.int? userPk,
+    $core.String? userId,
     $core.String? email,
     $core.String? role,
   }) {
     final $result = create();
-    if (userPk != null) {
-      $result.userPk = userPk;
+    if (userId != null) {
+      $result.userId = userId;
     }
     if (email != null) {
       $result.email = email;
@@ -198,7 +198,7 @@ class GetUserByIdResponse extends $pb.GeneratedMessage {
   factory GetUserByIdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetUserByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.user'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'userPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
     ..aOS(2, _omitFieldNames ? '' : 'email')
     ..aOS(3, _omitFieldNames ? '' : 'role')
     ..hasRequiredFields = false
@@ -226,13 +226,13 @@ class GetUserByIdResponse extends $pb.GeneratedMessage {
   static GetUserByIdResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get userPk => $_getIZ(0);
+  $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set userPk($core.int v) { $_setSignedInt32(0, v); }
+  set userId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasUserPk() => $_has(0);
+  $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUserPk() => clearField(1);
+  void clearUserId() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get email => $_getSZ(1);
@@ -255,12 +255,12 @@ class GetUserByIdResponse extends $pb.GeneratedMessage {
 
 class UpdateUserRequest extends $pb.GeneratedMessage {
   factory UpdateUserRequest({
-    $core.int? userPk,
+    $core.String? userId,
     $core.String? email,
   }) {
     final $result = create();
-    if (userPk != null) {
-      $result.userPk = userPk;
+    if (userId != null) {
+      $result.userId = userId;
     }
     if (email != null) {
       $result.email = email;
@@ -272,7 +272,7 @@ class UpdateUserRequest extends $pb.GeneratedMessage {
   factory UpdateUserRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateUserRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.user'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'userPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
     ..aOS(2, _omitFieldNames ? '' : 'email')
     ..hasRequiredFields = false
   ;
@@ -299,13 +299,13 @@ class UpdateUserRequest extends $pb.GeneratedMessage {
   static UpdateUserRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get userPk => $_getIZ(0);
+  $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set userPk($core.int v) { $_setSignedInt32(0, v); }
+  set userId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasUserPk() => $_has(0);
+  $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUserPk() => clearField(1);
+  void clearUserId() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get email => $_getSZ(1);
@@ -351,11 +351,11 @@ class UpdateUserResponse extends $pb.GeneratedMessage {
 
 class DeleteUserRequest extends $pb.GeneratedMessage {
   factory DeleteUserRequest({
-    $core.int? userPk,
+    $core.String? userId,
   }) {
     final $result = create();
-    if (userPk != null) {
-      $result.userPk = userPk;
+    if (userId != null) {
+      $result.userId = userId;
     }
     return $result;
   }
@@ -364,7 +364,7 @@ class DeleteUserRequest extends $pb.GeneratedMessage {
   factory DeleteUserRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteUserRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.user'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'userPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
     ..hasRequiredFields = false
   ;
 
@@ -390,13 +390,13 @@ class DeleteUserRequest extends $pb.GeneratedMessage {
   static DeleteUserRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get userPk => $_getIZ(0);
+  $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set userPk($core.int v) { $_setSignedInt32(0, v); }
+  set userId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasUserPk() => $_has(0);
+  $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUserPk() => clearField(1);
+  void clearUserId() => clearField(1);
 }
 
 class DeleteUserResponse extends $pb.GeneratedMessage {

@@ -17,16 +17,15 @@ import '../../../google/protobuf/wrappers.pb.dart' as $17;
 
 class Person extends $pb.GeneratedMessage {
   factory Person({
-    $17.Int32Value? personPk,
+    $17.StringValue? personId,
     $core.String? name,
     $core.String? mobilePhoneNumber,
     $core.String? birthDate,
     $core.String? cpf,
-    $core.String? cin,
   }) {
     final $result = create();
-    if (personPk != null) {
-      $result.personPk = personPk;
+    if (personId != null) {
+      $result.personId = personId;
     }
     if (name != null) {
       $result.name = name;
@@ -40,9 +39,6 @@ class Person extends $pb.GeneratedMessage {
     if (cpf != null) {
       $result.cpf = cpf;
     }
-    if (cin != null) {
-      $result.cin = cin;
-    }
     return $result;
   }
   Person._() : super();
@@ -50,12 +46,11 @@ class Person extends $pb.GeneratedMessage {
   factory Person.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Person', package: const $pb.PackageName(_omitMessageNames ? '' : 'custom_types.person'), createEmptyInstance: create)
-    ..aOM<$17.Int32Value>(1, _omitFieldNames ? '' : 'personPk', subBuilder: $17.Int32Value.create)
+    ..aOM<$17.StringValue>(1, _omitFieldNames ? '' : 'personId', subBuilder: $17.StringValue.create)
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'mobilePhoneNumber')
     ..aOS(4, _omitFieldNames ? '' : 'birthDate')
     ..aOS(5, _omitFieldNames ? '' : 'cpf')
-    ..aOS(6, _omitFieldNames ? '' : 'cin')
     ..hasRequiredFields = false
   ;
 
@@ -81,15 +76,15 @@ class Person extends $pb.GeneratedMessage {
   static Person? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $17.Int32Value get personPk => $_getN(0);
+  $17.StringValue get personId => $_getN(0);
   @$pb.TagNumber(1)
-  set personPk($17.Int32Value v) { setField(1, v); }
+  set personId($17.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPersonPk() => $_has(0);
+  $core.bool hasPersonId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPersonPk() => clearField(1);
+  void clearPersonId() => clearField(1);
   @$pb.TagNumber(1)
-  $17.Int32Value ensurePersonPk() => $_ensure(0);
+  $17.StringValue ensurePersonId() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.String get name => $_getSZ(1);
@@ -126,15 +121,6 @@ class Person extends $pb.GeneratedMessage {
   $core.bool hasCpf() => $_has(4);
   @$pb.TagNumber(5)
   void clearCpf() => clearField(5);
-
-  @$pb.TagNumber(6)
-  $core.String get cin => $_getSZ(5);
-  @$pb.TagNumber(6)
-  set cin($core.String v) { $_setString(5, v); }
-  @$pb.TagNumber(6)
-  $core.bool hasCin() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearCin() => clearField(6);
 }
 
 

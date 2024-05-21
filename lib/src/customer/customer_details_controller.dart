@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gs_manager/helpers.dart';
 import 'package:gs_manager/protos.dart';
+import 'package:gs_manager/src/customer/customer_service.dart';
 
 class CustomerDetailsController {
   CustomerDetailsController({
@@ -9,12 +10,22 @@ class CustomerDetailsController {
 
   final GetCustomerByIdResponse? customerUpdating;
   late CreateCustomerRequest customer = customerUpdating == null
-      ? CreateCustomerRequest()
+      ? CreateCustomerRequest(
+          person: Person(
+            name: '',
+            birthDate: '',
+            mobilePhoneNumber: '',
+            cpf: '',
+          ),
+          billingAddress: '',
+          additionalInformation: '',
+          dependents: [],
+        )
       : CreateCustomerRequest(
           person: customerUpdating!.person,
-          dependents: customerUpdating!.dependents,
           billingAddress: customerUpdating!.billingAddress,
           additionalInformation: customerUpdating!.additionalInformation,
+          dependents: customerUpdating!.dependents,
         );
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -29,16 +40,29 @@ class CustomerDetailsController {
 
     formKey.currentState!.save();
 
-    // final box = Boxes.getClientes();
-    // if (clientUpdating == null) {
-    //   await box.add(client);
-    // } else {
-    //   await client.save();
-    // }
+    CustomerService customerService = CustomerService();
+
+    bool isSuccessful = false;
+
+    if (customerUpdating == null) {
+      isSuccessful = await customerService.postAsync(customer);
+    } else {
+      isSuccessful = await customerService.putAsync(
+        UpdateCustomerRequest(
+          customerId: customerUpdating!.customerId,
+          person: customer.person,
+          billingAddress: customer.billingAddress,
+          additionalInformation: customer.additionalInformation,
+          dependents: customer.dependents,
+          user: customerUpdating!.user,
+        ),
+      );
+    }
 
     if (!context.mounted) return false;
     Navigator.of(context).pop();
-    return true;
+
+    return isSuccessful;
   }
 
   Future<bool> handleDelete(BuildContext context) async {

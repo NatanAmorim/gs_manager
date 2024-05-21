@@ -38,13 +38,13 @@
 // }
 
 // class _AulaDetailsViewState extends State<AulaDetailsView> {
-//   late AulaDetailsController controller;
+//   late DisciplineDetailsController controller;
 
 //   @override
 //   void initState() {
 //     super.initState();
-//     controller =
-//         AulaDetailsController(disciplineUpdating: widget.disciplineUpdating);
+//     controller = DisciplineDetailsController(
+//         disciplineUpdating: widget.disciplineUpdating);
 //   }
 
 //   @override

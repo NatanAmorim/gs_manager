@@ -17,13 +17,13 @@ import 'dart:typed_data' as $typed_data;
 const GetPaginatedDisciplinesRequest$json = {
   '1': 'GetPaginatedDisciplinesRequest',
   '2': [
-    {'1': 'cursor', '3': 1, '4': 1, '5': 5, '10': 'cursor'},
+    {'1': 'cursor', '3': 1, '4': 1, '5': 9, '10': 'cursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedDisciplinesRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedDisciplinesRequestDescriptor = $convert.base64Decode(
-    'Ch5HZXRQYWdpbmF0ZWREaXNjaXBsaW5lc1JlcXVlc3QSFgoGY3Vyc29yGAEgASgFUgZjdXJzb3'
+    'Ch5HZXRQYWdpbmF0ZWREaXNjaXBsaW5lc1JlcXVlc3QSFgoGY3Vyc29yGAEgASgJUgZjdXJzb3'
     'I=');
 
 @$core.Deprecated('Use getPaginatedDisciplinesResponseDescriptor instead')
@@ -31,7 +31,7 @@ const GetPaginatedDisciplinesResponse$json = {
   '1': 'GetPaginatedDisciplinesResponse',
   '2': [
     {'1': 'disciplines', '3': 1, '4': 3, '5': 11, '6': '.protos.discipline.GetDisciplineByIdResponse', '10': 'disciplines'},
-    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'nextCursor'},
+    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'nextCursor'},
   ],
 };
 
@@ -39,30 +39,30 @@ const GetPaginatedDisciplinesResponse$json = {
 final $typed_data.Uint8List getPaginatedDisciplinesResponseDescriptor = $convert.base64Decode(
     'Ch9HZXRQYWdpbmF0ZWREaXNjaXBsaW5lc1Jlc3BvbnNlEk4KC2Rpc2NpcGxpbmVzGAEgAygLMi'
     'wucHJvdG9zLmRpc2NpcGxpbmUuR2V0RGlzY2lwbGluZUJ5SWRSZXNwb25zZVILZGlzY2lwbGlu'
-    'ZXMSPAoLbmV4dF9jdXJzb3IYAiABKAsyGy5nb29nbGUucHJvdG9idWYuSW50MzJWYWx1ZVIKbm'
-    'V4dEN1cnNvcg==');
+    'ZXMSPQoLbmV4dF9jdXJzb3IYAiABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWVSCm'
+    '5leHRDdXJzb3I=');
 
 @$core.Deprecated('Use getDisciplineByIdRequestDescriptor instead')
 const GetDisciplineByIdRequest$json = {
   '1': 'GetDisciplineByIdRequest',
   '2': [
-    {'1': 'discipline_pk', '3': 1, '4': 1, '5': 5, '10': 'disciplinePk'},
+    {'1': 'discipline_id', '3': 1, '4': 1, '5': 9, '10': 'disciplineId'},
   ],
 };
 
 /// Descriptor for `GetDisciplineByIdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getDisciplineByIdRequestDescriptor = $convert.base64Decode(
-    'ChhHZXREaXNjaXBsaW5lQnlJZFJlcXVlc3QSIwoNZGlzY2lwbGluZV9waxgBIAEoBVIMZGlzY2'
-    'lwbGluZVBr');
+    'ChhHZXREaXNjaXBsaW5lQnlJZFJlcXVlc3QSIwoNZGlzY2lwbGluZV9pZBgBIAEoCVIMZGlzY2'
+    'lwbGluZUlk');
 
 @$core.Deprecated('Use getDisciplineByIdResponseDescriptor instead')
 const GetDisciplineByIdResponse$json = {
   '1': 'GetDisciplineByIdResponse',
   '2': [
-    {'1': 'discipline_pk', '3': 1, '4': 1, '5': 5, '10': 'disciplinePk'},
+    {'1': 'discipline_id', '3': 1, '4': 1, '5': 9, '10': 'disciplineId'},
     {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
     {'1': 'tuition_price', '3': 3, '4': 1, '5': 11, '6': '.custom_types.decimal_value.DecimalValue', '10': 'tuitionPrice'},
-    {'1': 'discipline', '3': 4, '4': 1, '5': 11, '6': '.protos.instructor.GetInstructorByIdResponse', '10': 'discipline'},
+    {'1': 'instructor_id', '3': 4, '4': 1, '5': 9, '10': 'instructorId'},
     {'1': 'start_time', '3': 5, '4': 1, '5': 11, '6': '.custom_types.time_of_day.TimeOfDay', '10': 'startTime'},
     {'1': 'end_time', '3': 6, '4': 1, '5': 11, '6': '.custom_types.time_of_day.TimeOfDay', '10': 'endTime'},
     {'1': 'class_days', '3': 7, '4': 3, '5': 14, '6': '.custom_types.day_of_week.DayOfWeek', '10': 'classDays'},
@@ -72,15 +72,14 @@ const GetDisciplineByIdResponse$json = {
 
 /// Descriptor for `GetDisciplineByIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getDisciplineByIdResponseDescriptor = $convert.base64Decode(
-    'ChlHZXREaXNjaXBsaW5lQnlJZFJlc3BvbnNlEiMKDWRpc2NpcGxpbmVfcGsYASABKAVSDGRpc2'
-    'NpcGxpbmVQaxISCgRuYW1lGAIgASgJUgRuYW1lEk0KDXR1aXRpb25fcHJpY2UYAyABKAsyKC5j'
-    'dXN0b21fdHlwZXMuZGVjaW1hbF92YWx1ZS5EZWNpbWFsVmFsdWVSDHR1aXRpb25QcmljZRJMCg'
-    'pkaXNjaXBsaW5lGAQgASgLMiwucHJvdG9zLmluc3RydWN0b3IuR2V0SW5zdHJ1Y3RvckJ5SWRS'
-    'ZXNwb25zZVIKZGlzY2lwbGluZRJCCgpzdGFydF90aW1lGAUgASgLMiMuY3VzdG9tX3R5cGVzLn'
-    'RpbWVfb2ZfZGF5LlRpbWVPZkRheVIJc3RhcnRUaW1lEj4KCGVuZF90aW1lGAYgASgLMiMuY3Vz'
-    'dG9tX3R5cGVzLnRpbWVfb2ZfZGF5LlRpbWVPZkRheVIHZW5kVGltZRJCCgpjbGFzc19kYXlzGA'
-    'cgAygOMiMuY3VzdG9tX3R5cGVzLmRheV9vZl93ZWVrLkRheU9mV2Vla1IJY2xhc3NEYXlzEhsK'
-    'CWlzX2FjdGl2ZRgIIAEoCFIIaXNBY3RpdmU=');
+    'ChlHZXREaXNjaXBsaW5lQnlJZFJlc3BvbnNlEiMKDWRpc2NpcGxpbmVfaWQYASABKAlSDGRpc2'
+    'NpcGxpbmVJZBISCgRuYW1lGAIgASgJUgRuYW1lEk0KDXR1aXRpb25fcHJpY2UYAyABKAsyKC5j'
+    'dXN0b21fdHlwZXMuZGVjaW1hbF92YWx1ZS5EZWNpbWFsVmFsdWVSDHR1aXRpb25QcmljZRIjCg'
+    '1pbnN0cnVjdG9yX2lkGAQgASgJUgxpbnN0cnVjdG9ySWQSQgoKc3RhcnRfdGltZRgFIAEoCzIj'
+    'LmN1c3RvbV90eXBlcy50aW1lX29mX2RheS5UaW1lT2ZEYXlSCXN0YXJ0VGltZRI+CghlbmRfdG'
+    'ltZRgGIAEoCzIjLmN1c3RvbV90eXBlcy50aW1lX29mX2RheS5UaW1lT2ZEYXlSB2VuZFRpbWUS'
+    'QgoKY2xhc3NfZGF5cxgHIAMoDjIjLmN1c3RvbV90eXBlcy5kYXlfb2Zfd2Vlay5EYXlPZldlZW'
+    'tSCWNsYXNzRGF5cxIbCglpc19hY3RpdmUYCCABKAhSCGlzQWN0aXZl');
 
 @$core.Deprecated('Use createDisciplineRequestDescriptor instead')
 const CreateDisciplineRequest$json = {
@@ -88,7 +87,7 @@ const CreateDisciplineRequest$json = {
   '2': [
     {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
     {'1': 'tuition_price', '3': 2, '4': 1, '5': 11, '6': '.custom_types.decimal_value.DecimalValue', '10': 'tuitionPrice'},
-    {'1': 'instructor_fk', '3': 3, '4': 1, '5': 5, '10': 'instructorFk'},
+    {'1': 'instructor_id', '3': 3, '4': 1, '5': 9, '10': 'instructorId'},
     {'1': 'start_time', '3': 4, '4': 1, '5': 11, '6': '.custom_types.time_of_day.TimeOfDay', '10': 'startTime'},
     {'1': 'end_time', '3': 5, '4': 1, '5': 11, '6': '.custom_types.time_of_day.TimeOfDay', '10': 'endTime'},
     {'1': 'class_days', '3': 6, '4': 3, '5': 14, '6': '.custom_types.day_of_week.DayOfWeek', '10': 'classDays'},
@@ -100,7 +99,7 @@ const CreateDisciplineRequest$json = {
 final $typed_data.Uint8List createDisciplineRequestDescriptor = $convert.base64Decode(
     'ChdDcmVhdGVEaXNjaXBsaW5lUmVxdWVzdBISCgRuYW1lGAEgASgJUgRuYW1lEk0KDXR1aXRpb2'
     '5fcHJpY2UYAiABKAsyKC5jdXN0b21fdHlwZXMuZGVjaW1hbF92YWx1ZS5EZWNpbWFsVmFsdWVS'
-    'DHR1aXRpb25QcmljZRIjCg1pbnN0cnVjdG9yX2ZrGAMgASgFUgxpbnN0cnVjdG9yRmsSQgoKc3'
+    'DHR1aXRpb25QcmljZRIjCg1pbnN0cnVjdG9yX2lkGAMgASgJUgxpbnN0cnVjdG9ySWQSQgoKc3'
     'RhcnRfdGltZRgEIAEoCzIjLmN1c3RvbV90eXBlcy50aW1lX29mX2RheS5UaW1lT2ZEYXlSCXN0'
     'YXJ0VGltZRI+CghlbmRfdGltZRgFIAEoCzIjLmN1c3RvbV90eXBlcy50aW1lX29mX2RheS5UaW'
     '1lT2ZEYXlSB2VuZFRpbWUSQgoKY2xhc3NfZGF5cxgGIAMoDjIjLmN1c3RvbV90eXBlcy5kYXlf'
@@ -120,10 +119,10 @@ final $typed_data.Uint8List createDisciplineResponseDescriptor = $convert.base64
 const UpdateDisciplineRequest$json = {
   '1': 'UpdateDisciplineRequest',
   '2': [
-    {'1': 'discipline_pk', '3': 1, '4': 1, '5': 5, '10': 'disciplinePk'},
+    {'1': 'discipline_id', '3': 1, '4': 1, '5': 9, '10': 'disciplineId'},
     {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
     {'1': 'tuition_price', '3': 3, '4': 1, '5': 11, '6': '.custom_types.decimal_value.DecimalValue', '10': 'tuitionPrice'},
-    {'1': 'instructor_fk', '3': 4, '4': 1, '5': 5, '10': 'instructorFk'},
+    {'1': 'instructor_id', '3': 4, '4': 1, '5': 9, '10': 'instructorId'},
     {'1': 'start_time', '3': 5, '4': 1, '5': 11, '6': '.custom_types.time_of_day.TimeOfDay', '10': 'startTime'},
     {'1': 'end_time', '3': 6, '4': 1, '5': 11, '6': '.custom_types.time_of_day.TimeOfDay', '10': 'endTime'},
     {'1': 'class_days', '3': 7, '4': 3, '5': 14, '6': '.custom_types.day_of_week.DayOfWeek', '10': 'classDays'},
@@ -133,10 +132,10 @@ const UpdateDisciplineRequest$json = {
 
 /// Descriptor for `UpdateDisciplineRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateDisciplineRequestDescriptor = $convert.base64Decode(
-    'ChdVcGRhdGVEaXNjaXBsaW5lUmVxdWVzdBIjCg1kaXNjaXBsaW5lX3BrGAEgASgFUgxkaXNjaX'
-    'BsaW5lUGsSEgoEbmFtZRgCIAEoCVIEbmFtZRJNCg10dWl0aW9uX3ByaWNlGAMgASgLMiguY3Vz'
+    'ChdVcGRhdGVEaXNjaXBsaW5lUmVxdWVzdBIjCg1kaXNjaXBsaW5lX2lkGAEgASgJUgxkaXNjaX'
+    'BsaW5lSWQSEgoEbmFtZRgCIAEoCVIEbmFtZRJNCg10dWl0aW9uX3ByaWNlGAMgASgLMiguY3Vz'
     'dG9tX3R5cGVzLmRlY2ltYWxfdmFsdWUuRGVjaW1hbFZhbHVlUgx0dWl0aW9uUHJpY2USIwoNaW'
-    '5zdHJ1Y3Rvcl9maxgEIAEoBVIMaW5zdHJ1Y3RvckZrEkIKCnN0YXJ0X3RpbWUYBSABKAsyIy5j'
+    '5zdHJ1Y3Rvcl9pZBgEIAEoCVIMaW5zdHJ1Y3RvcklkEkIKCnN0YXJ0X3RpbWUYBSABKAsyIy5j'
     'dXN0b21fdHlwZXMudGltZV9vZl9kYXkuVGltZU9mRGF5UglzdGFydFRpbWUSPgoIZW5kX3RpbW'
     'UYBiABKAsyIy5jdXN0b21fdHlwZXMudGltZV9vZl9kYXkuVGltZU9mRGF5UgdlbmRUaW1lEkIK'
     'CmNsYXNzX2RheXMYByADKA4yIy5jdXN0b21fdHlwZXMuZGF5X29mX3dlZWsuRGF5T2ZXZWVrUg'
@@ -155,14 +154,14 @@ final $typed_data.Uint8List updateDisciplineResponseDescriptor = $convert.base64
 const DeleteDisciplineRequest$json = {
   '1': 'DeleteDisciplineRequest',
   '2': [
-    {'1': 'discipline_pk', '3': 1, '4': 1, '5': 5, '10': 'disciplinePk'},
+    {'1': 'discipline_id', '3': 1, '4': 1, '5': 9, '10': 'disciplineId'},
   ],
 };
 
 /// Descriptor for `DeleteDisciplineRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteDisciplineRequestDescriptor = $convert.base64Decode(
-    'ChdEZWxldGVEaXNjaXBsaW5lUmVxdWVzdBIjCg1kaXNjaXBsaW5lX3BrGAEgASgFUgxkaXNjaX'
-    'BsaW5lUGs=');
+    'ChdEZWxldGVEaXNjaXBsaW5lUmVxdWVzdBIjCg1kaXNjaXBsaW5lX2lkGAEgASgJUgxkaXNjaX'
+    'BsaW5lSWQ=');
 
 @$core.Deprecated('Use deleteDisciplineResponseDescriptor instead')
 const DeleteDisciplineResponse$json = {

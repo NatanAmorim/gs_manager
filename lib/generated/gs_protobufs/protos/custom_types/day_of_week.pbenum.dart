@@ -17,22 +17,22 @@ import 'package:protobuf/protobuf.dart' as $pb;
 ///  Summary:
 ///      Specifies the day of the week.
 class DayOfWeek extends $pb.ProtobufEnum {
-  static const DayOfWeek SUNDAY = DayOfWeek._(0, _omitEnumNames ? '' : 'SUNDAY');
-  static const DayOfWeek MONDAY = DayOfWeek._(1, _omitEnumNames ? '' : 'MONDAY');
-  static const DayOfWeek TUESDAY = DayOfWeek._(2, _omitEnumNames ? '' : 'TUESDAY');
-  static const DayOfWeek WEDNESDAY = DayOfWeek._(3, _omitEnumNames ? '' : 'WEDNESDAY');
-  static const DayOfWeek THURSDAY = DayOfWeek._(4, _omitEnumNames ? '' : 'THURSDAY');
-  static const DayOfWeek FRIDAY = DayOfWeek._(5, _omitEnumNames ? '' : 'FRIDAY');
-  static const DayOfWeek SATURDAY = DayOfWeek._(6, _omitEnumNames ? '' : 'SATURDAY');
+  static const DayOfWeek DAY_OF_WEEK_SUNDAY = DayOfWeek._(0, _omitEnumNames ? '' : 'DAY_OF_WEEK_SUNDAY');
+  static const DayOfWeek DAY_OF_WEEK_MONDAY = DayOfWeek._(1, _omitEnumNames ? '' : 'DAY_OF_WEEK_MONDAY');
+  static const DayOfWeek DAY_OF_WEEK_TUESDAY = DayOfWeek._(2, _omitEnumNames ? '' : 'DAY_OF_WEEK_TUESDAY');
+  static const DayOfWeek DAY_OF_WEEK_WEDNESDAY = DayOfWeek._(3, _omitEnumNames ? '' : 'DAY_OF_WEEK_WEDNESDAY');
+  static const DayOfWeek DAY_OF_WEEK_THURSDAY = DayOfWeek._(4, _omitEnumNames ? '' : 'DAY_OF_WEEK_THURSDAY');
+  static const DayOfWeek DAY_OF_WEEK_FRIDAY = DayOfWeek._(5, _omitEnumNames ? '' : 'DAY_OF_WEEK_FRIDAY');
+  static const DayOfWeek DAY_OF_WEEK_SATURDAY = DayOfWeek._(6, _omitEnumNames ? '' : 'DAY_OF_WEEK_SATURDAY');
 
   static const $core.List<DayOfWeek> values = <DayOfWeek> [
-    SUNDAY,
-    MONDAY,
-    TUESDAY,
-    WEDNESDAY,
-    THURSDAY,
-    FRIDAY,
-    SATURDAY,
+    DAY_OF_WEEK_SUNDAY,
+    DAY_OF_WEEK_MONDAY,
+    DAY_OF_WEEK_TUESDAY,
+    DAY_OF_WEEK_WEDNESDAY,
+    DAY_OF_WEEK_THURSDAY,
+    DAY_OF_WEEK_FRIDAY,
+    DAY_OF_WEEK_SATURDAY,
   ];
 
   static final $core.Map<$core.int, DayOfWeek> _byValue = $pb.ProtobufEnum.initByValue(values);

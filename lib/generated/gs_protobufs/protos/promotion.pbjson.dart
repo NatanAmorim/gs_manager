@@ -17,13 +17,13 @@ import 'dart:typed_data' as $typed_data;
 const GetPaginatedPromotionsRequest$json = {
   '1': 'GetPaginatedPromotionsRequest',
   '2': [
-    {'1': 'cursor', '3': 1, '4': 1, '5': 5, '10': 'cursor'},
+    {'1': 'cursor', '3': 1, '4': 1, '5': 9, '10': 'cursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedPromotionsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedPromotionsRequestDescriptor = $convert.base64Decode(
-    'Ch1HZXRQYWdpbmF0ZWRQcm9tb3Rpb25zUmVxdWVzdBIWCgZjdXJzb3IYASABKAVSBmN1cnNvcg'
+    'Ch1HZXRQYWdpbmF0ZWRQcm9tb3Rpb25zUmVxdWVzdBIWCgZjdXJzb3IYASABKAlSBmN1cnNvcg'
     '==');
 
 @$core.Deprecated('Use getPaginatedPromotionsResponseDescriptor instead')
@@ -31,36 +31,36 @@ const GetPaginatedPromotionsResponse$json = {
   '1': 'GetPaginatedPromotionsResponse',
   '2': [
     {'1': 'promotions', '3': 1, '4': 3, '5': 11, '6': '.protos.promotion.GetPromotionByIdResponse', '10': 'promotions'},
-    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'nextCursor'},
+    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'nextCursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedPromotionsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedPromotionsResponseDescriptor = $convert.base64Decode(
     'Ch5HZXRQYWdpbmF0ZWRQcm9tb3Rpb25zUmVzcG9uc2USSgoKcHJvbW90aW9ucxgBIAMoCzIqLn'
-    'Byb3Rvcy5wcm9tb3Rpb24uR2V0UHJvbW90aW9uQnlJZFJlc3BvbnNlUgpwcm9tb3Rpb25zEjwK'
-    'C25leHRfY3Vyc29yGAIgASgLMhsuZ29vZ2xlLnByb3RvYnVmLkludDMyVmFsdWVSCm5leHRDdX'
-    'Jzb3I=');
+    'Byb3Rvcy5wcm9tb3Rpb24uR2V0UHJvbW90aW9uQnlJZFJlc3BvbnNlUgpwcm9tb3Rpb25zEj0K'
+    'C25leHRfY3Vyc29yGAIgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlUgpuZXh0Q3'
+    'Vyc29y');
 
 @$core.Deprecated('Use getPromotionByIdRequestDescriptor instead')
 const GetPromotionByIdRequest$json = {
   '1': 'GetPromotionByIdRequest',
   '2': [
-    {'1': 'promotion_pk', '3': 1, '4': 1, '5': 5, '10': 'promotionPk'},
+    {'1': 'promotion_id', '3': 1, '4': 1, '5': 9, '10': 'promotionId'},
   ],
 };
 
 /// Descriptor for `GetPromotionByIdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPromotionByIdRequestDescriptor = $convert.base64Decode(
-    'ChdHZXRQcm9tb3Rpb25CeUlkUmVxdWVzdBIhCgxwcm9tb3Rpb25fcGsYASABKAVSC3Byb21vdG'
-    'lvblBr');
+    'ChdHZXRQcm9tb3Rpb25CeUlkUmVxdWVzdBIhCgxwcm9tb3Rpb25faWQYASABKAlSC3Byb21vdG'
+    'lvbklk');
 
 @$core.Deprecated('Use getPromotionByIdResponseDescriptor instead')
 const GetPromotionByIdResponse$json = {
   '1': 'GetPromotionByIdResponse',
   '2': [
-    {'1': 'promotion_pk', '3': 1, '4': 1, '5': 5, '10': 'promotionPk'},
-    {'1': 'customer', '3': 2, '4': 1, '5': 11, '6': '.protos.customer.GetCustomerByIdRequest', '10': 'customer'},
+    {'1': 'promotion_id', '3': 1, '4': 1, '5': 9, '10': 'promotionId'},
+    {'1': 'customer', '3': 2, '4': 1, '5': 11, '6': '.protos.customer.GetCustomerByIdResponse', '10': 'customer'},
     {'1': 'name', '3': 3, '4': 1, '5': 9, '10': 'name'},
     {'1': 'description', '3': 4, '4': 1, '5': 9, '10': 'description'},
     {'1': 'discount_type', '3': 5, '4': 1, '5': 9, '10': 'discountType'},
@@ -72,20 +72,20 @@ const GetPromotionByIdResponse$json = {
 
 /// Descriptor for `GetPromotionByIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPromotionByIdResponseDescriptor = $convert.base64Decode(
-    'ChhHZXRQcm9tb3Rpb25CeUlkUmVzcG9uc2USIQoMcHJvbW90aW9uX3BrGAEgASgFUgtwcm9tb3'
-    'Rpb25QaxJDCghjdXN0b21lchgCIAEoCzInLnByb3Rvcy5jdXN0b21lci5HZXRDdXN0b21lckJ5'
-    'SWRSZXF1ZXN0UghjdXN0b21lchISCgRuYW1lGAMgASgJUgRuYW1lEiAKC2Rlc2NyaXB0aW9uGA'
-    'QgASgJUgtkZXNjcmlwdGlvbhIjCg1kaXNjb3VudF90eXBlGAUgASgJUgxkaXNjb3VudFR5cGUS'
-    'RwoKc3RhcnRfZGF0ZRgGIAEoCzIoLmN1c3RvbV90eXBlcy5jYWxlbmRhcl9kYXRlLkNhbGVuZG'
-    'FyRGF0ZVIJc3RhcnREYXRlEkMKCGVuZF9kYXRlGAcgASgLMiguY3VzdG9tX3R5cGVzLmNhbGVu'
-    'ZGFyX2RhdGUuQ2FsZW5kYXJEYXRlUgdlbmREYXRlEhsKCWlzX2FjdGl2ZRgIIAEoCFIIaXNBY3'
-    'RpdmU=');
+    'ChhHZXRQcm9tb3Rpb25CeUlkUmVzcG9uc2USIQoMcHJvbW90aW9uX2lkGAEgASgJUgtwcm9tb3'
+    'Rpb25JZBJECghjdXN0b21lchgCIAEoCzIoLnByb3Rvcy5jdXN0b21lci5HZXRDdXN0b21lckJ5'
+    'SWRSZXNwb25zZVIIY3VzdG9tZXISEgoEbmFtZRgDIAEoCVIEbmFtZRIgCgtkZXNjcmlwdGlvbh'
+    'gEIAEoCVILZGVzY3JpcHRpb24SIwoNZGlzY291bnRfdHlwZRgFIAEoCVIMZGlzY291bnRUeXBl'
+    'EkcKCnN0YXJ0X2RhdGUYBiABKAsyKC5jdXN0b21fdHlwZXMuY2FsZW5kYXJfZGF0ZS5DYWxlbm'
+    'RhckRhdGVSCXN0YXJ0RGF0ZRJDCghlbmRfZGF0ZRgHIAEoCzIoLmN1c3RvbV90eXBlcy5jYWxl'
+    'bmRhcl9kYXRlLkNhbGVuZGFyRGF0ZVIHZW5kRGF0ZRIbCglpc19hY3RpdmUYCCABKAhSCGlzQW'
+    'N0aXZl');
 
 @$core.Deprecated('Use createPromotionRequestDescriptor instead')
 const CreatePromotionRequest$json = {
   '1': 'CreatePromotionRequest',
   '2': [
-    {'1': 'customer_fk', '3': 3, '4': 1, '5': 5, '10': 'customerFk'},
+    {'1': 'customer_id', '3': 3, '4': 1, '5': 9, '10': 'customerId'},
     {'1': 'name', '3': 4, '4': 1, '5': 9, '10': 'name'},
     {'1': 'description', '3': 5, '4': 1, '5': 9, '10': 'description'},
     {'1': 'discount_type', '3': 6, '4': 1, '5': 9, '10': 'discountType'},
@@ -97,8 +97,8 @@ const CreatePromotionRequest$json = {
 
 /// Descriptor for `CreatePromotionRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createPromotionRequestDescriptor = $convert.base64Decode(
-    'ChZDcmVhdGVQcm9tb3Rpb25SZXF1ZXN0Eh8KC2N1c3RvbWVyX2ZrGAMgASgFUgpjdXN0b21lck'
-    'ZrEhIKBG5hbWUYBCABKAlSBG5hbWUSIAoLZGVzY3JpcHRpb24YBSABKAlSC2Rlc2NyaXB0aW9u'
+    'ChZDcmVhdGVQcm9tb3Rpb25SZXF1ZXN0Eh8KC2N1c3RvbWVyX2lkGAMgASgJUgpjdXN0b21lck'
+    'lkEhIKBG5hbWUYBCABKAlSBG5hbWUSIAoLZGVzY3JpcHRpb24YBSABKAlSC2Rlc2NyaXB0aW9u'
     'EiMKDWRpc2NvdW50X3R5cGUYBiABKAlSDGRpc2NvdW50VHlwZRJHCgpzdGFydF9kYXRlGAcgAS'
     'gLMiguY3VzdG9tX3R5cGVzLmNhbGVuZGFyX2RhdGUuQ2FsZW5kYXJEYXRlUglzdGFydERhdGUS'
     'QwoIZW5kX2RhdGUYCCABKAsyKC5jdXN0b21fdHlwZXMuY2FsZW5kYXJfZGF0ZS5DYWxlbmRhck'
@@ -117,8 +117,8 @@ final $typed_data.Uint8List createPromotionResponseDescriptor = $convert.base64D
 const UpdatePromotionRequest$json = {
   '1': 'UpdatePromotionRequest',
   '2': [
-    {'1': 'promotion_pk', '3': 1, '4': 1, '5': 5, '10': 'promotionPk'},
-    {'1': 'customer_fk', '3': 2, '4': 1, '5': 5, '10': 'customerFk'},
+    {'1': 'promotion_id', '3': 1, '4': 1, '5': 9, '10': 'promotionId'},
+    {'1': 'customer_id', '3': 2, '4': 1, '5': 9, '10': 'customerId'},
     {'1': 'name', '3': 3, '4': 1, '5': 9, '10': 'name'},
     {'1': 'description', '3': 4, '4': 1, '5': 9, '10': 'description'},
     {'1': 'discount_type', '3': 5, '4': 1, '5': 9, '10': 'discountType'},
@@ -130,8 +130,8 @@ const UpdatePromotionRequest$json = {
 
 /// Descriptor for `UpdatePromotionRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updatePromotionRequestDescriptor = $convert.base64Decode(
-    'ChZVcGRhdGVQcm9tb3Rpb25SZXF1ZXN0EiEKDHByb21vdGlvbl9waxgBIAEoBVILcHJvbW90aW'
-    '9uUGsSHwoLY3VzdG9tZXJfZmsYAiABKAVSCmN1c3RvbWVyRmsSEgoEbmFtZRgDIAEoCVIEbmFt'
+    'ChZVcGRhdGVQcm9tb3Rpb25SZXF1ZXN0EiEKDHByb21vdGlvbl9pZBgBIAEoCVILcHJvbW90aW'
+    '9uSWQSHwoLY3VzdG9tZXJfaWQYAiABKAlSCmN1c3RvbWVySWQSEgoEbmFtZRgDIAEoCVIEbmFt'
     'ZRIgCgtkZXNjcmlwdGlvbhgEIAEoCVILZGVzY3JpcHRpb24SIwoNZGlzY291bnRfdHlwZRgFIA'
     'EoCVIMZGlzY291bnRUeXBlEkcKCnN0YXJ0X2RhdGUYBiABKAsyKC5jdXN0b21fdHlwZXMuY2Fs'
     'ZW5kYXJfZGF0ZS5DYWxlbmRhckRhdGVSCXN0YXJ0RGF0ZRJDCghlbmRfZGF0ZRgHIAEoCzIoLm'
@@ -151,14 +151,14 @@ final $typed_data.Uint8List updatePromotionResponseDescriptor = $convert.base64D
 const DeletePromotionRequest$json = {
   '1': 'DeletePromotionRequest',
   '2': [
-    {'1': 'promotion_pk', '3': 1, '4': 1, '5': 5, '10': 'promotionPk'},
+    {'1': 'promotion_id', '3': 1, '4': 1, '5': 9, '10': 'promotionId'},
   ],
 };
 
 /// Descriptor for `DeletePromotionRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deletePromotionRequestDescriptor = $convert.base64Decode(
-    'ChZEZWxldGVQcm9tb3Rpb25SZXF1ZXN0EiEKDHByb21vdGlvbl9waxgBIAEoBVILcHJvbW90aW'
-    '9uUGs=');
+    'ChZEZWxldGVQcm9tb3Rpb25SZXF1ZXN0EiEKDHByb21vdGlvbl9pZBgBIAEoCVILcHJvbW90aW'
+    '9uSWQ=');
 
 @$core.Deprecated('Use deletePromotionResponseDescriptor instead')
 const DeletePromotionResponse$json = {

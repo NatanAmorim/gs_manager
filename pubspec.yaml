@@ -3,7 +3,7 @@ name: gs_manager
 description: Aplicativo utilizado para gerenciar a empresa "Gislaine Studio" em Andradina-SP, Brasil.
 homepage: https://gislainestudio.com.br
 repository: https://github.com/NatanAmorim/gs_manager
-version: 24.03.11-beta
+version: 24.03.12-beta
 # Prevent accidental publishing to pub.dev.
 publish_to: "none"
 # TODO add `false_secrets` more info in <https://dart.dev/tools/pub/pubspec#false_secrets>
@@ -21,7 +21,7 @@ dependencies:
   # just wanted to play an audio file. But I don't want to learn how to do "Dart
   # interoperability with Android" just to play the audio, and the app is only
   # used by 1 or 2 managers, I don't need to optimize and can use a bloated pkg.
-  audioplayers: ^5.2.1
+  audioplayers: ^6.0.0
   flutter_animate: ^4.2.0
   flutter_riverpod: ^2.5.1
   flutter_secure_storage: ^9.0.0
@@ -29,10 +29,10 @@ dependencies:
   freezed_annotation: ^2.2.0
   grpc: ^3.2.4
   http: ^1.1.0
-  intl: ^0.18.1
+  intl: ^0.19.0
   local_auth: ^2.1.6
   logging: ^1.2.0
-  package_info_plus: ^5.0.1
+  package_info_plus: ^8.0.0
   protobuf: ^3.1.0
   riverpod_annotation: ^2.3.5
   shared_preferences: ^2.0.15
@@ -47,7 +47,7 @@ dev_dependencies:
   build_runner: ^2.3.3
   custom_lint: ^0.6.2
   flutter_launcher_icons: ^0.13.1
-  flutter_lints: ^3.0.1
+  flutter_lints: ^4.0.0
   flutter_native_splash: ^2.3.10
   freezed: ^2.3.2
   riverpod_generator: ^2.4.0

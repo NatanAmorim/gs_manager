@@ -17,13 +17,13 @@ import 'dart:typed_data' as $typed_data;
 const GetPaginatedNotificationsRequest$json = {
   '1': 'GetPaginatedNotificationsRequest',
   '2': [
-    {'1': 'cursor', '3': 1, '4': 1, '5': 5, '10': 'cursor'},
+    {'1': 'cursor', '3': 1, '4': 1, '5': 9, '10': 'cursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedNotificationsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedNotificationsRequestDescriptor = $convert.base64Decode(
-    'CiBHZXRQYWdpbmF0ZWROb3RpZmljYXRpb25zUmVxdWVzdBIWCgZjdXJzb3IYASABKAVSBmN1cn'
+    'CiBHZXRQYWdpbmF0ZWROb3RpZmljYXRpb25zUmVxdWVzdBIWCgZjdXJzb3IYASABKAlSBmN1cn'
     'Nvcg==');
 
 @$core.Deprecated('Use getPaginatedNotificationsResponseDescriptor instead')
@@ -31,7 +31,7 @@ const GetPaginatedNotificationsResponse$json = {
   '1': 'GetPaginatedNotificationsResponse',
   '2': [
     {'1': 'notifications', '3': 1, '4': 3, '5': 11, '6': '.protos.notification.GetNotificationByIdResponse', '10': 'notifications'},
-    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'nextCursor'},
+    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'nextCursor'},
   ],
 };
 
@@ -39,28 +39,28 @@ const GetPaginatedNotificationsResponse$json = {
 final $typed_data.Uint8List getPaginatedNotificationsResponseDescriptor = $convert.base64Decode(
     'CiFHZXRQYWdpbmF0ZWROb3RpZmljYXRpb25zUmVzcG9uc2USVgoNbm90aWZpY2F0aW9ucxgBIA'
     'MoCzIwLnByb3Rvcy5ub3RpZmljYXRpb24uR2V0Tm90aWZpY2F0aW9uQnlJZFJlc3BvbnNlUg1u'
-    'b3RpZmljYXRpb25zEjwKC25leHRfY3Vyc29yGAIgASgLMhsuZ29vZ2xlLnByb3RvYnVmLkludD'
-    'MyVmFsdWVSCm5leHRDdXJzb3I=');
+    'b3RpZmljYXRpb25zEj0KC25leHRfY3Vyc29yGAIgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cm'
+    'luZ1ZhbHVlUgpuZXh0Q3Vyc29y');
 
 @$core.Deprecated('Use getNotificationByIdRequestDescriptor instead')
 const GetNotificationByIdRequest$json = {
   '1': 'GetNotificationByIdRequest',
   '2': [
-    {'1': 'notification_pk', '3': 1, '4': 1, '5': 5, '10': 'notificationPk'},
+    {'1': 'notification_id', '3': 1, '4': 1, '5': 9, '10': 'notificationId'},
   ],
 };
 
 /// Descriptor for `GetNotificationByIdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getNotificationByIdRequestDescriptor = $convert.base64Decode(
-    'ChpHZXROb3RpZmljYXRpb25CeUlkUmVxdWVzdBInCg9ub3RpZmljYXRpb25fcGsYASABKAVSDm'
-    '5vdGlmaWNhdGlvblBr');
+    'ChpHZXROb3RpZmljYXRpb25CeUlkUmVxdWVzdBInCg9ub3RpZmljYXRpb25faWQYASABKAlSDm'
+    '5vdGlmaWNhdGlvbklk');
 
 @$core.Deprecated('Use getNotificationByIdResponseDescriptor instead')
 const GetNotificationByIdResponse$json = {
   '1': 'GetNotificationByIdResponse',
   '2': [
-    {'1': 'notification_pk', '3': 1, '4': 1, '5': 5, '10': 'notificationPk'},
-    {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.protos.user.GetUserByIdResponse', '10': 'user'},
+    {'1': 'notification_id', '3': 1, '4': 1, '5': 9, '10': 'notificationId'},
+    {'1': 'user_id', '3': 2, '4': 1, '5': 9, '10': 'userId'},
     {'1': 'title', '3': 3, '4': 1, '5': 9, '10': 'title'},
     {'1': 'message', '3': 4, '4': 1, '5': 9, '10': 'message'},
     {'1': 'is_unread', '3': 5, '4': 1, '5': 8, '10': 'isUnread'},
@@ -69,16 +69,16 @@ const GetNotificationByIdResponse$json = {
 
 /// Descriptor for `GetNotificationByIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getNotificationByIdResponseDescriptor = $convert.base64Decode(
-    'ChtHZXROb3RpZmljYXRpb25CeUlkUmVzcG9uc2USJwoPbm90aWZpY2F0aW9uX3BrGAEgASgFUg'
-    '5ub3RpZmljYXRpb25QaxI0CgR1c2VyGAIgASgLMiAucHJvdG9zLnVzZXIuR2V0VXNlckJ5SWRS'
-    'ZXNwb25zZVIEdXNlchIUCgV0aXRsZRgDIAEoCVIFdGl0bGUSGAoHbWVzc2FnZRgEIAEoCVIHbW'
-    'Vzc2FnZRIbCglpc191bnJlYWQYBSABKAhSCGlzVW5yZWFk');
+    'ChtHZXROb3RpZmljYXRpb25CeUlkUmVzcG9uc2USJwoPbm90aWZpY2F0aW9uX2lkGAEgASgJUg'
+    '5ub3RpZmljYXRpb25JZBIXCgd1c2VyX2lkGAIgASgJUgZ1c2VySWQSFAoFdGl0bGUYAyABKAlS'
+    'BXRpdGxlEhgKB21lc3NhZ2UYBCABKAlSB21lc3NhZ2USGwoJaXNfdW5yZWFkGAUgASgIUghpc1'
+    'VucmVhZA==');
 
 @$core.Deprecated('Use createNotificationRequestDescriptor instead')
 const CreateNotificationRequest$json = {
   '1': 'CreateNotificationRequest',
   '2': [
-    {'1': 'user_fk', '3': 1, '4': 1, '5': 5, '10': 'userFk'},
+    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
     {'1': 'title', '3': 2, '4': 1, '5': 9, '10': 'title'},
     {'1': 'message', '3': 3, '4': 1, '5': 9, '10': 'message'},
   ],
@@ -86,7 +86,7 @@ const CreateNotificationRequest$json = {
 
 /// Descriptor for `CreateNotificationRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createNotificationRequestDescriptor = $convert.base64Decode(
-    'ChlDcmVhdGVOb3RpZmljYXRpb25SZXF1ZXN0EhcKB3VzZXJfZmsYASABKAVSBnVzZXJGaxIUCg'
+    'ChlDcmVhdGVOb3RpZmljYXRpb25SZXF1ZXN0EhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZBIUCg'
     'V0aXRsZRgCIAEoCVIFdGl0bGUSGAoHbWVzc2FnZRgDIAEoCVIHbWVzc2FnZQ==');
 
 @$core.Deprecated('Use createNotificationResponseDescriptor instead')
@@ -102,7 +102,7 @@ final $typed_data.Uint8List createNotificationResponseDescriptor = $convert.base
 const UpdateNotificationRequest$json = {
   '1': 'UpdateNotificationRequest',
   '2': [
-    {'1': 'notification_pk', '3': 1, '4': 1, '5': 5, '10': 'notificationPk'},
+    {'1': 'notification_id', '3': 1, '4': 1, '5': 9, '10': 'notificationId'},
     {'1': 'title', '3': 2, '4': 1, '5': 9, '10': 'title'},
     {'1': 'message', '3': 3, '4': 1, '5': 9, '10': 'message'},
     {'1': 'is_unread', '3': 4, '4': 1, '5': 8, '10': 'isUnread'},
@@ -111,8 +111,8 @@ const UpdateNotificationRequest$json = {
 
 /// Descriptor for `UpdateNotificationRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateNotificationRequestDescriptor = $convert.base64Decode(
-    'ChlVcGRhdGVOb3RpZmljYXRpb25SZXF1ZXN0EicKD25vdGlmaWNhdGlvbl9waxgBIAEoBVIObm'
-    '90aWZpY2F0aW9uUGsSFAoFdGl0bGUYAiABKAlSBXRpdGxlEhgKB21lc3NhZ2UYAyABKAlSB21l'
+    'ChlVcGRhdGVOb3RpZmljYXRpb25SZXF1ZXN0EicKD25vdGlmaWNhdGlvbl9pZBgBIAEoCVIObm'
+    '90aWZpY2F0aW9uSWQSFAoFdGl0bGUYAiABKAlSBXRpdGxlEhgKB21lc3NhZ2UYAyABKAlSB21l'
     'c3NhZ2USGwoJaXNfdW5yZWFkGAQgASgIUghpc1VucmVhZA==');
 
 @$core.Deprecated('Use updateNotificationResponseDescriptor instead')
@@ -128,14 +128,14 @@ final $typed_data.Uint8List updateNotificationResponseDescriptor = $convert.base
 const DeleteNotificationRequest$json = {
   '1': 'DeleteNotificationRequest',
   '2': [
-    {'1': 'notification_pk', '3': 1, '4': 1, '5': 5, '10': 'notificationPk'},
+    {'1': 'notification_id', '3': 1, '4': 1, '5': 9, '10': 'notificationId'},
   ],
 };
 
 /// Descriptor for `DeleteNotificationRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteNotificationRequestDescriptor = $convert.base64Decode(
-    'ChlEZWxldGVOb3RpZmljYXRpb25SZXF1ZXN0EicKD25vdGlmaWNhdGlvbl9waxgBIAEoBVIObm'
-    '90aWZpY2F0aW9uUGs=');
+    'ChlEZWxldGVOb3RpZmljYXRpb25SZXF1ZXN0EicKD25vdGlmaWNhdGlvbl9pZBgBIAEoCVIObm'
+    '90aWZpY2F0aW9uSWQ=');
 
 @$core.Deprecated('Use deleteNotificationResponseDescriptor instead')
 const DeleteNotificationResponse$json = {

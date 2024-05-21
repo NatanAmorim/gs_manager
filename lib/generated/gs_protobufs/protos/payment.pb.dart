@@ -14,12 +14,12 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../google/protobuf/wrappers.pb.dart' as $17;
-import 'custom_types/calendar_date.pb.dart' as $22;
-import 'custom_types/decimal_value.pb.dart' as $19;
+import 'custom_types/calendar_date.pb.dart' as $21;
+import 'custom_types/decimal_value.pb.dart' as $18;
 
 class GetPaginatedPaymentsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedPaymentsRequest({
-    $core.int? cursor,
+    $core.String? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -32,7 +32,7 @@ class GetPaginatedPaymentsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedPaymentsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedPaymentsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.payment'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'cursor', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'cursor')
     ..hasRequiredFields = false
   ;
 
@@ -58,9 +58,9 @@ class GetPaginatedPaymentsRequest extends $pb.GeneratedMessage {
   static GetPaginatedPaymentsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get cursor => $_getIZ(0);
+  $core.String get cursor => $_getSZ(0);
   @$pb.TagNumber(1)
-  set cursor($core.int v) { $_setSignedInt32(0, v); }
+  set cursor($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
@@ -70,7 +70,7 @@ class GetPaginatedPaymentsRequest extends $pb.GeneratedMessage {
 class GetPaginatedPaymentsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedPaymentsResponse({
     $core.Iterable<GetPaymentByIdResponse>? payments,
-    $17.Int32Value? nextCursor,
+    $17.StringValue? nextCursor,
   }) {
     final $result = create();
     if (payments != null) {
@@ -87,7 +87,7 @@ class GetPaginatedPaymentsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedPaymentsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.payment'), createEmptyInstance: create)
     ..pc<GetPaymentByIdResponse>(1, _omitFieldNames ? '' : 'payments', $pb.PbFieldType.PM, subBuilder: GetPaymentByIdResponse.create)
-    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.Int32Value.create)
+    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -116,24 +116,24 @@ class GetPaginatedPaymentsResponse extends $pb.GeneratedMessage {
   $core.List<GetPaymentByIdResponse> get payments => $_getList(0);
 
   @$pb.TagNumber(2)
-  $17.Int32Value get nextCursor => $_getN(1);
+  $17.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($17.Int32Value v) { setField(2, v); }
+  set nextCursor($17.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $17.Int32Value ensureNextCursor() => $_ensure(1);
+  $17.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetPaymentByIdRequest extends $pb.GeneratedMessage {
   factory GetPaymentByIdRequest({
-    $core.int? paymentPk,
+    $core.String? paymentId,
   }) {
     final $result = create();
-    if (paymentPk != null) {
-      $result.paymentPk = paymentPk;
+    if (paymentId != null) {
+      $result.paymentId = paymentId;
     }
     return $result;
   }
@@ -142,7 +142,7 @@ class GetPaymentByIdRequest extends $pb.GeneratedMessage {
   factory GetPaymentByIdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaymentByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.payment'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'paymentPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'paymentId')
     ..hasRequiredFields = false
   ;
 
@@ -168,27 +168,27 @@ class GetPaymentByIdRequest extends $pb.GeneratedMessage {
   static GetPaymentByIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get paymentPk => $_getIZ(0);
+  $core.String get paymentId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set paymentPk($core.int v) { $_setSignedInt32(0, v); }
+  set paymentId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPaymentPk() => $_has(0);
+  $core.bool hasPaymentId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPaymentPk() => clearField(1);
+  void clearPaymentId() => clearField(1);
 }
 
 class GetPaymentByIdResponse extends $pb.GeneratedMessage {
   factory GetPaymentByIdResponse({
-    $core.int? paymentPk,
-    $core.String? comments,
+    $core.String? paymentId,
+    $core.String? observations,
     $core.Iterable<PaymentInstallment>? installments,
   }) {
     final $result = create();
-    if (paymentPk != null) {
-      $result.paymentPk = paymentPk;
+    if (paymentId != null) {
+      $result.paymentId = paymentId;
     }
-    if (comments != null) {
-      $result.comments = comments;
+    if (observations != null) {
+      $result.observations = observations;
     }
     if (installments != null) {
       $result.installments.addAll(installments);
@@ -200,8 +200,8 @@ class GetPaymentByIdResponse extends $pb.GeneratedMessage {
   factory GetPaymentByIdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaymentByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.payment'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'paymentPk', $pb.PbFieldType.O3)
-    ..aOS(2, _omitFieldNames ? '' : 'comments')
+    ..aOS(1, _omitFieldNames ? '' : 'paymentId')
+    ..aOS(2, _omitFieldNames ? '' : 'observations')
     ..pc<PaymentInstallment>(3, _omitFieldNames ? '' : 'installments', $pb.PbFieldType.PM, subBuilder: PaymentInstallment.create)
     ..hasRequiredFields = false
   ;
@@ -228,22 +228,22 @@ class GetPaymentByIdResponse extends $pb.GeneratedMessage {
   static GetPaymentByIdResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get paymentPk => $_getIZ(0);
+  $core.String get paymentId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set paymentPk($core.int v) { $_setSignedInt32(0, v); }
+  set paymentId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPaymentPk() => $_has(0);
+  $core.bool hasPaymentId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPaymentPk() => clearField(1);
+  void clearPaymentId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get comments => $_getSZ(1);
+  $core.String get observations => $_getSZ(1);
   @$pb.TagNumber(2)
-  set comments($core.String v) { $_setString(1, v); }
+  set observations($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasComments() => $_has(1);
+  $core.bool hasObservations() => $_has(1);
   @$pb.TagNumber(2)
-  void clearComments() => clearField(2);
+  void clearObservations() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.List<PaymentInstallment> get installments => $_getList(2);
@@ -251,12 +251,12 @@ class GetPaymentByIdResponse extends $pb.GeneratedMessage {
 
 class CreatePaymentRequest extends $pb.GeneratedMessage {
   factory CreatePaymentRequest({
-    $core.String? comments,
+    $core.String? observations,
     $core.Iterable<PaymentInstallment>? installments,
   }) {
     final $result = create();
-    if (comments != null) {
-      $result.comments = comments;
+    if (observations != null) {
+      $result.observations = observations;
     }
     if (installments != null) {
       $result.installments.addAll(installments);
@@ -268,7 +268,7 @@ class CreatePaymentRequest extends $pb.GeneratedMessage {
   factory CreatePaymentRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreatePaymentRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.payment'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'comments')
+    ..aOS(1, _omitFieldNames ? '' : 'observations')
     ..pc<PaymentInstallment>(2, _omitFieldNames ? '' : 'installments', $pb.PbFieldType.PM, subBuilder: PaymentInstallment.create)
     ..hasRequiredFields = false
   ;
@@ -295,13 +295,13 @@ class CreatePaymentRequest extends $pb.GeneratedMessage {
   static CreatePaymentRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get comments => $_getSZ(0);
+  $core.String get observations => $_getSZ(0);
   @$pb.TagNumber(1)
-  set comments($core.String v) { $_setString(0, v); }
+  set observations($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasComments() => $_has(0);
+  $core.bool hasObservations() => $_has(0);
   @$pb.TagNumber(1)
-  void clearComments() => clearField(1);
+  void clearObservations() => clearField(1);
 
   @$pb.TagNumber(2)
   $core.List<PaymentInstallment> get installments => $_getList(1);
@@ -341,16 +341,16 @@ class CreatePaymentResponse extends $pb.GeneratedMessage {
 
 class UpdatePaymentRequest extends $pb.GeneratedMessage {
   factory UpdatePaymentRequest({
-    $core.int? paymentPk,
-    $core.String? comments,
+    $core.String? paymentId,
+    $core.String? observations,
     $core.Iterable<PaymentInstallment>? installments,
   }) {
     final $result = create();
-    if (paymentPk != null) {
-      $result.paymentPk = paymentPk;
+    if (paymentId != null) {
+      $result.paymentId = paymentId;
     }
-    if (comments != null) {
-      $result.comments = comments;
+    if (observations != null) {
+      $result.observations = observations;
     }
     if (installments != null) {
       $result.installments.addAll(installments);
@@ -362,8 +362,8 @@ class UpdatePaymentRequest extends $pb.GeneratedMessage {
   factory UpdatePaymentRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdatePaymentRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.payment'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'paymentPk', $pb.PbFieldType.O3)
-    ..aOS(2, _omitFieldNames ? '' : 'comments')
+    ..aOS(1, _omitFieldNames ? '' : 'paymentId')
+    ..aOS(2, _omitFieldNames ? '' : 'observations')
     ..pc<PaymentInstallment>(3, _omitFieldNames ? '' : 'installments', $pb.PbFieldType.PM, subBuilder: PaymentInstallment.create)
     ..hasRequiredFields = false
   ;
@@ -390,22 +390,22 @@ class UpdatePaymentRequest extends $pb.GeneratedMessage {
   static UpdatePaymentRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get paymentPk => $_getIZ(0);
+  $core.String get paymentId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set paymentPk($core.int v) { $_setSignedInt32(0, v); }
+  set paymentId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPaymentPk() => $_has(0);
+  $core.bool hasPaymentId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPaymentPk() => clearField(1);
+  void clearPaymentId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get comments => $_getSZ(1);
+  $core.String get observations => $_getSZ(1);
   @$pb.TagNumber(2)
-  set comments($core.String v) { $_setString(1, v); }
+  set observations($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasComments() => $_has(1);
+  $core.bool hasObservations() => $_has(1);
   @$pb.TagNumber(2)
-  void clearComments() => clearField(2);
+  void clearObservations() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.List<PaymentInstallment> get installments => $_getList(2);
@@ -445,11 +445,11 @@ class UpdatePaymentResponse extends $pb.GeneratedMessage {
 
 class DeletePaymentRequest extends $pb.GeneratedMessage {
   factory DeletePaymentRequest({
-    $core.int? paymentPk,
+    $core.String? paymentId,
   }) {
     final $result = create();
-    if (paymentPk != null) {
-      $result.paymentPk = paymentPk;
+    if (paymentId != null) {
+      $result.paymentId = paymentId;
     }
     return $result;
   }
@@ -458,7 +458,7 @@ class DeletePaymentRequest extends $pb.GeneratedMessage {
   factory DeletePaymentRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeletePaymentRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.payment'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'paymentPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'paymentId')
     ..hasRequiredFields = false
   ;
 
@@ -484,13 +484,13 @@ class DeletePaymentRequest extends $pb.GeneratedMessage {
   static DeletePaymentRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get paymentPk => $_getIZ(0);
+  $core.String get paymentId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set paymentPk($core.int v) { $_setSignedInt32(0, v); }
+  set paymentId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPaymentPk() => $_has(0);
+  $core.bool hasPaymentId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPaymentPk() => clearField(1);
+  void clearPaymentId() => clearField(1);
 }
 
 class DeletePaymentResponse extends $pb.GeneratedMessage {
@@ -527,19 +527,19 @@ class DeletePaymentResponse extends $pb.GeneratedMessage {
 
 class PaymentInstallment extends $pb.GeneratedMessage {
   factory PaymentInstallment({
-    $core.int? paymentInstallmentPk,
-    $core.int? paymentFk,
+    $core.String? paymentInstallmentId,
+    $core.String? paymentId,
     $core.int? installmentNumber,
-    $19.DecimalValue? installmentAmount,
+    $18.DecimalValue? installmentAmount,
     $core.String? paymentMethod,
-    $22.CalendarDate? dueDate,
+    $21.CalendarDate? dueDate,
   }) {
     final $result = create();
-    if (paymentInstallmentPk != null) {
-      $result.paymentInstallmentPk = paymentInstallmentPk;
+    if (paymentInstallmentId != null) {
+      $result.paymentInstallmentId = paymentInstallmentId;
     }
-    if (paymentFk != null) {
-      $result.paymentFk = paymentFk;
+    if (paymentId != null) {
+      $result.paymentId = paymentId;
     }
     if (installmentNumber != null) {
       $result.installmentNumber = installmentNumber;
@@ -560,12 +560,12 @@ class PaymentInstallment extends $pb.GeneratedMessage {
   factory PaymentInstallment.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PaymentInstallment', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.payment'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'paymentInstallmentPk', $pb.PbFieldType.O3)
-    ..a<$core.int>(2, _omitFieldNames ? '' : 'paymentFk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'paymentInstallmentId')
+    ..aOS(2, _omitFieldNames ? '' : 'paymentId')
     ..a<$core.int>(3, _omitFieldNames ? '' : 'installmentNumber', $pb.PbFieldType.O3)
-    ..aOM<$19.DecimalValue>(4, _omitFieldNames ? '' : 'installmentAmount', subBuilder: $19.DecimalValue.create)
+    ..aOM<$18.DecimalValue>(4, _omitFieldNames ? '' : 'installmentAmount', subBuilder: $18.DecimalValue.create)
     ..aOS(5, _omitFieldNames ? '' : 'paymentMethod')
-    ..aOM<$22.CalendarDate>(6, _omitFieldNames ? '' : 'dueDate', subBuilder: $22.CalendarDate.create)
+    ..aOM<$21.CalendarDate>(6, _omitFieldNames ? '' : 'dueDate', subBuilder: $21.CalendarDate.create)
     ..hasRequiredFields = false
   ;
 
@@ -591,22 +591,22 @@ class PaymentInstallment extends $pb.GeneratedMessage {
   static PaymentInstallment? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get paymentInstallmentPk => $_getIZ(0);
+  $core.String get paymentInstallmentId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set paymentInstallmentPk($core.int v) { $_setSignedInt32(0, v); }
+  set paymentInstallmentId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasPaymentInstallmentPk() => $_has(0);
+  $core.bool hasPaymentInstallmentId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPaymentInstallmentPk() => clearField(1);
+  void clearPaymentInstallmentId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.int get paymentFk => $_getIZ(1);
+  $core.String get paymentId => $_getSZ(1);
   @$pb.TagNumber(2)
-  set paymentFk($core.int v) { $_setSignedInt32(1, v); }
+  set paymentId($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasPaymentFk() => $_has(1);
+  $core.bool hasPaymentId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPaymentFk() => clearField(2);
+  void clearPaymentId() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get installmentNumber => $_getIZ(2);
@@ -618,15 +618,15 @@ class PaymentInstallment extends $pb.GeneratedMessage {
   void clearInstallmentNumber() => clearField(3);
 
   @$pb.TagNumber(4)
-  $19.DecimalValue get installmentAmount => $_getN(3);
+  $18.DecimalValue get installmentAmount => $_getN(3);
   @$pb.TagNumber(4)
-  set installmentAmount($19.DecimalValue v) { setField(4, v); }
+  set installmentAmount($18.DecimalValue v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasInstallmentAmount() => $_has(3);
   @$pb.TagNumber(4)
   void clearInstallmentAmount() => clearField(4);
   @$pb.TagNumber(4)
-  $19.DecimalValue ensureInstallmentAmount() => $_ensure(3);
+  $18.DecimalValue ensureInstallmentAmount() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $core.String get paymentMethod => $_getSZ(4);
@@ -638,15 +638,15 @@ class PaymentInstallment extends $pb.GeneratedMessage {
   void clearPaymentMethod() => clearField(5);
 
   @$pb.TagNumber(6)
-  $22.CalendarDate get dueDate => $_getN(5);
+  $21.CalendarDate get dueDate => $_getN(5);
   @$pb.TagNumber(6)
-  set dueDate($22.CalendarDate v) { setField(6, v); }
+  set dueDate($21.CalendarDate v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasDueDate() => $_has(5);
   @$pb.TagNumber(6)
   void clearDueDate() => clearField(6);
   @$pb.TagNumber(6)
-  $22.CalendarDate ensureDueDate() => $_ensure(5);
+  $21.CalendarDate ensureDueDate() => $_ensure(5);
 }
 
 

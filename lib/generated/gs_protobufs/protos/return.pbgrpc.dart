@@ -21,24 +21,24 @@ export 'return.pb.dart';
 
 @$pb.GrpcServiceName('protos.return.ReturnService')
 class ReturnServiceClient extends $grpc.Client {
-  static final _$getPaginated = $grpc.ClientMethod<$12.GetPaginatedReturnsRequest, $12.GetPaginatedReturnsResponse>(
-      '/protos.return.ReturnService/GetPaginated',
+  static final _$getPaginatedAsync = $grpc.ClientMethod<$12.GetPaginatedReturnsRequest, $12.GetPaginatedReturnsResponse>(
+      '/protos.return.ReturnService/GetPaginatedAsync',
       ($12.GetPaginatedReturnsRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $12.GetPaginatedReturnsResponse.fromBuffer(value));
-  static final _$getById = $grpc.ClientMethod<$12.GetReturnByIdRequest, $12.GetReturnByIdResponse>(
-      '/protos.return.ReturnService/GetById',
+  static final _$getByIdAsync = $grpc.ClientMethod<$12.GetReturnByIdRequest, $12.GetReturnByIdResponse>(
+      '/protos.return.ReturnService/GetByIdAsync',
       ($12.GetReturnByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $12.GetReturnByIdResponse.fromBuffer(value));
-  static final _$post = $grpc.ClientMethod<$12.CreateReturnRequest, $12.CreateReturnResponse>(
-      '/protos.return.ReturnService/Post',
+  static final _$postAsync = $grpc.ClientMethod<$12.CreateReturnRequest, $12.CreateReturnResponse>(
+      '/protos.return.ReturnService/PostAsync',
       ($12.CreateReturnRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $12.CreateReturnResponse.fromBuffer(value));
-  static final _$put = $grpc.ClientMethod<$12.UpdateReturnRequest, $12.UpdateReturnResponse>(
-      '/protos.return.ReturnService/Put',
+  static final _$putAsync = $grpc.ClientMethod<$12.UpdateReturnRequest, $12.UpdateReturnResponse>(
+      '/protos.return.ReturnService/PutAsync',
       ($12.UpdateReturnRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $12.UpdateReturnResponse.fromBuffer(value));
-  static final _$delete = $grpc.ClientMethod<$12.DeleteReturnRequest, $12.DeleteReturnResponse>(
-      '/protos.return.ReturnService/Delete',
+  static final _$deleteAsync = $grpc.ClientMethod<$12.DeleteReturnRequest, $12.DeleteReturnResponse>(
+      '/protos.return.ReturnService/DeleteAsync',
       ($12.DeleteReturnRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $12.DeleteReturnResponse.fromBuffer(value));
 
@@ -48,24 +48,24 @@ class ReturnServiceClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$12.GetPaginatedReturnsResponse> getPaginated($12.GetPaginatedReturnsRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getPaginated, request, options: options);
+  $grpc.ResponseFuture<$12.GetPaginatedReturnsResponse> getPaginatedAsync($12.GetPaginatedReturnsRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getPaginatedAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$12.GetReturnByIdResponse> getById($12.GetReturnByIdRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getById, request, options: options);
+  $grpc.ResponseFuture<$12.GetReturnByIdResponse> getByIdAsync($12.GetReturnByIdRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$12.CreateReturnResponse> post($12.CreateReturnRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$post, request, options: options);
+  $grpc.ResponseFuture<$12.CreateReturnResponse> postAsync($12.CreateReturnRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$postAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$12.UpdateReturnResponse> put($12.UpdateReturnRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$put, request, options: options);
+  $grpc.ResponseFuture<$12.UpdateReturnResponse> putAsync($12.UpdateReturnRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$12.DeleteReturnResponse> delete($12.DeleteReturnRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$delete, request, options: options);
+  $grpc.ResponseFuture<$12.DeleteReturnResponse> deleteAsync($12.DeleteReturnRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 }
 
@@ -75,65 +75,65 @@ abstract class ReturnServiceBase extends $grpc.Service {
 
   ReturnServiceBase() {
     $addMethod($grpc.ServiceMethod<$12.GetPaginatedReturnsRequest, $12.GetPaginatedReturnsResponse>(
-        'GetPaginated',
-        getPaginated_Pre,
+        'GetPaginatedAsync',
+        getPaginatedAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $12.GetPaginatedReturnsRequest.fromBuffer(value),
         ($12.GetPaginatedReturnsResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$12.GetReturnByIdRequest, $12.GetReturnByIdResponse>(
-        'GetById',
-        getById_Pre,
+        'GetByIdAsync',
+        getByIdAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $12.GetReturnByIdRequest.fromBuffer(value),
         ($12.GetReturnByIdResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$12.CreateReturnRequest, $12.CreateReturnResponse>(
-        'Post',
-        post_Pre,
+        'PostAsync',
+        postAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $12.CreateReturnRequest.fromBuffer(value),
         ($12.CreateReturnResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$12.UpdateReturnRequest, $12.UpdateReturnResponse>(
-        'Put',
-        put_Pre,
+        'PutAsync',
+        putAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $12.UpdateReturnRequest.fromBuffer(value),
         ($12.UpdateReturnResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$12.DeleteReturnRequest, $12.DeleteReturnResponse>(
-        'Delete',
-        delete_Pre,
+        'DeleteAsync',
+        deleteAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $12.DeleteReturnRequest.fromBuffer(value),
         ($12.DeleteReturnResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$12.GetPaginatedReturnsResponse> getPaginated_Pre($grpc.ServiceCall call, $async.Future<$12.GetPaginatedReturnsRequest> request) async {
-    return getPaginated(call, await request);
+  $async.Future<$12.GetPaginatedReturnsResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$12.GetPaginatedReturnsRequest> request) async {
+    return getPaginatedAsync(call, await request);
   }
 
-  $async.Future<$12.GetReturnByIdResponse> getById_Pre($grpc.ServiceCall call, $async.Future<$12.GetReturnByIdRequest> request) async {
-    return getById(call, await request);
+  $async.Future<$12.GetReturnByIdResponse> getByIdAsync_Pre($grpc.ServiceCall call, $async.Future<$12.GetReturnByIdRequest> request) async {
+    return getByIdAsync(call, await request);
   }
 
-  $async.Future<$12.CreateReturnResponse> post_Pre($grpc.ServiceCall call, $async.Future<$12.CreateReturnRequest> request) async {
-    return post(call, await request);
+  $async.Future<$12.CreateReturnResponse> postAsync_Pre($grpc.ServiceCall call, $async.Future<$12.CreateReturnRequest> request) async {
+    return postAsync(call, await request);
   }
 
-  $async.Future<$12.UpdateReturnResponse> put_Pre($grpc.ServiceCall call, $async.Future<$12.UpdateReturnRequest> request) async {
-    return put(call, await request);
+  $async.Future<$12.UpdateReturnResponse> putAsync_Pre($grpc.ServiceCall call, $async.Future<$12.UpdateReturnRequest> request) async {
+    return putAsync(call, await request);
   }
 
-  $async.Future<$12.DeleteReturnResponse> delete_Pre($grpc.ServiceCall call, $async.Future<$12.DeleteReturnRequest> request) async {
-    return delete(call, await request);
+  $async.Future<$12.DeleteReturnResponse> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$12.DeleteReturnRequest> request) async {
+    return deleteAsync(call, await request);
   }
 
-  $async.Future<$12.GetPaginatedReturnsResponse> getPaginated($grpc.ServiceCall call, $12.GetPaginatedReturnsRequest request);
-  $async.Future<$12.GetReturnByIdResponse> getById($grpc.ServiceCall call, $12.GetReturnByIdRequest request);
-  $async.Future<$12.CreateReturnResponse> post($grpc.ServiceCall call, $12.CreateReturnRequest request);
-  $async.Future<$12.UpdateReturnResponse> put($grpc.ServiceCall call, $12.UpdateReturnRequest request);
-  $async.Future<$12.DeleteReturnResponse> delete($grpc.ServiceCall call, $12.DeleteReturnRequest request);
+  $async.Future<$12.GetPaginatedReturnsResponse> getPaginatedAsync($grpc.ServiceCall call, $12.GetPaginatedReturnsRequest request);
+  $async.Future<$12.GetReturnByIdResponse> getByIdAsync($grpc.ServiceCall call, $12.GetReturnByIdRequest request);
+  $async.Future<$12.CreateReturnResponse> postAsync($grpc.ServiceCall call, $12.CreateReturnRequest request);
+  $async.Future<$12.UpdateReturnResponse> putAsync($grpc.ServiceCall call, $12.UpdateReturnRequest request);
+  $async.Future<$12.DeleteReturnResponse> deleteAsync($grpc.ServiceCall call, $12.DeleteReturnRequest request);
 }

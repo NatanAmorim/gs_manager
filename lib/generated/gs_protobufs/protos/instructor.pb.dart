@@ -14,12 +14,11 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import '../../google/protobuf/wrappers.pb.dart' as $17;
-import 'custom_types/person.pb.dart' as $18;
-import 'user.pb.dart' as $0;
+import 'custom_types/person.pb.dart' as $22;
 
 class GetPaginatedInstructorsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedInstructorsRequest({
-    $core.int? cursor,
+    $core.String? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -32,7 +31,7 @@ class GetPaginatedInstructorsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedInstructorsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedInstructorsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.instructor'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'cursor', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'cursor')
     ..hasRequiredFields = false
   ;
 
@@ -58,9 +57,9 @@ class GetPaginatedInstructorsRequest extends $pb.GeneratedMessage {
   static GetPaginatedInstructorsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get cursor => $_getIZ(0);
+  $core.String get cursor => $_getSZ(0);
   @$pb.TagNumber(1)
-  set cursor($core.int v) { $_setSignedInt32(0, v); }
+  set cursor($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
@@ -70,7 +69,7 @@ class GetPaginatedInstructorsRequest extends $pb.GeneratedMessage {
 class GetPaginatedInstructorsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedInstructorsResponse({
     $core.Iterable<GetInstructorByIdResponse>? instructors,
-    $17.Int32Value? nextCursor,
+    $17.StringValue? nextCursor,
   }) {
     final $result = create();
     if (instructors != null) {
@@ -87,7 +86,7 @@ class GetPaginatedInstructorsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedInstructorsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.instructor'), createEmptyInstance: create)
     ..pc<GetInstructorByIdResponse>(1, _omitFieldNames ? '' : 'instructors', $pb.PbFieldType.PM, subBuilder: GetInstructorByIdResponse.create)
-    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.Int32Value.create)
+    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -116,24 +115,24 @@ class GetPaginatedInstructorsResponse extends $pb.GeneratedMessage {
   $core.List<GetInstructorByIdResponse> get instructors => $_getList(0);
 
   @$pb.TagNumber(2)
-  $17.Int32Value get nextCursor => $_getN(1);
+  $17.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($17.Int32Value v) { setField(2, v); }
+  set nextCursor($17.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $17.Int32Value ensureNextCursor() => $_ensure(1);
+  $17.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetInstructorByIdRequest extends $pb.GeneratedMessage {
   factory GetInstructorByIdRequest({
-    $core.int? instructorPk,
+    $core.String? instructorId,
   }) {
     final $result = create();
-    if (instructorPk != null) {
-      $result.instructorPk = instructorPk;
+    if (instructorId != null) {
+      $result.instructorId = instructorId;
     }
     return $result;
   }
@@ -142,7 +141,7 @@ class GetInstructorByIdRequest extends $pb.GeneratedMessage {
   factory GetInstructorByIdRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetInstructorByIdRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.instructor'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'instructorPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'instructorId')
     ..hasRequiredFields = false
   ;
 
@@ -168,27 +167,23 @@ class GetInstructorByIdRequest extends $pb.GeneratedMessage {
   static GetInstructorByIdRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get instructorPk => $_getIZ(0);
+  $core.String get instructorId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set instructorPk($core.int v) { $_setSignedInt32(0, v); }
+  set instructorId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasInstructorPk() => $_has(0);
+  $core.bool hasInstructorId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearInstructorPk() => clearField(1);
+  void clearInstructorId() => clearField(1);
 }
 
 class GetInstructorByIdResponse extends $pb.GeneratedMessage {
   factory GetInstructorByIdResponse({
-    $core.int? instructorPk,
-    $0.GetUserByIdResponse? user,
-    $18.Person? person,
+    $core.String? instructorId,
+    $22.Person? person,
   }) {
     final $result = create();
-    if (instructorPk != null) {
-      $result.instructorPk = instructorPk;
-    }
-    if (user != null) {
-      $result.user = user;
+    if (instructorId != null) {
+      $result.instructorId = instructorId;
     }
     if (person != null) {
       $result.person = person;
@@ -200,9 +195,8 @@ class GetInstructorByIdResponse extends $pb.GeneratedMessage {
   factory GetInstructorByIdResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetInstructorByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.instructor'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'instructorPk', $pb.PbFieldType.O3)
-    ..aOM<$0.GetUserByIdResponse>(2, _omitFieldNames ? '' : 'user', subBuilder: $0.GetUserByIdResponse.create)
-    ..aOM<$18.Person>(3, _omitFieldNames ? '' : 'person', subBuilder: $18.Person.create)
+    ..aOS(1, _omitFieldNames ? '' : 'instructorId')
+    ..aOM<$22.Person>(2, _omitFieldNames ? '' : 'person', subBuilder: $22.Person.create)
     ..hasRequiredFields = false
   ;
 
@@ -228,45 +222,34 @@ class GetInstructorByIdResponse extends $pb.GeneratedMessage {
   static GetInstructorByIdResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get instructorPk => $_getIZ(0);
+  $core.String get instructorId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set instructorPk($core.int v) { $_setSignedInt32(0, v); }
+  set instructorId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasInstructorPk() => $_has(0);
+  $core.bool hasInstructorId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearInstructorPk() => clearField(1);
+  void clearInstructorId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $0.GetUserByIdResponse get user => $_getN(1);
+  $22.Person get person => $_getN(1);
   @$pb.TagNumber(2)
-  set user($0.GetUserByIdResponse v) { setField(2, v); }
+  set person($22.Person v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasUser() => $_has(1);
+  $core.bool hasPerson() => $_has(1);
   @$pb.TagNumber(2)
-  void clearUser() => clearField(2);
+  void clearPerson() => clearField(2);
   @$pb.TagNumber(2)
-  $0.GetUserByIdResponse ensureUser() => $_ensure(1);
-
-  @$pb.TagNumber(3)
-  $18.Person get person => $_getN(2);
-  @$pb.TagNumber(3)
-  set person($18.Person v) { setField(3, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasPerson() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearPerson() => clearField(3);
-  @$pb.TagNumber(3)
-  $18.Person ensurePerson() => $_ensure(2);
+  $22.Person ensurePerson() => $_ensure(1);
 }
 
 class InstructorOption extends $pb.GeneratedMessage {
   factory InstructorOption({
-    $core.int? instructorPk,
-    $18.Person? person,
+    $core.String? instructorId,
+    $22.Person? person,
   }) {
     final $result = create();
-    if (instructorPk != null) {
-      $result.instructorPk = instructorPk;
+    if (instructorId != null) {
+      $result.instructorId = instructorId;
     }
     if (person != null) {
       $result.person = person;
@@ -278,8 +261,8 @@ class InstructorOption extends $pb.GeneratedMessage {
   factory InstructorOption.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'InstructorOption', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.instructor'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'instructorPk', $pb.PbFieldType.O3)
-    ..aOM<$18.Person>(2, _omitFieldNames ? '' : 'person', subBuilder: $18.Person.create)
+    ..aOS(1, _omitFieldNames ? '' : 'instructorId')
+    ..aOM<$22.Person>(2, _omitFieldNames ? '' : 'person', subBuilder: $22.Person.create)
     ..hasRequiredFields = false
   ;
 
@@ -305,24 +288,24 @@ class InstructorOption extends $pb.GeneratedMessage {
   static InstructorOption? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get instructorPk => $_getIZ(0);
+  $core.String get instructorId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set instructorPk($core.int v) { $_setSignedInt32(0, v); }
+  set instructorId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasInstructorPk() => $_has(0);
+  $core.bool hasInstructorId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearInstructorPk() => clearField(1);
+  void clearInstructorId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $18.Person get person => $_getN(1);
+  $22.Person get person => $_getN(1);
   @$pb.TagNumber(2)
-  set person($18.Person v) { setField(2, v); }
+  set person($22.Person v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasPerson() => $_has(1);
   @$pb.TagNumber(2)
   void clearPerson() => clearField(2);
   @$pb.TagNumber(2)
-  $18.Person ensurePerson() => $_ensure(1);
+  $22.Person ensurePerson() => $_ensure(1);
 }
 
 class GetAllInstructorsOptionsRequest extends $pb.GeneratedMessage {
@@ -403,7 +386,7 @@ class GetAllInstructorsOptionsResponse extends $pb.GeneratedMessage {
 
 class CreateInstructorRequest extends $pb.GeneratedMessage {
   factory CreateInstructorRequest({
-    $18.Person? person,
+    $22.Person? person,
   }) {
     final $result = create();
     if (person != null) {
@@ -416,7 +399,7 @@ class CreateInstructorRequest extends $pb.GeneratedMessage {
   factory CreateInstructorRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateInstructorRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.instructor'), createEmptyInstance: create)
-    ..aOM<$18.Person>(1, _omitFieldNames ? '' : 'person', subBuilder: $18.Person.create)
+    ..aOM<$22.Person>(1, _omitFieldNames ? '' : 'person', subBuilder: $22.Person.create)
     ..hasRequiredFields = false
   ;
 
@@ -442,15 +425,15 @@ class CreateInstructorRequest extends $pb.GeneratedMessage {
   static CreateInstructorRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $18.Person get person => $_getN(0);
+  $22.Person get person => $_getN(0);
   @$pb.TagNumber(1)
-  set person($18.Person v) { setField(1, v); }
+  set person($22.Person v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasPerson() => $_has(0);
   @$pb.TagNumber(1)
   void clearPerson() => clearField(1);
   @$pb.TagNumber(1)
-  $18.Person ensurePerson() => $_ensure(0);
+  $22.Person ensurePerson() => $_ensure(0);
 }
 
 class CreateInstructorResponse extends $pb.GeneratedMessage {
@@ -487,16 +470,12 @@ class CreateInstructorResponse extends $pb.GeneratedMessage {
 
 class UpdateInstructorRequest extends $pb.GeneratedMessage {
   factory UpdateInstructorRequest({
-    $core.int? instructorPk,
-    $17.Int32Value? userFk,
-    $18.Person? person,
+    $core.String? instructorId,
+    $22.Person? person,
   }) {
     final $result = create();
-    if (instructorPk != null) {
-      $result.instructorPk = instructorPk;
-    }
-    if (userFk != null) {
-      $result.userFk = userFk;
+    if (instructorId != null) {
+      $result.instructorId = instructorId;
     }
     if (person != null) {
       $result.person = person;
@@ -508,9 +487,8 @@ class UpdateInstructorRequest extends $pb.GeneratedMessage {
   factory UpdateInstructorRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateInstructorRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.instructor'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'instructorPk', $pb.PbFieldType.O3)
-    ..aOM<$17.Int32Value>(2, _omitFieldNames ? '' : 'userFk', subBuilder: $17.Int32Value.create)
-    ..aOM<$18.Person>(3, _omitFieldNames ? '' : 'person', subBuilder: $18.Person.create)
+    ..aOS(1, _omitFieldNames ? '' : 'instructorId')
+    ..aOM<$22.Person>(2, _omitFieldNames ? '' : 'person', subBuilder: $22.Person.create)
     ..hasRequiredFields = false
   ;
 
@@ -536,35 +514,24 @@ class UpdateInstructorRequest extends $pb.GeneratedMessage {
   static UpdateInstructorRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get instructorPk => $_getIZ(0);
+  $core.String get instructorId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set instructorPk($core.int v) { $_setSignedInt32(0, v); }
+  set instructorId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasInstructorPk() => $_has(0);
+  $core.bool hasInstructorId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearInstructorPk() => clearField(1);
+  void clearInstructorId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $17.Int32Value get userFk => $_getN(1);
+  $22.Person get person => $_getN(1);
   @$pb.TagNumber(2)
-  set userFk($17.Int32Value v) { setField(2, v); }
+  set person($22.Person v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasUserFk() => $_has(1);
+  $core.bool hasPerson() => $_has(1);
   @$pb.TagNumber(2)
-  void clearUserFk() => clearField(2);
+  void clearPerson() => clearField(2);
   @$pb.TagNumber(2)
-  $17.Int32Value ensureUserFk() => $_ensure(1);
-
-  @$pb.TagNumber(3)
-  $18.Person get person => $_getN(2);
-  @$pb.TagNumber(3)
-  set person($18.Person v) { setField(3, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasPerson() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearPerson() => clearField(3);
-  @$pb.TagNumber(3)
-  $18.Person ensurePerson() => $_ensure(2);
+  $22.Person ensurePerson() => $_ensure(1);
 }
 
 class UpdateInstructorResponse extends $pb.GeneratedMessage {
@@ -601,11 +568,11 @@ class UpdateInstructorResponse extends $pb.GeneratedMessage {
 
 class DeleteInstructorRequest extends $pb.GeneratedMessage {
   factory DeleteInstructorRequest({
-    $core.int? instructorPk,
+    $core.String? instructorId,
   }) {
     final $result = create();
-    if (instructorPk != null) {
-      $result.instructorPk = instructorPk;
+    if (instructorId != null) {
+      $result.instructorId = instructorId;
     }
     return $result;
   }
@@ -614,7 +581,7 @@ class DeleteInstructorRequest extends $pb.GeneratedMessage {
   factory DeleteInstructorRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteInstructorRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.instructor'), createEmptyInstance: create)
-    ..a<$core.int>(1, _omitFieldNames ? '' : 'instructorPk', $pb.PbFieldType.O3)
+    ..aOS(1, _omitFieldNames ? '' : 'instructorId')
     ..hasRequiredFields = false
   ;
 
@@ -640,13 +607,13 @@ class DeleteInstructorRequest extends $pb.GeneratedMessage {
   static DeleteInstructorRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.int get instructorPk => $_getIZ(0);
+  $core.String get instructorId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set instructorPk($core.int v) { $_setSignedInt32(0, v); }
+  set instructorId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasInstructorPk() => $_has(0);
+  $core.bool hasInstructorId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearInstructorPk() => clearField(1);
+  void clearInstructorId() => clearField(1);
 }
 
 class DeleteInstructorResponse extends $pb.GeneratedMessage {

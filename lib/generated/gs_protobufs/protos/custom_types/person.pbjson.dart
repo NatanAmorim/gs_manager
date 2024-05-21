@@ -17,19 +17,18 @@ import 'dart:typed_data' as $typed_data;
 const Person$json = {
   '1': 'Person',
   '2': [
-    {'1': 'person_pk', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'personPk'},
+    {'1': 'person_id', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'personId'},
     {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
     {'1': 'mobile_phone_number', '3': 3, '4': 1, '5': 9, '10': 'mobilePhoneNumber'},
     {'1': 'birth_date', '3': 4, '4': 1, '5': 9, '10': 'birthDate'},
     {'1': 'cpf', '3': 5, '4': 1, '5': 9, '10': 'cpf'},
-    {'1': 'cin', '3': 6, '4': 1, '5': 9, '10': 'cin'},
   ],
 };
 
 /// Descriptor for `Person`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List personDescriptor = $convert.base64Decode(
-    'CgZQZXJzb24SOAoJcGVyc29uX3BrGAEgASgLMhsuZ29vZ2xlLnByb3RvYnVmLkludDMyVmFsdW'
-    'VSCHBlcnNvblBrEhIKBG5hbWUYAiABKAlSBG5hbWUSLgoTbW9iaWxlX3Bob25lX251bWJlchgD'
-    'IAEoCVIRbW9iaWxlUGhvbmVOdW1iZXISHQoKYmlydGhfZGF0ZRgEIAEoCVIJYmlydGhEYXRlEh'
-    'AKA2NwZhgFIAEoCVIDY3BmEhAKA2NpbhgGIAEoCVIDY2lu');
+    'CgZQZXJzb24SOQoJcGVyc29uX2lkGAEgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbH'
+    'VlUghwZXJzb25JZBISCgRuYW1lGAIgASgJUgRuYW1lEi4KE21vYmlsZV9waG9uZV9udW1iZXIY'
+    'AyABKAlSEW1vYmlsZVBob25lTnVtYmVyEh0KCmJpcnRoX2RhdGUYBCABKAlSCWJpcnRoRGF0ZR'
+    'IQCgNjcGYYBSABKAlSA2NwZg==');
 

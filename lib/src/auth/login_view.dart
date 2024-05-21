@@ -39,23 +39,26 @@ class _LoginViewState extends State<LoginView> {
                               maxHeight: 192,
                             ),
                             child: Image.asset(
-                              'assets/images/gs_manager_logo.png',
+                              'assets/images/gs_manager_logo.png', // change logo, this one is padded
                             ),
                           ),
-                          const SizedBox(height: 10),
+                          Text(
+                            "Acesse sua conta",
+                            style: Theme.of(context).textTheme.headlineMedium,
+                          ),
+                          const SizedBox(height: 8.0),
                           const TextInputComponent(
                             prefixIcon: Icon(Icons.contact_mail),
-                            label: 'Login',
-                            placeholderText: 'Digite seu login',
+                            label: 'Celular',
+                            placeholderText: 'Digite seu número de celular',
                           ),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 10.0),
                           const TextInputComponent(
                             isObscure: true,
                             prefixIcon: Icon(Icons.key),
                             label: 'Senha',
                             placeholderText: 'Digite sua senha',
                           ),
-                          const SizedBox(height: 10),
                           TextButton(
                             onPressed: () {
                               // TODO
@@ -65,13 +68,12 @@ class _LoginViewState extends State<LoginView> {
                               style: TextStyle(fontSize: 16),
                             ),
                           ),
-                          const SizedBox(height: 30),
                         ],
                       ),
                     ),
                   ),
                   Positioned(
-                    bottom: -30,
+                    bottom: -25,
                     child: FilledButtonAsyncComponent(
                       icon: Icons.login,
                       label: 'Entrar',

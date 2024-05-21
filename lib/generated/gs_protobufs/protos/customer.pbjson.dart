@@ -17,47 +17,48 @@ import 'dart:typed_data' as $typed_data;
 const GetPaginatedCustomersRequest$json = {
   '1': 'GetPaginatedCustomersRequest',
   '2': [
-    {'1': 'cursor', '3': 1, '4': 1, '5': 5, '10': 'cursor'},
+    {'1': 'cursor', '3': 1, '4': 1, '5': 9, '10': 'cursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedCustomersRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedCustomersRequestDescriptor = $convert.base64Decode(
-    'ChxHZXRQYWdpbmF0ZWRDdXN0b21lcnNSZXF1ZXN0EhYKBmN1cnNvchgBIAEoBVIGY3Vyc29y');
+    'ChxHZXRQYWdpbmF0ZWRDdXN0b21lcnNSZXF1ZXN0EhYKBmN1cnNvchgBIAEoCVIGY3Vyc29y');
 
 @$core.Deprecated('Use getPaginatedCustomersResponseDescriptor instead')
 const GetPaginatedCustomersResponse$json = {
   '1': 'GetPaginatedCustomersResponse',
   '2': [
     {'1': 'customers', '3': 1, '4': 3, '5': 11, '6': '.protos.customer.GetCustomerByIdResponse', '10': 'customers'},
-    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Int32Value', '10': 'nextCursor'},
+    {'1': 'next_cursor', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'nextCursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedCustomersResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedCustomersResponseDescriptor = $convert.base64Decode(
     'Ch1HZXRQYWdpbmF0ZWRDdXN0b21lcnNSZXNwb25zZRJGCgljdXN0b21lcnMYASADKAsyKC5wcm'
-    '90b3MuY3VzdG9tZXIuR2V0Q3VzdG9tZXJCeUlkUmVzcG9uc2VSCWN1c3RvbWVycxI8CgtuZXh0'
-    'X2N1cnNvchgCIAEoCzIbLmdvb2dsZS5wcm90b2J1Zi5JbnQzMlZhbHVlUgpuZXh0Q3Vyc29y');
+    '90b3MuY3VzdG9tZXIuR2V0Q3VzdG9tZXJCeUlkUmVzcG9uc2VSCWN1c3RvbWVycxI9CgtuZXh0'
+    'X2N1cnNvchgCIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZVIKbmV4dEN1cnNvcg'
+    '==');
 
 @$core.Deprecated('Use getCustomerByIdRequestDescriptor instead')
 const GetCustomerByIdRequest$json = {
   '1': 'GetCustomerByIdRequest',
   '2': [
-    {'1': 'customer_pk', '3': 1, '4': 1, '5': 5, '10': 'customerPk'},
+    {'1': 'customer_id', '3': 1, '4': 1, '5': 9, '10': 'customerId'},
   ],
 };
 
 /// Descriptor for `GetCustomerByIdRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getCustomerByIdRequestDescriptor = $convert.base64Decode(
-    'ChZHZXRDdXN0b21lckJ5SWRSZXF1ZXN0Eh8KC2N1c3RvbWVyX3BrGAEgASgFUgpjdXN0b21lcl'
-    'Br');
+    'ChZHZXRDdXN0b21lckJ5SWRSZXF1ZXN0Eh8KC2N1c3RvbWVyX2lkGAEgASgJUgpjdXN0b21lck'
+    'lk');
 
 @$core.Deprecated('Use getCustomerByIdResponseDescriptor instead')
 const GetCustomerByIdResponse$json = {
   '1': 'GetCustomerByIdResponse',
   '2': [
-    {'1': 'customer_pk', '3': 1, '4': 1, '5': 5, '10': 'customerPk'},
+    {'1': 'customer_id', '3': 1, '4': 1, '5': 9, '10': 'customerId'},
     {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.protos.user.GetUserByIdResponse', '9': 0, '10': 'user', '17': true},
     {'1': 'person', '3': 3, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
     {'1': 'dependents', '3': 4, '4': 3, '5': 11, '6': '.custom_types.person.Person', '10': 'dependents'},
@@ -71,8 +72,8 @@ const GetCustomerByIdResponse$json = {
 
 /// Descriptor for `GetCustomerByIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getCustomerByIdResponseDescriptor = $convert.base64Decode(
-    'ChdHZXRDdXN0b21lckJ5SWRSZXNwb25zZRIfCgtjdXN0b21lcl9waxgBIAEoBVIKY3VzdG9tZX'
-    'JQaxI5CgR1c2VyGAIgASgLMiAucHJvdG9zLnVzZXIuR2V0VXNlckJ5SWRSZXNwb25zZUgAUgR1'
+    'ChdHZXRDdXN0b21lckJ5SWRSZXNwb25zZRIfCgtjdXN0b21lcl9pZBgBIAEoCVIKY3VzdG9tZX'
+    'JJZBI5CgR1c2VyGAIgASgLMiAucHJvdG9zLnVzZXIuR2V0VXNlckJ5SWRSZXNwb25zZUgAUgR1'
     'c2VyiAEBEjMKBnBlcnNvbhgDIAEoCzIbLmN1c3RvbV90eXBlcy5wZXJzb24uUGVyc29uUgZwZX'
     'Jzb24SOwoKZGVwZW5kZW50cxgEIAMoCzIbLmN1c3RvbV90eXBlcy5wZXJzb24uUGVyc29uUgpk'
     'ZXBlbmRlbnRzEicKD2JpbGxpbmdfYWRkcmVzcxgFIAEoCVIOYmlsbGluZ0FkZHJlc3MSNQoWYW'
@@ -83,7 +84,7 @@ final $typed_data.Uint8List getCustomerByIdResponseDescriptor = $convert.base64D
 const CustomerOption$json = {
   '1': 'CustomerOption',
   '2': [
-    {'1': 'customer_pk', '3': 1, '4': 1, '5': 5, '10': 'customerPk'},
+    {'1': 'customer_id', '3': 1, '4': 1, '5': 9, '10': 'customerId'},
     {'1': 'person', '3': 2, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
     {'1': 'dependents', '3': 3, '4': 3, '5': 11, '6': '.custom_types.person.Person', '10': 'dependents'},
   ],
@@ -91,7 +92,7 @@ const CustomerOption$json = {
 
 /// Descriptor for `CustomerOption`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List customerOptionDescriptor = $convert.base64Decode(
-    'Cg5DdXN0b21lck9wdGlvbhIfCgtjdXN0b21lcl9waxgBIAEoBVIKY3VzdG9tZXJQaxIzCgZwZX'
+    'Cg5DdXN0b21lck9wdGlvbhIfCgtjdXN0b21lcl9pZBgBIAEoCVIKY3VzdG9tZXJJZBIzCgZwZX'
     'Jzb24YAiABKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIGcGVyc29uEjsKCmRlcGVu'
     'ZGVudHMYAyADKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIKZGVwZW5kZW50cw==');
 
@@ -149,7 +150,7 @@ final $typed_data.Uint8List createCustomerResponseDescriptor = $convert.base64De
 const UpdateCustomerRequest$json = {
   '1': 'UpdateCustomerRequest',
   '2': [
-    {'1': 'customer_pk', '3': 1, '4': 1, '5': 5, '10': 'customerPk'},
+    {'1': 'customer_id', '3': 1, '4': 1, '5': 9, '10': 'customerId'},
     {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.protos.user.GetUserByIdResponse', '9': 0, '10': 'user', '17': true},
     {'1': 'person', '3': 3, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
     {'1': 'dependents', '3': 4, '4': 3, '5': 11, '6': '.custom_types.person.Person', '10': 'dependents'},
@@ -163,8 +164,8 @@ const UpdateCustomerRequest$json = {
 
 /// Descriptor for `UpdateCustomerRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateCustomerRequestDescriptor = $convert.base64Decode(
-    'ChVVcGRhdGVDdXN0b21lclJlcXVlc3QSHwoLY3VzdG9tZXJfcGsYASABKAVSCmN1c3RvbWVyUG'
-    'sSOQoEdXNlchgCIAEoCzIgLnByb3Rvcy51c2VyLkdldFVzZXJCeUlkUmVzcG9uc2VIAFIEdXNl'
+    'ChVVcGRhdGVDdXN0b21lclJlcXVlc3QSHwoLY3VzdG9tZXJfaWQYASABKAlSCmN1c3RvbWVySW'
+    'QSOQoEdXNlchgCIAEoCzIgLnByb3Rvcy51c2VyLkdldFVzZXJCeUlkUmVzcG9uc2VIAFIEdXNl'
     'cogBARIzCgZwZXJzb24YAyABKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIGcGVyc2'
     '9uEjsKCmRlcGVuZGVudHMYBCADKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIKZGVw'
     'ZW5kZW50cxInCg9iaWxsaW5nX2FkZHJlc3MYBSABKAlSDmJpbGxpbmdBZGRyZXNzEjUKFmFkZG'
@@ -184,14 +185,14 @@ final $typed_data.Uint8List updateCustomerResponseDescriptor = $convert.base64De
 const DeleteCustomerRequest$json = {
   '1': 'DeleteCustomerRequest',
   '2': [
-    {'1': 'customer_pk', '3': 1, '4': 1, '5': 5, '10': 'customerPk'},
+    {'1': 'customer_id', '3': 1, '4': 1, '5': 9, '10': 'customerId'},
   ],
 };
 
 /// Descriptor for `DeleteCustomerRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteCustomerRequestDescriptor = $convert.base64Decode(
-    'ChVEZWxldGVDdXN0b21lclJlcXVlc3QSHwoLY3VzdG9tZXJfcGsYASABKAVSCmN1c3RvbWVyUG'
-    's=');
+    'ChVEZWxldGVDdXN0b21lclJlcXVlc3QSHwoLY3VzdG9tZXJfaWQYASABKAlSCmN1c3RvbWVySW'
+    'Q=');
 
 @$core.Deprecated('Use deleteCustomerResponseDescriptor instead')
 const DeleteCustomerResponse$json = {
