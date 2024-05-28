@@ -107,7 +107,7 @@ class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
                     FilledButtonAsyncComponent(
                       icon: Icons.send,
                       label: 'Enviar',
-                      asyncLabel: 'Enviando...',
+                      pressedLabel: 'Enviando...',
                       onPressed: () => widget.handleSubmit(),
                     ),
                   ],

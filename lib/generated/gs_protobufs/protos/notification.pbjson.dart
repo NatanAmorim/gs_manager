@@ -17,14 +17,14 @@ import 'dart:typed_data' as $typed_data;
 const GetPaginatedNotificationsRequest$json = {
   '1': 'GetPaginatedNotificationsRequest',
   '2': [
-    {'1': 'cursor', '3': 1, '4': 1, '5': 9, '10': 'cursor'},
+    {'1': 'cursor', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'cursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedNotificationsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedNotificationsRequestDescriptor = $convert.base64Decode(
-    'CiBHZXRQYWdpbmF0ZWROb3RpZmljYXRpb25zUmVxdWVzdBIWCgZjdXJzb3IYASABKAlSBmN1cn'
-    'Nvcg==');
+    'CiBHZXRQYWdpbmF0ZWROb3RpZmljYXRpb25zUmVxdWVzdBI0CgZjdXJzb3IYASABKAsyHC5nb2'
+    '9nbGUucHJvdG9idWYuU3RyaW5nVmFsdWVSBmN1cnNvcg==');
 
 @$core.Deprecated('Use getPaginatedNotificationsResponseDescriptor instead')
 const GetPaginatedNotificationsResponse$json = {

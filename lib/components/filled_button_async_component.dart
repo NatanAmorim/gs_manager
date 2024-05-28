@@ -5,13 +5,13 @@ class FilledButtonAsyncComponent extends StatefulWidget {
     super.key,
     required this.icon,
     required this.label,
-    required this.asyncLabel,
+    required this.pressedLabel,
     required this.onPressed,
   });
 
   final IconData icon;
   final String label;
-  final String asyncLabel;
+  final String pressedLabel;
   final Future<bool> Function() onPressed;
 
   @override
@@ -53,7 +53,7 @@ class _FilledButtonAsyncComponentState
             Widget? child,
           ) {
             return Text(
-              value ? widget.asyncLabel : widget.label,
+              value ? widget.pressedLabel : widget.label,
               style: TextStyle(
                 fontSize: contentSize,
                 fontWeight: FontWeight.bold,

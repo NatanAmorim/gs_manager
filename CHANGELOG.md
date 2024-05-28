@@ -29,6 +29,13 @@ Here's a short description of each element
 
 <!-- FIX: `customer_details_view.dart` does **NOT** show error on FutureBuilder in AlertDialog when an error occurs -->
 
+## 24.05.2-beta (May 28, 2024)
+
+- Compatible with Server version `1.0.3-RC-6` (not fully implemented).
+- Implement basic app Login.
+- Implement Customer Service Authentication.
+- Update protobufs from `3d4788411` to `d5bc3684d`.
+
 ## 24.05.1-beta (May 21, 2024)
 
 - Compatible with Server version `1.0.1-RC-6` (not fully implemented).
@@ -37,8 +44,8 @@ Here's a short description of each element
 - Login Screen now uses phone number.
 - Customer CRUD is now working and communicating with the server.
 - Better Animations in Customer AnimatedList for dependents.
-- Update protobufs from `a24eb09dd` to `3d4788411`.
 - Update Package Dependencies: "audioplayers", "intl", "package_info_plus", "flutter_lints".
+- Update protobufs from `a24eb09dd` to `3d4788411`.
 
 ## 24.04.11-beta (Apr 02, 2024)
 
@@ -46,14 +53,14 @@ Here's a short description of each element
 
 ## 24.04.10-beta (Apr 01, 2024)
 
-- Update protobufs from `7ea611446` to `a24eb09dd`.
 - Update launch icon with new logo using `flutter_launcher_icons`.
 - Update splash screen with new logo using `flutter_native_splash`.
+- Update protobufs from `7ea611446` to `a24eb09dd`.
 
 ## 24.03.9-beta (Mar 28, 2024)
 
-- Update protobufs from `3a3d96214` to `7ea611446`.
 - Update data and docs to work with latests protobufs
+- Update protobufs from `3a3d96214` to `7ea611446`.
 
 ## 24.03.8-beta (Mar 28, 2024)
 

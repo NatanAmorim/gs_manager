@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gs_manager/main.dart';
+import 'package:gs_manager/src/auth/login_view.dart';
 import 'package:gs_manager/src/error/error_view.dart';
 import 'package:gs_manager/src/global_variables.dart';
-import 'package:gs_manager/src/home/home_view.dart';
 import 'package:gs_manager/src/theme.dart';
 
 class App extends ConsumerWidget {
@@ -42,7 +42,7 @@ class App extends ConsumerWidget {
           theme: lightTheme,
           darkTheme: darkTheme,
           themeMode: ref.watch(settingsProvider.select((s) => s.themeMode)),
-          home: const HomeView(),
+          home: const LoginView(),
           // User Navigator without a context by setting the navigatorKey
           navigatorKey: navigatorKey,
           // User scaffoldMessenger without a context

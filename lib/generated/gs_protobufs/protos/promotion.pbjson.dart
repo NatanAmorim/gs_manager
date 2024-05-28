@@ -17,14 +17,14 @@ import 'dart:typed_data' as $typed_data;
 const GetPaginatedPromotionsRequest$json = {
   '1': 'GetPaginatedPromotionsRequest',
   '2': [
-    {'1': 'cursor', '3': 1, '4': 1, '5': 9, '10': 'cursor'},
+    {'1': 'cursor', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'cursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedPromotionsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedPromotionsRequestDescriptor = $convert.base64Decode(
-    'Ch1HZXRQYWdpbmF0ZWRQcm9tb3Rpb25zUmVxdWVzdBIWCgZjdXJzb3IYASABKAlSBmN1cnNvcg'
-    '==');
+    'Ch1HZXRQYWdpbmF0ZWRQcm9tb3Rpb25zUmVxdWVzdBI0CgZjdXJzb3IYASABKAsyHC5nb29nbG'
+    'UucHJvdG9idWYuU3RyaW5nVmFsdWVSBmN1cnNvcg==');
 
 @$core.Deprecated('Use getPaginatedPromotionsResponseDescriptor instead')
 const GetPaginatedPromotionsResponse$json = {

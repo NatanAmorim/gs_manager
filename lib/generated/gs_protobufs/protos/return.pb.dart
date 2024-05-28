@@ -18,7 +18,7 @@ import 'custom_types/decimal_value.pb.dart' as $18;
 
 class GetPaginatedReturnsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedReturnsRequest({
-    $core.String? cursor,
+    $17.StringValue? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -31,7 +31,7 @@ class GetPaginatedReturnsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedReturnsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedReturnsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.return'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'cursor')
+    ..aOM<$17.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $17.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -57,13 +57,15 @@ class GetPaginatedReturnsRequest extends $pb.GeneratedMessage {
   static GetPaginatedReturnsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get cursor => $_getSZ(0);
+  $17.StringValue get cursor => $_getN(0);
   @$pb.TagNumber(1)
-  set cursor($core.String v) { $_setString(0, v); }
+  set cursor($17.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
   void clearCursor() => clearField(1);
+  @$pb.TagNumber(1)
+  $17.StringValue ensureCursor() => $_ensure(0);
 }
 
 class GetPaginatedReturnsResponse extends $pb.GeneratedMessage {

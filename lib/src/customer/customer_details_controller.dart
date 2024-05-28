@@ -45,18 +45,30 @@ class CustomerDetailsController {
     bool isSuccessful = false;
 
     if (customerUpdating == null) {
-      isSuccessful = await customerService.postAsync(customer);
+      try {
+        isSuccessful = await customerService.postAsync(customer);
+      } on GrpcError catch (e) {
+        print('Caught gRPC error: ${e.message}');
+      } catch (e) {
+        print('Caught error: ${e}');
+      }
     } else {
-      isSuccessful = await customerService.putAsync(
-        UpdateCustomerRequest(
-          customerId: customerUpdating!.customerId,
-          person: customer.person,
-          billingAddress: customer.billingAddress,
-          additionalInformation: customer.additionalInformation,
-          dependents: customer.dependents,
-          user: customerUpdating!.user,
-        ),
-      );
+      try {
+        isSuccessful = await customerService.putAsync(
+          UpdateCustomerRequest(
+            customerId: customerUpdating!.customerId,
+            person: customer.person,
+            billingAddress: customer.billingAddress,
+            additionalInformation: customer.additionalInformation,
+            dependents: customer.dependents,
+            user: customerUpdating!.user,
+          ),
+        );
+      } on GrpcError catch (e) {
+        print('Caught gRPC error: ${e.message}');
+      } catch (e) {
+        print('Caught error: ${e}');
+      }
     }
 
     if (!context.mounted) return false;

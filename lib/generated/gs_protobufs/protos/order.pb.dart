@@ -17,7 +17,7 @@ import '../../google/protobuf/wrappers.pb.dart' as $17;
 
 class GetPaginatedOrdersRequest extends $pb.GeneratedMessage {
   factory GetPaginatedOrdersRequest({
-    $core.String? cursor,
+    $17.StringValue? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -30,7 +30,7 @@ class GetPaginatedOrdersRequest extends $pb.GeneratedMessage {
   factory GetPaginatedOrdersRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedOrdersRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.order'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'cursor')
+    ..aOM<$17.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $17.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -56,13 +56,15 @@ class GetPaginatedOrdersRequest extends $pb.GeneratedMessage {
   static GetPaginatedOrdersRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get cursor => $_getSZ(0);
+  $17.StringValue get cursor => $_getN(0);
   @$pb.TagNumber(1)
-  set cursor($core.String v) { $_setString(0, v); }
+  set cursor($17.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
   void clearCursor() => clearField(1);
+  @$pb.TagNumber(1)
+  $17.StringValue ensureCursor() => $_ensure(0);
 }
 
 class GetPaginatedOrdersResponse extends $pb.GeneratedMessage {

@@ -17,14 +17,14 @@ import 'dart:typed_data' as $typed_data;
 const GetPaginatedBackgroundJobsRequest$json = {
   '1': 'GetPaginatedBackgroundJobsRequest',
   '2': [
-    {'1': 'cursor', '3': 1, '4': 1, '5': 9, '10': 'cursor'},
+    {'1': 'cursor', '3': 1, '4': 1, '5': 11, '6': '.google.protobuf.StringValue', '10': 'cursor'},
   ],
 };
 
 /// Descriptor for `GetPaginatedBackgroundJobsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getPaginatedBackgroundJobsRequestDescriptor = $convert.base64Decode(
-    'CiFHZXRQYWdpbmF0ZWRCYWNrZ3JvdW5kSm9ic1JlcXVlc3QSFgoGY3Vyc29yGAEgASgJUgZjdX'
-    'Jzb3I=');
+    'CiFHZXRQYWdpbmF0ZWRCYWNrZ3JvdW5kSm9ic1JlcXVlc3QSNAoGY3Vyc29yGAEgASgLMhwuZ2'
+    '9vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlUgZjdXJzb3I=');
 
 @$core.Deprecated('Use getPaginatedBackgroundJobsResponseDescriptor instead')
 const GetPaginatedBackgroundJobsResponse$json = {
