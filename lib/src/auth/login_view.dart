@@ -20,34 +20,36 @@ class _LoginViewState extends State<LoginView> {
         body: Form(
           key: controller.formKey,
           child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(
-                  maxWidth: 400,
-                ),
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  alignment: AlignmentDirectional.bottomCenter,
-                  children: [
-                    Card(
-                      child: SingleChildScrollView(
-                        padding: const EdgeInsets.all(16.0),
-                        reverse: true,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(16.0),
+              reverse: true,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(
+                      minWidth: 128,
+                      maxWidth: 192,
+                      minHeight: 128,
+                      maxHeight: 192,
+                    ),
+                    child: Image.asset(
+                      'assets/images/gs_manager_logo.png', // change logo, this one is padded
+                    ),
+                  ),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(
+                      maxWidth: 400,
+                    ),
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      alignment: AlignmentDirectional.bottomCenter,
+                      children: [
+                        CardComponent(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            ConstrainedBox(
-                              constraints: const BoxConstraints(
-                                minWidth: 128,
-                                maxWidth: 192,
-                                minHeight: 128,
-                                maxHeight: 192,
-                              ),
-                              child: Image.asset(
-                                'assets/images/gs_manager_logo.png', // change logo, this one is padded
-                              ),
-                            ),
                             Text(
                               "Acesse sua conta",
                               style: Theme.of(context).textTheme.headlineMedium,
@@ -70,6 +72,11 @@ class _LoginViewState extends State<LoginView> {
                                   controller.loginCredentials.password = text!,
                             ),
                             TextButton(
+                              style: ButtonStyle(
+                                foregroundColor: WidgetStateProperty.all(
+                                  Colors.blue,
+                                ),
+                              ),
                               onPressed: () {
                                 // TODO
                               },
@@ -78,38 +85,40 @@ class _LoginViewState extends State<LoginView> {
                                 style: TextStyle(fontSize: 16),
                               ),
                             ),
+                            const SizedBox(height: 8.0),
                           ],
                         ),
-                      ),
+                        Positioned(
+                          bottom: -12,
+                          child: FilledButtonAsyncComponent(
+                            icon: Icons.login,
+                            label: 'Entrar',
+                            pressedLabel: 'Entrando...',
+                            onPressed: () async {
+                              NavigatorState navigator = Navigator.of(context);
+
+                              bool isSuccessful = false;
+
+                              isSuccessful =
+                                  await controller.handleSubmit(context);
+
+                              if (isSuccessful) {
+                                await navigator.pushAndRemoveUntil(
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          const HomeView(),
+                                    ),
+                                    (Route<dynamic> route) => false);
+                              }
+
+                              return isSuccessful;
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                    Positioned(
-                      bottom: -25,
-                      child: FilledButtonAsyncComponent(
-                        icon: Icons.login,
-                        label: 'Entrar',
-                        pressedLabel: 'Entrando...',
-                        onPressed: () async {
-                          NavigatorState navigator = Navigator.of(context);
-
-                          bool isSuccessful = false;
-
-                          isSuccessful = await controller.handleSubmit(context);
-
-                          if (isSuccessful) {
-                            await navigator.pushAndRemoveUntil(
-                                MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      const HomeView(),
-                                ),
-                                (Route<dynamic> route) => false);
-                          }
-
-                          return isSuccessful;
-                        },
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

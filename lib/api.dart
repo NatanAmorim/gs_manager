@@ -23,11 +23,17 @@ class Api {
   );
 
   static Future<String?> getAccessToken() async {
-    String? jwtToken;
+    String? accessToken;
 
-    const FlutterSecureStorage secureStorage = FlutterSecureStorage();
-    jwtToken = await secureStorage.read(key: 'jwt');
+    const FlutterSecureStorage encryptedStorage = FlutterSecureStorage();
+    accessToken = await encryptedStorage.read(key: 'access_token');
 
-    return jwtToken;
+    if (accessToken == null) {
+      /// Todo, try to generate a new one with a "refresh_token" and if that
+      /// fails, send the user back to login view.
+      // navigatorKey.currentState?.popUntil((route) => route.isFirst);
+    }
+
+    return accessToken;
   }
 }

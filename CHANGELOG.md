@@ -29,6 +29,13 @@ Here's a short description of each element
 
 <!-- FIX: `customer_details_view.dart` does **NOT** show error on FutureBuilder in AlertDialog when an error occurs -->
 
+## 24.06.1-beta (Jun 03, 2024)
+
+- Fix cards had the same color as the background after a Flutter upgrade.
+- Every widget that uses cards now is a "CardComponent"
+- Update "CardComponent" to be compatible with all needs right now.
+- Implement Logout API call when pressed on general settings.
+
 ## 24.05.2-beta (May 28, 2024)
 
 - Compatible with Server version `1.0.3-RC-6` (not fully implemented).

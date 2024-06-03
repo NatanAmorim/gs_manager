@@ -326,38 +326,6 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                 //   return null;
                 // },
               ),
-              const SizedBox(height: 16.0),
-              Row(
-                children: [
-                  Flexible(
-                    child: TextField(
-                      controller: cepTextController,
-                      decoration: const InputDecoration(
-                        filled: true,
-                        border: UnderlineInputBorder(),
-                        prefixIcon: Icon(Icons.search),
-                        labelText: 'Preencher endereço com CEP',
-                        hintText: 'Digite o CEP. Exemplo: 16.901-007',
-                      ),
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        CepInputFormatter(),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 16.0),
-                  FilledButton.tonalIcon(
-                    label: const Text('Buscar endereço'),
-                    icon: const Icon(Icons.travel_explore),
-                    onPressed: () async {
-                      String address =
-                          await showCepDialog(cepTextController.text);
-                      addressNotifier.value.text = address;
-                    },
-                  ),
-                ],
-              ),
               TextButton.icon(
                 style: ButtonStyle(
                   foregroundColor: WidgetStateProperty.resolveWith<Color?>(
@@ -387,7 +355,38 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                 icon: const Icon(Icons.open_in_browser),
                 label: const Text("Procurar CEP no website correios"),
               ),
-              const SizedBox(height: 4.0),
+              Row(
+                children: [
+                  Flexible(
+                    child: TextField(
+                      controller: cepTextController,
+                      decoration: const InputDecoration(
+                        filled: true,
+                        border: UnderlineInputBorder(),
+                        prefixIcon: Icon(Icons.search),
+                        labelText: 'Preencher endereço com CEP',
+                        hintText: 'Digite o CEP. Exemplo: 16.901-007',
+                      ),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [
+                        FilteringTextInputFormatter.digitsOnly,
+                        CepInputFormatter(),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 16.0),
+                  ElevatedButton.icon(
+                    label: const Text('Buscar endereço'),
+                    icon: const Icon(Icons.travel_explore),
+                    onPressed: () async {
+                      String address =
+                          await showCepDialog(cepTextController.text);
+                      addressNotifier.value.text = address;
+                    },
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16.0),
               ValueListenableBuilder<TextEditingController>(
                 valueListenable: addressNotifier,
                 builder: (

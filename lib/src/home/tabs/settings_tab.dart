@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gs_manager/components.dart';
 import 'package:gs_manager/helpers.dart';
 import 'package:gs_manager/main.dart';
 import 'package:logging/logging.dart';
@@ -94,155 +95,151 @@ class SettingsTab extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 16),
-            Card(
+            CardComponent(
               // clipBehavior is necessary because, without it, the InkWell's animation
               // will extend beyond the rounded edges of the [Card] (see https://github.com/flutter/flutter/issues/109776)
               // This comes with a small performance cost, and you should not set [clipBehavior]
               // unless you need it.
               clipBehavior: Clip.hardEdge,
-              elevation: 4.0,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: ListTile.divideTiles(
-                  context: context,
-                  tiles: [
-                    ListTile(
-                      title: const Text("Tema do Aplicativo"),
-                      textColor: Theme.of(context).colorScheme.secondary,
-                      leading: const Icon(Icons.palette),
-                      trailing: const Icon(Icons.arrow_right),
-                      iconColor: Theme.of(context).colorScheme.secondary,
-                      onTap: () {
-                        final ThemeMode oldTheme = ref.read(
-                          settingsProvider.select((s) => s.themeMode),
-                        );
+              padding: const EdgeInsets.only(),
+              children: ListTile.divideTiles(
+                context: context,
+                tiles: [
+                  ListTile(
+                    title: const Text("Tema do Aplicativo"),
+                    textColor: Theme.of(context).colorScheme.secondary,
+                    leading: const Icon(Icons.palette),
+                    trailing: const Icon(Icons.arrow_right),
+                    iconColor: Theme.of(context).colorScheme.secondary,
+                    onTap: () {
+                      final ThemeMode oldTheme = ref.read(
+                        settingsProvider.select((s) => s.themeMode),
+                      );
 
-                        showDialog(
-                          barrierDismissible: false,
-                          context: context,
-                          builder: (context) => AlertDialog(
-                            contentPadding: const EdgeInsets.all(0.0),
-                            title: const Text(
-                              "Selecione o tema do App",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              ),
+                      showDialog(
+                        barrierDismissible: false,
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          contentPadding: const EdgeInsets.all(0.0),
+                          title: const Text(
+                            "Selecione o tema do App",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
                             ),
-                            content: SingleChildScrollView(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 16.0,
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  RadioListTile<ThemeMode>(
-                                    title: const Text("Tema do sistema"),
-                                    value: ThemeMode.system,
-                                    groupValue: ref.watch(settingsProvider
-                                        .select((s) => s.themeMode)),
-                                    onChanged: ref
-                                        .read(settingsProvider)
-                                        .updateThemeMode,
+                          ),
+                          content: SingleChildScrollView(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 16.0,
+                            ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                RadioListTile<ThemeMode>(
+                                  title: const Text("Tema do sistema"),
+                                  value: ThemeMode.system,
+                                  groupValue: ref.watch(settingsProvider
+                                      .select((s) => s.themeMode)),
+                                  onChanged: ref
+                                      .read(settingsProvider)
+                                      .updateThemeMode,
+                                ),
+                                RadioListTile<ThemeMode>(
+                                  title: const Text("Tema claro"),
+                                  value: ThemeMode.light,
+                                  groupValue: ref.watch(settingsProvider
+                                      .select((s) => s.themeMode)),
+                                  onChanged: ref
+                                      .read(settingsProvider)
+                                      .updateThemeMode,
+                                ),
+                                RadioListTile<ThemeMode>(
+                                  title: const Text("Tema escuro"),
+                                  value: ThemeMode.dark,
+                                  groupValue: ref.watch(
+                                    settingsProvider.select((s) => s.themeMode),
                                   ),
-                                  RadioListTile<ThemeMode>(
-                                    title: const Text("Tema claro"),
-                                    value: ThemeMode.light,
-                                    groupValue: ref.watch(settingsProvider
-                                        .select((s) => s.themeMode)),
-                                    onChanged: ref
-                                        .read(settingsProvider)
-                                        .updateThemeMode,
-                                  ),
-                                  RadioListTile<ThemeMode>(
-                                    title: const Text("Tema escuro"),
-                                    value: ThemeMode.dark,
-                                    groupValue: ref.watch(
+                                  onChanged: ref
+                                      .read(settingsProvider)
+                                      .updateThemeMode,
+                                ),
+                              ],
+                            ),
+                          ),
+                          actionsAlignment: MainAxisAlignment.spaceBetween,
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                if (oldTheme !=
+                                    ref.read(
                                       settingsProvider
                                           .select((s) => s.themeMode),
-                                    ),
-                                    onChanged: ref
-                                        .read(settingsProvider)
-                                        .updateThemeMode,
-                                  ),
-                                ],
-                              ),
+                                    )) {
+                                  ref
+                                      .read(settingsProvider)
+                                      .updateThemeMode(oldTheme);
+                                }
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text("Cancelar, reverter tema"),
                             ),
-                            actionsAlignment: MainAxisAlignment.spaceBetween,
-                            actions: [
-                              TextButton(
-                                onPressed: () {
-                                  if (oldTheme !=
-                                      ref.read(
-                                        settingsProvider
-                                            .select((s) => s.themeMode),
-                                      )) {
-                                    ref
-                                        .read(settingsProvider)
-                                        .updateThemeMode(oldTheme);
-                                  }
-                                  Navigator.of(context).pop();
-                                },
-                                child: const Text("Cancelar, reverter tema"),
-                              ),
-                              TextButton(
-                                onPressed: () => Navigator.of(context).pop(),
-                                child: const Text("Confirmar, aplicar tema"),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                    ListTile(
-                      title: const Text("Jurídico e Conformidade"),
-                      textColor: Theme.of(context).colorScheme.secondary,
-                      leading: const Icon(Icons.gavel),
-                      trailing: const Icon(Icons.arrow_right),
-                      iconColor: Theme.of(context).colorScheme.secondary,
-                      onTap: () {
-                        // TODO
-                      },
-                    ),
-                    ListTile(
-                      title: const Text("Sobre o App"),
-                      textColor: Theme.of(context).colorScheme.secondary,
-                      leading: const Icon(Icons.info),
-                      trailing: const Icon(Icons.arrow_right),
-                      iconColor: Theme.of(context).colorScheme.secondary,
-                      onTap: () async {
-                        PackageInfo packageInfo =
-                            await PackageInfo.fromPlatform();
+                            TextButton(
+                              onPressed: () => Navigator.of(context).pop(),
+                              child: const Text("Confirmar, aplicar tema"),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                  ListTile(
+                    title: const Text("Jurídico e Conformidade"),
+                    textColor: Theme.of(context).colorScheme.secondary,
+                    leading: const Icon(Icons.gavel),
+                    trailing: const Icon(Icons.arrow_right),
+                    iconColor: Theme.of(context).colorScheme.secondary,
+                    onTap: () {
+                      // TODO
+                    },
+                  ),
+                  ListTile(
+                    title: const Text("Sobre o App"),
+                    textColor: Theme.of(context).colorScheme.secondary,
+                    leading: const Icon(Icons.info),
+                    trailing: const Icon(Icons.arrow_right),
+                    iconColor: Theme.of(context).colorScheme.secondary,
+                    onTap: () async {
+                      PackageInfo packageInfo =
+                          await PackageInfo.fromPlatform();
 
-                        if (!context.mounted) return;
-                        showAboutDialog(
-                          context: context,
-                          applicationIcon: Image.asset(
-                            'assets/images/gislaine_studio_logo_texto.png',
-                            width: 128,
-                            height: 128,
-                          ),
-                          applicationName: '$companyName Manager App',
-                          applicationVersion: 'v${packageInfo.version}',
-                          applicationLegalese: '$companyName MEI. '
-                              '\u{a9} ${DateTime.now().year}, '
-                              'Todos os direitos reservados.',
-                          children: aboutBoxChildren,
-                        );
-                      },
-                    ),
-                    ListTile(
-                      title: const Text("Desconectar Usuário"),
-                      textColor: Theme.of(context).colorScheme.secondary,
-                      leading: const Icon(Icons.logout),
-                      trailing: const Icon(Icons.arrow_right),
-                      iconColor: Theme.of(context).colorScheme.secondary,
-                      onTap: () => DialogHelper.logout(
+                      if (!context.mounted) return;
+                      showAboutDialog(
                         context: context,
-                      ),
+                        applicationIcon: Image.asset(
+                          'assets/images/gislaine_studio_logo_texto.png',
+                          width: 128,
+                          height: 128,
+                        ),
+                        applicationName: '$companyName Manager App',
+                        applicationVersion: 'v${packageInfo.version}',
+                        applicationLegalese: '$companyName MEI. '
+                            '\u{a9} ${DateTime.now().year}, '
+                            'Todos os direitos reservados.',
+                        children: aboutBoxChildren,
+                      );
+                    },
+                  ),
+                  ListTile(
+                    title: const Text("Desconectar Usuário"),
+                    textColor: Theme.of(context).colorScheme.secondary,
+                    leading: const Icon(Icons.logout),
+                    trailing: const Icon(Icons.arrow_right),
+                    iconColor: Theme.of(context).colorScheme.secondary,
+                    onTap: () => DialogHelper.logout(
+                      context: context,
                     ),
-                  ],
-                ).toList(),
-              ),
+                  ),
+                ],
+              ).toList(),
             ),
           ],
         ),

@@ -82,7 +82,7 @@ class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
             elevation: 16,
             borderOnForeground: true,
             surfaceTintColor: Theme.of(context).brightness == Brightness.light
-                ? Color.lerp(Colors.grey.shade300, Colors.pink.shade700, 0.2)
+                ? Color.lerp(Colors.grey, Colors.pink.shade700, 0.2)
                 : Theme.of(context).colorScheme.inverseSurface,
             child: SizedBox(
               height: 72,

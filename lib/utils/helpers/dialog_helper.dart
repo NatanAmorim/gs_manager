@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gs_manager/src/auth/auth_service.dart';
+import 'package:gs_manager/src/auth/login_view.dart';
 
 class DialogHelper {
   static Future<bool> discardChanges({
@@ -99,17 +101,16 @@ class DialogHelper {
             ),
             TextButton(
               onPressed: () async {
-                // TODO call api to invalidate RefreshToken
-                // TODO clear secure storage
+                final NavigatorState navigator = Navigator.of(context);
 
-                // final NavigatorState navigator = Navigator.of(context);
+                AuthService authService = AuthService();
+                await authService.logout();
 
-                // await navigator.pushAndRemoveUntil(
-                //     MaterialPageRoute(
-                //       builder: (BuildContext context) =>
-                //           const PlaceholderView(),
-                //     ),
-                //     (Route<dynamic> route) => false);
+                await navigator.pushAndRemoveUntil(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const LoginView(),
+                    ),
+                    (Route<dynamic> route) => false);
               },
               child: const Text('Sim, desconectar'),
             ),
