@@ -15,36 +15,37 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'auth.pb.dart' as $2;
+import 'auth.pb.dart' as $3;
+import 'custom_types/void.pb.dart' as $1;
 
 export 'auth.pb.dart';
 
 @$pb.GrpcServiceName('protos.auth.AuthService')
 class AuthServiceClient extends $grpc.Client {
-  static final _$loginAsync = $grpc.ClientMethod<$2.LoginRequest, $2.LoginResponse>(
+  static final _$loginAsync = $grpc.ClientMethod<$3.LoginRequest, $3.LoginResponse>(
       '/protos.auth.AuthService/LoginAsync',
-      ($2.LoginRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $2.LoginResponse.fromBuffer(value));
-  static final _$logoutAsync = $grpc.ClientMethod<$2.LogoutRequest, $2.LogoutResponse>(
+      ($3.LoginRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $3.LoginResponse.fromBuffer(value));
+  static final _$logoutAsync = $grpc.ClientMethod<$1.Void, $1.Void>(
       '/protos.auth.AuthService/LogoutAsync',
-      ($2.LogoutRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $2.LogoutResponse.fromBuffer(value));
-  static final _$refreshTokenAsync = $grpc.ClientMethod<$2.RefreshTokenRequest, $2.RefreshTokenResponse>(
+      ($1.Void value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+  static final _$refreshTokenAsync = $grpc.ClientMethod<$3.RefreshTokenRequest, $3.RefreshTokenResponse>(
       '/protos.auth.AuthService/RefreshTokenAsync',
-      ($2.RefreshTokenRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $2.RefreshTokenResponse.fromBuffer(value));
-  static final _$registerAsync = $grpc.ClientMethod<$2.RegisterRequest, $2.RegisterResponse>(
+      ($3.RefreshTokenRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $3.RefreshTokenResponse.fromBuffer(value));
+  static final _$registerAsync = $grpc.ClientMethod<$3.RegisterRequest, $1.Void>(
       '/protos.auth.AuthService/RegisterAsync',
-      ($2.RegisterRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $2.RegisterResponse.fromBuffer(value));
-  static final _$newPasswordAsync = $grpc.ClientMethod<$2.NewPasswordRequest, $2.NewPasswordResponse>(
+      ($3.RegisterRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+  static final _$newPasswordAsync = $grpc.ClientMethod<$3.NewPasswordRequest, $1.Void>(
       '/protos.auth.AuthService/NewPasswordAsync',
-      ($2.NewPasswordRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $2.NewPasswordResponse.fromBuffer(value));
-  static final _$changePasswordAsync = $grpc.ClientMethod<$2.ChangePasswordRequest, $2.ChangePasswordResponse>(
+      ($3.NewPasswordRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+  static final _$changePasswordAsync = $grpc.ClientMethod<$3.ChangePasswordRequest, $1.Void>(
       '/protos.auth.AuthService/ChangePasswordAsync',
-      ($2.ChangePasswordRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $2.ChangePasswordResponse.fromBuffer(value));
+      ($3.ChangePasswordRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
 
   AuthServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -52,27 +53,27 @@ class AuthServiceClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$2.LoginResponse> loginAsync($2.LoginRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$3.LoginResponse> loginAsync($3.LoginRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$loginAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$2.LogoutResponse> logoutAsync($2.LogoutRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.Void> logoutAsync($1.Void request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$logoutAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$2.RefreshTokenResponse> refreshTokenAsync($2.RefreshTokenRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$3.RefreshTokenResponse> refreshTokenAsync($3.RefreshTokenRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$refreshTokenAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$2.RegisterResponse> registerAsync($2.RegisterRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.Void> registerAsync($3.RegisterRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$registerAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$2.NewPasswordResponse> newPasswordAsync($2.NewPasswordRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.Void> newPasswordAsync($3.NewPasswordRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$newPasswordAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$2.ChangePasswordResponse> changePasswordAsync($2.ChangePasswordRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.Void> changePasswordAsync($3.ChangePasswordRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$changePasswordAsync, request, options: options);
   }
 }
@@ -82,78 +83,78 @@ abstract class AuthServiceBase extends $grpc.Service {
   $core.String get $name => 'protos.auth.AuthService';
 
   AuthServiceBase() {
-    $addMethod($grpc.ServiceMethod<$2.LoginRequest, $2.LoginResponse>(
+    $addMethod($grpc.ServiceMethod<$3.LoginRequest, $3.LoginResponse>(
         'LoginAsync',
         loginAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $2.LoginRequest.fromBuffer(value),
-        ($2.LoginResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$2.LogoutRequest, $2.LogoutResponse>(
+        ($core.List<$core.int> value) => $3.LoginRequest.fromBuffer(value),
+        ($3.LoginResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.Void, $1.Void>(
         'LogoutAsync',
         logoutAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $2.LogoutRequest.fromBuffer(value),
-        ($2.LogoutResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$2.RefreshTokenRequest, $2.RefreshTokenResponse>(
+        ($core.List<$core.int> value) => $1.Void.fromBuffer(value),
+        ($1.Void value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$3.RefreshTokenRequest, $3.RefreshTokenResponse>(
         'RefreshTokenAsync',
         refreshTokenAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $2.RefreshTokenRequest.fromBuffer(value),
-        ($2.RefreshTokenResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$2.RegisterRequest, $2.RegisterResponse>(
+        ($core.List<$core.int> value) => $3.RefreshTokenRequest.fromBuffer(value),
+        ($3.RefreshTokenResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$3.RegisterRequest, $1.Void>(
         'RegisterAsync',
         registerAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $2.RegisterRequest.fromBuffer(value),
-        ($2.RegisterResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$2.NewPasswordRequest, $2.NewPasswordResponse>(
+        ($core.List<$core.int> value) => $3.RegisterRequest.fromBuffer(value),
+        ($1.Void value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$3.NewPasswordRequest, $1.Void>(
         'NewPasswordAsync',
         newPasswordAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $2.NewPasswordRequest.fromBuffer(value),
-        ($2.NewPasswordResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$2.ChangePasswordRequest, $2.ChangePasswordResponse>(
+        ($core.List<$core.int> value) => $3.NewPasswordRequest.fromBuffer(value),
+        ($1.Void value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$3.ChangePasswordRequest, $1.Void>(
         'ChangePasswordAsync',
         changePasswordAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $2.ChangePasswordRequest.fromBuffer(value),
-        ($2.ChangePasswordResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $3.ChangePasswordRequest.fromBuffer(value),
+        ($1.Void value) => value.writeToBuffer()));
   }
 
-  $async.Future<$2.LoginResponse> loginAsync_Pre($grpc.ServiceCall call, $async.Future<$2.LoginRequest> request) async {
+  $async.Future<$3.LoginResponse> loginAsync_Pre($grpc.ServiceCall call, $async.Future<$3.LoginRequest> request) async {
     return loginAsync(call, await request);
   }
 
-  $async.Future<$2.LogoutResponse> logoutAsync_Pre($grpc.ServiceCall call, $async.Future<$2.LogoutRequest> request) async {
+  $async.Future<$1.Void> logoutAsync_Pre($grpc.ServiceCall call, $async.Future<$1.Void> request) async {
     return logoutAsync(call, await request);
   }
 
-  $async.Future<$2.RefreshTokenResponse> refreshTokenAsync_Pre($grpc.ServiceCall call, $async.Future<$2.RefreshTokenRequest> request) async {
+  $async.Future<$3.RefreshTokenResponse> refreshTokenAsync_Pre($grpc.ServiceCall call, $async.Future<$3.RefreshTokenRequest> request) async {
     return refreshTokenAsync(call, await request);
   }
 
-  $async.Future<$2.RegisterResponse> registerAsync_Pre($grpc.ServiceCall call, $async.Future<$2.RegisterRequest> request) async {
+  $async.Future<$1.Void> registerAsync_Pre($grpc.ServiceCall call, $async.Future<$3.RegisterRequest> request) async {
     return registerAsync(call, await request);
   }
 
-  $async.Future<$2.NewPasswordResponse> newPasswordAsync_Pre($grpc.ServiceCall call, $async.Future<$2.NewPasswordRequest> request) async {
+  $async.Future<$1.Void> newPasswordAsync_Pre($grpc.ServiceCall call, $async.Future<$3.NewPasswordRequest> request) async {
     return newPasswordAsync(call, await request);
   }
 
-  $async.Future<$2.ChangePasswordResponse> changePasswordAsync_Pre($grpc.ServiceCall call, $async.Future<$2.ChangePasswordRequest> request) async {
+  $async.Future<$1.Void> changePasswordAsync_Pre($grpc.ServiceCall call, $async.Future<$3.ChangePasswordRequest> request) async {
     return changePasswordAsync(call, await request);
   }
 
-  $async.Future<$2.LoginResponse> loginAsync($grpc.ServiceCall call, $2.LoginRequest request);
-  $async.Future<$2.LogoutResponse> logoutAsync($grpc.ServiceCall call, $2.LogoutRequest request);
-  $async.Future<$2.RefreshTokenResponse> refreshTokenAsync($grpc.ServiceCall call, $2.RefreshTokenRequest request);
-  $async.Future<$2.RegisterResponse> registerAsync($grpc.ServiceCall call, $2.RegisterRequest request);
-  $async.Future<$2.NewPasswordResponse> newPasswordAsync($grpc.ServiceCall call, $2.NewPasswordRequest request);
-  $async.Future<$2.ChangePasswordResponse> changePasswordAsync($grpc.ServiceCall call, $2.ChangePasswordRequest request);
+  $async.Future<$3.LoginResponse> loginAsync($grpc.ServiceCall call, $3.LoginRequest request);
+  $async.Future<$1.Void> logoutAsync($grpc.ServiceCall call, $1.Void request);
+  $async.Future<$3.RefreshTokenResponse> refreshTokenAsync($grpc.ServiceCall call, $3.RefreshTokenRequest request);
+  $async.Future<$1.Void> registerAsync($grpc.ServiceCall call, $3.RegisterRequest request);
+  $async.Future<$1.Void> newPasswordAsync($grpc.ServiceCall call, $3.NewPasswordRequest request);
+  $async.Future<$1.Void> changePasswordAsync($grpc.ServiceCall call, $3.ChangePasswordRequest request);
 }

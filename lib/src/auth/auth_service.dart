@@ -31,7 +31,6 @@ class AuthService {
       print('Caught error: ${e}');
     }
 
-    await Api.channel.shutdown();
     return isSuccessful;
   }
 
@@ -42,7 +41,7 @@ class AuthService {
 
     try {
       final response = await stub.logoutAsync(
-        LogoutRequest(),
+        Void(),
         options: CallOptions(
           compression: const GzipCodec(),
           metadata: {'authorization': 'bearer $accessToken'},
@@ -53,8 +52,6 @@ class AuthService {
     } catch (e) {
       debugPrint('Caught error: $e');
     }
-
-    await Api.channel.shutdown();
 
     const FlutterSecureStorage encryptedStorage = FlutterSecureStorage();
 

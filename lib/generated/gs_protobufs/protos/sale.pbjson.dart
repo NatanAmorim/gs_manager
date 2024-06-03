@@ -94,15 +94,6 @@ final $typed_data.Uint8List createSaleRequestDescriptor = $convert.base64Decode(
     'dmF0aW9ucxIzCglJdGVtc1NvbGQYAyADKAsyFS5wcm90b3Muc2FsZS5TYWxlSXRlbVIJSXRlbX'
     'NTb2xk');
 
-@$core.Deprecated('Use createSaleResponseDescriptor instead')
-const CreateSaleResponse$json = {
-  '1': 'CreateSaleResponse',
-};
-
-/// Descriptor for `CreateSaleResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createSaleResponseDescriptor = $convert.base64Decode(
-    'ChJDcmVhdGVTYWxlUmVzcG9uc2U=');
-
 @$core.Deprecated('Use updateSaleRequestDescriptor instead')
 const UpdateSaleRequest$json = {
   '1': 'UpdateSaleRequest',
@@ -123,15 +114,6 @@ final $typed_data.Uint8List updateSaleRequestDescriptor = $convert.base64Decode(
     'JvdG9zLnNhbGUuU2FsZUl0ZW1SCUl0ZW1zU29sZBI+CgdSZXR1cm5zGAUgAygLMiQucHJvdG9z'
     'LnJldHVybi5HZXRSZXR1cm5CeUlkUmVzcG9uc2VSB1JldHVybnM=');
 
-@$core.Deprecated('Use updateSaleResponseDescriptor instead')
-const UpdateSaleResponse$json = {
-  '1': 'UpdateSaleResponse',
-};
-
-/// Descriptor for `UpdateSaleResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateSaleResponseDescriptor = $convert.base64Decode(
-    'ChJVcGRhdGVTYWxlUmVzcG9uc2U=');
-
 @$core.Deprecated('Use deleteSaleRequestDescriptor instead')
 const DeleteSaleRequest$json = {
   '1': 'DeleteSaleRequest',
@@ -143,15 +125,6 @@ const DeleteSaleRequest$json = {
 /// Descriptor for `DeleteSaleRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteSaleRequestDescriptor = $convert.base64Decode(
     'ChFEZWxldGVTYWxlUmVxdWVzdBIXCgdzYWxlX2lkGAEgASgJUgZzYWxlSWQ=');
-
-@$core.Deprecated('Use deleteSaleResponseDescriptor instead')
-const DeleteSaleResponse$json = {
-  '1': 'DeleteSaleResponse',
-};
-
-/// Descriptor for `DeleteSaleResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteSaleResponseDescriptor = $convert.base64Decode(
-    'ChJEZWxldGVTYWxlUmVzcG9uc2U=');
 
 @$core.Deprecated('Use saleItemDescriptor instead')
 const SaleItem$json = {

@@ -15,32 +15,33 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'payment.pb.dart' as $9;
+import 'custom_types/void.pb.dart' as $1;
+import 'payment.pb.dart' as $10;
 
 export 'payment.pb.dart';
 
 @$pb.GrpcServiceName('protos.payment.PaymentService')
 class PaymentServiceClient extends $grpc.Client {
-  static final _$getPaginatedAsync = $grpc.ClientMethod<$9.GetPaginatedPaymentsRequest, $9.GetPaginatedPaymentsResponse>(
+  static final _$getPaginatedAsync = $grpc.ClientMethod<$10.GetPaginatedPaymentsRequest, $10.GetPaginatedPaymentsResponse>(
       '/protos.payment.PaymentService/GetPaginatedAsync',
-      ($9.GetPaginatedPaymentsRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $9.GetPaginatedPaymentsResponse.fromBuffer(value));
-  static final _$getByIdAsync = $grpc.ClientMethod<$9.GetPaymentByIdRequest, $9.GetPaymentByIdResponse>(
+      ($10.GetPaginatedPaymentsRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $10.GetPaginatedPaymentsResponse.fromBuffer(value));
+  static final _$getByIdAsync = $grpc.ClientMethod<$10.GetPaymentByIdRequest, $10.GetPaymentByIdResponse>(
       '/protos.payment.PaymentService/GetByIdAsync',
-      ($9.GetPaymentByIdRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $9.GetPaymentByIdResponse.fromBuffer(value));
-  static final _$postAsync = $grpc.ClientMethod<$9.CreatePaymentRequest, $9.CreatePaymentResponse>(
+      ($10.GetPaymentByIdRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $10.GetPaymentByIdResponse.fromBuffer(value));
+  static final _$postAsync = $grpc.ClientMethod<$10.CreatePaymentRequest, $1.Void>(
       '/protos.payment.PaymentService/PostAsync',
-      ($9.CreatePaymentRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $9.CreatePaymentResponse.fromBuffer(value));
-  static final _$putAsync = $grpc.ClientMethod<$9.UpdatePaymentRequest, $9.UpdatePaymentResponse>(
+      ($10.CreatePaymentRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+  static final _$putAsync = $grpc.ClientMethod<$10.UpdatePaymentRequest, $1.Void>(
       '/protos.payment.PaymentService/PutAsync',
-      ($9.UpdatePaymentRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $9.UpdatePaymentResponse.fromBuffer(value));
-  static final _$deleteAsync = $grpc.ClientMethod<$9.DeletePaymentRequest, $9.DeletePaymentResponse>(
+      ($10.UpdatePaymentRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+  static final _$deleteAsync = $grpc.ClientMethod<$10.DeletePaymentRequest, $1.Void>(
       '/protos.payment.PaymentService/DeleteAsync',
-      ($9.DeletePaymentRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $9.DeletePaymentResponse.fromBuffer(value));
+      ($10.DeletePaymentRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
 
   PaymentServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -48,23 +49,23 @@ class PaymentServiceClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$9.GetPaginatedPaymentsResponse> getPaginatedAsync($9.GetPaginatedPaymentsRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$10.GetPaginatedPaymentsResponse> getPaginatedAsync($10.GetPaginatedPaymentsRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getPaginatedAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$9.GetPaymentByIdResponse> getByIdAsync($9.GetPaymentByIdRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$10.GetPaymentByIdResponse> getByIdAsync($10.GetPaymentByIdRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$9.CreatePaymentResponse> postAsync($9.CreatePaymentRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.Void> postAsync($10.CreatePaymentRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$postAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$9.UpdatePaymentResponse> putAsync($9.UpdatePaymentRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.Void> putAsync($10.UpdatePaymentRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$9.DeletePaymentResponse> deleteAsync($9.DeletePaymentRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.Void> deleteAsync($10.DeletePaymentRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 }
@@ -74,66 +75,66 @@ abstract class PaymentServiceBase extends $grpc.Service {
   $core.String get $name => 'protos.payment.PaymentService';
 
   PaymentServiceBase() {
-    $addMethod($grpc.ServiceMethod<$9.GetPaginatedPaymentsRequest, $9.GetPaginatedPaymentsResponse>(
+    $addMethod($grpc.ServiceMethod<$10.GetPaginatedPaymentsRequest, $10.GetPaginatedPaymentsResponse>(
         'GetPaginatedAsync',
         getPaginatedAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $9.GetPaginatedPaymentsRequest.fromBuffer(value),
-        ($9.GetPaginatedPaymentsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$9.GetPaymentByIdRequest, $9.GetPaymentByIdResponse>(
+        ($core.List<$core.int> value) => $10.GetPaginatedPaymentsRequest.fromBuffer(value),
+        ($10.GetPaginatedPaymentsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$10.GetPaymentByIdRequest, $10.GetPaymentByIdResponse>(
         'GetByIdAsync',
         getByIdAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $9.GetPaymentByIdRequest.fromBuffer(value),
-        ($9.GetPaymentByIdResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$9.CreatePaymentRequest, $9.CreatePaymentResponse>(
+        ($core.List<$core.int> value) => $10.GetPaymentByIdRequest.fromBuffer(value),
+        ($10.GetPaymentByIdResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$10.CreatePaymentRequest, $1.Void>(
         'PostAsync',
         postAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $9.CreatePaymentRequest.fromBuffer(value),
-        ($9.CreatePaymentResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$9.UpdatePaymentRequest, $9.UpdatePaymentResponse>(
+        ($core.List<$core.int> value) => $10.CreatePaymentRequest.fromBuffer(value),
+        ($1.Void value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$10.UpdatePaymentRequest, $1.Void>(
         'PutAsync',
         putAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $9.UpdatePaymentRequest.fromBuffer(value),
-        ($9.UpdatePaymentResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$9.DeletePaymentRequest, $9.DeletePaymentResponse>(
+        ($core.List<$core.int> value) => $10.UpdatePaymentRequest.fromBuffer(value),
+        ($1.Void value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$10.DeletePaymentRequest, $1.Void>(
         'DeleteAsync',
         deleteAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $9.DeletePaymentRequest.fromBuffer(value),
-        ($9.DeletePaymentResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $10.DeletePaymentRequest.fromBuffer(value),
+        ($1.Void value) => value.writeToBuffer()));
   }
 
-  $async.Future<$9.GetPaginatedPaymentsResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$9.GetPaginatedPaymentsRequest> request) async {
+  $async.Future<$10.GetPaginatedPaymentsResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$10.GetPaginatedPaymentsRequest> request) async {
     return getPaginatedAsync(call, await request);
   }
 
-  $async.Future<$9.GetPaymentByIdResponse> getByIdAsync_Pre($grpc.ServiceCall call, $async.Future<$9.GetPaymentByIdRequest> request) async {
+  $async.Future<$10.GetPaymentByIdResponse> getByIdAsync_Pre($grpc.ServiceCall call, $async.Future<$10.GetPaymentByIdRequest> request) async {
     return getByIdAsync(call, await request);
   }
 
-  $async.Future<$9.CreatePaymentResponse> postAsync_Pre($grpc.ServiceCall call, $async.Future<$9.CreatePaymentRequest> request) async {
+  $async.Future<$1.Void> postAsync_Pre($grpc.ServiceCall call, $async.Future<$10.CreatePaymentRequest> request) async {
     return postAsync(call, await request);
   }
 
-  $async.Future<$9.UpdatePaymentResponse> putAsync_Pre($grpc.ServiceCall call, $async.Future<$9.UpdatePaymentRequest> request) async {
+  $async.Future<$1.Void> putAsync_Pre($grpc.ServiceCall call, $async.Future<$10.UpdatePaymentRequest> request) async {
     return putAsync(call, await request);
   }
 
-  $async.Future<$9.DeletePaymentResponse> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$9.DeletePaymentRequest> request) async {
+  $async.Future<$1.Void> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$10.DeletePaymentRequest> request) async {
     return deleteAsync(call, await request);
   }
 
-  $async.Future<$9.GetPaginatedPaymentsResponse> getPaginatedAsync($grpc.ServiceCall call, $9.GetPaginatedPaymentsRequest request);
-  $async.Future<$9.GetPaymentByIdResponse> getByIdAsync($grpc.ServiceCall call, $9.GetPaymentByIdRequest request);
-  $async.Future<$9.CreatePaymentResponse> postAsync($grpc.ServiceCall call, $9.CreatePaymentRequest request);
-  $async.Future<$9.UpdatePaymentResponse> putAsync($grpc.ServiceCall call, $9.UpdatePaymentRequest request);
-  $async.Future<$9.DeletePaymentResponse> deleteAsync($grpc.ServiceCall call, $9.DeletePaymentRequest request);
+  $async.Future<$10.GetPaginatedPaymentsResponse> getPaginatedAsync($grpc.ServiceCall call, $10.GetPaginatedPaymentsRequest request);
+  $async.Future<$10.GetPaymentByIdResponse> getByIdAsync($grpc.ServiceCall call, $10.GetPaymentByIdRequest request);
+  $async.Future<$1.Void> postAsync($grpc.ServiceCall call, $10.CreatePaymentRequest request);
+  $async.Future<$1.Void> putAsync($grpc.ServiceCall call, $10.UpdatePaymentRequest request);
+  $async.Future<$1.Void> deleteAsync($grpc.ServiceCall call, $10.DeletePaymentRequest request);
 }

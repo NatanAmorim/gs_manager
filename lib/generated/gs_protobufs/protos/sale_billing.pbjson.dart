@@ -95,15 +95,6 @@ final $typed_data.Uint8List createSaleBillingRequestDescriptor = $convert.base64
     '50Ej4KB3BheW1lbnQYBCABKAsyJC5wcm90b3MucGF5bWVudC5DcmVhdGVQYXltZW50UmVxdWVz'
     'dFIHcGF5bWVudA==');
 
-@$core.Deprecated('Use createSaleBillingResponseDescriptor instead')
-const CreateSaleBillingResponse$json = {
-  '1': 'CreateSaleBillingResponse',
-};
-
-/// Descriptor for `CreateSaleBillingResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createSaleBillingResponseDescriptor = $convert.base64Decode(
-    'ChlDcmVhdGVTYWxlQmlsbGluZ1Jlc3BvbnNl');
-
 @$core.Deprecated('Use updateSaleBillingRequestDescriptor instead')
 const UpdateSaleBillingRequest$json = {
   '1': 'UpdateSaleBillingRequest',
@@ -124,15 +115,6 @@ final $typed_data.Uint8List updateSaleBillingRequestDescriptor = $convert.base64
     '5kZWNpbWFsX3ZhbHVlLkRlY2ltYWxWYWx1ZVINdG90YWxEaXNjb3VudBJACgdwYXltZW50GAUg'
     'ASgLMiYucHJvdG9zLnBheW1lbnQuR2V0UGF5bWVudEJ5SWRSZXNwb25zZVIHcGF5bWVudA==');
 
-@$core.Deprecated('Use updateSaleBillingResponseDescriptor instead')
-const UpdateSaleBillingResponse$json = {
-  '1': 'UpdateSaleBillingResponse',
-};
-
-/// Descriptor for `UpdateSaleBillingResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateSaleBillingResponseDescriptor = $convert.base64Decode(
-    'ChlVcGRhdGVTYWxlQmlsbGluZ1Jlc3BvbnNl');
-
 @$core.Deprecated('Use deleteSaleBillingRequestDescriptor instead')
 const DeleteSaleBillingRequest$json = {
   '1': 'DeleteSaleBillingRequest',
@@ -145,13 +127,4 @@ const DeleteSaleBillingRequest$json = {
 final $typed_data.Uint8List deleteSaleBillingRequestDescriptor = $convert.base64Decode(
     'ChhEZWxldGVTYWxlQmlsbGluZ1JlcXVlc3QSJgoPc2FsZV9iaWxsaW5nX2lkGAEgASgJUg1zYW'
     'xlQmlsbGluZ0lk');
-
-@$core.Deprecated('Use deleteSaleBillingResponseDescriptor instead')
-const DeleteSaleBillingResponse$json = {
-  '1': 'DeleteSaleBillingResponse',
-};
-
-/// Descriptor for `DeleteSaleBillingResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteSaleBillingResponseDescriptor = $convert.base64Decode(
-    'ChlEZWxldGVTYWxlQmlsbGluZ1Jlc3BvbnNl');
 

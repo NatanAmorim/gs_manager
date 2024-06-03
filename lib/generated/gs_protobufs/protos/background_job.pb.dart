@@ -13,11 +13,11 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/wrappers.pb.dart' as $17;
+import '../../google/protobuf/wrappers.pb.dart' as $18;
 
 class GetPaginatedBackgroundJobsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedBackgroundJobsRequest({
-    $17.StringValue? cursor,
+    $18.StringValue? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -30,7 +30,7 @@ class GetPaginatedBackgroundJobsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedBackgroundJobsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedBackgroundJobsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.background_job'), createEmptyInstance: create)
-    ..aOM<$17.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $17.StringValue.create)
+    ..aOM<$18.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $18.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -56,21 +56,21 @@ class GetPaginatedBackgroundJobsRequest extends $pb.GeneratedMessage {
   static GetPaginatedBackgroundJobsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $17.StringValue get cursor => $_getN(0);
+  $18.StringValue get cursor => $_getN(0);
   @$pb.TagNumber(1)
-  set cursor($17.StringValue v) { setField(1, v); }
+  set cursor($18.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
   void clearCursor() => clearField(1);
   @$pb.TagNumber(1)
-  $17.StringValue ensureCursor() => $_ensure(0);
+  $18.StringValue ensureCursor() => $_ensure(0);
 }
 
 class GetPaginatedBackgroundJobsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedBackgroundJobsResponse({
     $core.Iterable<GetBackgroundJobByIdResponse>? backgroundJobs,
-    $17.StringValue? nextCursor,
+    $18.StringValue? nextCursor,
   }) {
     final $result = create();
     if (backgroundJobs != null) {
@@ -87,7 +87,7 @@ class GetPaginatedBackgroundJobsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedBackgroundJobsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.background_job'), createEmptyInstance: create)
     ..pc<GetBackgroundJobByIdResponse>(1, _omitFieldNames ? '' : 'backgroundJobs', $pb.PbFieldType.PM, subBuilder: GetBackgroundJobByIdResponse.create)
-    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.StringValue.create)
+    ..aOM<$18.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $18.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -116,15 +116,15 @@ class GetPaginatedBackgroundJobsResponse extends $pb.GeneratedMessage {
   $core.List<GetBackgroundJobByIdResponse> get backgroundJobs => $_getList(0);
 
   @$pb.TagNumber(2)
-  $17.StringValue get nextCursor => $_getN(1);
+  $18.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($17.StringValue v) { setField(2, v); }
+  set nextCursor($18.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $17.StringValue ensureNextCursor() => $_ensure(1);
+  $18.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetBackgroundJobByIdRequest extends $pb.GeneratedMessage {

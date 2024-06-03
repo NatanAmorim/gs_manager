@@ -82,15 +82,6 @@ final $typed_data.Uint8List updateUserRequestDescriptor = $convert.base64Decode(
     'ChFVcGRhdGVVc2VyUmVxdWVzdBIXCgd1c2VyX2lkGAEgASgJUgZ1c2VySWQSFAoFZW1haWwYAi'
     'ABKAlSBWVtYWls');
 
-@$core.Deprecated('Use updateUserResponseDescriptor instead')
-const UpdateUserResponse$json = {
-  '1': 'UpdateUserResponse',
-};
-
-/// Descriptor for `UpdateUserResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateUserResponseDescriptor = $convert.base64Decode(
-    'ChJVcGRhdGVVc2VyUmVzcG9uc2U=');
-
 @$core.Deprecated('Use deleteUserRequestDescriptor instead')
 const DeleteUserRequest$json = {
   '1': 'DeleteUserRequest',
@@ -102,13 +93,4 @@ const DeleteUserRequest$json = {
 /// Descriptor for `DeleteUserRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteUserRequestDescriptor = $convert.base64Decode(
     'ChFEZWxldGVVc2VyUmVxdWVzdBIXCgd1c2VyX2lkGAEgASgJUgZ1c2VySWQ=');
-
-@$core.Deprecated('Use deleteUserResponseDescriptor instead')
-const DeleteUserResponse$json = {
-  '1': 'DeleteUserResponse',
-};
-
-/// Descriptor for `DeleteUserResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteUserResponseDescriptor = $convert.base64Decode(
-    'ChJEZWxldGVVc2VyUmVzcG9uc2U=');
 

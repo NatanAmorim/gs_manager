@@ -95,15 +95,6 @@ final $typed_data.Uint8List createAttendanceRequestDescriptor = $convert.base64D
     '5kYW5jZS5BdHRlbmRhbmNlQXR0ZW5kZWVTdGF0dXNSEWF0dGVuZGVlc1N0YXR1c2VzEiIKDG9i'
     'c2VydmF0aW9ucxgEIAEoCVIMb2JzZXJ2YXRpb25z');
 
-@$core.Deprecated('Use createAttendanceResponseDescriptor instead')
-const CreateAttendanceResponse$json = {
-  '1': 'CreateAttendanceResponse',
-};
-
-/// Descriptor for `CreateAttendanceResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createAttendanceResponseDescriptor = $convert.base64Decode(
-    'ChhDcmVhdGVBdHRlbmRhbmNlUmVzcG9uc2U=');
-
 @$core.Deprecated('Use updateAttendanceRequestDescriptor instead')
 const UpdateAttendanceRequest$json = {
   '1': 'UpdateAttendanceRequest',
@@ -125,15 +116,6 @@ final $typed_data.Uint8List updateAttendanceRequestDescriptor = $convert.base64D
     'dGVuZGVlU3RhdHVzUhFhdHRlbmRlZXNTdGF0dXNlcxIiCgxvYnNlcnZhdGlvbnMYBSABKAlSDG'
     '9ic2VydmF0aW9ucw==');
 
-@$core.Deprecated('Use updateAttendanceResponseDescriptor instead')
-const UpdateAttendanceResponse$json = {
-  '1': 'UpdateAttendanceResponse',
-};
-
-/// Descriptor for `UpdateAttendanceResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateAttendanceResponseDescriptor = $convert.base64Decode(
-    'ChhVcGRhdGVBdHRlbmRhbmNlUmVzcG9uc2U=');
-
 @$core.Deprecated('Use deleteAttendanceRequestDescriptor instead')
 const DeleteAttendanceRequest$json = {
   '1': 'DeleteAttendanceRequest',
@@ -146,15 +128,6 @@ const DeleteAttendanceRequest$json = {
 final $typed_data.Uint8List deleteAttendanceRequestDescriptor = $convert.base64Decode(
     'ChdEZWxldGVBdHRlbmRhbmNlUmVxdWVzdBIjCg1hdHRlbmRhbmNlX2lkGAEgASgJUgxhdHRlbm'
     'RhbmNlSWQ=');
-
-@$core.Deprecated('Use deleteAttendanceResponseDescriptor instead')
-const DeleteAttendanceResponse$json = {
-  '1': 'DeleteAttendanceResponse',
-};
-
-/// Descriptor for `DeleteAttendanceResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteAttendanceResponseDescriptor = $convert.base64Decode(
-    'ChhEZWxldGVBdHRlbmRhbmNlUmVzcG9uc2U=');
 
 @$core.Deprecated('Use attendanceAttendeeStatusDescriptor instead')
 const AttendanceAttendeeStatus$json = {

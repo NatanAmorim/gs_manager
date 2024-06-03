@@ -13,14 +13,14 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/wrappers.pb.dart' as $17;
-import 'custom_types/decimal_value.pb.dart' as $18;
-import 'payment.pb.dart' as $9;
-import 'sale.pb.dart' as $13;
+import '../../google/protobuf/wrappers.pb.dart' as $18;
+import 'custom_types/decimal_value.pb.dart' as $19;
+import 'payment.pb.dart' as $10;
+import 'sale.pb.dart' as $14;
 
 class GetPaginatedSaleBillingsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedSaleBillingsRequest({
-    $17.StringValue? cursor,
+    $18.StringValue? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -33,7 +33,7 @@ class GetPaginatedSaleBillingsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedSaleBillingsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedSaleBillingsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale_billing'), createEmptyInstance: create)
-    ..aOM<$17.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $17.StringValue.create)
+    ..aOM<$18.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $18.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -59,21 +59,21 @@ class GetPaginatedSaleBillingsRequest extends $pb.GeneratedMessage {
   static GetPaginatedSaleBillingsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $17.StringValue get cursor => $_getN(0);
+  $18.StringValue get cursor => $_getN(0);
   @$pb.TagNumber(1)
-  set cursor($17.StringValue v) { setField(1, v); }
+  set cursor($18.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
   void clearCursor() => clearField(1);
   @$pb.TagNumber(1)
-  $17.StringValue ensureCursor() => $_ensure(0);
+  $18.StringValue ensureCursor() => $_ensure(0);
 }
 
 class GetPaginatedSaleBillingsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedSaleBillingsResponse({
     $core.Iterable<GetSaleBillingByIdResponse>? saleBillings,
-    $17.StringValue? nextCursor,
+    $18.StringValue? nextCursor,
   }) {
     final $result = create();
     if (saleBillings != null) {
@@ -90,7 +90,7 @@ class GetPaginatedSaleBillingsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedSaleBillingsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale_billing'), createEmptyInstance: create)
     ..pc<GetSaleBillingByIdResponse>(1, _omitFieldNames ? '' : 'saleBillings', $pb.PbFieldType.PM, protoName: 'saleBillings', subBuilder: GetSaleBillingByIdResponse.create)
-    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.StringValue.create)
+    ..aOM<$18.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $18.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -119,15 +119,15 @@ class GetPaginatedSaleBillingsResponse extends $pb.GeneratedMessage {
   $core.List<GetSaleBillingByIdResponse> get saleBillings => $_getList(0);
 
   @$pb.TagNumber(2)
-  $17.StringValue get nextCursor => $_getN(1);
+  $18.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($17.StringValue v) { setField(2, v); }
+  set nextCursor($18.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $17.StringValue ensureNextCursor() => $_ensure(1);
+  $18.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetSaleBillingByIdRequest extends $pb.GeneratedMessage {
@@ -183,10 +183,10 @@ class GetSaleBillingByIdRequest extends $pb.GeneratedMessage {
 class GetSaleBillingByIdResponse extends $pb.GeneratedMessage {
   factory GetSaleBillingByIdResponse({
     $core.String? saleBillingId,
-    $13.GetSaleByIdResponse? sale,
+    $14.GetSaleByIdResponse? sale,
     $core.String? observations,
-    $18.DecimalValue? totalDiscount,
-    $9.GetPaymentByIdResponse? payment,
+    $19.DecimalValue? totalDiscount,
+    $10.GetPaymentByIdResponse? payment,
   }) {
     final $result = create();
     if (saleBillingId != null) {
@@ -212,10 +212,10 @@ class GetSaleBillingByIdResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetSaleBillingByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale_billing'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'saleBillingId')
-    ..aOM<$13.GetSaleByIdResponse>(2, _omitFieldNames ? '' : 'sale', subBuilder: $13.GetSaleByIdResponse.create)
+    ..aOM<$14.GetSaleByIdResponse>(2, _omitFieldNames ? '' : 'sale', subBuilder: $14.GetSaleByIdResponse.create)
     ..aOS(3, _omitFieldNames ? '' : 'observations')
-    ..aOM<$18.DecimalValue>(4, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $18.DecimalValue.create)
-    ..aOM<$9.GetPaymentByIdResponse>(5, _omitFieldNames ? '' : 'payment', subBuilder: $9.GetPaymentByIdResponse.create)
+    ..aOM<$19.DecimalValue>(4, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $19.DecimalValue.create)
+    ..aOM<$10.GetPaymentByIdResponse>(5, _omitFieldNames ? '' : 'payment', subBuilder: $10.GetPaymentByIdResponse.create)
     ..hasRequiredFields = false
   ;
 
@@ -250,15 +250,15 @@ class GetSaleBillingByIdResponse extends $pb.GeneratedMessage {
   void clearSaleBillingId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $13.GetSaleByIdResponse get sale => $_getN(1);
+  $14.GetSaleByIdResponse get sale => $_getN(1);
   @$pb.TagNumber(2)
-  set sale($13.GetSaleByIdResponse v) { setField(2, v); }
+  set sale($14.GetSaleByIdResponse v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasSale() => $_has(1);
   @$pb.TagNumber(2)
   void clearSale() => clearField(2);
   @$pb.TagNumber(2)
-  $13.GetSaleByIdResponse ensureSale() => $_ensure(1);
+  $14.GetSaleByIdResponse ensureSale() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.String get observations => $_getSZ(2);
@@ -270,34 +270,34 @@ class GetSaleBillingByIdResponse extends $pb.GeneratedMessage {
   void clearObservations() => clearField(3);
 
   @$pb.TagNumber(4)
-  $18.DecimalValue get totalDiscount => $_getN(3);
+  $19.DecimalValue get totalDiscount => $_getN(3);
   @$pb.TagNumber(4)
-  set totalDiscount($18.DecimalValue v) { setField(4, v); }
+  set totalDiscount($19.DecimalValue v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasTotalDiscount() => $_has(3);
   @$pb.TagNumber(4)
   void clearTotalDiscount() => clearField(4);
   @$pb.TagNumber(4)
-  $18.DecimalValue ensureTotalDiscount() => $_ensure(3);
+  $19.DecimalValue ensureTotalDiscount() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  $9.GetPaymentByIdResponse get payment => $_getN(4);
+  $10.GetPaymentByIdResponse get payment => $_getN(4);
   @$pb.TagNumber(5)
-  set payment($9.GetPaymentByIdResponse v) { setField(5, v); }
+  set payment($10.GetPaymentByIdResponse v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasPayment() => $_has(4);
   @$pb.TagNumber(5)
   void clearPayment() => clearField(5);
   @$pb.TagNumber(5)
-  $9.GetPaymentByIdResponse ensurePayment() => $_ensure(4);
+  $10.GetPaymentByIdResponse ensurePayment() => $_ensure(4);
 }
 
 class CreateSaleBillingRequest extends $pb.GeneratedMessage {
   factory CreateSaleBillingRequest({
     $core.String? saleId,
     $core.String? observations,
-    $18.DecimalValue? totalDiscount,
-    $9.CreatePaymentRequest? payment,
+    $19.DecimalValue? totalDiscount,
+    $10.CreatePaymentRequest? payment,
   }) {
     final $result = create();
     if (saleId != null) {
@@ -321,8 +321,8 @@ class CreateSaleBillingRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateSaleBillingRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale_billing'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'saleId')
     ..aOS(2, _omitFieldNames ? '' : 'observations')
-    ..aOM<$18.DecimalValue>(3, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $18.DecimalValue.create)
-    ..aOM<$9.CreatePaymentRequest>(4, _omitFieldNames ? '' : 'payment', subBuilder: $9.CreatePaymentRequest.create)
+    ..aOM<$19.DecimalValue>(3, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $19.DecimalValue.create)
+    ..aOM<$10.CreatePaymentRequest>(4, _omitFieldNames ? '' : 'payment', subBuilder: $10.CreatePaymentRequest.create)
     ..hasRequiredFields = false
   ;
 
@@ -366,58 +366,26 @@ class CreateSaleBillingRequest extends $pb.GeneratedMessage {
   void clearObservations() => clearField(2);
 
   @$pb.TagNumber(3)
-  $18.DecimalValue get totalDiscount => $_getN(2);
+  $19.DecimalValue get totalDiscount => $_getN(2);
   @$pb.TagNumber(3)
-  set totalDiscount($18.DecimalValue v) { setField(3, v); }
+  set totalDiscount($19.DecimalValue v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasTotalDiscount() => $_has(2);
   @$pb.TagNumber(3)
   void clearTotalDiscount() => clearField(3);
   @$pb.TagNumber(3)
-  $18.DecimalValue ensureTotalDiscount() => $_ensure(2);
+  $19.DecimalValue ensureTotalDiscount() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $9.CreatePaymentRequest get payment => $_getN(3);
+  $10.CreatePaymentRequest get payment => $_getN(3);
   @$pb.TagNumber(4)
-  set payment($9.CreatePaymentRequest v) { setField(4, v); }
+  set payment($10.CreatePaymentRequest v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasPayment() => $_has(3);
   @$pb.TagNumber(4)
   void clearPayment() => clearField(4);
   @$pb.TagNumber(4)
-  $9.CreatePaymentRequest ensurePayment() => $_ensure(3);
-}
-
-class CreateSaleBillingResponse extends $pb.GeneratedMessage {
-  factory CreateSaleBillingResponse() => create();
-  CreateSaleBillingResponse._() : super();
-  factory CreateSaleBillingResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CreateSaleBillingResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateSaleBillingResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale_billing'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  CreateSaleBillingResponse clone() => CreateSaleBillingResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  CreateSaleBillingResponse copyWith(void Function(CreateSaleBillingResponse) updates) => super.copyWith((message) => updates(message as CreateSaleBillingResponse)) as CreateSaleBillingResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static CreateSaleBillingResponse create() => CreateSaleBillingResponse._();
-  CreateSaleBillingResponse createEmptyInstance() => create();
-  static $pb.PbList<CreateSaleBillingResponse> createRepeated() => $pb.PbList<CreateSaleBillingResponse>();
-  @$core.pragma('dart2js:noInline')
-  static CreateSaleBillingResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateSaleBillingResponse>(create);
-  static CreateSaleBillingResponse? _defaultInstance;
+  $10.CreatePaymentRequest ensurePayment() => $_ensure(3);
 }
 
 class UpdateSaleBillingRequest extends $pb.GeneratedMessage {
@@ -425,8 +393,8 @@ class UpdateSaleBillingRequest extends $pb.GeneratedMessage {
     $core.String? saleBillingId,
     $core.String? saleId,
     $core.String? observations,
-    $18.DecimalValue? totalDiscount,
-    $9.GetPaymentByIdResponse? payment,
+    $19.DecimalValue? totalDiscount,
+    $10.GetPaymentByIdResponse? payment,
   }) {
     final $result = create();
     if (saleBillingId != null) {
@@ -454,8 +422,8 @@ class UpdateSaleBillingRequest extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'saleBillingId')
     ..aOS(2, _omitFieldNames ? '' : 'saleId')
     ..aOS(3, _omitFieldNames ? '' : 'observations')
-    ..aOM<$18.DecimalValue>(4, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $18.DecimalValue.create)
-    ..aOM<$9.GetPaymentByIdResponse>(5, _omitFieldNames ? '' : 'payment', subBuilder: $9.GetPaymentByIdResponse.create)
+    ..aOM<$19.DecimalValue>(4, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $19.DecimalValue.create)
+    ..aOM<$10.GetPaymentByIdResponse>(5, _omitFieldNames ? '' : 'payment', subBuilder: $10.GetPaymentByIdResponse.create)
     ..hasRequiredFields = false
   ;
 
@@ -508,58 +476,26 @@ class UpdateSaleBillingRequest extends $pb.GeneratedMessage {
   void clearObservations() => clearField(3);
 
   @$pb.TagNumber(4)
-  $18.DecimalValue get totalDiscount => $_getN(3);
+  $19.DecimalValue get totalDiscount => $_getN(3);
   @$pb.TagNumber(4)
-  set totalDiscount($18.DecimalValue v) { setField(4, v); }
+  set totalDiscount($19.DecimalValue v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasTotalDiscount() => $_has(3);
   @$pb.TagNumber(4)
   void clearTotalDiscount() => clearField(4);
   @$pb.TagNumber(4)
-  $18.DecimalValue ensureTotalDiscount() => $_ensure(3);
+  $19.DecimalValue ensureTotalDiscount() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  $9.GetPaymentByIdResponse get payment => $_getN(4);
+  $10.GetPaymentByIdResponse get payment => $_getN(4);
   @$pb.TagNumber(5)
-  set payment($9.GetPaymentByIdResponse v) { setField(5, v); }
+  set payment($10.GetPaymentByIdResponse v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasPayment() => $_has(4);
   @$pb.TagNumber(5)
   void clearPayment() => clearField(5);
   @$pb.TagNumber(5)
-  $9.GetPaymentByIdResponse ensurePayment() => $_ensure(4);
-}
-
-class UpdateSaleBillingResponse extends $pb.GeneratedMessage {
-  factory UpdateSaleBillingResponse() => create();
-  UpdateSaleBillingResponse._() : super();
-  factory UpdateSaleBillingResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory UpdateSaleBillingResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateSaleBillingResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale_billing'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  UpdateSaleBillingResponse clone() => UpdateSaleBillingResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  UpdateSaleBillingResponse copyWith(void Function(UpdateSaleBillingResponse) updates) => super.copyWith((message) => updates(message as UpdateSaleBillingResponse)) as UpdateSaleBillingResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static UpdateSaleBillingResponse create() => UpdateSaleBillingResponse._();
-  UpdateSaleBillingResponse createEmptyInstance() => create();
-  static $pb.PbList<UpdateSaleBillingResponse> createRepeated() => $pb.PbList<UpdateSaleBillingResponse>();
-  @$core.pragma('dart2js:noInline')
-  static UpdateSaleBillingResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateSaleBillingResponse>(create);
-  static UpdateSaleBillingResponse? _defaultInstance;
+  $10.GetPaymentByIdResponse ensurePayment() => $_ensure(4);
 }
 
 class DeleteSaleBillingRequest extends $pb.GeneratedMessage {
@@ -610,38 +546,6 @@ class DeleteSaleBillingRequest extends $pb.GeneratedMessage {
   $core.bool hasSaleBillingId() => $_has(0);
   @$pb.TagNumber(1)
   void clearSaleBillingId() => clearField(1);
-}
-
-class DeleteSaleBillingResponse extends $pb.GeneratedMessage {
-  factory DeleteSaleBillingResponse() => create();
-  DeleteSaleBillingResponse._() : super();
-  factory DeleteSaleBillingResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory DeleteSaleBillingResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteSaleBillingResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale_billing'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  DeleteSaleBillingResponse clone() => DeleteSaleBillingResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  DeleteSaleBillingResponse copyWith(void Function(DeleteSaleBillingResponse) updates) => super.copyWith((message) => updates(message as DeleteSaleBillingResponse)) as DeleteSaleBillingResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static DeleteSaleBillingResponse create() => DeleteSaleBillingResponse._();
-  DeleteSaleBillingResponse createEmptyInstance() => create();
-  static $pb.PbList<DeleteSaleBillingResponse> createRepeated() => $pb.PbList<DeleteSaleBillingResponse>();
-  @$core.pragma('dart2js:noInline')
-  static DeleteSaleBillingResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeleteSaleBillingResponse>(create);
-  static DeleteSaleBillingResponse? _defaultInstance;
 }
 
 

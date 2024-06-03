@@ -89,15 +89,6 @@ final $typed_data.Uint8List createNotificationRequestDescriptor = $convert.base6
     'ChlDcmVhdGVOb3RpZmljYXRpb25SZXF1ZXN0EhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZBIUCg'
     'V0aXRsZRgCIAEoCVIFdGl0bGUSGAoHbWVzc2FnZRgDIAEoCVIHbWVzc2FnZQ==');
 
-@$core.Deprecated('Use createNotificationResponseDescriptor instead')
-const CreateNotificationResponse$json = {
-  '1': 'CreateNotificationResponse',
-};
-
-/// Descriptor for `CreateNotificationResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createNotificationResponseDescriptor = $convert.base64Decode(
-    'ChpDcmVhdGVOb3RpZmljYXRpb25SZXNwb25zZQ==');
-
 @$core.Deprecated('Use updateNotificationRequestDescriptor instead')
 const UpdateNotificationRequest$json = {
   '1': 'UpdateNotificationRequest',
@@ -115,15 +106,6 @@ final $typed_data.Uint8List updateNotificationRequestDescriptor = $convert.base6
     '90aWZpY2F0aW9uSWQSFAoFdGl0bGUYAiABKAlSBXRpdGxlEhgKB21lc3NhZ2UYAyABKAlSB21l'
     'c3NhZ2USGwoJaXNfdW5yZWFkGAQgASgIUghpc1VucmVhZA==');
 
-@$core.Deprecated('Use updateNotificationResponseDescriptor instead')
-const UpdateNotificationResponse$json = {
-  '1': 'UpdateNotificationResponse',
-};
-
-/// Descriptor for `UpdateNotificationResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateNotificationResponseDescriptor = $convert.base64Decode(
-    'ChpVcGRhdGVOb3RpZmljYXRpb25SZXNwb25zZQ==');
-
 @$core.Deprecated('Use deleteNotificationRequestDescriptor instead')
 const DeleteNotificationRequest$json = {
   '1': 'DeleteNotificationRequest',
@@ -136,13 +118,4 @@ const DeleteNotificationRequest$json = {
 final $typed_data.Uint8List deleteNotificationRequestDescriptor = $convert.base64Decode(
     'ChlEZWxldGVOb3RpZmljYXRpb25SZXF1ZXN0EicKD25vdGlmaWNhdGlvbl9pZBgBIAEoCVIObm'
     '90aWZpY2F0aW9uSWQ=');
-
-@$core.Deprecated('Use deleteNotificationResponseDescriptor instead')
-const DeleteNotificationResponse$json = {
-  '1': 'DeleteNotificationResponse',
-};
-
-/// Descriptor for `DeleteNotificationResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteNotificationResponseDescriptor = $convert.base64Decode(
-    'ChpEZWxldGVOb3RpZmljYXRpb25SZXNwb25zZQ==');
 

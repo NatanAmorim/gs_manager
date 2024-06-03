@@ -97,15 +97,6 @@ final $typed_data.Uint8List customerOptionDescriptor = $convert.base64Decode(
     'Jzb24YAiABKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIGcGVyc29uEjsKCmRlcGVu'
     'ZGVudHMYAyADKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIKZGVwZW5kZW50cw==');
 
-@$core.Deprecated('Use getAllCustomersOptionsRequestDescriptor instead')
-const GetAllCustomersOptionsRequest$json = {
-  '1': 'GetAllCustomersOptionsRequest',
-};
-
-/// Descriptor for `GetAllCustomersOptionsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getAllCustomersOptionsRequestDescriptor = $convert.base64Decode(
-    'Ch1HZXRBbGxDdXN0b21lcnNPcHRpb25zUmVxdWVzdA==');
-
 @$core.Deprecated('Use getAllCustomersOptionsResponseDescriptor instead')
 const GetAllCustomersOptionsResponse$json = {
   '1': 'GetAllCustomersOptionsResponse',
@@ -138,15 +129,6 @@ final $typed_data.Uint8List createCustomerRequestDescriptor = $convert.base64Dec
     'xsaW5nQWRkcmVzcxI1ChZhZGRpdGlvbmFsX2luZm9ybWF0aW9uGAQgASgJUhVhZGRpdGlvbmFs'
     'SW5mb3JtYXRpb24=');
 
-@$core.Deprecated('Use createCustomerResponseDescriptor instead')
-const CreateCustomerResponse$json = {
-  '1': 'CreateCustomerResponse',
-};
-
-/// Descriptor for `CreateCustomerResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createCustomerResponseDescriptor = $convert.base64Decode(
-    'ChZDcmVhdGVDdXN0b21lclJlc3BvbnNl');
-
 @$core.Deprecated('Use updateCustomerRequestDescriptor instead')
 const UpdateCustomerRequest$json = {
   '1': 'UpdateCustomerRequest',
@@ -173,15 +155,6 @@ final $typed_data.Uint8List updateCustomerRequestDescriptor = $convert.base64Dec
     'l0aW9uYWxfaW5mb3JtYXRpb24YBiABKAlSFWFkZGl0aW9uYWxJbmZvcm1hdGlvbkIHCgVfdXNl'
     'cg==');
 
-@$core.Deprecated('Use updateCustomerResponseDescriptor instead')
-const UpdateCustomerResponse$json = {
-  '1': 'UpdateCustomerResponse',
-};
-
-/// Descriptor for `UpdateCustomerResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateCustomerResponseDescriptor = $convert.base64Decode(
-    'ChZVcGRhdGVDdXN0b21lclJlc3BvbnNl');
-
 @$core.Deprecated('Use deleteCustomerRequestDescriptor instead')
 const DeleteCustomerRequest$json = {
   '1': 'DeleteCustomerRequest',
@@ -194,13 +167,4 @@ const DeleteCustomerRequest$json = {
 final $typed_data.Uint8List deleteCustomerRequestDescriptor = $convert.base64Decode(
     'ChVEZWxldGVDdXN0b21lclJlcXVlc3QSHwoLY3VzdG9tZXJfaWQYASABKAlSCmN1c3RvbWVySW'
     'Q=');
-
-@$core.Deprecated('Use deleteCustomerResponseDescriptor instead')
-const DeleteCustomerResponse$json = {
-  '1': 'DeleteCustomerResponse',
-};
-
-/// Descriptor for `DeleteCustomerResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteCustomerResponseDescriptor = $convert.base64Decode(
-    'ChZEZWxldGVDdXN0b21lclJlc3BvbnNl');
 

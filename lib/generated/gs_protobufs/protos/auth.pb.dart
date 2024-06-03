@@ -141,88 +141,6 @@ class LoginResponse extends $pb.GeneratedMessage {
   void clearRefreshToken() => clearField(2);
 }
 
-class LogoutRequest extends $pb.GeneratedMessage {
-  factory LogoutRequest({
-    $core.String? refreshToken,
-  }) {
-    final $result = create();
-    if (refreshToken != null) {
-      $result.refreshToken = refreshToken;
-    }
-    return $result;
-  }
-  LogoutRequest._() : super();
-  factory LogoutRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory LogoutRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LogoutRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.auth'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'refreshToken')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  LogoutRequest clone() => LogoutRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  LogoutRequest copyWith(void Function(LogoutRequest) updates) => super.copyWith((message) => updates(message as LogoutRequest)) as LogoutRequest;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static LogoutRequest create() => LogoutRequest._();
-  LogoutRequest createEmptyInstance() => create();
-  static $pb.PbList<LogoutRequest> createRepeated() => $pb.PbList<LogoutRequest>();
-  @$core.pragma('dart2js:noInline')
-  static LogoutRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LogoutRequest>(create);
-  static LogoutRequest? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get refreshToken => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set refreshToken($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasRefreshToken() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearRefreshToken() => clearField(1);
-}
-
-class LogoutResponse extends $pb.GeneratedMessage {
-  factory LogoutResponse() => create();
-  LogoutResponse._() : super();
-  factory LogoutResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory LogoutResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LogoutResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.auth'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  LogoutResponse clone() => LogoutResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  LogoutResponse copyWith(void Function(LogoutResponse) updates) => super.copyWith((message) => updates(message as LogoutResponse)) as LogoutResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static LogoutResponse create() => LogoutResponse._();
-  LogoutResponse createEmptyInstance() => create();
-  static $pb.PbList<LogoutResponse> createRepeated() => $pb.PbList<LogoutResponse>();
-  @$core.pragma('dart2js:noInline')
-  static LogoutResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<LogoutResponse>(create);
-  static LogoutResponse? _defaultInstance;
-}
-
 class RefreshTokenRequest extends $pb.GeneratedMessage {
   factory RefreshTokenRequest({
     $core.String? refreshToken,
@@ -387,38 +305,6 @@ class RegisterRequest extends $pb.GeneratedMessage {
   void clearPassword() => clearField(2);
 }
 
-class RegisterResponse extends $pb.GeneratedMessage {
-  factory RegisterResponse() => create();
-  RegisterResponse._() : super();
-  factory RegisterResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory RegisterResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RegisterResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.auth'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  RegisterResponse clone() => RegisterResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  RegisterResponse copyWith(void Function(RegisterResponse) updates) => super.copyWith((message) => updates(message as RegisterResponse)) as RegisterResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static RegisterResponse create() => RegisterResponse._();
-  RegisterResponse createEmptyInstance() => create();
-  static $pb.PbList<RegisterResponse> createRepeated() => $pb.PbList<RegisterResponse>();
-  @$core.pragma('dart2js:noInline')
-  static RegisterResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RegisterResponse>(create);
-  static RegisterResponse? _defaultInstance;
-}
-
 class NewPasswordRequest extends $pb.GeneratedMessage {
   factory NewPasswordRequest({
     $core.String? email,
@@ -467,38 +353,6 @@ class NewPasswordRequest extends $pb.GeneratedMessage {
   $core.bool hasEmail() => $_has(0);
   @$pb.TagNumber(1)
   void clearEmail() => clearField(1);
-}
-
-class NewPasswordResponse extends $pb.GeneratedMessage {
-  factory NewPasswordResponse() => create();
-  NewPasswordResponse._() : super();
-  factory NewPasswordResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory NewPasswordResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'NewPasswordResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.auth'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  NewPasswordResponse clone() => NewPasswordResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  NewPasswordResponse copyWith(void Function(NewPasswordResponse) updates) => super.copyWith((message) => updates(message as NewPasswordResponse)) as NewPasswordResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static NewPasswordResponse create() => NewPasswordResponse._();
-  NewPasswordResponse createEmptyInstance() => create();
-  static $pb.PbList<NewPasswordResponse> createRepeated() => $pb.PbList<NewPasswordResponse>();
-  @$core.pragma('dart2js:noInline')
-  static NewPasswordResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<NewPasswordResponse>(create);
-  static NewPasswordResponse? _defaultInstance;
 }
 
 class ChangePasswordRequest extends $pb.GeneratedMessage {
@@ -563,38 +417,6 @@ class ChangePasswordRequest extends $pb.GeneratedMessage {
   $core.bool hasNewPassword() => $_has(1);
   @$pb.TagNumber(2)
   void clearNewPassword() => clearField(2);
-}
-
-class ChangePasswordResponse extends $pb.GeneratedMessage {
-  factory ChangePasswordResponse() => create();
-  ChangePasswordResponse._() : super();
-  factory ChangePasswordResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory ChangePasswordResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ChangePasswordResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.auth'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  ChangePasswordResponse clone() => ChangePasswordResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  ChangePasswordResponse copyWith(void Function(ChangePasswordResponse) updates) => super.copyWith((message) => updates(message as ChangePasswordResponse)) as ChangePasswordResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static ChangePasswordResponse create() => ChangePasswordResponse._();
-  ChangePasswordResponse createEmptyInstance() => create();
-  static $pb.PbList<ChangePasswordResponse> createRepeated() => $pb.PbList<ChangePasswordResponse>();
-  @$core.pragma('dart2js:noInline')
-  static ChangePasswordResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ChangePasswordResponse>(create);
-  static ChangePasswordResponse? _defaultInstance;
 }
 
 

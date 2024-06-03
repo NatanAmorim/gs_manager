@@ -15,48 +15,49 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'product.pb.dart' as $10;
+import 'custom_types/void.pb.dart' as $1;
+import 'product.pb.dart' as $11;
 
 export 'product.pb.dart';
 
 @$pb.GrpcServiceName('protos.product.ProductService')
 class ProductServiceClient extends $grpc.Client {
-  static final _$getAllAsync = $grpc.ClientMethod<$10.GetAllProductsRequest, $10.GetAllProductsResponse>(
+  static final _$getAllAsync = $grpc.ClientMethod<$1.Void, $11.GetAllProductsResponse>(
       '/protos.product.ProductService/GetAllAsync',
-      ($10.GetAllProductsRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $10.GetAllProductsResponse.fromBuffer(value));
-  static final _$getByIdAsync = $grpc.ClientMethod<$10.GetProductByIdRequest, $10.GetProductByIdResponse>(
+      ($1.Void value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $11.GetAllProductsResponse.fromBuffer(value));
+  static final _$getByIdAsync = $grpc.ClientMethod<$11.GetProductByIdRequest, $11.GetProductByIdResponse>(
       '/protos.product.ProductService/GetByIdAsync',
-      ($10.GetProductByIdRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $10.GetProductByIdResponse.fromBuffer(value));
-  static final _$postAsync = $grpc.ClientMethod<$10.CreateProductRequest, $10.CreateProductResponse>(
+      ($11.GetProductByIdRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $11.GetProductByIdResponse.fromBuffer(value));
+  static final _$postAsync = $grpc.ClientMethod<$11.CreateProductRequest, $1.Void>(
       '/protos.product.ProductService/PostAsync',
-      ($10.CreateProductRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $10.CreateProductResponse.fromBuffer(value));
-  static final _$putAsync = $grpc.ClientMethod<$10.UpdateProductRequest, $10.UpdateProductResponse>(
+      ($11.CreateProductRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+  static final _$putAsync = $grpc.ClientMethod<$11.UpdateProductRequest, $1.Void>(
       '/protos.product.ProductService/PutAsync',
-      ($10.UpdateProductRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $10.UpdateProductResponse.fromBuffer(value));
-  static final _$deleteAsync = $grpc.ClientMethod<$10.DeleteProductRequest, $10.DeleteProductResponse>(
+      ($11.UpdateProductRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+  static final _$deleteAsync = $grpc.ClientMethod<$11.DeleteProductRequest, $1.Void>(
       '/protos.product.ProductService/DeleteAsync',
-      ($10.DeleteProductRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $10.DeleteProductResponse.fromBuffer(value));
-  static final _$getAllBrandsAsync = $grpc.ClientMethod<$10.GetAllProductBrandsRequest, $10.GetAllProductBrandsResponse>(
+      ($11.DeleteProductRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+  static final _$getAllBrandsAsync = $grpc.ClientMethod<$1.Void, $11.GetAllProductBrandsResponse>(
       '/protos.product.ProductService/GetAllBrandsAsync',
-      ($10.GetAllProductBrandsRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $10.GetAllProductBrandsResponse.fromBuffer(value));
-  static final _$postBrandAsync = $grpc.ClientMethod<$10.CreateProductBrandRequest, $10.CreateProductBrandResponse>(
+      ($1.Void value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $11.GetAllProductBrandsResponse.fromBuffer(value));
+  static final _$postBrandAsync = $grpc.ClientMethod<$11.CreateProductBrandRequest, $1.Void>(
       '/protos.product.ProductService/PostBrandAsync',
-      ($10.CreateProductBrandRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $10.CreateProductBrandResponse.fromBuffer(value));
-  static final _$getAllCategoriesAsync = $grpc.ClientMethod<$10.GetAllProductCategoriesRequest, $10.GetAllProductCategoriesResponse>(
+      ($11.CreateProductBrandRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+  static final _$getAllCategoriesAsync = $grpc.ClientMethod<$1.Void, $11.GetAllProductCategoriesResponse>(
       '/protos.product.ProductService/GetAllCategoriesAsync',
-      ($10.GetAllProductCategoriesRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $10.GetAllProductCategoriesResponse.fromBuffer(value));
-  static final _$postCategoryAsync = $grpc.ClientMethod<$10.CreateProductCategoryRequest, $10.CreateProductCategoryResponse>(
+      ($1.Void value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $11.GetAllProductCategoriesResponse.fromBuffer(value));
+  static final _$postCategoryAsync = $grpc.ClientMethod<$11.CreateProductCategoryRequest, $1.Void>(
       '/protos.product.ProductService/PostCategoryAsync',
-      ($10.CreateProductCategoryRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $10.CreateProductCategoryResponse.fromBuffer(value));
+      ($11.CreateProductCategoryRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
 
   ProductServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -64,39 +65,39 @@ class ProductServiceClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$10.GetAllProductsResponse> getAllAsync($10.GetAllProductsRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$11.GetAllProductsResponse> getAllAsync($1.Void request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getAllAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$10.GetProductByIdResponse> getByIdAsync($10.GetProductByIdRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$11.GetProductByIdResponse> getByIdAsync($11.GetProductByIdRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$10.CreateProductResponse> postAsync($10.CreateProductRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.Void> postAsync($11.CreateProductRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$postAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$10.UpdateProductResponse> putAsync($10.UpdateProductRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.Void> putAsync($11.UpdateProductRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$10.DeleteProductResponse> deleteAsync($10.DeleteProductRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.Void> deleteAsync($11.DeleteProductRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$10.GetAllProductBrandsResponse> getAllBrandsAsync($10.GetAllProductBrandsRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$11.GetAllProductBrandsResponse> getAllBrandsAsync($1.Void request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getAllBrandsAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$10.CreateProductBrandResponse> postBrandAsync($10.CreateProductBrandRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.Void> postBrandAsync($11.CreateProductBrandRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$postBrandAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$10.GetAllProductCategoriesResponse> getAllCategoriesAsync($10.GetAllProductCategoriesRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$11.GetAllProductCategoriesResponse> getAllCategoriesAsync($1.Void request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getAllCategoriesAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$10.CreateProductCategoryResponse> postCategoryAsync($10.CreateProductCategoryRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.Void> postCategoryAsync($11.CreateProductCategoryRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$postCategoryAsync, request, options: options);
   }
 }
@@ -106,114 +107,114 @@ abstract class ProductServiceBase extends $grpc.Service {
   $core.String get $name => 'protos.product.ProductService';
 
   ProductServiceBase() {
-    $addMethod($grpc.ServiceMethod<$10.GetAllProductsRequest, $10.GetAllProductsResponse>(
+    $addMethod($grpc.ServiceMethod<$1.Void, $11.GetAllProductsResponse>(
         'GetAllAsync',
         getAllAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $10.GetAllProductsRequest.fromBuffer(value),
-        ($10.GetAllProductsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$10.GetProductByIdRequest, $10.GetProductByIdResponse>(
+        ($core.List<$core.int> value) => $1.Void.fromBuffer(value),
+        ($11.GetAllProductsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$11.GetProductByIdRequest, $11.GetProductByIdResponse>(
         'GetByIdAsync',
         getByIdAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $10.GetProductByIdRequest.fromBuffer(value),
-        ($10.GetProductByIdResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$10.CreateProductRequest, $10.CreateProductResponse>(
+        ($core.List<$core.int> value) => $11.GetProductByIdRequest.fromBuffer(value),
+        ($11.GetProductByIdResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$11.CreateProductRequest, $1.Void>(
         'PostAsync',
         postAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $10.CreateProductRequest.fromBuffer(value),
-        ($10.CreateProductResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$10.UpdateProductRequest, $10.UpdateProductResponse>(
+        ($core.List<$core.int> value) => $11.CreateProductRequest.fromBuffer(value),
+        ($1.Void value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$11.UpdateProductRequest, $1.Void>(
         'PutAsync',
         putAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $10.UpdateProductRequest.fromBuffer(value),
-        ($10.UpdateProductResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$10.DeleteProductRequest, $10.DeleteProductResponse>(
+        ($core.List<$core.int> value) => $11.UpdateProductRequest.fromBuffer(value),
+        ($1.Void value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$11.DeleteProductRequest, $1.Void>(
         'DeleteAsync',
         deleteAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $10.DeleteProductRequest.fromBuffer(value),
-        ($10.DeleteProductResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$10.GetAllProductBrandsRequest, $10.GetAllProductBrandsResponse>(
+        ($core.List<$core.int> value) => $11.DeleteProductRequest.fromBuffer(value),
+        ($1.Void value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.Void, $11.GetAllProductBrandsResponse>(
         'GetAllBrandsAsync',
         getAllBrandsAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $10.GetAllProductBrandsRequest.fromBuffer(value),
-        ($10.GetAllProductBrandsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$10.CreateProductBrandRequest, $10.CreateProductBrandResponse>(
+        ($core.List<$core.int> value) => $1.Void.fromBuffer(value),
+        ($11.GetAllProductBrandsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$11.CreateProductBrandRequest, $1.Void>(
         'PostBrandAsync',
         postBrandAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $10.CreateProductBrandRequest.fromBuffer(value),
-        ($10.CreateProductBrandResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$10.GetAllProductCategoriesRequest, $10.GetAllProductCategoriesResponse>(
+        ($core.List<$core.int> value) => $11.CreateProductBrandRequest.fromBuffer(value),
+        ($1.Void value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$1.Void, $11.GetAllProductCategoriesResponse>(
         'GetAllCategoriesAsync',
         getAllCategoriesAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $10.GetAllProductCategoriesRequest.fromBuffer(value),
-        ($10.GetAllProductCategoriesResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$10.CreateProductCategoryRequest, $10.CreateProductCategoryResponse>(
+        ($core.List<$core.int> value) => $1.Void.fromBuffer(value),
+        ($11.GetAllProductCategoriesResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$11.CreateProductCategoryRequest, $1.Void>(
         'PostCategoryAsync',
         postCategoryAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $10.CreateProductCategoryRequest.fromBuffer(value),
-        ($10.CreateProductCategoryResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $11.CreateProductCategoryRequest.fromBuffer(value),
+        ($1.Void value) => value.writeToBuffer()));
   }
 
-  $async.Future<$10.GetAllProductsResponse> getAllAsync_Pre($grpc.ServiceCall call, $async.Future<$10.GetAllProductsRequest> request) async {
+  $async.Future<$11.GetAllProductsResponse> getAllAsync_Pre($grpc.ServiceCall call, $async.Future<$1.Void> request) async {
     return getAllAsync(call, await request);
   }
 
-  $async.Future<$10.GetProductByIdResponse> getByIdAsync_Pre($grpc.ServiceCall call, $async.Future<$10.GetProductByIdRequest> request) async {
+  $async.Future<$11.GetProductByIdResponse> getByIdAsync_Pre($grpc.ServiceCall call, $async.Future<$11.GetProductByIdRequest> request) async {
     return getByIdAsync(call, await request);
   }
 
-  $async.Future<$10.CreateProductResponse> postAsync_Pre($grpc.ServiceCall call, $async.Future<$10.CreateProductRequest> request) async {
+  $async.Future<$1.Void> postAsync_Pre($grpc.ServiceCall call, $async.Future<$11.CreateProductRequest> request) async {
     return postAsync(call, await request);
   }
 
-  $async.Future<$10.UpdateProductResponse> putAsync_Pre($grpc.ServiceCall call, $async.Future<$10.UpdateProductRequest> request) async {
+  $async.Future<$1.Void> putAsync_Pre($grpc.ServiceCall call, $async.Future<$11.UpdateProductRequest> request) async {
     return putAsync(call, await request);
   }
 
-  $async.Future<$10.DeleteProductResponse> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$10.DeleteProductRequest> request) async {
+  $async.Future<$1.Void> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$11.DeleteProductRequest> request) async {
     return deleteAsync(call, await request);
   }
 
-  $async.Future<$10.GetAllProductBrandsResponse> getAllBrandsAsync_Pre($grpc.ServiceCall call, $async.Future<$10.GetAllProductBrandsRequest> request) async {
+  $async.Future<$11.GetAllProductBrandsResponse> getAllBrandsAsync_Pre($grpc.ServiceCall call, $async.Future<$1.Void> request) async {
     return getAllBrandsAsync(call, await request);
   }
 
-  $async.Future<$10.CreateProductBrandResponse> postBrandAsync_Pre($grpc.ServiceCall call, $async.Future<$10.CreateProductBrandRequest> request) async {
+  $async.Future<$1.Void> postBrandAsync_Pre($grpc.ServiceCall call, $async.Future<$11.CreateProductBrandRequest> request) async {
     return postBrandAsync(call, await request);
   }
 
-  $async.Future<$10.GetAllProductCategoriesResponse> getAllCategoriesAsync_Pre($grpc.ServiceCall call, $async.Future<$10.GetAllProductCategoriesRequest> request) async {
+  $async.Future<$11.GetAllProductCategoriesResponse> getAllCategoriesAsync_Pre($grpc.ServiceCall call, $async.Future<$1.Void> request) async {
     return getAllCategoriesAsync(call, await request);
   }
 
-  $async.Future<$10.CreateProductCategoryResponse> postCategoryAsync_Pre($grpc.ServiceCall call, $async.Future<$10.CreateProductCategoryRequest> request) async {
+  $async.Future<$1.Void> postCategoryAsync_Pre($grpc.ServiceCall call, $async.Future<$11.CreateProductCategoryRequest> request) async {
     return postCategoryAsync(call, await request);
   }
 
-  $async.Future<$10.GetAllProductsResponse> getAllAsync($grpc.ServiceCall call, $10.GetAllProductsRequest request);
-  $async.Future<$10.GetProductByIdResponse> getByIdAsync($grpc.ServiceCall call, $10.GetProductByIdRequest request);
-  $async.Future<$10.CreateProductResponse> postAsync($grpc.ServiceCall call, $10.CreateProductRequest request);
-  $async.Future<$10.UpdateProductResponse> putAsync($grpc.ServiceCall call, $10.UpdateProductRequest request);
-  $async.Future<$10.DeleteProductResponse> deleteAsync($grpc.ServiceCall call, $10.DeleteProductRequest request);
-  $async.Future<$10.GetAllProductBrandsResponse> getAllBrandsAsync($grpc.ServiceCall call, $10.GetAllProductBrandsRequest request);
-  $async.Future<$10.CreateProductBrandResponse> postBrandAsync($grpc.ServiceCall call, $10.CreateProductBrandRequest request);
-  $async.Future<$10.GetAllProductCategoriesResponse> getAllCategoriesAsync($grpc.ServiceCall call, $10.GetAllProductCategoriesRequest request);
-  $async.Future<$10.CreateProductCategoryResponse> postCategoryAsync($grpc.ServiceCall call, $10.CreateProductCategoryRequest request);
+  $async.Future<$11.GetAllProductsResponse> getAllAsync($grpc.ServiceCall call, $1.Void request);
+  $async.Future<$11.GetProductByIdResponse> getByIdAsync($grpc.ServiceCall call, $11.GetProductByIdRequest request);
+  $async.Future<$1.Void> postAsync($grpc.ServiceCall call, $11.CreateProductRequest request);
+  $async.Future<$1.Void> putAsync($grpc.ServiceCall call, $11.UpdateProductRequest request);
+  $async.Future<$1.Void> deleteAsync($grpc.ServiceCall call, $11.DeleteProductRequest request);
+  $async.Future<$11.GetAllProductBrandsResponse> getAllBrandsAsync($grpc.ServiceCall call, $1.Void request);
+  $async.Future<$1.Void> postBrandAsync($grpc.ServiceCall call, $11.CreateProductBrandRequest request);
+  $async.Future<$11.GetAllProductCategoriesResponse> getAllCategoriesAsync($grpc.ServiceCall call, $1.Void request);
+  $async.Future<$1.Void> postCategoryAsync($grpc.ServiceCall call, $11.CreateProductCategoryRequest request);
 }

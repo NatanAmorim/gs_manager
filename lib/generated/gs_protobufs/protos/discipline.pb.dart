@@ -13,14 +13,14 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/wrappers.pb.dart' as $17;
-import 'custom_types/day_of_week.pbenum.dart' as $20;
-import 'custom_types/decimal_value.pb.dart' as $18;
-import 'custom_types/time_of_day.pb.dart' as $19;
+import '../../google/protobuf/wrappers.pb.dart' as $18;
+import 'custom_types/day_of_week.pbenum.dart' as $21;
+import 'custom_types/decimal_value.pb.dart' as $19;
+import 'custom_types/time_of_day.pb.dart' as $20;
 
 class GetPaginatedDisciplinesRequest extends $pb.GeneratedMessage {
   factory GetPaginatedDisciplinesRequest({
-    $17.StringValue? cursor,
+    $18.StringValue? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -33,7 +33,7 @@ class GetPaginatedDisciplinesRequest extends $pb.GeneratedMessage {
   factory GetPaginatedDisciplinesRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedDisciplinesRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.discipline'), createEmptyInstance: create)
-    ..aOM<$17.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $17.StringValue.create)
+    ..aOM<$18.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $18.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -59,21 +59,21 @@ class GetPaginatedDisciplinesRequest extends $pb.GeneratedMessage {
   static GetPaginatedDisciplinesRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $17.StringValue get cursor => $_getN(0);
+  $18.StringValue get cursor => $_getN(0);
   @$pb.TagNumber(1)
-  set cursor($17.StringValue v) { setField(1, v); }
+  set cursor($18.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
   void clearCursor() => clearField(1);
   @$pb.TagNumber(1)
-  $17.StringValue ensureCursor() => $_ensure(0);
+  $18.StringValue ensureCursor() => $_ensure(0);
 }
 
 class GetPaginatedDisciplinesResponse extends $pb.GeneratedMessage {
   factory GetPaginatedDisciplinesResponse({
     $core.Iterable<GetDisciplineByIdResponse>? disciplines,
-    $17.StringValue? nextCursor,
+    $18.StringValue? nextCursor,
   }) {
     final $result = create();
     if (disciplines != null) {
@@ -90,7 +90,7 @@ class GetPaginatedDisciplinesResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedDisciplinesResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.discipline'), createEmptyInstance: create)
     ..pc<GetDisciplineByIdResponse>(1, _omitFieldNames ? '' : 'disciplines', $pb.PbFieldType.PM, subBuilder: GetDisciplineByIdResponse.create)
-    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.StringValue.create)
+    ..aOM<$18.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $18.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -119,15 +119,15 @@ class GetPaginatedDisciplinesResponse extends $pb.GeneratedMessage {
   $core.List<GetDisciplineByIdResponse> get disciplines => $_getList(0);
 
   @$pb.TagNumber(2)
-  $17.StringValue get nextCursor => $_getN(1);
+  $18.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($17.StringValue v) { setField(2, v); }
+  set nextCursor($18.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $17.StringValue ensureNextCursor() => $_ensure(1);
+  $18.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetDisciplineByIdRequest extends $pb.GeneratedMessage {
@@ -184,11 +184,11 @@ class GetDisciplineByIdResponse extends $pb.GeneratedMessage {
   factory GetDisciplineByIdResponse({
     $core.String? disciplineId,
     $core.String? name,
-    $18.DecimalValue? tuitionPrice,
+    $19.DecimalValue? tuitionPrice,
     $core.String? instructorId,
-    $19.TimeOfDay? startTime,
-    $19.TimeOfDay? endTime,
-    $core.Iterable<$20.DayOfWeek>? classDays,
+    $20.TimeOfDay? startTime,
+    $20.TimeOfDay? endTime,
+    $core.Iterable<$21.DayOfWeek>? classDays,
     $core.bool? isActive,
   }) {
     final $result = create();
@@ -225,11 +225,11 @@ class GetDisciplineByIdResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetDisciplineByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.discipline'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'disciplineId')
     ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..aOM<$18.DecimalValue>(3, _omitFieldNames ? '' : 'tuitionPrice', subBuilder: $18.DecimalValue.create)
+    ..aOM<$19.DecimalValue>(3, _omitFieldNames ? '' : 'tuitionPrice', subBuilder: $19.DecimalValue.create)
     ..aOS(4, _omitFieldNames ? '' : 'instructorId')
-    ..aOM<$19.TimeOfDay>(5, _omitFieldNames ? '' : 'startTime', subBuilder: $19.TimeOfDay.create)
-    ..aOM<$19.TimeOfDay>(6, _omitFieldNames ? '' : 'endTime', subBuilder: $19.TimeOfDay.create)
-    ..pc<$20.DayOfWeek>(7, _omitFieldNames ? '' : 'classDays', $pb.PbFieldType.KE, valueOf: $20.DayOfWeek.valueOf, enumValues: $20.DayOfWeek.values, defaultEnumValue: $20.DayOfWeek.DAY_OF_WEEK_SUNDAY)
+    ..aOM<$20.TimeOfDay>(5, _omitFieldNames ? '' : 'startTime', subBuilder: $20.TimeOfDay.create)
+    ..aOM<$20.TimeOfDay>(6, _omitFieldNames ? '' : 'endTime', subBuilder: $20.TimeOfDay.create)
+    ..pc<$21.DayOfWeek>(7, _omitFieldNames ? '' : 'classDays', $pb.PbFieldType.KE, valueOf: $21.DayOfWeek.valueOf, enumValues: $21.DayOfWeek.values, defaultEnumValue: $21.DayOfWeek.DAY_OF_WEEK_SUNDAY)
     ..aOB(8, _omitFieldNames ? '' : 'isActive')
     ..hasRequiredFields = false
   ;
@@ -274,15 +274,15 @@ class GetDisciplineByIdResponse extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $18.DecimalValue get tuitionPrice => $_getN(2);
+  $19.DecimalValue get tuitionPrice => $_getN(2);
   @$pb.TagNumber(3)
-  set tuitionPrice($18.DecimalValue v) { setField(3, v); }
+  set tuitionPrice($19.DecimalValue v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasTuitionPrice() => $_has(2);
   @$pb.TagNumber(3)
   void clearTuitionPrice() => clearField(3);
   @$pb.TagNumber(3)
-  $18.DecimalValue ensureTuitionPrice() => $_ensure(2);
+  $19.DecimalValue ensureTuitionPrice() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $core.String get instructorId => $_getSZ(3);
@@ -294,29 +294,29 @@ class GetDisciplineByIdResponse extends $pb.GeneratedMessage {
   void clearInstructorId() => clearField(4);
 
   @$pb.TagNumber(5)
-  $19.TimeOfDay get startTime => $_getN(4);
+  $20.TimeOfDay get startTime => $_getN(4);
   @$pb.TagNumber(5)
-  set startTime($19.TimeOfDay v) { setField(5, v); }
+  set startTime($20.TimeOfDay v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasStartTime() => $_has(4);
   @$pb.TagNumber(5)
   void clearStartTime() => clearField(5);
   @$pb.TagNumber(5)
-  $19.TimeOfDay ensureStartTime() => $_ensure(4);
+  $20.TimeOfDay ensureStartTime() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $19.TimeOfDay get endTime => $_getN(5);
+  $20.TimeOfDay get endTime => $_getN(5);
   @$pb.TagNumber(6)
-  set endTime($19.TimeOfDay v) { setField(6, v); }
+  set endTime($20.TimeOfDay v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasEndTime() => $_has(5);
   @$pb.TagNumber(6)
   void clearEndTime() => clearField(6);
   @$pb.TagNumber(6)
-  $19.TimeOfDay ensureEndTime() => $_ensure(5);
+  $20.TimeOfDay ensureEndTime() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $core.List<$20.DayOfWeek> get classDays => $_getList(6);
+  $core.List<$21.DayOfWeek> get classDays => $_getList(6);
 
   @$pb.TagNumber(8)
   $core.bool get isActive => $_getBF(7);
@@ -331,12 +331,12 @@ class GetDisciplineByIdResponse extends $pb.GeneratedMessage {
 class CreateDisciplineRequest extends $pb.GeneratedMessage {
   factory CreateDisciplineRequest({
     $core.String? name,
-    $18.DecimalValue? tuitionPrice,
+    $19.DecimalValue? tuitionPrice,
     $core.String? instructorId,
-    $19.TimeOfDay? startTime,
-    $19.TimeOfDay? endTime,
-    $core.Iterable<$20.DayOfWeek>? classDays,
-    $17.BoolValue? isActive,
+    $20.TimeOfDay? startTime,
+    $20.TimeOfDay? endTime,
+    $core.Iterable<$21.DayOfWeek>? classDays,
+    $18.BoolValue? isActive,
   }) {
     final $result = create();
     if (name != null) {
@@ -368,12 +368,12 @@ class CreateDisciplineRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateDisciplineRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.discipline'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'name')
-    ..aOM<$18.DecimalValue>(2, _omitFieldNames ? '' : 'tuitionPrice', subBuilder: $18.DecimalValue.create)
+    ..aOM<$19.DecimalValue>(2, _omitFieldNames ? '' : 'tuitionPrice', subBuilder: $19.DecimalValue.create)
     ..aOS(3, _omitFieldNames ? '' : 'instructorId')
-    ..aOM<$19.TimeOfDay>(4, _omitFieldNames ? '' : 'startTime', subBuilder: $19.TimeOfDay.create)
-    ..aOM<$19.TimeOfDay>(5, _omitFieldNames ? '' : 'endTime', subBuilder: $19.TimeOfDay.create)
-    ..pc<$20.DayOfWeek>(6, _omitFieldNames ? '' : 'classDays', $pb.PbFieldType.KE, valueOf: $20.DayOfWeek.valueOf, enumValues: $20.DayOfWeek.values, defaultEnumValue: $20.DayOfWeek.DAY_OF_WEEK_SUNDAY)
-    ..aOM<$17.BoolValue>(7, _omitFieldNames ? '' : 'isActive', subBuilder: $17.BoolValue.create)
+    ..aOM<$20.TimeOfDay>(4, _omitFieldNames ? '' : 'startTime', subBuilder: $20.TimeOfDay.create)
+    ..aOM<$20.TimeOfDay>(5, _omitFieldNames ? '' : 'endTime', subBuilder: $20.TimeOfDay.create)
+    ..pc<$21.DayOfWeek>(6, _omitFieldNames ? '' : 'classDays', $pb.PbFieldType.KE, valueOf: $21.DayOfWeek.valueOf, enumValues: $21.DayOfWeek.values, defaultEnumValue: $21.DayOfWeek.DAY_OF_WEEK_SUNDAY)
+    ..aOM<$18.BoolValue>(7, _omitFieldNames ? '' : 'isActive', subBuilder: $18.BoolValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -408,15 +408,15 @@ class CreateDisciplineRequest extends $pb.GeneratedMessage {
   void clearName() => clearField(1);
 
   @$pb.TagNumber(2)
-  $18.DecimalValue get tuitionPrice => $_getN(1);
+  $19.DecimalValue get tuitionPrice => $_getN(1);
   @$pb.TagNumber(2)
-  set tuitionPrice($18.DecimalValue v) { setField(2, v); }
+  set tuitionPrice($19.DecimalValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasTuitionPrice() => $_has(1);
   @$pb.TagNumber(2)
   void clearTuitionPrice() => clearField(2);
   @$pb.TagNumber(2)
-  $18.DecimalValue ensureTuitionPrice() => $_ensure(1);
+  $19.DecimalValue ensureTuitionPrice() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.String get instructorId => $_getSZ(2);
@@ -428,83 +428,51 @@ class CreateDisciplineRequest extends $pb.GeneratedMessage {
   void clearInstructorId() => clearField(3);
 
   @$pb.TagNumber(4)
-  $19.TimeOfDay get startTime => $_getN(3);
+  $20.TimeOfDay get startTime => $_getN(3);
   @$pb.TagNumber(4)
-  set startTime($19.TimeOfDay v) { setField(4, v); }
+  set startTime($20.TimeOfDay v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasStartTime() => $_has(3);
   @$pb.TagNumber(4)
   void clearStartTime() => clearField(4);
   @$pb.TagNumber(4)
-  $19.TimeOfDay ensureStartTime() => $_ensure(3);
+  $20.TimeOfDay ensureStartTime() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  $19.TimeOfDay get endTime => $_getN(4);
+  $20.TimeOfDay get endTime => $_getN(4);
   @$pb.TagNumber(5)
-  set endTime($19.TimeOfDay v) { setField(5, v); }
+  set endTime($20.TimeOfDay v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasEndTime() => $_has(4);
   @$pb.TagNumber(5)
   void clearEndTime() => clearField(5);
   @$pb.TagNumber(5)
-  $19.TimeOfDay ensureEndTime() => $_ensure(4);
+  $20.TimeOfDay ensureEndTime() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $core.List<$20.DayOfWeek> get classDays => $_getList(5);
+  $core.List<$21.DayOfWeek> get classDays => $_getList(5);
 
   @$pb.TagNumber(7)
-  $17.BoolValue get isActive => $_getN(6);
+  $18.BoolValue get isActive => $_getN(6);
   @$pb.TagNumber(7)
-  set isActive($17.BoolValue v) { setField(7, v); }
+  set isActive($18.BoolValue v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasIsActive() => $_has(6);
   @$pb.TagNumber(7)
   void clearIsActive() => clearField(7);
   @$pb.TagNumber(7)
-  $17.BoolValue ensureIsActive() => $_ensure(6);
-}
-
-class CreateDisciplineResponse extends $pb.GeneratedMessage {
-  factory CreateDisciplineResponse() => create();
-  CreateDisciplineResponse._() : super();
-  factory CreateDisciplineResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CreateDisciplineResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateDisciplineResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.discipline'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  CreateDisciplineResponse clone() => CreateDisciplineResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  CreateDisciplineResponse copyWith(void Function(CreateDisciplineResponse) updates) => super.copyWith((message) => updates(message as CreateDisciplineResponse)) as CreateDisciplineResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static CreateDisciplineResponse create() => CreateDisciplineResponse._();
-  CreateDisciplineResponse createEmptyInstance() => create();
-  static $pb.PbList<CreateDisciplineResponse> createRepeated() => $pb.PbList<CreateDisciplineResponse>();
-  @$core.pragma('dart2js:noInline')
-  static CreateDisciplineResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateDisciplineResponse>(create);
-  static CreateDisciplineResponse? _defaultInstance;
+  $18.BoolValue ensureIsActive() => $_ensure(6);
 }
 
 class UpdateDisciplineRequest extends $pb.GeneratedMessage {
   factory UpdateDisciplineRequest({
     $core.String? disciplineId,
     $core.String? name,
-    $18.DecimalValue? tuitionPrice,
+    $19.DecimalValue? tuitionPrice,
     $core.String? instructorId,
-    $19.TimeOfDay? startTime,
-    $19.TimeOfDay? endTime,
-    $core.Iterable<$20.DayOfWeek>? classDays,
+    $20.TimeOfDay? startTime,
+    $20.TimeOfDay? endTime,
+    $core.Iterable<$21.DayOfWeek>? classDays,
     $core.bool? isActive,
   }) {
     final $result = create();
@@ -541,11 +509,11 @@ class UpdateDisciplineRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateDisciplineRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.discipline'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'disciplineId')
     ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..aOM<$18.DecimalValue>(3, _omitFieldNames ? '' : 'tuitionPrice', subBuilder: $18.DecimalValue.create)
+    ..aOM<$19.DecimalValue>(3, _omitFieldNames ? '' : 'tuitionPrice', subBuilder: $19.DecimalValue.create)
     ..aOS(4, _omitFieldNames ? '' : 'instructorId')
-    ..aOM<$19.TimeOfDay>(5, _omitFieldNames ? '' : 'startTime', subBuilder: $19.TimeOfDay.create)
-    ..aOM<$19.TimeOfDay>(6, _omitFieldNames ? '' : 'endTime', subBuilder: $19.TimeOfDay.create)
-    ..pc<$20.DayOfWeek>(7, _omitFieldNames ? '' : 'classDays', $pb.PbFieldType.KE, valueOf: $20.DayOfWeek.valueOf, enumValues: $20.DayOfWeek.values, defaultEnumValue: $20.DayOfWeek.DAY_OF_WEEK_SUNDAY)
+    ..aOM<$20.TimeOfDay>(5, _omitFieldNames ? '' : 'startTime', subBuilder: $20.TimeOfDay.create)
+    ..aOM<$20.TimeOfDay>(6, _omitFieldNames ? '' : 'endTime', subBuilder: $20.TimeOfDay.create)
+    ..pc<$21.DayOfWeek>(7, _omitFieldNames ? '' : 'classDays', $pb.PbFieldType.KE, valueOf: $21.DayOfWeek.valueOf, enumValues: $21.DayOfWeek.values, defaultEnumValue: $21.DayOfWeek.DAY_OF_WEEK_SUNDAY)
     ..aOB(8, _omitFieldNames ? '' : 'isActive')
     ..hasRequiredFields = false
   ;
@@ -590,15 +558,15 @@ class UpdateDisciplineRequest extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $18.DecimalValue get tuitionPrice => $_getN(2);
+  $19.DecimalValue get tuitionPrice => $_getN(2);
   @$pb.TagNumber(3)
-  set tuitionPrice($18.DecimalValue v) { setField(3, v); }
+  set tuitionPrice($19.DecimalValue v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasTuitionPrice() => $_has(2);
   @$pb.TagNumber(3)
   void clearTuitionPrice() => clearField(3);
   @$pb.TagNumber(3)
-  $18.DecimalValue ensureTuitionPrice() => $_ensure(2);
+  $19.DecimalValue ensureTuitionPrice() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $core.String get instructorId => $_getSZ(3);
@@ -610,29 +578,29 @@ class UpdateDisciplineRequest extends $pb.GeneratedMessage {
   void clearInstructorId() => clearField(4);
 
   @$pb.TagNumber(5)
-  $19.TimeOfDay get startTime => $_getN(4);
+  $20.TimeOfDay get startTime => $_getN(4);
   @$pb.TagNumber(5)
-  set startTime($19.TimeOfDay v) { setField(5, v); }
+  set startTime($20.TimeOfDay v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasStartTime() => $_has(4);
   @$pb.TagNumber(5)
   void clearStartTime() => clearField(5);
   @$pb.TagNumber(5)
-  $19.TimeOfDay ensureStartTime() => $_ensure(4);
+  $20.TimeOfDay ensureStartTime() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $19.TimeOfDay get endTime => $_getN(5);
+  $20.TimeOfDay get endTime => $_getN(5);
   @$pb.TagNumber(6)
-  set endTime($19.TimeOfDay v) { setField(6, v); }
+  set endTime($20.TimeOfDay v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasEndTime() => $_has(5);
   @$pb.TagNumber(6)
   void clearEndTime() => clearField(6);
   @$pb.TagNumber(6)
-  $19.TimeOfDay ensureEndTime() => $_ensure(5);
+  $20.TimeOfDay ensureEndTime() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $core.List<$20.DayOfWeek> get classDays => $_getList(6);
+  $core.List<$21.DayOfWeek> get classDays => $_getList(6);
 
   @$pb.TagNumber(8)
   $core.bool get isActive => $_getBF(7);
@@ -642,38 +610,6 @@ class UpdateDisciplineRequest extends $pb.GeneratedMessage {
   $core.bool hasIsActive() => $_has(7);
   @$pb.TagNumber(8)
   void clearIsActive() => clearField(8);
-}
-
-class UpdateDisciplineResponse extends $pb.GeneratedMessage {
-  factory UpdateDisciplineResponse() => create();
-  UpdateDisciplineResponse._() : super();
-  factory UpdateDisciplineResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory UpdateDisciplineResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateDisciplineResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.discipline'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  UpdateDisciplineResponse clone() => UpdateDisciplineResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  UpdateDisciplineResponse copyWith(void Function(UpdateDisciplineResponse) updates) => super.copyWith((message) => updates(message as UpdateDisciplineResponse)) as UpdateDisciplineResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static UpdateDisciplineResponse create() => UpdateDisciplineResponse._();
-  UpdateDisciplineResponse createEmptyInstance() => create();
-  static $pb.PbList<UpdateDisciplineResponse> createRepeated() => $pb.PbList<UpdateDisciplineResponse>();
-  @$core.pragma('dart2js:noInline')
-  static UpdateDisciplineResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateDisciplineResponse>(create);
-  static UpdateDisciplineResponse? _defaultInstance;
 }
 
 class DeleteDisciplineRequest extends $pb.GeneratedMessage {
@@ -724,38 +660,6 @@ class DeleteDisciplineRequest extends $pb.GeneratedMessage {
   $core.bool hasDisciplineId() => $_has(0);
   @$pb.TagNumber(1)
   void clearDisciplineId() => clearField(1);
-}
-
-class DeleteDisciplineResponse extends $pb.GeneratedMessage {
-  factory DeleteDisciplineResponse() => create();
-  DeleteDisciplineResponse._() : super();
-  factory DeleteDisciplineResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory DeleteDisciplineResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteDisciplineResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.discipline'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  DeleteDisciplineResponse clone() => DeleteDisciplineResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  DeleteDisciplineResponse copyWith(void Function(DeleteDisciplineResponse) updates) => super.copyWith((message) => updates(message as DeleteDisciplineResponse)) as DeleteDisciplineResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static DeleteDisciplineResponse create() => DeleteDisciplineResponse._();
-  DeleteDisciplineResponse createEmptyInstance() => create();
-  static $pb.PbList<DeleteDisciplineResponse> createRepeated() => $pb.PbList<DeleteDisciplineResponse>();
-  @$core.pragma('dart2js:noInline')
-  static DeleteDisciplineResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeleteDisciplineResponse>(create);
-  static DeleteDisciplineResponse? _defaultInstance;
 }
 
 

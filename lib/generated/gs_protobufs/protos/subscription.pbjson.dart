@@ -106,15 +106,6 @@ final $typed_data.Uint8List createSubscriptionRequestDescriptor = $convert.base6
     'gLMiguY3VzdG9tX3R5cGVzLmRlY2ltYWxfdmFsdWUuRGVjaW1hbFZhbHVlUgVwcmljZRIbCglp'
     'c19hY3RpdmUYByABKAhSCGlzQWN0aXZl');
 
-@$core.Deprecated('Use createSubscriptionResponseDescriptor instead')
-const CreateSubscriptionResponse$json = {
-  '1': 'CreateSubscriptionResponse',
-};
-
-/// Descriptor for `CreateSubscriptionResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createSubscriptionResponseDescriptor = $convert.base64Decode(
-    'ChpDcmVhdGVTdWJzY3JpcHRpb25SZXNwb25zZQ==');
-
 @$core.Deprecated('Use updateSubscriptionRequestDescriptor instead')
 const UpdateSubscriptionRequest$json = {
   '1': 'UpdateSubscriptionRequest',
@@ -141,15 +132,6 @@ final $typed_data.Uint8List updateSubscriptionRequestDescriptor = $convert.base6
     'ZXMuZGVjaW1hbF92YWx1ZS5EZWNpbWFsVmFsdWVSBXByaWNlEhsKCWlzX2FjdGl2ZRgIIAEoCF'
     'IIaXNBY3RpdmU=');
 
-@$core.Deprecated('Use updateSubscriptionResponseDescriptor instead')
-const UpdateSubscriptionResponse$json = {
-  '1': 'UpdateSubscriptionResponse',
-};
-
-/// Descriptor for `UpdateSubscriptionResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateSubscriptionResponseDescriptor = $convert.base64Decode(
-    'ChpVcGRhdGVTdWJzY3JpcHRpb25SZXNwb25zZQ==');
-
 @$core.Deprecated('Use deleteSubscriptionRequestDescriptor instead')
 const DeleteSubscriptionRequest$json = {
   '1': 'DeleteSubscriptionRequest',
@@ -162,13 +144,4 @@ const DeleteSubscriptionRequest$json = {
 final $typed_data.Uint8List deleteSubscriptionRequestDescriptor = $convert.base64Decode(
     'ChlEZWxldGVTdWJzY3JpcHRpb25SZXF1ZXN0EicKD3N1YnNjcmlwdGlvbl9pZBgBIAEoCVIOc3'
     'Vic2NyaXB0aW9uSWQ=');
-
-@$core.Deprecated('Use deleteSubscriptionResponseDescriptor instead')
-const DeleteSubscriptionResponse$json = {
-  '1': 'DeleteSubscriptionResponse',
-};
-
-/// Descriptor for `DeleteSubscriptionResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteSubscriptionResponseDescriptor = $convert.base64Decode(
-    'ChpEZWxldGVTdWJzY3JpcHRpb25SZXNwb25zZQ==');
 

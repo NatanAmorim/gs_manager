@@ -143,7 +143,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
               OutlinedButton.icon(
                 onPressed: () => _remove(dependente),
                 icon: const Icon(Icons.delete),
-                label: const Text('Excluir Registro'),
+                label: const Text('Remover'),
               ),
             ],
           ),

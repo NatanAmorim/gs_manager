@@ -25,8 +25,6 @@ class CustomerService {
       debugPrint('Caught error: $e');
     }
 
-    await Api.channel.shutdown();
-
     return response;
   }
 
@@ -52,7 +50,6 @@ class CustomerService {
       debugPrint('Caught error: $e');
     }
 
-    await Api.channel.shutdown();
     return isSuccessful;
   }
 
@@ -71,7 +68,6 @@ class CustomerService {
       debugPrint('Caught error: $e');
     }
 
-    await Api.channel.shutdown();
     return isSuccessful;
   }
 }

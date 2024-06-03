@@ -84,15 +84,6 @@ final $typed_data.Uint8List instructorOptionDescriptor = $convert.base64Decode(
     'ChBJbnN0cnVjdG9yT3B0aW9uEiMKDWluc3RydWN0b3JfaWQYASABKAlSDGluc3RydWN0b3JJZB'
     'IzCgZwZXJzb24YAiABKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIGcGVyc29u');
 
-@$core.Deprecated('Use getAllInstructorsOptionsRequestDescriptor instead')
-const GetAllInstructorsOptionsRequest$json = {
-  '1': 'GetAllInstructorsOptionsRequest',
-};
-
-/// Descriptor for `GetAllInstructorsOptionsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getAllInstructorsOptionsRequestDescriptor = $convert.base64Decode(
-    'Ch9HZXRBbGxJbnN0cnVjdG9yc09wdGlvbnNSZXF1ZXN0');
-
 @$core.Deprecated('Use getAllInstructorsOptionsResponseDescriptor instead')
 const GetAllInstructorsOptionsResponse$json = {
   '1': 'GetAllInstructorsOptionsResponse',
@@ -120,15 +111,6 @@ final $typed_data.Uint8List createInstructorRequestDescriptor = $convert.base64D
     'ChdDcmVhdGVJbnN0cnVjdG9yUmVxdWVzdBIzCgZwZXJzb24YASABKAsyGy5jdXN0b21fdHlwZX'
     'MucGVyc29uLlBlcnNvblIGcGVyc29u');
 
-@$core.Deprecated('Use createInstructorResponseDescriptor instead')
-const CreateInstructorResponse$json = {
-  '1': 'CreateInstructorResponse',
-};
-
-/// Descriptor for `CreateInstructorResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createInstructorResponseDescriptor = $convert.base64Decode(
-    'ChhDcmVhdGVJbnN0cnVjdG9yUmVzcG9uc2U=');
-
 @$core.Deprecated('Use updateInstructorRequestDescriptor instead')
 const UpdateInstructorRequest$json = {
   '1': 'UpdateInstructorRequest',
@@ -144,15 +126,6 @@ final $typed_data.Uint8List updateInstructorRequestDescriptor = $convert.base64D
     'VjdG9ySWQSMwoGcGVyc29uGAIgASgLMhsuY3VzdG9tX3R5cGVzLnBlcnNvbi5QZXJzb25SBnBl'
     'cnNvbg==');
 
-@$core.Deprecated('Use updateInstructorResponseDescriptor instead')
-const UpdateInstructorResponse$json = {
-  '1': 'UpdateInstructorResponse',
-};
-
-/// Descriptor for `UpdateInstructorResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateInstructorResponseDescriptor = $convert.base64Decode(
-    'ChhVcGRhdGVJbnN0cnVjdG9yUmVzcG9uc2U=');
-
 @$core.Deprecated('Use deleteInstructorRequestDescriptor instead')
 const DeleteInstructorRequest$json = {
   '1': 'DeleteInstructorRequest',
@@ -165,13 +138,4 @@ const DeleteInstructorRequest$json = {
 final $typed_data.Uint8List deleteInstructorRequestDescriptor = $convert.base64Decode(
     'ChdEZWxldGVJbnN0cnVjdG9yUmVxdWVzdBIjCg1pbnN0cnVjdG9yX2lkGAEgASgJUgxpbnN0cn'
     'VjdG9ySWQ=');
-
-@$core.Deprecated('Use deleteInstructorResponseDescriptor instead')
-const DeleteInstructorResponse$json = {
-  '1': 'DeleteInstructorResponse',
-};
-
-/// Descriptor for `DeleteInstructorResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteInstructorResponseDescriptor = $convert.base64Decode(
-    'ChhEZWxldGVJbnN0cnVjdG9yUmVzcG9uc2U=');
 

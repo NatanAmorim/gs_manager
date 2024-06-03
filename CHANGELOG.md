@@ -29,6 +29,11 @@ Here's a short description of each element
 
 <!-- FIX: `customer_details_view.dart` does **NOT** show error on FutureBuilder in AlertDialog when an error occurs -->
 
+## 24.06.2-beta (Jun 03, 2024)
+
+- Remove all `await Api.channel.shutdown();`.
+- Update protobufs from `d5bc3684d` to `a5d081123`, with breaking changes.
+
 ## 24.06.1-beta (Jun 03, 2024)
 
 - Fix cards had the same color as the background after a Flutter upgrade.

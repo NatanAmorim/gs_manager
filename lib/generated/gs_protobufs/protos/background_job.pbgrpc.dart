@@ -15,16 +15,16 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'background_job.pb.dart' as $3;
+import 'background_job.pb.dart' as $4;
 
 export 'background_job.pb.dart';
 
 @$pb.GrpcServiceName('protos.background_job.BackgroundJobService')
 class BackgroundJobServiceClient extends $grpc.Client {
-  static final _$getPaginatedAsync = $grpc.ClientMethod<$3.GetPaginatedBackgroundJobsRequest, $3.GetPaginatedBackgroundJobsResponse>(
+  static final _$getPaginatedAsync = $grpc.ClientMethod<$4.GetPaginatedBackgroundJobsRequest, $4.GetPaginatedBackgroundJobsResponse>(
       '/protos.background_job.BackgroundJobService/GetPaginatedAsync',
-      ($3.GetPaginatedBackgroundJobsRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $3.GetPaginatedBackgroundJobsResponse.fromBuffer(value));
+      ($4.GetPaginatedBackgroundJobsRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $4.GetPaginatedBackgroundJobsResponse.fromBuffer(value));
 
   BackgroundJobServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -32,7 +32,7 @@ class BackgroundJobServiceClient extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$3.GetPaginatedBackgroundJobsResponse> getPaginatedAsync($3.GetPaginatedBackgroundJobsRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$4.GetPaginatedBackgroundJobsResponse> getPaginatedAsync($4.GetPaginatedBackgroundJobsRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getPaginatedAsync, request, options: options);
   }
 }
@@ -42,18 +42,18 @@ abstract class BackgroundJobServiceBase extends $grpc.Service {
   $core.String get $name => 'protos.background_job.BackgroundJobService';
 
   BackgroundJobServiceBase() {
-    $addMethod($grpc.ServiceMethod<$3.GetPaginatedBackgroundJobsRequest, $3.GetPaginatedBackgroundJobsResponse>(
+    $addMethod($grpc.ServiceMethod<$4.GetPaginatedBackgroundJobsRequest, $4.GetPaginatedBackgroundJobsResponse>(
         'GetPaginatedAsync',
         getPaginatedAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $3.GetPaginatedBackgroundJobsRequest.fromBuffer(value),
-        ($3.GetPaginatedBackgroundJobsResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $4.GetPaginatedBackgroundJobsRequest.fromBuffer(value),
+        ($4.GetPaginatedBackgroundJobsResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$3.GetPaginatedBackgroundJobsResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$3.GetPaginatedBackgroundJobsRequest> request) async {
+  $async.Future<$4.GetPaginatedBackgroundJobsResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$4.GetPaginatedBackgroundJobsRequest> request) async {
     return getPaginatedAsync(call, await request);
   }
 
-  $async.Future<$3.GetPaginatedBackgroundJobsResponse> getPaginatedAsync($grpc.ServiceCall call, $3.GetPaginatedBackgroundJobsRequest request);
+  $async.Future<$4.GetPaginatedBackgroundJobsResponse> getPaginatedAsync($grpc.ServiceCall call, $4.GetPaginatedBackgroundJobsRequest request);
 }

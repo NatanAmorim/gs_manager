@@ -13,15 +13,6 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-@$core.Deprecated('Use getAllProductsRequestDescriptor instead')
-const GetAllProductsRequest$json = {
-  '1': 'GetAllProductsRequest',
-};
-
-/// Descriptor for `GetAllProductsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getAllProductsRequestDescriptor = $convert.base64Decode(
-    'ChVHZXRBbGxQcm9kdWN0c1JlcXVlc3Q=');
-
 @$core.Deprecated('Use getAllProductsResponseDescriptor instead')
 const GetAllProductsResponse$json = {
   '1': 'GetAllProductsResponse',
@@ -93,15 +84,6 @@ final $typed_data.Uint8List createProductRequestDescriptor = $convert.base64Deco
     'NhdGVnb3J5SWQSOgoIdmFyaWFudHMYBiADKAsyHi5wcm90b3MucHJvZHVjdC5Qcm9kdWN0VmFy'
     'aWFudFIIdmFyaWFudHNCEQoPX3BpY3R1cmVfYmluYXJ5');
 
-@$core.Deprecated('Use createProductResponseDescriptor instead')
-const CreateProductResponse$json = {
-  '1': 'CreateProductResponse',
-};
-
-/// Descriptor for `CreateProductResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createProductResponseDescriptor = $convert.base64Decode(
-    'ChVDcmVhdGVQcm9kdWN0UmVzcG9uc2U=');
-
 @$core.Deprecated('Use updateProductRequestDescriptor instead')
 const UpdateProductRequest$json = {
   '1': 'UpdateProductRequest',
@@ -128,15 +110,6 @@ final $typed_data.Uint8List updateProductRequestDescriptor = $convert.base64Deco
     'RzGAYgAygLMh4ucHJvdG9zLnByb2R1Y3QuUHJvZHVjdFZhcmlhbnRSCHZhcmlhbnRzQhEKD19w'
     'aWN0dXJlX2JpbmFyeQ==');
 
-@$core.Deprecated('Use updateProductResponseDescriptor instead')
-const UpdateProductResponse$json = {
-  '1': 'UpdateProductResponse',
-};
-
-/// Descriptor for `UpdateProductResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateProductResponseDescriptor = $convert.base64Decode(
-    'ChVVcGRhdGVQcm9kdWN0UmVzcG9uc2U=');
-
 @$core.Deprecated('Use deleteProductRequestDescriptor instead')
 const DeleteProductRequest$json = {
   '1': 'DeleteProductRequest',
@@ -148,24 +121,6 @@ const DeleteProductRequest$json = {
 /// Descriptor for `DeleteProductRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteProductRequestDescriptor = $convert.base64Decode(
     'ChREZWxldGVQcm9kdWN0UmVxdWVzdBIdCgpwcm9kdWN0X2lkGAEgASgJUglwcm9kdWN0SWQ=');
-
-@$core.Deprecated('Use deleteProductResponseDescriptor instead')
-const DeleteProductResponse$json = {
-  '1': 'DeleteProductResponse',
-};
-
-/// Descriptor for `DeleteProductResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteProductResponseDescriptor = $convert.base64Decode(
-    'ChVEZWxldGVQcm9kdWN0UmVzcG9uc2U=');
-
-@$core.Deprecated('Use getAllProductBrandsRequestDescriptor instead')
-const GetAllProductBrandsRequest$json = {
-  '1': 'GetAllProductBrandsRequest',
-};
-
-/// Descriptor for `GetAllProductBrandsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getAllProductBrandsRequestDescriptor = $convert.base64Decode(
-    'ChpHZXRBbGxQcm9kdWN0QnJhbmRzUmVxdWVzdA==');
 
 @$core.Deprecated('Use getAllProductBrandsResponseDescriptor instead')
 const GetAllProductBrandsResponse$json = {
@@ -192,15 +147,6 @@ const CreateProductBrandRequest$json = {
 final $typed_data.Uint8List createProductBrandRequestDescriptor = $convert.base64Decode(
     'ChlDcmVhdGVQcm9kdWN0QnJhbmRSZXF1ZXN0EhIKBG5hbWUYASABKAlSBG5hbWU=');
 
-@$core.Deprecated('Use createProductBrandResponseDescriptor instead')
-const CreateProductBrandResponse$json = {
-  '1': 'CreateProductBrandResponse',
-};
-
-/// Descriptor for `CreateProductBrandResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createProductBrandResponseDescriptor = $convert.base64Decode(
-    'ChpDcmVhdGVQcm9kdWN0QnJhbmRSZXNwb25zZQ==');
-
 @$core.Deprecated('Use productBrandDescriptor instead')
 const ProductBrand$json = {
   '1': 'ProductBrand',
@@ -214,15 +160,6 @@ const ProductBrand$json = {
 final $typed_data.Uint8List productBrandDescriptor = $convert.base64Decode(
     'CgxQcm9kdWN0QnJhbmQSKAoQcHJvZHVjdF9icmFuZF9pZBgBIAEoCVIOcHJvZHVjdEJyYW5kSW'
     'QSEgoEbmFtZRgCIAEoCVIEbmFtZQ==');
-
-@$core.Deprecated('Use getAllProductCategoriesRequestDescriptor instead')
-const GetAllProductCategoriesRequest$json = {
-  '1': 'GetAllProductCategoriesRequest',
-};
-
-/// Descriptor for `GetAllProductCategoriesRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getAllProductCategoriesRequestDescriptor = $convert.base64Decode(
-    'Ch5HZXRBbGxQcm9kdWN0Q2F0ZWdvcmllc1JlcXVlc3Q=');
 
 @$core.Deprecated('Use getAllProductCategoriesResponseDescriptor instead')
 const GetAllProductCategoriesResponse$json = {
@@ -248,15 +185,6 @@ const CreateProductCategoryRequest$json = {
 /// Descriptor for `CreateProductCategoryRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createProductCategoryRequestDescriptor = $convert.base64Decode(
     'ChxDcmVhdGVQcm9kdWN0Q2F0ZWdvcnlSZXF1ZXN0EhIKBG5hbWUYASABKAlSBG5hbWU=');
-
-@$core.Deprecated('Use createProductCategoryResponseDescriptor instead')
-const CreateProductCategoryResponse$json = {
-  '1': 'CreateProductCategoryResponse',
-};
-
-/// Descriptor for `CreateProductCategoryResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createProductCategoryResponseDescriptor = $convert.base64Decode(
-    'Ch1DcmVhdGVQcm9kdWN0Q2F0ZWdvcnlSZXNwb25zZQ==');
 
 @$core.Deprecated('Use productCategoryDescriptor instead')
 const ProductCategory$json = {

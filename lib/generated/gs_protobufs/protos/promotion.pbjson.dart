@@ -104,15 +104,6 @@ final $typed_data.Uint8List createPromotionRequestDescriptor = $convert.base64De
     'QwoIZW5kX2RhdGUYCCABKAsyKC5jdXN0b21fdHlwZXMuY2FsZW5kYXJfZGF0ZS5DYWxlbmRhck'
     'RhdGVSB2VuZERhdGUSGwoJaXNfYWN0aXZlGAkgASgIUghpc0FjdGl2ZQ==');
 
-@$core.Deprecated('Use createPromotionResponseDescriptor instead')
-const CreatePromotionResponse$json = {
-  '1': 'CreatePromotionResponse',
-};
-
-/// Descriptor for `CreatePromotionResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createPromotionResponseDescriptor = $convert.base64Decode(
-    'ChdDcmVhdGVQcm9tb3Rpb25SZXNwb25zZQ==');
-
 @$core.Deprecated('Use updatePromotionRequestDescriptor instead')
 const UpdatePromotionRequest$json = {
   '1': 'UpdatePromotionRequest',
@@ -138,15 +129,6 @@ final $typed_data.Uint8List updatePromotionRequestDescriptor = $convert.base64De
     'N1c3RvbV90eXBlcy5jYWxlbmRhcl9kYXRlLkNhbGVuZGFyRGF0ZVIHZW5kRGF0ZRIbCglpc19h'
     'Y3RpdmUYCCABKAhSCGlzQWN0aXZl');
 
-@$core.Deprecated('Use updatePromotionResponseDescriptor instead')
-const UpdatePromotionResponse$json = {
-  '1': 'UpdatePromotionResponse',
-};
-
-/// Descriptor for `UpdatePromotionResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updatePromotionResponseDescriptor = $convert.base64Decode(
-    'ChdVcGRhdGVQcm9tb3Rpb25SZXNwb25zZQ==');
-
 @$core.Deprecated('Use deletePromotionRequestDescriptor instead')
 const DeletePromotionRequest$json = {
   '1': 'DeletePromotionRequest',
@@ -159,13 +141,4 @@ const DeletePromotionRequest$json = {
 final $typed_data.Uint8List deletePromotionRequestDescriptor = $convert.base64Decode(
     'ChZEZWxldGVQcm9tb3Rpb25SZXF1ZXN0EiEKDHByb21vdGlvbl9pZBgBIAEoCVILcHJvbW90aW'
     '9uSWQ=');
-
-@$core.Deprecated('Use deletePromotionResponseDescriptor instead')
-const DeletePromotionResponse$json = {
-  '1': 'DeletePromotionResponse',
-};
-
-/// Descriptor for `DeletePromotionResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deletePromotionResponseDescriptor = $convert.base64Decode(
-    'ChdEZWxldGVQcm9tb3Rpb25SZXNwb25zZQ==');
 

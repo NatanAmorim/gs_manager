@@ -93,15 +93,6 @@ final $typed_data.Uint8List createSubscriptionBillingRequestDescriptor = $conver
     'VjaW1hbFZhbHVlUg10b3RhbERpc2NvdW50Ej4KB3BheW1lbnQYBCABKAsyJC5wcm90b3MucGF5'
     'bWVudC5DcmVhdGVQYXltZW50UmVxdWVzdFIHcGF5bWVudA==');
 
-@$core.Deprecated('Use createSubscriptionBillingResponseDescriptor instead')
-const CreateSubscriptionBillingResponse$json = {
-  '1': 'CreateSubscriptionBillingResponse',
-};
-
-/// Descriptor for `CreateSubscriptionBillingResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createSubscriptionBillingResponseDescriptor = $convert.base64Decode(
-    'CiFDcmVhdGVTdWJzY3JpcHRpb25CaWxsaW5nUmVzcG9uc2U=');
-
 @$core.Deprecated('Use updateSubscriptionBillingRequestDescriptor instead')
 const UpdateSubscriptionBillingRequest$json = {
   '1': 'UpdateSubscriptionBillingRequest',
@@ -123,15 +114,6 @@ final $typed_data.Uint8List updateSubscriptionBillingRequestDescriptor = $conver
     'ZWNpbWFsVmFsdWVSDXRvdGFsRGlzY291bnQSQAoHcGF5bWVudBgFIAEoCzImLnByb3Rvcy5wYX'
     'ltZW50LkdldFBheW1lbnRCeUlkUmVzcG9uc2VSB3BheW1lbnQ=');
 
-@$core.Deprecated('Use updateSubscriptionBillingResponseDescriptor instead')
-const UpdateSubscriptionBillingResponse$json = {
-  '1': 'UpdateSubscriptionBillingResponse',
-};
-
-/// Descriptor for `UpdateSubscriptionBillingResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateSubscriptionBillingResponseDescriptor = $convert.base64Decode(
-    'CiFVcGRhdGVTdWJzY3JpcHRpb25CaWxsaW5nUmVzcG9uc2U=');
-
 @$core.Deprecated('Use deleteSubscriptionBillingRequestDescriptor instead')
 const DeleteSubscriptionBillingRequest$json = {
   '1': 'DeleteSubscriptionBillingRequest',
@@ -144,13 +126,4 @@ const DeleteSubscriptionBillingRequest$json = {
 final $typed_data.Uint8List deleteSubscriptionBillingRequestDescriptor = $convert.base64Decode(
     'CiBEZWxldGVTdWJzY3JpcHRpb25CaWxsaW5nUmVxdWVzdBI2ChdzdWJzY3JpcHRpb25fYmlsbG'
     'luZ19pZBgBIAEoCVIVc3Vic2NyaXB0aW9uQmlsbGluZ0lk');
-
-@$core.Deprecated('Use deleteSubscriptionBillingResponseDescriptor instead')
-const DeleteSubscriptionBillingResponse$json = {
-  '1': 'DeleteSubscriptionBillingResponse',
-};
-
-/// Descriptor for `DeleteSubscriptionBillingResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteSubscriptionBillingResponseDescriptor = $convert.base64Decode(
-    'CiFEZWxldGVTdWJzY3JpcHRpb25CaWxsaW5nUmVzcG9uc2U=');
 

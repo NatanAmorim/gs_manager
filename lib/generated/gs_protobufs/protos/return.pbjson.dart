@@ -90,15 +90,6 @@ final $typed_data.Uint8List createReturnRequestDescriptor = $convert.base64Decod
     '5kZWQSPwoNSXRlbXNSZXR1cm5lZBgDIAMoCzIZLnByb3Rvcy5yZXR1cm4uUmV0dXJuSXRlbVIN'
     'SXRlbXNSZXR1cm5lZA==');
 
-@$core.Deprecated('Use createReturnResponseDescriptor instead')
-const CreateReturnResponse$json = {
-  '1': 'CreateReturnResponse',
-};
-
-/// Descriptor for `CreateReturnResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createReturnResponseDescriptor = $convert.base64Decode(
-    'ChRDcmVhdGVSZXR1cm5SZXNwb25zZQ==');
-
 @$core.Deprecated('Use updateReturnRequestDescriptor instead')
 const UpdateReturnRequest$json = {
   '1': 'UpdateReturnRequest',
@@ -118,15 +109,6 @@ final $typed_data.Uint8List updateReturnRequestDescriptor = $convert.base64Decod
     'RlY2ltYWxWYWx1ZVITdG90YWxBbW91bnRSZWZ1bmRlZBI/Cg1JdGVtc1JldHVybmVkGAQgAygL'
     'MhkucHJvdG9zLnJldHVybi5SZXR1cm5JdGVtUg1JdGVtc1JldHVybmVk');
 
-@$core.Deprecated('Use updateReturnResponseDescriptor instead')
-const UpdateReturnResponse$json = {
-  '1': 'UpdateReturnResponse',
-};
-
-/// Descriptor for `UpdateReturnResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateReturnResponseDescriptor = $convert.base64Decode(
-    'ChRVcGRhdGVSZXR1cm5SZXNwb25zZQ==');
-
 @$core.Deprecated('Use deleteReturnRequestDescriptor instead')
 const DeleteReturnRequest$json = {
   '1': 'DeleteReturnRequest',
@@ -138,15 +120,6 @@ const DeleteReturnRequest$json = {
 /// Descriptor for `DeleteReturnRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteReturnRequestDescriptor = $convert.base64Decode(
     'ChNEZWxldGVSZXR1cm5SZXF1ZXN0EhsKCXJldHVybl9pZBgBIAEoCVIIcmV0dXJuSWQ=');
-
-@$core.Deprecated('Use deleteReturnResponseDescriptor instead')
-const DeleteReturnResponse$json = {
-  '1': 'DeleteReturnResponse',
-};
-
-/// Descriptor for `DeleteReturnResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteReturnResponseDescriptor = $convert.base64Decode(
-    'ChREZWxldGVSZXR1cm5SZXNwb25zZQ==');
 
 @$core.Deprecated('Use returnItemDescriptor instead')
 const ReturnItem$json = {

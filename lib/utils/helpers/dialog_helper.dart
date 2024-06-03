@@ -46,7 +46,7 @@ class DialogHelper {
             contentPadding: const EdgeInsets.all(16),
             alignment: Alignment.center,
             title: Text(
-              'Excluir registro?',
+              'Remover dependente?',
               style: Theme.of(context).textTheme.headlineLarge,
             ),
             content: RichText(

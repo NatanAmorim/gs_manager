@@ -13,11 +13,11 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/wrappers.pb.dart' as $17;
+import '../../google/protobuf/wrappers.pb.dart' as $18;
 
 class GetPaginatedNotificationsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedNotificationsRequest({
-    $17.StringValue? cursor,
+    $18.StringValue? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -30,7 +30,7 @@ class GetPaginatedNotificationsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedNotificationsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedNotificationsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.notification'), createEmptyInstance: create)
-    ..aOM<$17.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $17.StringValue.create)
+    ..aOM<$18.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $18.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -56,21 +56,21 @@ class GetPaginatedNotificationsRequest extends $pb.GeneratedMessage {
   static GetPaginatedNotificationsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $17.StringValue get cursor => $_getN(0);
+  $18.StringValue get cursor => $_getN(0);
   @$pb.TagNumber(1)
-  set cursor($17.StringValue v) { setField(1, v); }
+  set cursor($18.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
   void clearCursor() => clearField(1);
   @$pb.TagNumber(1)
-  $17.StringValue ensureCursor() => $_ensure(0);
+  $18.StringValue ensureCursor() => $_ensure(0);
 }
 
 class GetPaginatedNotificationsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedNotificationsResponse({
     $core.Iterable<GetNotificationByIdResponse>? notifications,
-    $17.StringValue? nextCursor,
+    $18.StringValue? nextCursor,
   }) {
     final $result = create();
     if (notifications != null) {
@@ -87,7 +87,7 @@ class GetPaginatedNotificationsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedNotificationsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.notification'), createEmptyInstance: create)
     ..pc<GetNotificationByIdResponse>(1, _omitFieldNames ? '' : 'notifications', $pb.PbFieldType.PM, subBuilder: GetNotificationByIdResponse.create)
-    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.StringValue.create)
+    ..aOM<$18.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $18.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -116,15 +116,15 @@ class GetPaginatedNotificationsResponse extends $pb.GeneratedMessage {
   $core.List<GetNotificationByIdResponse> get notifications => $_getList(0);
 
   @$pb.TagNumber(2)
-  $17.StringValue get nextCursor => $_getN(1);
+  $18.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($17.StringValue v) { setField(2, v); }
+  set nextCursor($18.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $17.StringValue ensureNextCursor() => $_ensure(1);
+  $18.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetNotificationByIdRequest extends $pb.GeneratedMessage {
@@ -361,38 +361,6 @@ class CreateNotificationRequest extends $pb.GeneratedMessage {
   void clearMessage() => clearField(3);
 }
 
-class CreateNotificationResponse extends $pb.GeneratedMessage {
-  factory CreateNotificationResponse() => create();
-  CreateNotificationResponse._() : super();
-  factory CreateNotificationResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CreateNotificationResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateNotificationResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.notification'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  CreateNotificationResponse clone() => CreateNotificationResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  CreateNotificationResponse copyWith(void Function(CreateNotificationResponse) updates) => super.copyWith((message) => updates(message as CreateNotificationResponse)) as CreateNotificationResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static CreateNotificationResponse create() => CreateNotificationResponse._();
-  CreateNotificationResponse createEmptyInstance() => create();
-  static $pb.PbList<CreateNotificationResponse> createRepeated() => $pb.PbList<CreateNotificationResponse>();
-  @$core.pragma('dart2js:noInline')
-  static CreateNotificationResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateNotificationResponse>(create);
-  static CreateNotificationResponse? _defaultInstance;
-}
-
 class UpdateNotificationRequest extends $pb.GeneratedMessage {
   factory UpdateNotificationRequest({
     $core.String? notificationId,
@@ -485,38 +453,6 @@ class UpdateNotificationRequest extends $pb.GeneratedMessage {
   void clearIsUnread() => clearField(4);
 }
 
-class UpdateNotificationResponse extends $pb.GeneratedMessage {
-  factory UpdateNotificationResponse() => create();
-  UpdateNotificationResponse._() : super();
-  factory UpdateNotificationResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory UpdateNotificationResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateNotificationResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.notification'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  UpdateNotificationResponse clone() => UpdateNotificationResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  UpdateNotificationResponse copyWith(void Function(UpdateNotificationResponse) updates) => super.copyWith((message) => updates(message as UpdateNotificationResponse)) as UpdateNotificationResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static UpdateNotificationResponse create() => UpdateNotificationResponse._();
-  UpdateNotificationResponse createEmptyInstance() => create();
-  static $pb.PbList<UpdateNotificationResponse> createRepeated() => $pb.PbList<UpdateNotificationResponse>();
-  @$core.pragma('dart2js:noInline')
-  static UpdateNotificationResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateNotificationResponse>(create);
-  static UpdateNotificationResponse? _defaultInstance;
-}
-
 class DeleteNotificationRequest extends $pb.GeneratedMessage {
   factory DeleteNotificationRequest({
     $core.String? notificationId,
@@ -565,38 +501,6 @@ class DeleteNotificationRequest extends $pb.GeneratedMessage {
   $core.bool hasNotificationId() => $_has(0);
   @$pb.TagNumber(1)
   void clearNotificationId() => clearField(1);
-}
-
-class DeleteNotificationResponse extends $pb.GeneratedMessage {
-  factory DeleteNotificationResponse() => create();
-  DeleteNotificationResponse._() : super();
-  factory DeleteNotificationResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory DeleteNotificationResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeleteNotificationResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.notification'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  DeleteNotificationResponse clone() => DeleteNotificationResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  DeleteNotificationResponse copyWith(void Function(DeleteNotificationResponse) updates) => super.copyWith((message) => updates(message as DeleteNotificationResponse)) as DeleteNotificationResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static DeleteNotificationResponse create() => DeleteNotificationResponse._();
-  DeleteNotificationResponse createEmptyInstance() => create();
-  static $pb.PbList<DeleteNotificationResponse> createRepeated() => $pb.PbList<DeleteNotificationResponse>();
-  @$core.pragma('dart2js:noInline')
-  static DeleteNotificationResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeleteNotificationResponse>(create);
-  static DeleteNotificationResponse? _defaultInstance;
 }
 
 

@@ -13,13 +13,13 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/wrappers.pb.dart' as $17;
-import 'custom_types/calendar_date.pb.dart' as $21;
-import 'customer.pb.dart' as $5;
+import '../../google/protobuf/wrappers.pb.dart' as $18;
+import 'custom_types/calendar_date.pb.dart' as $22;
+import 'customer.pb.dart' as $6;
 
 class GetPaginatedPromotionsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedPromotionsRequest({
-    $17.StringValue? cursor,
+    $18.StringValue? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -32,7 +32,7 @@ class GetPaginatedPromotionsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedPromotionsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedPromotionsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
-    ..aOM<$17.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $17.StringValue.create)
+    ..aOM<$18.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $18.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -58,21 +58,21 @@ class GetPaginatedPromotionsRequest extends $pb.GeneratedMessage {
   static GetPaginatedPromotionsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $17.StringValue get cursor => $_getN(0);
+  $18.StringValue get cursor => $_getN(0);
   @$pb.TagNumber(1)
-  set cursor($17.StringValue v) { setField(1, v); }
+  set cursor($18.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
   void clearCursor() => clearField(1);
   @$pb.TagNumber(1)
-  $17.StringValue ensureCursor() => $_ensure(0);
+  $18.StringValue ensureCursor() => $_ensure(0);
 }
 
 class GetPaginatedPromotionsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedPromotionsResponse({
     $core.Iterable<GetPromotionByIdResponse>? promotions,
-    $17.StringValue? nextCursor,
+    $18.StringValue? nextCursor,
   }) {
     final $result = create();
     if (promotions != null) {
@@ -89,7 +89,7 @@ class GetPaginatedPromotionsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedPromotionsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
     ..pc<GetPromotionByIdResponse>(1, _omitFieldNames ? '' : 'promotions', $pb.PbFieldType.PM, subBuilder: GetPromotionByIdResponse.create)
-    ..aOM<$17.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $17.StringValue.create)
+    ..aOM<$18.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $18.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -118,15 +118,15 @@ class GetPaginatedPromotionsResponse extends $pb.GeneratedMessage {
   $core.List<GetPromotionByIdResponse> get promotions => $_getList(0);
 
   @$pb.TagNumber(2)
-  $17.StringValue get nextCursor => $_getN(1);
+  $18.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($17.StringValue v) { setField(2, v); }
+  set nextCursor($18.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $17.StringValue ensureNextCursor() => $_ensure(1);
+  $18.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetPromotionByIdRequest extends $pb.GeneratedMessage {
@@ -182,12 +182,12 @@ class GetPromotionByIdRequest extends $pb.GeneratedMessage {
 class GetPromotionByIdResponse extends $pb.GeneratedMessage {
   factory GetPromotionByIdResponse({
     $core.String? promotionId,
-    $5.GetCustomerByIdResponse? customer,
+    $6.GetCustomerByIdResponse? customer,
     $core.String? name,
     $core.String? description,
     $core.String? discountType,
-    $21.CalendarDate? startDate,
-    $21.CalendarDate? endDate,
+    $22.CalendarDate? startDate,
+    $22.CalendarDate? endDate,
     $core.bool? isActive,
   }) {
     final $result = create();
@@ -223,12 +223,12 @@ class GetPromotionByIdResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPromotionByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'promotionId')
-    ..aOM<$5.GetCustomerByIdResponse>(2, _omitFieldNames ? '' : 'customer', subBuilder: $5.GetCustomerByIdResponse.create)
+    ..aOM<$6.GetCustomerByIdResponse>(2, _omitFieldNames ? '' : 'customer', subBuilder: $6.GetCustomerByIdResponse.create)
     ..aOS(3, _omitFieldNames ? '' : 'name')
     ..aOS(4, _omitFieldNames ? '' : 'description')
     ..aOS(5, _omitFieldNames ? '' : 'discountType')
-    ..aOM<$21.CalendarDate>(6, _omitFieldNames ? '' : 'startDate', subBuilder: $21.CalendarDate.create)
-    ..aOM<$21.CalendarDate>(7, _omitFieldNames ? '' : 'endDate', subBuilder: $21.CalendarDate.create)
+    ..aOM<$22.CalendarDate>(6, _omitFieldNames ? '' : 'startDate', subBuilder: $22.CalendarDate.create)
+    ..aOM<$22.CalendarDate>(7, _omitFieldNames ? '' : 'endDate', subBuilder: $22.CalendarDate.create)
     ..aOB(8, _omitFieldNames ? '' : 'isActive')
     ..hasRequiredFields = false
   ;
@@ -264,15 +264,15 @@ class GetPromotionByIdResponse extends $pb.GeneratedMessage {
   void clearPromotionId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $5.GetCustomerByIdResponse get customer => $_getN(1);
+  $6.GetCustomerByIdResponse get customer => $_getN(1);
   @$pb.TagNumber(2)
-  set customer($5.GetCustomerByIdResponse v) { setField(2, v); }
+  set customer($6.GetCustomerByIdResponse v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasCustomer() => $_has(1);
   @$pb.TagNumber(2)
   void clearCustomer() => clearField(2);
   @$pb.TagNumber(2)
-  $5.GetCustomerByIdResponse ensureCustomer() => $_ensure(1);
+  $6.GetCustomerByIdResponse ensureCustomer() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.String get name => $_getSZ(2);
@@ -302,26 +302,26 @@ class GetPromotionByIdResponse extends $pb.GeneratedMessage {
   void clearDiscountType() => clearField(5);
 
   @$pb.TagNumber(6)
-  $21.CalendarDate get startDate => $_getN(5);
+  $22.CalendarDate get startDate => $_getN(5);
   @$pb.TagNumber(6)
-  set startDate($21.CalendarDate v) { setField(6, v); }
+  set startDate($22.CalendarDate v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasStartDate() => $_has(5);
   @$pb.TagNumber(6)
   void clearStartDate() => clearField(6);
   @$pb.TagNumber(6)
-  $21.CalendarDate ensureStartDate() => $_ensure(5);
+  $22.CalendarDate ensureStartDate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $21.CalendarDate get endDate => $_getN(6);
+  $22.CalendarDate get endDate => $_getN(6);
   @$pb.TagNumber(7)
-  set endDate($21.CalendarDate v) { setField(7, v); }
+  set endDate($22.CalendarDate v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasEndDate() => $_has(6);
   @$pb.TagNumber(7)
   void clearEndDate() => clearField(7);
   @$pb.TagNumber(7)
-  $21.CalendarDate ensureEndDate() => $_ensure(6);
+  $22.CalendarDate ensureEndDate() => $_ensure(6);
 
   @$pb.TagNumber(8)
   $core.bool get isActive => $_getBF(7);
@@ -339,8 +339,8 @@ class CreatePromotionRequest extends $pb.GeneratedMessage {
     $core.String? name,
     $core.String? description,
     $core.String? discountType,
-    $21.CalendarDate? startDate,
-    $21.CalendarDate? endDate,
+    $22.CalendarDate? startDate,
+    $22.CalendarDate? endDate,
     $core.bool? isActive,
   }) {
     final $result = create();
@@ -376,8 +376,8 @@ class CreatePromotionRequest extends $pb.GeneratedMessage {
     ..aOS(4, _omitFieldNames ? '' : 'name')
     ..aOS(5, _omitFieldNames ? '' : 'description')
     ..aOS(6, _omitFieldNames ? '' : 'discountType')
-    ..aOM<$21.CalendarDate>(7, _omitFieldNames ? '' : 'startDate', subBuilder: $21.CalendarDate.create)
-    ..aOM<$21.CalendarDate>(8, _omitFieldNames ? '' : 'endDate', subBuilder: $21.CalendarDate.create)
+    ..aOM<$22.CalendarDate>(7, _omitFieldNames ? '' : 'startDate', subBuilder: $22.CalendarDate.create)
+    ..aOM<$22.CalendarDate>(8, _omitFieldNames ? '' : 'endDate', subBuilder: $22.CalendarDate.create)
     ..aOB(9, _omitFieldNames ? '' : 'isActive')
     ..hasRequiredFields = false
   ;
@@ -440,26 +440,26 @@ class CreatePromotionRequest extends $pb.GeneratedMessage {
   void clearDiscountType() => clearField(6);
 
   @$pb.TagNumber(7)
-  $21.CalendarDate get startDate => $_getN(4);
+  $22.CalendarDate get startDate => $_getN(4);
   @$pb.TagNumber(7)
-  set startDate($21.CalendarDate v) { setField(7, v); }
+  set startDate($22.CalendarDate v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasStartDate() => $_has(4);
   @$pb.TagNumber(7)
   void clearStartDate() => clearField(7);
   @$pb.TagNumber(7)
-  $21.CalendarDate ensureStartDate() => $_ensure(4);
+  $22.CalendarDate ensureStartDate() => $_ensure(4);
 
   @$pb.TagNumber(8)
-  $21.CalendarDate get endDate => $_getN(5);
+  $22.CalendarDate get endDate => $_getN(5);
   @$pb.TagNumber(8)
-  set endDate($21.CalendarDate v) { setField(8, v); }
+  set endDate($22.CalendarDate v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasEndDate() => $_has(5);
   @$pb.TagNumber(8)
   void clearEndDate() => clearField(8);
   @$pb.TagNumber(8)
-  $21.CalendarDate ensureEndDate() => $_ensure(5);
+  $22.CalendarDate ensureEndDate() => $_ensure(5);
 
   @$pb.TagNumber(9)
   $core.bool get isActive => $_getBF(6);
@@ -471,38 +471,6 @@ class CreatePromotionRequest extends $pb.GeneratedMessage {
   void clearIsActive() => clearField(9);
 }
 
-class CreatePromotionResponse extends $pb.GeneratedMessage {
-  factory CreatePromotionResponse() => create();
-  CreatePromotionResponse._() : super();
-  factory CreatePromotionResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CreatePromotionResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreatePromotionResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  CreatePromotionResponse clone() => CreatePromotionResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  CreatePromotionResponse copyWith(void Function(CreatePromotionResponse) updates) => super.copyWith((message) => updates(message as CreatePromotionResponse)) as CreatePromotionResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static CreatePromotionResponse create() => CreatePromotionResponse._();
-  CreatePromotionResponse createEmptyInstance() => create();
-  static $pb.PbList<CreatePromotionResponse> createRepeated() => $pb.PbList<CreatePromotionResponse>();
-  @$core.pragma('dart2js:noInline')
-  static CreatePromotionResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreatePromotionResponse>(create);
-  static CreatePromotionResponse? _defaultInstance;
-}
-
 class UpdatePromotionRequest extends $pb.GeneratedMessage {
   factory UpdatePromotionRequest({
     $core.String? promotionId,
@@ -510,8 +478,8 @@ class UpdatePromotionRequest extends $pb.GeneratedMessage {
     $core.String? name,
     $core.String? description,
     $core.String? discountType,
-    $21.CalendarDate? startDate,
-    $21.CalendarDate? endDate,
+    $22.CalendarDate? startDate,
+    $22.CalendarDate? endDate,
     $core.bool? isActive,
   }) {
     final $result = create();
@@ -551,8 +519,8 @@ class UpdatePromotionRequest extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'name')
     ..aOS(4, _omitFieldNames ? '' : 'description')
     ..aOS(5, _omitFieldNames ? '' : 'discountType')
-    ..aOM<$21.CalendarDate>(6, _omitFieldNames ? '' : 'startDate', subBuilder: $21.CalendarDate.create)
-    ..aOM<$21.CalendarDate>(7, _omitFieldNames ? '' : 'endDate', subBuilder: $21.CalendarDate.create)
+    ..aOM<$22.CalendarDate>(6, _omitFieldNames ? '' : 'startDate', subBuilder: $22.CalendarDate.create)
+    ..aOM<$22.CalendarDate>(7, _omitFieldNames ? '' : 'endDate', subBuilder: $22.CalendarDate.create)
     ..aOB(8, _omitFieldNames ? '' : 'isActive')
     ..hasRequiredFields = false
   ;
@@ -624,26 +592,26 @@ class UpdatePromotionRequest extends $pb.GeneratedMessage {
   void clearDiscountType() => clearField(5);
 
   @$pb.TagNumber(6)
-  $21.CalendarDate get startDate => $_getN(5);
+  $22.CalendarDate get startDate => $_getN(5);
   @$pb.TagNumber(6)
-  set startDate($21.CalendarDate v) { setField(6, v); }
+  set startDate($22.CalendarDate v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasStartDate() => $_has(5);
   @$pb.TagNumber(6)
   void clearStartDate() => clearField(6);
   @$pb.TagNumber(6)
-  $21.CalendarDate ensureStartDate() => $_ensure(5);
+  $22.CalendarDate ensureStartDate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $21.CalendarDate get endDate => $_getN(6);
+  $22.CalendarDate get endDate => $_getN(6);
   @$pb.TagNumber(7)
-  set endDate($21.CalendarDate v) { setField(7, v); }
+  set endDate($22.CalendarDate v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasEndDate() => $_has(6);
   @$pb.TagNumber(7)
   void clearEndDate() => clearField(7);
   @$pb.TagNumber(7)
-  $21.CalendarDate ensureEndDate() => $_ensure(6);
+  $22.CalendarDate ensureEndDate() => $_ensure(6);
 
   @$pb.TagNumber(8)
   $core.bool get isActive => $_getBF(7);
@@ -653,38 +621,6 @@ class UpdatePromotionRequest extends $pb.GeneratedMessage {
   $core.bool hasIsActive() => $_has(7);
   @$pb.TagNumber(8)
   void clearIsActive() => clearField(8);
-}
-
-class UpdatePromotionResponse extends $pb.GeneratedMessage {
-  factory UpdatePromotionResponse() => create();
-  UpdatePromotionResponse._() : super();
-  factory UpdatePromotionResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory UpdatePromotionResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdatePromotionResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  UpdatePromotionResponse clone() => UpdatePromotionResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  UpdatePromotionResponse copyWith(void Function(UpdatePromotionResponse) updates) => super.copyWith((message) => updates(message as UpdatePromotionResponse)) as UpdatePromotionResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static UpdatePromotionResponse create() => UpdatePromotionResponse._();
-  UpdatePromotionResponse createEmptyInstance() => create();
-  static $pb.PbList<UpdatePromotionResponse> createRepeated() => $pb.PbList<UpdatePromotionResponse>();
-  @$core.pragma('dart2js:noInline')
-  static UpdatePromotionResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdatePromotionResponse>(create);
-  static UpdatePromotionResponse? _defaultInstance;
 }
 
 class DeletePromotionRequest extends $pb.GeneratedMessage {
@@ -735,38 +671,6 @@ class DeletePromotionRequest extends $pb.GeneratedMessage {
   $core.bool hasPromotionId() => $_has(0);
   @$pb.TagNumber(1)
   void clearPromotionId() => clearField(1);
-}
-
-class DeletePromotionResponse extends $pb.GeneratedMessage {
-  factory DeletePromotionResponse() => create();
-  DeletePromotionResponse._() : super();
-  factory DeletePromotionResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory DeletePromotionResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeletePromotionResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  DeletePromotionResponse clone() => DeletePromotionResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  DeletePromotionResponse copyWith(void Function(DeletePromotionResponse) updates) => super.copyWith((message) => updates(message as DeletePromotionResponse)) as DeletePromotionResponse;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static DeletePromotionResponse create() => DeletePromotionResponse._();
-  DeletePromotionResponse createEmptyInstance() => create();
-  static $pb.PbList<DeletePromotionResponse> createRepeated() => $pb.PbList<DeletePromotionResponse>();
-  @$core.pragma('dart2js:noInline')
-  static DeletePromotionResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeletePromotionResponse>(create);
-  static DeletePromotionResponse? _defaultInstance;
 }
 
 

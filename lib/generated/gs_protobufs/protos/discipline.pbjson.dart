@@ -106,15 +106,6 @@ final $typed_data.Uint8List createDisciplineRequestDescriptor = $convert.base64D
     'b2Zfd2Vlay5EYXlPZldlZWtSCWNsYXNzRGF5cxI3Cglpc19hY3RpdmUYByABKAsyGi5nb29nbG'
     'UucHJvdG9idWYuQm9vbFZhbHVlUghpc0FjdGl2ZQ==');
 
-@$core.Deprecated('Use createDisciplineResponseDescriptor instead')
-const CreateDisciplineResponse$json = {
-  '1': 'CreateDisciplineResponse',
-};
-
-/// Descriptor for `CreateDisciplineResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createDisciplineResponseDescriptor = $convert.base64Decode(
-    'ChhDcmVhdGVEaXNjaXBsaW5lUmVzcG9uc2U=');
-
 @$core.Deprecated('Use updateDisciplineRequestDescriptor instead')
 const UpdateDisciplineRequest$json = {
   '1': 'UpdateDisciplineRequest',
@@ -141,15 +132,6 @@ final $typed_data.Uint8List updateDisciplineRequestDescriptor = $convert.base64D
     'CmNsYXNzX2RheXMYByADKA4yIy5jdXN0b21fdHlwZXMuZGF5X29mX3dlZWsuRGF5T2ZXZWVrUg'
     'ljbGFzc0RheXMSGwoJaXNfYWN0aXZlGAggASgIUghpc0FjdGl2ZQ==');
 
-@$core.Deprecated('Use updateDisciplineResponseDescriptor instead')
-const UpdateDisciplineResponse$json = {
-  '1': 'UpdateDisciplineResponse',
-};
-
-/// Descriptor for `UpdateDisciplineResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateDisciplineResponseDescriptor = $convert.base64Decode(
-    'ChhVcGRhdGVEaXNjaXBsaW5lUmVzcG9uc2U=');
-
 @$core.Deprecated('Use deleteDisciplineRequestDescriptor instead')
 const DeleteDisciplineRequest$json = {
   '1': 'DeleteDisciplineRequest',
@@ -162,13 +144,4 @@ const DeleteDisciplineRequest$json = {
 final $typed_data.Uint8List deleteDisciplineRequestDescriptor = $convert.base64Decode(
     'ChdEZWxldGVEaXNjaXBsaW5lUmVxdWVzdBIjCg1kaXNjaXBsaW5lX2lkGAEgASgJUgxkaXNjaX'
     'BsaW5lSWQ=');
-
-@$core.Deprecated('Use deleteDisciplineResponseDescriptor instead')
-const DeleteDisciplineResponse$json = {
-  '1': 'DeleteDisciplineResponse',
-};
-
-/// Descriptor for `DeleteDisciplineResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteDisciplineResponseDescriptor = $convert.base64Decode(
-    'ChhEZWxldGVEaXNjaXBsaW5lUmVzcG9uc2U=');
 

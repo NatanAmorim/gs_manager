@@ -84,15 +84,6 @@ final $typed_data.Uint8List createPaymentRequestDescriptor = $convert.base64Deco
     '9ucxJGCgxpbnN0YWxsbWVudHMYAiADKAsyIi5wcm90b3MucGF5bWVudC5QYXltZW50SW5zdGFs'
     'bG1lbnRSDGluc3RhbGxtZW50cw==');
 
-@$core.Deprecated('Use createPaymentResponseDescriptor instead')
-const CreatePaymentResponse$json = {
-  '1': 'CreatePaymentResponse',
-};
-
-/// Descriptor for `CreatePaymentResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createPaymentResponseDescriptor = $convert.base64Decode(
-    'ChVDcmVhdGVQYXltZW50UmVzcG9uc2U=');
-
 @$core.Deprecated('Use updatePaymentRequestDescriptor instead')
 const UpdatePaymentRequest$json = {
   '1': 'UpdatePaymentRequest',
@@ -109,15 +100,6 @@ final $typed_data.Uint8List updatePaymentRequestDescriptor = $convert.base64Deco
     'oMb2JzZXJ2YXRpb25zGAIgASgJUgxvYnNlcnZhdGlvbnMSRgoMaW5zdGFsbG1lbnRzGAMgAygL'
     'MiIucHJvdG9zLnBheW1lbnQuUGF5bWVudEluc3RhbGxtZW50UgxpbnN0YWxsbWVudHM=');
 
-@$core.Deprecated('Use updatePaymentResponseDescriptor instead')
-const UpdatePaymentResponse$json = {
-  '1': 'UpdatePaymentResponse',
-};
-
-/// Descriptor for `UpdatePaymentResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updatePaymentResponseDescriptor = $convert.base64Decode(
-    'ChVVcGRhdGVQYXltZW50UmVzcG9uc2U=');
-
 @$core.Deprecated('Use deletePaymentRequestDescriptor instead')
 const DeletePaymentRequest$json = {
   '1': 'DeletePaymentRequest',
@@ -129,15 +111,6 @@ const DeletePaymentRequest$json = {
 /// Descriptor for `DeletePaymentRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deletePaymentRequestDescriptor = $convert.base64Decode(
     'ChREZWxldGVQYXltZW50UmVxdWVzdBIdCgpwYXltZW50X2lkGAEgASgJUglwYXltZW50SWQ=');
-
-@$core.Deprecated('Use deletePaymentResponseDescriptor instead')
-const DeletePaymentResponse$json = {
-  '1': 'DeletePaymentResponse',
-};
-
-/// Descriptor for `DeletePaymentResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deletePaymentResponseDescriptor = $convert.base64Decode(
-    'ChVEZWxldGVQYXltZW50UmVzcG9uc2U=');
 
 @$core.Deprecated('Use paymentInstallmentDescriptor instead')
 const PaymentInstallment$json = {

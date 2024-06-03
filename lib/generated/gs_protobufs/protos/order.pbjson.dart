@@ -74,15 +74,6 @@ const CreateOrderRequest$json = {
 final $typed_data.Uint8List createOrderRequestDescriptor = $convert.base64Decode(
     'ChJDcmVhdGVPcmRlclJlcXVlc3Q=');
 
-@$core.Deprecated('Use createOrderResponseDescriptor instead')
-const CreateOrderResponse$json = {
-  '1': 'CreateOrderResponse',
-};
-
-/// Descriptor for `CreateOrderResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createOrderResponseDescriptor = $convert.base64Decode(
-    'ChNDcmVhdGVPcmRlclJlc3BvbnNl');
-
 @$core.Deprecated('Use updateOrderRequestDescriptor instead')
 const UpdateOrderRequest$json = {
   '1': 'UpdateOrderRequest',
@@ -95,15 +86,6 @@ const UpdateOrderRequest$json = {
 final $typed_data.Uint8List updateOrderRequestDescriptor = $convert.base64Decode(
     'ChJVcGRhdGVPcmRlclJlcXVlc3QSGQoIb3JkZXJfaWQYASABKAlSB29yZGVySWQ=');
 
-@$core.Deprecated('Use updateOrderResponseDescriptor instead')
-const UpdateOrderResponse$json = {
-  '1': 'UpdateOrderResponse',
-};
-
-/// Descriptor for `UpdateOrderResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateOrderResponseDescriptor = $convert.base64Decode(
-    'ChNVcGRhdGVPcmRlclJlc3BvbnNl');
-
 @$core.Deprecated('Use deleteOrderRequestDescriptor instead')
 const DeleteOrderRequest$json = {
   '1': 'DeleteOrderRequest',
@@ -115,13 +97,4 @@ const DeleteOrderRequest$json = {
 /// Descriptor for `DeleteOrderRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List deleteOrderRequestDescriptor = $convert.base64Decode(
     'ChJEZWxldGVPcmRlclJlcXVlc3QSGQoIb3JkZXJfaWQYASABKAlSB29yZGVySWQ=');
-
-@$core.Deprecated('Use deleteOrderResponseDescriptor instead')
-const DeleteOrderResponse$json = {
-  '1': 'DeleteOrderResponse',
-};
-
-/// Descriptor for `DeleteOrderResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteOrderResponseDescriptor = $convert.base64Decode(
-    'ChNEZWxldGVPcmRlclJlc3BvbnNl');
 
