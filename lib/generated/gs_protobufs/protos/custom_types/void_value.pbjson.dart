@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: gs_protobufs/protos/custom_types/void.proto
+//  source: gs_protobufs/protos/custom_types/void_value.proto
 //
 // @dart = 2.12
 
@@ -13,12 +13,12 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-@$core.Deprecated('Use voidDescriptor instead')
-const Void$json = {
-  '1': 'Void',
+@$core.Deprecated('Use voidValueDescriptor instead')
+const VoidValue$json = {
+  '1': 'VoidValue',
 };
 
-/// Descriptor for `Void`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List voidDescriptor = $convert.base64Decode(
-    'CgRWb2lk');
+/// Descriptor for `VoidValue`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List voidValueDescriptor = $convert.base64Decode(
+    'CglWb2lkVmFsdWU=');
 

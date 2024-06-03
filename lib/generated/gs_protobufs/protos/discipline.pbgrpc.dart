@@ -15,7 +15,7 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'custom_types/void.pb.dart' as $1;
+import 'custom_types/void_value.pb.dart' as $1;
 import 'discipline.pb.dart' as $0;
 
 export 'discipline.pb.dart';
@@ -30,18 +30,18 @@ class DisciplineServiceClient extends $grpc.Client {
       '/protos.discipline.DisciplineService/GetByIdAsync',
       ($0.GetDisciplineByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.GetDisciplineByIdResponse.fromBuffer(value));
-  static final _$postAsync = $grpc.ClientMethod<$0.CreateDisciplineRequest, $1.Void>(
+  static final _$postAsync = $grpc.ClientMethod<$0.CreateDisciplineRequest, $1.VoidValue>(
       '/protos.discipline.DisciplineService/PostAsync',
       ($0.CreateDisciplineRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
-  static final _$putAsync = $grpc.ClientMethod<$0.UpdateDisciplineRequest, $1.Void>(
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
+  static final _$putAsync = $grpc.ClientMethod<$0.UpdateDisciplineRequest, $1.VoidValue>(
       '/protos.discipline.DisciplineService/PutAsync',
       ($0.UpdateDisciplineRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
-  static final _$deleteAsync = $grpc.ClientMethod<$0.DeleteDisciplineRequest, $1.Void>(
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
+  static final _$deleteAsync = $grpc.ClientMethod<$0.DeleteDisciplineRequest, $1.VoidValue>(
       '/protos.discipline.DisciplineService/DeleteAsync',
       ($0.DeleteDisciplineRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
 
   DisciplineServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -57,15 +57,15 @@ class DisciplineServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> postAsync($0.CreateDisciplineRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> postAsync($0.CreateDisciplineRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$postAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> putAsync($0.UpdateDisciplineRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> putAsync($0.UpdateDisciplineRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> deleteAsync($0.DeleteDisciplineRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> deleteAsync($0.DeleteDisciplineRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 }
@@ -89,27 +89,27 @@ abstract class DisciplineServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.GetDisciplineByIdRequest.fromBuffer(value),
         ($0.GetDisciplineByIdResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CreateDisciplineRequest, $1.Void>(
+    $addMethod($grpc.ServiceMethod<$0.CreateDisciplineRequest, $1.VoidValue>(
         'PostAsync',
         postAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.CreateDisciplineRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.UpdateDisciplineRequest, $1.Void>(
+        ($1.VoidValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.UpdateDisciplineRequest, $1.VoidValue>(
         'PutAsync',
         putAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.UpdateDisciplineRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.DeleteDisciplineRequest, $1.Void>(
+        ($1.VoidValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.DeleteDisciplineRequest, $1.VoidValue>(
         'DeleteAsync',
         deleteAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.DeleteDisciplineRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
+        ($1.VoidValue value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.GetPaginatedDisciplinesResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$0.GetPaginatedDisciplinesRequest> request) async {
@@ -120,21 +120,21 @@ abstract class DisciplineServiceBase extends $grpc.Service {
     return getByIdAsync(call, await request);
   }
 
-  $async.Future<$1.Void> postAsync_Pre($grpc.ServiceCall call, $async.Future<$0.CreateDisciplineRequest> request) async {
+  $async.Future<$1.VoidValue> postAsync_Pre($grpc.ServiceCall call, $async.Future<$0.CreateDisciplineRequest> request) async {
     return postAsync(call, await request);
   }
 
-  $async.Future<$1.Void> putAsync_Pre($grpc.ServiceCall call, $async.Future<$0.UpdateDisciplineRequest> request) async {
+  $async.Future<$1.VoidValue> putAsync_Pre($grpc.ServiceCall call, $async.Future<$0.UpdateDisciplineRequest> request) async {
     return putAsync(call, await request);
   }
 
-  $async.Future<$1.Void> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$0.DeleteDisciplineRequest> request) async {
+  $async.Future<$1.VoidValue> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$0.DeleteDisciplineRequest> request) async {
     return deleteAsync(call, await request);
   }
 
   $async.Future<$0.GetPaginatedDisciplinesResponse> getPaginatedAsync($grpc.ServiceCall call, $0.GetPaginatedDisciplinesRequest request);
   $async.Future<$0.GetDisciplineByIdResponse> getByIdAsync($grpc.ServiceCall call, $0.GetDisciplineByIdRequest request);
-  $async.Future<$1.Void> postAsync($grpc.ServiceCall call, $0.CreateDisciplineRequest request);
-  $async.Future<$1.Void> putAsync($grpc.ServiceCall call, $0.UpdateDisciplineRequest request);
-  $async.Future<$1.Void> deleteAsync($grpc.ServiceCall call, $0.DeleteDisciplineRequest request);
+  $async.Future<$1.VoidValue> postAsync($grpc.ServiceCall call, $0.CreateDisciplineRequest request);
+  $async.Future<$1.VoidValue> putAsync($grpc.ServiceCall call, $0.UpdateDisciplineRequest request);
+  $async.Future<$1.VoidValue> deleteAsync($grpc.ServiceCall call, $0.DeleteDisciplineRequest request);
 }

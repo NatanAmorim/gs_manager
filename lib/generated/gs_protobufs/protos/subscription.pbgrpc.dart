@@ -15,7 +15,7 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'custom_types/void.pb.dart' as $1;
+import 'custom_types/void_value.pb.dart' as $1;
 import 'subscription.pb.dart' as $16;
 
 export 'subscription.pb.dart';
@@ -30,18 +30,18 @@ class SubscriptionServiceClient extends $grpc.Client {
       '/protos.subscription.SubscriptionService/GetByIdAsync',
       ($16.GetSubscriptionByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $16.GetSubscriptionByIdResponse.fromBuffer(value));
-  static final _$postAsync = $grpc.ClientMethod<$16.CreateSubscriptionRequest, $1.Void>(
+  static final _$postAsync = $grpc.ClientMethod<$16.CreateSubscriptionRequest, $1.VoidValue>(
       '/protos.subscription.SubscriptionService/PostAsync',
       ($16.CreateSubscriptionRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
-  static final _$putAsync = $grpc.ClientMethod<$16.UpdateSubscriptionRequest, $1.Void>(
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
+  static final _$putAsync = $grpc.ClientMethod<$16.UpdateSubscriptionRequest, $1.VoidValue>(
       '/protos.subscription.SubscriptionService/PutAsync',
       ($16.UpdateSubscriptionRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
-  static final _$deleteAsync = $grpc.ClientMethod<$16.DeleteSubscriptionRequest, $1.Void>(
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
+  static final _$deleteAsync = $grpc.ClientMethod<$16.DeleteSubscriptionRequest, $1.VoidValue>(
       '/protos.subscription.SubscriptionService/DeleteAsync',
       ($16.DeleteSubscriptionRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
 
   SubscriptionServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -57,15 +57,15 @@ class SubscriptionServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> postAsync($16.CreateSubscriptionRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> postAsync($16.CreateSubscriptionRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$postAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> putAsync($16.UpdateSubscriptionRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> putAsync($16.UpdateSubscriptionRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> deleteAsync($16.DeleteSubscriptionRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> deleteAsync($16.DeleteSubscriptionRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 }
@@ -89,27 +89,27 @@ abstract class SubscriptionServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $16.GetSubscriptionByIdRequest.fromBuffer(value),
         ($16.GetSubscriptionByIdResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$16.CreateSubscriptionRequest, $1.Void>(
+    $addMethod($grpc.ServiceMethod<$16.CreateSubscriptionRequest, $1.VoidValue>(
         'PostAsync',
         postAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $16.CreateSubscriptionRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$16.UpdateSubscriptionRequest, $1.Void>(
+        ($1.VoidValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$16.UpdateSubscriptionRequest, $1.VoidValue>(
         'PutAsync',
         putAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $16.UpdateSubscriptionRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$16.DeleteSubscriptionRequest, $1.Void>(
+        ($1.VoidValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$16.DeleteSubscriptionRequest, $1.VoidValue>(
         'DeleteAsync',
         deleteAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $16.DeleteSubscriptionRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
+        ($1.VoidValue value) => value.writeToBuffer()));
   }
 
   $async.Future<$16.GetPaginatedSubscriptionsResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$16.GetPaginatedSubscriptionsRequest> request) async {
@@ -120,21 +120,21 @@ abstract class SubscriptionServiceBase extends $grpc.Service {
     return getByIdAsync(call, await request);
   }
 
-  $async.Future<$1.Void> postAsync_Pre($grpc.ServiceCall call, $async.Future<$16.CreateSubscriptionRequest> request) async {
+  $async.Future<$1.VoidValue> postAsync_Pre($grpc.ServiceCall call, $async.Future<$16.CreateSubscriptionRequest> request) async {
     return postAsync(call, await request);
   }
 
-  $async.Future<$1.Void> putAsync_Pre($grpc.ServiceCall call, $async.Future<$16.UpdateSubscriptionRequest> request) async {
+  $async.Future<$1.VoidValue> putAsync_Pre($grpc.ServiceCall call, $async.Future<$16.UpdateSubscriptionRequest> request) async {
     return putAsync(call, await request);
   }
 
-  $async.Future<$1.Void> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$16.DeleteSubscriptionRequest> request) async {
+  $async.Future<$1.VoidValue> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$16.DeleteSubscriptionRequest> request) async {
     return deleteAsync(call, await request);
   }
 
   $async.Future<$16.GetPaginatedSubscriptionsResponse> getPaginatedAsync($grpc.ServiceCall call, $16.GetPaginatedSubscriptionsRequest request);
   $async.Future<$16.GetSubscriptionByIdResponse> getByIdAsync($grpc.ServiceCall call, $16.GetSubscriptionByIdRequest request);
-  $async.Future<$1.Void> postAsync($grpc.ServiceCall call, $16.CreateSubscriptionRequest request);
-  $async.Future<$1.Void> putAsync($grpc.ServiceCall call, $16.UpdateSubscriptionRequest request);
-  $async.Future<$1.Void> deleteAsync($grpc.ServiceCall call, $16.DeleteSubscriptionRequest request);
+  $async.Future<$1.VoidValue> postAsync($grpc.ServiceCall call, $16.CreateSubscriptionRequest request);
+  $async.Future<$1.VoidValue> putAsync($grpc.ServiceCall call, $16.UpdateSubscriptionRequest request);
+  $async.Future<$1.VoidValue> deleteAsync($grpc.ServiceCall call, $16.DeleteSubscriptionRequest request);
 }

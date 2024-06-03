@@ -14,8 +14,8 @@ import 'dart:core' as $core;
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-/// Example: 12345.6789 -> { units = 12345, nanos = 678900000 }
-/// Name "DecimalValue" prevents conflict with C# Decimal type
+/// / Example: 12345.6789 -> { units = 12345, nanos = 678900000 }
+/// / Name "DecimalValue" prevents conflict with C# Decimal type
 class DecimalValue extends $pb.GeneratedMessage {
   factory DecimalValue({
     $fixnum.Int64? units,
@@ -61,8 +61,8 @@ class DecimalValue extends $pb.GeneratedMessage {
   static DecimalValue getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DecimalValue>(create);
   static DecimalValue? _defaultInstance;
 
-  /// The whole units of the amount.
-  /// For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
+  /// / The whole units of the amount.
+  /// / For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
   @$pb.TagNumber(1)
   $fixnum.Int64 get units => $_getI64(0);
   @$pb.TagNumber(1)
@@ -72,12 +72,12 @@ class DecimalValue extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearUnits() => clearField(1);
 
-  /// Number of nano (10^-9) units of the amount.
-  /// The value must be between -999,999,999 and +999,999,999 inclusive.
-  /// If `units` is positive, `nanos` must be positive or zero.
-  /// If `units` is zero, `nanos` can be positive, zero, or negative.
-  /// If `units` is negative, `nanos` must be negative or zero.
-  /// For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
+  /// / Number of nano (10^-9) units of the amount.
+  /// / The value must be between -999,999,999 and +999,999,999 inclusive.
+  /// / If `units` is positive, `nanos` must be positive or zero.
+  /// / If `units` is zero, `nanos` can be positive, zero, or negative.
+  /// / If `units` is negative, `nanos` must be negative or zero.
+  /// / For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
   @$pb.TagNumber(2)
   $core.int get nanos => $_getIZ(1);
   @$pb.TagNumber(2)

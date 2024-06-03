@@ -15,7 +15,7 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'custom_types/void.pb.dart' as $1;
+import 'custom_types/void_value.pb.dart' as $1;
 import 'user.pb.dart' as $5;
 
 export 'user.pb.dart';
@@ -30,14 +30,14 @@ class UserServiceClient extends $grpc.Client {
       '/protos.user.UserService/GetByIdAsync',
       ($5.GetUserByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $5.GetUserByIdResponse.fromBuffer(value));
-  static final _$putAsync = $grpc.ClientMethod<$5.UpdateUserRequest, $1.Void>(
+  static final _$putAsync = $grpc.ClientMethod<$5.UpdateUserRequest, $1.VoidValue>(
       '/protos.user.UserService/PutAsync',
       ($5.UpdateUserRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
-  static final _$deleteAsync = $grpc.ClientMethod<$5.DeleteUserRequest, $1.Void>(
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
+  static final _$deleteAsync = $grpc.ClientMethod<$5.DeleteUserRequest, $1.VoidValue>(
       '/protos.user.UserService/DeleteAsync',
       ($5.DeleteUserRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
 
   UserServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -53,11 +53,11 @@ class UserServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> putAsync($5.UpdateUserRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> putAsync($5.UpdateUserRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> deleteAsync($5.DeleteUserRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> deleteAsync($5.DeleteUserRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 }
@@ -81,20 +81,20 @@ abstract class UserServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $5.GetUserByIdRequest.fromBuffer(value),
         ($5.GetUserByIdResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$5.UpdateUserRequest, $1.Void>(
+    $addMethod($grpc.ServiceMethod<$5.UpdateUserRequest, $1.VoidValue>(
         'PutAsync',
         putAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $5.UpdateUserRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$5.DeleteUserRequest, $1.Void>(
+        ($1.VoidValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$5.DeleteUserRequest, $1.VoidValue>(
         'DeleteAsync',
         deleteAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $5.DeleteUserRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
+        ($1.VoidValue value) => value.writeToBuffer()));
   }
 
   $async.Future<$5.GetPaginatedUsersResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$5.GetPaginatedUsersRequest> request) async {
@@ -105,16 +105,16 @@ abstract class UserServiceBase extends $grpc.Service {
     return getByIdAsync(call, await request);
   }
 
-  $async.Future<$1.Void> putAsync_Pre($grpc.ServiceCall call, $async.Future<$5.UpdateUserRequest> request) async {
+  $async.Future<$1.VoidValue> putAsync_Pre($grpc.ServiceCall call, $async.Future<$5.UpdateUserRequest> request) async {
     return putAsync(call, await request);
   }
 
-  $async.Future<$1.Void> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$5.DeleteUserRequest> request) async {
+  $async.Future<$1.VoidValue> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$5.DeleteUserRequest> request) async {
     return deleteAsync(call, await request);
   }
 
   $async.Future<$5.GetPaginatedUsersResponse> getPaginatedAsync($grpc.ServiceCall call, $5.GetPaginatedUsersRequest request);
   $async.Future<$5.GetUserByIdResponse> getByIdAsync($grpc.ServiceCall call, $5.GetUserByIdRequest request);
-  $async.Future<$1.Void> putAsync($grpc.ServiceCall call, $5.UpdateUserRequest request);
-  $async.Future<$1.Void> deleteAsync($grpc.ServiceCall call, $5.DeleteUserRequest request);
+  $async.Future<$1.VoidValue> putAsync($grpc.ServiceCall call, $5.UpdateUserRequest request);
+  $async.Future<$1.VoidValue> deleteAsync($grpc.ServiceCall call, $5.DeleteUserRequest request);
 }

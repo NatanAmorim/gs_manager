@@ -41,7 +41,7 @@ class AuthService {
 
     try {
       final response = await stub.logoutAsync(
-        Void(),
+        VoidValue(),
         options: CallOptions(
           compression: const GzipCodec(),
           metadata: {'authorization': 'bearer $accessToken'},

@@ -1,6 +1,6 @@
 //
 //  Generated code. Do not modify.
-//  source: gs_protobufs/protos/custom_types/void.proto
+//  source: gs_protobufs/protos/custom_types/void_value.proto
 //
 // @dart = 2.12
 

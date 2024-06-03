@@ -15,7 +15,7 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'custom_types/void.pb.dart' as $1;
+import 'custom_types/void_value.pb.dart' as $1;
 import 'promotion.pb.dart' as $12;
 
 export 'promotion.pb.dart';
@@ -30,18 +30,18 @@ class PromotionServiceClient extends $grpc.Client {
       '/protos.promotion.PromotionService/GetByIdAsync',
       ($12.GetPromotionByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $12.GetPromotionByIdResponse.fromBuffer(value));
-  static final _$postAsync = $grpc.ClientMethod<$12.CreatePromotionRequest, $1.Void>(
+  static final _$postAsync = $grpc.ClientMethod<$12.CreatePromotionRequest, $1.VoidValue>(
       '/protos.promotion.PromotionService/PostAsync',
       ($12.CreatePromotionRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
-  static final _$putAsync = $grpc.ClientMethod<$12.UpdatePromotionRequest, $1.Void>(
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
+  static final _$putAsync = $grpc.ClientMethod<$12.UpdatePromotionRequest, $1.VoidValue>(
       '/protos.promotion.PromotionService/PutAsync',
       ($12.UpdatePromotionRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
-  static final _$deleteAsync = $grpc.ClientMethod<$12.DeletePromotionRequest, $1.Void>(
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
+  static final _$deleteAsync = $grpc.ClientMethod<$12.DeletePromotionRequest, $1.VoidValue>(
       '/protos.promotion.PromotionService/DeleteAsync',
       ($12.DeletePromotionRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
 
   PromotionServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -57,15 +57,15 @@ class PromotionServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> postAsync($12.CreatePromotionRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> postAsync($12.CreatePromotionRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$postAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> putAsync($12.UpdatePromotionRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> putAsync($12.UpdatePromotionRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> deleteAsync($12.DeletePromotionRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> deleteAsync($12.DeletePromotionRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 }
@@ -89,27 +89,27 @@ abstract class PromotionServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $12.GetPromotionByIdRequest.fromBuffer(value),
         ($12.GetPromotionByIdResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$12.CreatePromotionRequest, $1.Void>(
+    $addMethod($grpc.ServiceMethod<$12.CreatePromotionRequest, $1.VoidValue>(
         'PostAsync',
         postAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $12.CreatePromotionRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$12.UpdatePromotionRequest, $1.Void>(
+        ($1.VoidValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$12.UpdatePromotionRequest, $1.VoidValue>(
         'PutAsync',
         putAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $12.UpdatePromotionRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$12.DeletePromotionRequest, $1.Void>(
+        ($1.VoidValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$12.DeletePromotionRequest, $1.VoidValue>(
         'DeleteAsync',
         deleteAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $12.DeletePromotionRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
+        ($1.VoidValue value) => value.writeToBuffer()));
   }
 
   $async.Future<$12.GetPaginatedPromotionsResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$12.GetPaginatedPromotionsRequest> request) async {
@@ -120,21 +120,21 @@ abstract class PromotionServiceBase extends $grpc.Service {
     return getByIdAsync(call, await request);
   }
 
-  $async.Future<$1.Void> postAsync_Pre($grpc.ServiceCall call, $async.Future<$12.CreatePromotionRequest> request) async {
+  $async.Future<$1.VoidValue> postAsync_Pre($grpc.ServiceCall call, $async.Future<$12.CreatePromotionRequest> request) async {
     return postAsync(call, await request);
   }
 
-  $async.Future<$1.Void> putAsync_Pre($grpc.ServiceCall call, $async.Future<$12.UpdatePromotionRequest> request) async {
+  $async.Future<$1.VoidValue> putAsync_Pre($grpc.ServiceCall call, $async.Future<$12.UpdatePromotionRequest> request) async {
     return putAsync(call, await request);
   }
 
-  $async.Future<$1.Void> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$12.DeletePromotionRequest> request) async {
+  $async.Future<$1.VoidValue> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$12.DeletePromotionRequest> request) async {
     return deleteAsync(call, await request);
   }
 
   $async.Future<$12.GetPaginatedPromotionsResponse> getPaginatedAsync($grpc.ServiceCall call, $12.GetPaginatedPromotionsRequest request);
   $async.Future<$12.GetPromotionByIdResponse> getByIdAsync($grpc.ServiceCall call, $12.GetPromotionByIdRequest request);
-  $async.Future<$1.Void> postAsync($grpc.ServiceCall call, $12.CreatePromotionRequest request);
-  $async.Future<$1.Void> putAsync($grpc.ServiceCall call, $12.UpdatePromotionRequest request);
-  $async.Future<$1.Void> deleteAsync($grpc.ServiceCall call, $12.DeletePromotionRequest request);
+  $async.Future<$1.VoidValue> postAsync($grpc.ServiceCall call, $12.CreatePromotionRequest request);
+  $async.Future<$1.VoidValue> putAsync($grpc.ServiceCall call, $12.UpdatePromotionRequest request);
+  $async.Future<$1.VoidValue> deleteAsync($grpc.ServiceCall call, $12.DeletePromotionRequest request);
 }

@@ -15,7 +15,7 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'custom_types/void.pb.dart' as $1;
+import 'custom_types/void_value.pb.dart' as $1;
 import 'instructor.pb.dart' as $7;
 
 export 'instructor.pb.dart';
@@ -30,22 +30,22 @@ class InstructorServiceClient extends $grpc.Client {
       '/protos.instructor.InstructorService/GetByIdAsync',
       ($7.GetInstructorByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $7.GetInstructorByIdResponse.fromBuffer(value));
-  static final _$getAllOptionsAsync = $grpc.ClientMethod<$1.Void, $7.GetAllInstructorsOptionsResponse>(
+  static final _$getAllOptionsAsync = $grpc.ClientMethod<$1.VoidValue, $7.GetAllInstructorsOptionsResponse>(
       '/protos.instructor.InstructorService/GetAllOptionsAsync',
-      ($1.Void value) => value.writeToBuffer(),
+      ($1.VoidValue value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $7.GetAllInstructorsOptionsResponse.fromBuffer(value));
-  static final _$postAsync = $grpc.ClientMethod<$7.CreateInstructorRequest, $1.Void>(
+  static final _$postAsync = $grpc.ClientMethod<$7.CreateInstructorRequest, $1.VoidValue>(
       '/protos.instructor.InstructorService/PostAsync',
       ($7.CreateInstructorRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
-  static final _$putAsync = $grpc.ClientMethod<$7.UpdateInstructorRequest, $1.Void>(
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
+  static final _$putAsync = $grpc.ClientMethod<$7.UpdateInstructorRequest, $1.VoidValue>(
       '/protos.instructor.InstructorService/PutAsync',
       ($7.UpdateInstructorRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
-  static final _$deleteAsync = $grpc.ClientMethod<$7.DeleteInstructorRequest, $1.Void>(
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
+  static final _$deleteAsync = $grpc.ClientMethod<$7.DeleteInstructorRequest, $1.VoidValue>(
       '/protos.instructor.InstructorService/DeleteAsync',
       ($7.DeleteInstructorRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
 
   InstructorServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -61,19 +61,19 @@ class InstructorServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$7.GetAllInstructorsOptionsResponse> getAllOptionsAsync($1.Void request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$7.GetAllInstructorsOptionsResponse> getAllOptionsAsync($1.VoidValue request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getAllOptionsAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> postAsync($7.CreateInstructorRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> postAsync($7.CreateInstructorRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$postAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> putAsync($7.UpdateInstructorRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> putAsync($7.UpdateInstructorRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> deleteAsync($7.DeleteInstructorRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> deleteAsync($7.DeleteInstructorRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 }
@@ -97,34 +97,34 @@ abstract class InstructorServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $7.GetInstructorByIdRequest.fromBuffer(value),
         ($7.GetInstructorByIdResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$1.Void, $7.GetAllInstructorsOptionsResponse>(
+    $addMethod($grpc.ServiceMethod<$1.VoidValue, $7.GetAllInstructorsOptionsResponse>(
         'GetAllOptionsAsync',
         getAllOptionsAsync_Pre,
         false,
         false,
-        ($core.List<$core.int> value) => $1.Void.fromBuffer(value),
+        ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value),
         ($7.GetAllInstructorsOptionsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$7.CreateInstructorRequest, $1.Void>(
+    $addMethod($grpc.ServiceMethod<$7.CreateInstructorRequest, $1.VoidValue>(
         'PostAsync',
         postAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $7.CreateInstructorRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$7.UpdateInstructorRequest, $1.Void>(
+        ($1.VoidValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$7.UpdateInstructorRequest, $1.VoidValue>(
         'PutAsync',
         putAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $7.UpdateInstructorRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$7.DeleteInstructorRequest, $1.Void>(
+        ($1.VoidValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$7.DeleteInstructorRequest, $1.VoidValue>(
         'DeleteAsync',
         deleteAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $7.DeleteInstructorRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
+        ($1.VoidValue value) => value.writeToBuffer()));
   }
 
   $async.Future<$7.GetPaginatedInstructorsResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$7.GetPaginatedInstructorsRequest> request) async {
@@ -135,26 +135,26 @@ abstract class InstructorServiceBase extends $grpc.Service {
     return getByIdAsync(call, await request);
   }
 
-  $async.Future<$7.GetAllInstructorsOptionsResponse> getAllOptionsAsync_Pre($grpc.ServiceCall call, $async.Future<$1.Void> request) async {
+  $async.Future<$7.GetAllInstructorsOptionsResponse> getAllOptionsAsync_Pre($grpc.ServiceCall call, $async.Future<$1.VoidValue> request) async {
     return getAllOptionsAsync(call, await request);
   }
 
-  $async.Future<$1.Void> postAsync_Pre($grpc.ServiceCall call, $async.Future<$7.CreateInstructorRequest> request) async {
+  $async.Future<$1.VoidValue> postAsync_Pre($grpc.ServiceCall call, $async.Future<$7.CreateInstructorRequest> request) async {
     return postAsync(call, await request);
   }
 
-  $async.Future<$1.Void> putAsync_Pre($grpc.ServiceCall call, $async.Future<$7.UpdateInstructorRequest> request) async {
+  $async.Future<$1.VoidValue> putAsync_Pre($grpc.ServiceCall call, $async.Future<$7.UpdateInstructorRequest> request) async {
     return putAsync(call, await request);
   }
 
-  $async.Future<$1.Void> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$7.DeleteInstructorRequest> request) async {
+  $async.Future<$1.VoidValue> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$7.DeleteInstructorRequest> request) async {
     return deleteAsync(call, await request);
   }
 
   $async.Future<$7.GetPaginatedInstructorsResponse> getPaginatedAsync($grpc.ServiceCall call, $7.GetPaginatedInstructorsRequest request);
   $async.Future<$7.GetInstructorByIdResponse> getByIdAsync($grpc.ServiceCall call, $7.GetInstructorByIdRequest request);
-  $async.Future<$7.GetAllInstructorsOptionsResponse> getAllOptionsAsync($grpc.ServiceCall call, $1.Void request);
-  $async.Future<$1.Void> postAsync($grpc.ServiceCall call, $7.CreateInstructorRequest request);
-  $async.Future<$1.Void> putAsync($grpc.ServiceCall call, $7.UpdateInstructorRequest request);
-  $async.Future<$1.Void> deleteAsync($grpc.ServiceCall call, $7.DeleteInstructorRequest request);
+  $async.Future<$7.GetAllInstructorsOptionsResponse> getAllOptionsAsync($grpc.ServiceCall call, $1.VoidValue request);
+  $async.Future<$1.VoidValue> postAsync($grpc.ServiceCall call, $7.CreateInstructorRequest request);
+  $async.Future<$1.VoidValue> putAsync($grpc.ServiceCall call, $7.UpdateInstructorRequest request);
+  $async.Future<$1.VoidValue> deleteAsync($grpc.ServiceCall call, $7.DeleteInstructorRequest request);
 }

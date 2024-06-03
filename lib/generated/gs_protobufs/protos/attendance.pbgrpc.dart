@@ -16,7 +16,7 @@ import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'attendance.pb.dart' as $2;
-import 'custom_types/void.pb.dart' as $1;
+import 'custom_types/void_value.pb.dart' as $1;
 
 export 'attendance.pb.dart';
 
@@ -30,18 +30,18 @@ class AttendanceServiceClient extends $grpc.Client {
       '/protos.attendance.AttendanceService/GetByIdAsync',
       ($2.GetAttendanceByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $2.GetAttendanceByIdResponse.fromBuffer(value));
-  static final _$postAsync = $grpc.ClientMethod<$2.CreateAttendanceRequest, $1.Void>(
+  static final _$postAsync = $grpc.ClientMethod<$2.CreateAttendanceRequest, $1.VoidValue>(
       '/protos.attendance.AttendanceService/PostAsync',
       ($2.CreateAttendanceRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
-  static final _$putAsync = $grpc.ClientMethod<$2.UpdateAttendanceRequest, $1.Void>(
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
+  static final _$putAsync = $grpc.ClientMethod<$2.UpdateAttendanceRequest, $1.VoidValue>(
       '/protos.attendance.AttendanceService/PutAsync',
       ($2.UpdateAttendanceRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
-  static final _$deleteAsync = $grpc.ClientMethod<$2.DeleteAttendanceRequest, $1.Void>(
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
+  static final _$deleteAsync = $grpc.ClientMethod<$2.DeleteAttendanceRequest, $1.VoidValue>(
       '/protos.attendance.AttendanceService/DeleteAsync',
       ($2.DeleteAttendanceRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
 
   AttendanceServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -57,15 +57,15 @@ class AttendanceServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> postAsync($2.CreateAttendanceRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> postAsync($2.CreateAttendanceRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$postAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> putAsync($2.UpdateAttendanceRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> putAsync($2.UpdateAttendanceRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> deleteAsync($2.DeleteAttendanceRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> deleteAsync($2.DeleteAttendanceRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 }
@@ -89,27 +89,27 @@ abstract class AttendanceServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $2.GetAttendanceByIdRequest.fromBuffer(value),
         ($2.GetAttendanceByIdResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$2.CreateAttendanceRequest, $1.Void>(
+    $addMethod($grpc.ServiceMethod<$2.CreateAttendanceRequest, $1.VoidValue>(
         'PostAsync',
         postAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $2.CreateAttendanceRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$2.UpdateAttendanceRequest, $1.Void>(
+        ($1.VoidValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$2.UpdateAttendanceRequest, $1.VoidValue>(
         'PutAsync',
         putAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $2.UpdateAttendanceRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$2.DeleteAttendanceRequest, $1.Void>(
+        ($1.VoidValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$2.DeleteAttendanceRequest, $1.VoidValue>(
         'DeleteAsync',
         deleteAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $2.DeleteAttendanceRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
+        ($1.VoidValue value) => value.writeToBuffer()));
   }
 
   $async.Future<$2.GetPaginatedAttendancesResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$2.GetPaginatedAttendancesRequest> request) async {
@@ -120,21 +120,21 @@ abstract class AttendanceServiceBase extends $grpc.Service {
     return getByIdAsync(call, await request);
   }
 
-  $async.Future<$1.Void> postAsync_Pre($grpc.ServiceCall call, $async.Future<$2.CreateAttendanceRequest> request) async {
+  $async.Future<$1.VoidValue> postAsync_Pre($grpc.ServiceCall call, $async.Future<$2.CreateAttendanceRequest> request) async {
     return postAsync(call, await request);
   }
 
-  $async.Future<$1.Void> putAsync_Pre($grpc.ServiceCall call, $async.Future<$2.UpdateAttendanceRequest> request) async {
+  $async.Future<$1.VoidValue> putAsync_Pre($grpc.ServiceCall call, $async.Future<$2.UpdateAttendanceRequest> request) async {
     return putAsync(call, await request);
   }
 
-  $async.Future<$1.Void> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$2.DeleteAttendanceRequest> request) async {
+  $async.Future<$1.VoidValue> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$2.DeleteAttendanceRequest> request) async {
     return deleteAsync(call, await request);
   }
 
   $async.Future<$2.GetPaginatedAttendancesResponse> getPaginatedAsync($grpc.ServiceCall call, $2.GetPaginatedAttendancesRequest request);
   $async.Future<$2.GetAttendanceByIdResponse> getByIdAsync($grpc.ServiceCall call, $2.GetAttendanceByIdRequest request);
-  $async.Future<$1.Void> postAsync($grpc.ServiceCall call, $2.CreateAttendanceRequest request);
-  $async.Future<$1.Void> putAsync($grpc.ServiceCall call, $2.UpdateAttendanceRequest request);
-  $async.Future<$1.Void> deleteAsync($grpc.ServiceCall call, $2.DeleteAttendanceRequest request);
+  $async.Future<$1.VoidValue> postAsync($grpc.ServiceCall call, $2.CreateAttendanceRequest request);
+  $async.Future<$1.VoidValue> putAsync($grpc.ServiceCall call, $2.UpdateAttendanceRequest request);
+  $async.Future<$1.VoidValue> deleteAsync($grpc.ServiceCall call, $2.DeleteAttendanceRequest request);
 }

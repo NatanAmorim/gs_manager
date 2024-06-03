@@ -29,6 +29,11 @@ Here's a short description of each element
 
 <!-- FIX: `customer_details_view.dart` does **NOT** show error on FutureBuilder in AlertDialog when an error occurs -->
 
+## 24.06.3-beta (Jun 03, 2024)
+
+- Rename "Void" data type to "VoidValue"
+- Update protobufs from `a5d081123` to `2f4e2cdbd`.
+
 ## 24.06.2-beta (Jun 03, 2024)
 
 - Remove all `await Api.channel.shutdown();`.

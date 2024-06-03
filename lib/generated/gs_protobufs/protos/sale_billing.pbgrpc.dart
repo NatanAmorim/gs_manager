@@ -15,7 +15,7 @@ import 'dart:core' as $core;
 import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'custom_types/void.pb.dart' as $1;
+import 'custom_types/void_value.pb.dart' as $1;
 import 'sale_billing.pb.dart' as $15;
 
 export 'sale_billing.pb.dart';
@@ -30,18 +30,18 @@ class SaleBillingServiceClient extends $grpc.Client {
       '/protos.sale_billing.SaleBillingService/GetByIdAsync',
       ($15.GetSaleBillingByIdRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $15.GetSaleBillingByIdResponse.fromBuffer(value));
-  static final _$postAsync = $grpc.ClientMethod<$15.CreateSaleBillingRequest, $1.Void>(
+  static final _$postAsync = $grpc.ClientMethod<$15.CreateSaleBillingRequest, $1.VoidValue>(
       '/protos.sale_billing.SaleBillingService/PostAsync',
       ($15.CreateSaleBillingRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
-  static final _$putAsync = $grpc.ClientMethod<$15.UpdateSaleBillingRequest, $1.Void>(
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
+  static final _$putAsync = $grpc.ClientMethod<$15.UpdateSaleBillingRequest, $1.VoidValue>(
       '/protos.sale_billing.SaleBillingService/PutAsync',
       ($15.UpdateSaleBillingRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
-  static final _$deleteAsync = $grpc.ClientMethod<$15.DeleteSaleBillingRequest, $1.Void>(
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
+  static final _$deleteAsync = $grpc.ClientMethod<$15.DeleteSaleBillingRequest, $1.VoidValue>(
       '/protos.sale_billing.SaleBillingService/DeleteAsync',
       ($15.DeleteSaleBillingRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $1.Void.fromBuffer(value));
+      ($core.List<$core.int> value) => $1.VoidValue.fromBuffer(value));
 
   SaleBillingServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -57,15 +57,15 @@ class SaleBillingServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getByIdAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> postAsync($15.CreateSaleBillingRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> postAsync($15.CreateSaleBillingRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$postAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> putAsync($15.UpdateSaleBillingRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> putAsync($15.UpdateSaleBillingRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$putAsync, request, options: options);
   }
 
-  $grpc.ResponseFuture<$1.Void> deleteAsync($15.DeleteSaleBillingRequest request, {$grpc.CallOptions? options}) {
+  $grpc.ResponseFuture<$1.VoidValue> deleteAsync($15.DeleteSaleBillingRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$deleteAsync, request, options: options);
   }
 }
@@ -89,27 +89,27 @@ abstract class SaleBillingServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $15.GetSaleBillingByIdRequest.fromBuffer(value),
         ($15.GetSaleBillingByIdResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$15.CreateSaleBillingRequest, $1.Void>(
+    $addMethod($grpc.ServiceMethod<$15.CreateSaleBillingRequest, $1.VoidValue>(
         'PostAsync',
         postAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $15.CreateSaleBillingRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$15.UpdateSaleBillingRequest, $1.Void>(
+        ($1.VoidValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$15.UpdateSaleBillingRequest, $1.VoidValue>(
         'PutAsync',
         putAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $15.UpdateSaleBillingRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$15.DeleteSaleBillingRequest, $1.Void>(
+        ($1.VoidValue value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$15.DeleteSaleBillingRequest, $1.VoidValue>(
         'DeleteAsync',
         deleteAsync_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $15.DeleteSaleBillingRequest.fromBuffer(value),
-        ($1.Void value) => value.writeToBuffer()));
+        ($1.VoidValue value) => value.writeToBuffer()));
   }
 
   $async.Future<$15.GetPaginatedSaleBillingsResponse> getPaginatedAsync_Pre($grpc.ServiceCall call, $async.Future<$15.GetPaginatedSaleBillingsRequest> request) async {
@@ -120,21 +120,21 @@ abstract class SaleBillingServiceBase extends $grpc.Service {
     return getByIdAsync(call, await request);
   }
 
-  $async.Future<$1.Void> postAsync_Pre($grpc.ServiceCall call, $async.Future<$15.CreateSaleBillingRequest> request) async {
+  $async.Future<$1.VoidValue> postAsync_Pre($grpc.ServiceCall call, $async.Future<$15.CreateSaleBillingRequest> request) async {
     return postAsync(call, await request);
   }
 
-  $async.Future<$1.Void> putAsync_Pre($grpc.ServiceCall call, $async.Future<$15.UpdateSaleBillingRequest> request) async {
+  $async.Future<$1.VoidValue> putAsync_Pre($grpc.ServiceCall call, $async.Future<$15.UpdateSaleBillingRequest> request) async {
     return putAsync(call, await request);
   }
 
-  $async.Future<$1.Void> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$15.DeleteSaleBillingRequest> request) async {
+  $async.Future<$1.VoidValue> deleteAsync_Pre($grpc.ServiceCall call, $async.Future<$15.DeleteSaleBillingRequest> request) async {
     return deleteAsync(call, await request);
   }
 
   $async.Future<$15.GetPaginatedSaleBillingsResponse> getPaginatedAsync($grpc.ServiceCall call, $15.GetPaginatedSaleBillingsRequest request);
   $async.Future<$15.GetSaleBillingByIdResponse> getByIdAsync($grpc.ServiceCall call, $15.GetSaleBillingByIdRequest request);
-  $async.Future<$1.Void> postAsync($grpc.ServiceCall call, $15.CreateSaleBillingRequest request);
-  $async.Future<$1.Void> putAsync($grpc.ServiceCall call, $15.UpdateSaleBillingRequest request);
-  $async.Future<$1.Void> deleteAsync($grpc.ServiceCall call, $15.DeleteSaleBillingRequest request);
+  $async.Future<$1.VoidValue> postAsync($grpc.ServiceCall call, $15.CreateSaleBillingRequest request);
+  $async.Future<$1.VoidValue> putAsync($grpc.ServiceCall call, $15.UpdateSaleBillingRequest request);
+  $async.Future<$1.VoidValue> deleteAsync($grpc.ServiceCall call, $15.DeleteSaleBillingRequest request);
 }
