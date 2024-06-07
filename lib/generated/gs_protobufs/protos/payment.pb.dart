@@ -13,13 +13,13 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/wrappers.pb.dart' as $18;
-import 'custom_types/calendar_date.pb.dart' as $22;
-import 'custom_types/decimal_value.pb.dart' as $19;
+import '../../google/protobuf/wrappers.pb.dart' as $19;
+import 'custom_types/calendar_date.pb.dart' as $23;
+import 'custom_types/decimal_value.pb.dart' as $20;
 
 class GetPaginatedPaymentsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedPaymentsRequest({
-    $18.StringValue? cursor,
+    $19.StringValue? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -32,7 +32,7 @@ class GetPaginatedPaymentsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedPaymentsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedPaymentsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.payment'), createEmptyInstance: create)
-    ..aOM<$18.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $19.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -58,21 +58,21 @@ class GetPaginatedPaymentsRequest extends $pb.GeneratedMessage {
   static GetPaginatedPaymentsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $18.StringValue get cursor => $_getN(0);
+  $19.StringValue get cursor => $_getN(0);
   @$pb.TagNumber(1)
-  set cursor($18.StringValue v) { setField(1, v); }
+  set cursor($19.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
   void clearCursor() => clearField(1);
   @$pb.TagNumber(1)
-  $18.StringValue ensureCursor() => $_ensure(0);
+  $19.StringValue ensureCursor() => $_ensure(0);
 }
 
 class GetPaginatedPaymentsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedPaymentsResponse({
     $core.Iterable<GetPaymentByIdResponse>? payments,
-    $18.StringValue? nextCursor,
+    $19.StringValue? nextCursor,
   }) {
     final $result = create();
     if (payments != null) {
@@ -89,7 +89,7 @@ class GetPaginatedPaymentsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedPaymentsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.payment'), createEmptyInstance: create)
     ..pc<GetPaymentByIdResponse>(1, _omitFieldNames ? '' : 'payments', $pb.PbFieldType.PM, subBuilder: GetPaymentByIdResponse.create)
-    ..aOM<$18.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $19.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -118,15 +118,15 @@ class GetPaginatedPaymentsResponse extends $pb.GeneratedMessage {
   $core.List<GetPaymentByIdResponse> get payments => $_getList(0);
 
   @$pb.TagNumber(2)
-  $18.StringValue get nextCursor => $_getN(1);
+  $19.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($18.StringValue v) { setField(2, v); }
+  set nextCursor($19.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $18.StringValue ensureNextCursor() => $_ensure(1);
+  $19.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetPaymentByIdRequest extends $pb.GeneratedMessage {
@@ -436,9 +436,9 @@ class PaymentInstallment extends $pb.GeneratedMessage {
     $core.String? paymentInstallmentId,
     $core.String? paymentId,
     $core.int? installmentNumber,
-    $19.DecimalValue? installmentAmount,
+    $20.DecimalValue? installmentAmount,
     $core.String? paymentMethod,
-    $22.CalendarDate? dueDate,
+    $23.CalendarDate? dueDate,
   }) {
     final $result = create();
     if (paymentInstallmentId != null) {
@@ -469,9 +469,9 @@ class PaymentInstallment extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'paymentInstallmentId')
     ..aOS(2, _omitFieldNames ? '' : 'paymentId')
     ..a<$core.int>(3, _omitFieldNames ? '' : 'installmentNumber', $pb.PbFieldType.O3)
-    ..aOM<$19.DecimalValue>(4, _omitFieldNames ? '' : 'installmentAmount', subBuilder: $19.DecimalValue.create)
+    ..aOM<$20.DecimalValue>(4, _omitFieldNames ? '' : 'installmentAmount', subBuilder: $20.DecimalValue.create)
     ..aOS(5, _omitFieldNames ? '' : 'paymentMethod')
-    ..aOM<$22.CalendarDate>(6, _omitFieldNames ? '' : 'dueDate', subBuilder: $22.CalendarDate.create)
+    ..aOM<$23.CalendarDate>(6, _omitFieldNames ? '' : 'dueDate', subBuilder: $23.CalendarDate.create)
     ..hasRequiredFields = false
   ;
 
@@ -524,15 +524,15 @@ class PaymentInstallment extends $pb.GeneratedMessage {
   void clearInstallmentNumber() => clearField(3);
 
   @$pb.TagNumber(4)
-  $19.DecimalValue get installmentAmount => $_getN(3);
+  $20.DecimalValue get installmentAmount => $_getN(3);
   @$pb.TagNumber(4)
-  set installmentAmount($19.DecimalValue v) { setField(4, v); }
+  set installmentAmount($20.DecimalValue v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasInstallmentAmount() => $_has(3);
   @$pb.TagNumber(4)
   void clearInstallmentAmount() => clearField(4);
   @$pb.TagNumber(4)
-  $19.DecimalValue ensureInstallmentAmount() => $_ensure(3);
+  $20.DecimalValue ensureInstallmentAmount() => $_ensure(3);
 
   @$pb.TagNumber(5)
   $core.String get paymentMethod => $_getSZ(4);
@@ -544,15 +544,15 @@ class PaymentInstallment extends $pb.GeneratedMessage {
   void clearPaymentMethod() => clearField(5);
 
   @$pb.TagNumber(6)
-  $22.CalendarDate get dueDate => $_getN(5);
+  $23.CalendarDate get dueDate => $_getN(5);
   @$pb.TagNumber(6)
-  set dueDate($22.CalendarDate v) { setField(6, v); }
+  set dueDate($23.CalendarDate v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasDueDate() => $_has(5);
   @$pb.TagNumber(6)
   void clearDueDate() => clearField(6);
   @$pb.TagNumber(6)
-  $22.CalendarDate ensureDueDate() => $_ensure(5);
+  $23.CalendarDate ensureDueDate() => $_ensure(5);
 }
 
 

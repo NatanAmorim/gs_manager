@@ -48,6 +48,10 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                     width: value ? 176 : 56,
                     height: 56,
                     child: FloatingActionButton.extended(
+                      backgroundColor:
+                          Theme.of(context).colorScheme.tertiaryContainer,
+                      foregroundColor:
+                          Theme.of(context).colorScheme.onTertiaryContainer,
                       clipBehavior: Clip.hardEdge,
                       isExtended: value,
                       tooltip: 'Ponto de Venda',
@@ -69,6 +73,9 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   );
                 }),
             FloatingActionButton(
+              backgroundColor: Theme.of(context).colorScheme.tertiaryContainer,
+              foregroundColor:
+                  Theme.of(context).colorScheme.onTertiaryContainer,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(20),
@@ -102,6 +109,24 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                                       Theme.of(context).textTheme.headlineLarge,
                                 ),
                                 IconButton.filledTonal(
+                                  style: ButtonStyle(
+                                    backgroundColor:
+                                        WidgetStateProperty.resolveWith<Color?>(
+                                      (Set<WidgetState> states) {
+                                        if (states
+                                            .contains(WidgetState.pressed)) {
+                                          return Theme.of(context)
+                                              .colorScheme
+                                              .tertiaryContainer
+                                              .withOpacity(0.6);
+                                        }
+
+                                        return Theme.of(context)
+                                            .colorScheme
+                                            .tertiaryContainer;
+                                      },
+                                    ),
+                                  ),
                                   onPressed: () => Navigator.pop(context),
                                   icon: const Icon(Icons.close),
                                 ),

@@ -14,6 +14,9 @@ class OpenContainerCardComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    Color? cardColor = theme.brightness == Brightness.light
+        ? Color.lerp(Colors.white, Colors.pink.shade700, 0.08)
+        : Color.lerp(Colors.black, theme.colorScheme.secondary, 0.3);
     return OpenContainer(
       transitionDuration: const Duration(
         milliseconds: 600,
@@ -26,9 +29,9 @@ class OpenContainerCardComponent extends StatelessWidget {
       closedShape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
-      closedColor: theme.cardTheme.color!,
-      openColor: theme.cardTheme.color!,
-      middleColor: theme.cardTheme.color!,
+      closedColor: cardColor!,
+      openColor: cardColor,
+      middleColor: cardColor,
       transitionType: ContainerTransitionType.fadeThrough,
       openBuilder: (BuildContext context, _) => destination,
       closedBuilder: (BuildContext context, VoidCallback navigateTo) {

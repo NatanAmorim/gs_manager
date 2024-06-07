@@ -3,7 +3,7 @@ name: gs_manager
 description: Aplicativo utilizado para gerenciar a empresa "Gislaine Studio" em Andradina-SP, Brasil.
 homepage: https://gislainestudio.com.br
 repository: https://github.com/NatanAmorim/gs_manager
-version: 24.06.3-beta
+version: 24.06.4-beta
 # Prevent accidental publishing to pub.dev.
 publish_to: "none"
 # TODO add `false_secrets` more info in <https://dart.dev/tools/pub/pubspec#false_secrets>
@@ -77,13 +77,13 @@ flutter_native_splash:
   android: true
   ios: true
   web: false
-  color: "#F7DFEF"
+  color: "#322633"
   color_dark: "#322633"
   image: assets/images/gislaine_studio_logo.png
   image_dark: assets/images/gislaine_studio_logo.png
   android_12:
     image: assets/images/gislaine_studio_logo.png
-    icon_background_color: "#F7DFEF"
+    icon_background_color: "#322633"
     image_dark: assets/images/gislaine_studio_logo.png
     icon_background_color_dark: "#322633"
 

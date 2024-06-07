@@ -29,6 +29,13 @@ Here's a short description of each element
 
 <!-- FIX: `customer_details_view.dart` does **NOT** show error on FutureBuilder in AlertDialog when an error occurs -->
 
+## 24.06.4-beta (Jun 07, 2024)
+
+- Customer listing now works correctly.
+- Update UI to use colorScheme.Tertiary more.
+- Update protobufs from `2f4e2cdbd` to `9ae6e9999`.
+- Update "open_container_card_component" to use the normal card color.
+
 ## 24.06.3-beta (Jun 03, 2024)
 
 - Rename "Void" data type to "VoidValue"

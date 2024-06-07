@@ -62,7 +62,7 @@ const GetCustomerByIdResponse$json = {
     {'1': 'customer_id', '3': 1, '4': 1, '5': 9, '10': 'customerId'},
     {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.protos.user.GetUserByIdResponse', '9': 0, '10': 'user', '17': true},
     {'1': 'person', '3': 3, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
-    {'1': 'dependents', '3': 4, '4': 3, '5': 11, '6': '.custom_types.person.Person', '10': 'dependents'},
+    {'1': 'dependents', '3': 4, '4': 3, '5': 11, '6': '.custom_types.dependent.Dependent', '10': 'dependents'},
     {'1': 'billing_address', '3': 5, '4': 1, '5': 9, '10': 'billingAddress'},
     {'1': 'additional_information', '3': 6, '4': 1, '5': 9, '10': 'additionalInformation'},
   ],
@@ -76,10 +76,10 @@ final $typed_data.Uint8List getCustomerByIdResponseDescriptor = $convert.base64D
     'ChdHZXRDdXN0b21lckJ5SWRSZXNwb25zZRIfCgtjdXN0b21lcl9pZBgBIAEoCVIKY3VzdG9tZX'
     'JJZBI5CgR1c2VyGAIgASgLMiAucHJvdG9zLnVzZXIuR2V0VXNlckJ5SWRSZXNwb25zZUgAUgR1'
     'c2VyiAEBEjMKBnBlcnNvbhgDIAEoCzIbLmN1c3RvbV90eXBlcy5wZXJzb24uUGVyc29uUgZwZX'
-    'Jzb24SOwoKZGVwZW5kZW50cxgEIAMoCzIbLmN1c3RvbV90eXBlcy5wZXJzb24uUGVyc29uUgpk'
-    'ZXBlbmRlbnRzEicKD2JpbGxpbmdfYWRkcmVzcxgFIAEoCVIOYmlsbGluZ0FkZHJlc3MSNQoWYW'
-    'RkaXRpb25hbF9pbmZvcm1hdGlvbhgGIAEoCVIVYWRkaXRpb25hbEluZm9ybWF0aW9uQgcKBV91'
-    'c2Vy');
+    'Jzb24SQQoKZGVwZW5kZW50cxgEIAMoCzIhLmN1c3RvbV90eXBlcy5kZXBlbmRlbnQuRGVwZW5k'
+    'ZW50UgpkZXBlbmRlbnRzEicKD2JpbGxpbmdfYWRkcmVzcxgFIAEoCVIOYmlsbGluZ0FkZHJlc3'
+    'MSNQoWYWRkaXRpb25hbF9pbmZvcm1hdGlvbhgGIAEoCVIVYWRkaXRpb25hbEluZm9ybWF0aW9u'
+    'QgcKBV91c2Vy');
 
 @$core.Deprecated('Use customerOptionDescriptor instead')
 const CustomerOption$json = {
@@ -87,15 +87,16 @@ const CustomerOption$json = {
   '2': [
     {'1': 'customer_id', '3': 1, '4': 1, '5': 9, '10': 'customerId'},
     {'1': 'person', '3': 2, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
-    {'1': 'dependents', '3': 3, '4': 3, '5': 11, '6': '.custom_types.person.Person', '10': 'dependents'},
+    {'1': 'dependents', '3': 3, '4': 3, '5': 11, '6': '.custom_types.dependent.Dependent', '10': 'dependents'},
   ],
 };
 
 /// Descriptor for `CustomerOption`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List customerOptionDescriptor = $convert.base64Decode(
     'Cg5DdXN0b21lck9wdGlvbhIfCgtjdXN0b21lcl9pZBgBIAEoCVIKY3VzdG9tZXJJZBIzCgZwZX'
-    'Jzb24YAiABKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIGcGVyc29uEjsKCmRlcGVu'
-    'ZGVudHMYAyADKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIKZGVwZW5kZW50cw==');
+    'Jzb24YAiABKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIGcGVyc29uEkEKCmRlcGVu'
+    'ZGVudHMYAyADKAsyIS5jdXN0b21fdHlwZXMuZGVwZW5kZW50LkRlcGVuZGVudFIKZGVwZW5kZW'
+    '50cw==');
 
 @$core.Deprecated('Use getAllCustomersOptionsResponseDescriptor instead')
 const GetAllCustomersOptionsResponse$json = {
@@ -115,7 +116,7 @@ const CreateCustomerRequest$json = {
   '1': 'CreateCustomerRequest',
   '2': [
     {'1': 'person', '3': 1, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
-    {'1': 'dependents', '3': 2, '4': 3, '5': 11, '6': '.custom_types.person.Person', '10': 'dependents'},
+    {'1': 'dependents', '3': 2, '4': 3, '5': 11, '6': '.custom_types.dependent.Dependent', '10': 'dependents'},
     {'1': 'billing_address', '3': 3, '4': 1, '5': 9, '10': 'billingAddress'},
     {'1': 'additional_information', '3': 4, '4': 1, '5': 9, '10': 'additionalInformation'},
   ],
@@ -124,10 +125,10 @@ const CreateCustomerRequest$json = {
 /// Descriptor for `CreateCustomerRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createCustomerRequestDescriptor = $convert.base64Decode(
     'ChVDcmVhdGVDdXN0b21lclJlcXVlc3QSMwoGcGVyc29uGAEgASgLMhsuY3VzdG9tX3R5cGVzLn'
-    'BlcnNvbi5QZXJzb25SBnBlcnNvbhI7CgpkZXBlbmRlbnRzGAIgAygLMhsuY3VzdG9tX3R5cGVz'
-    'LnBlcnNvbi5QZXJzb25SCmRlcGVuZGVudHMSJwoPYmlsbGluZ19hZGRyZXNzGAMgASgJUg5iaW'
-    'xsaW5nQWRkcmVzcxI1ChZhZGRpdGlvbmFsX2luZm9ybWF0aW9uGAQgASgJUhVhZGRpdGlvbmFs'
-    'SW5mb3JtYXRpb24=');
+    'BlcnNvbi5QZXJzb25SBnBlcnNvbhJBCgpkZXBlbmRlbnRzGAIgAygLMiEuY3VzdG9tX3R5cGVz'
+    'LmRlcGVuZGVudC5EZXBlbmRlbnRSCmRlcGVuZGVudHMSJwoPYmlsbGluZ19hZGRyZXNzGAMgAS'
+    'gJUg5iaWxsaW5nQWRkcmVzcxI1ChZhZGRpdGlvbmFsX2luZm9ybWF0aW9uGAQgASgJUhVhZGRp'
+    'dGlvbmFsSW5mb3JtYXRpb24=');
 
 @$core.Deprecated('Use updateCustomerRequestDescriptor instead')
 const UpdateCustomerRequest$json = {
@@ -136,7 +137,7 @@ const UpdateCustomerRequest$json = {
     {'1': 'customer_id', '3': 1, '4': 1, '5': 9, '10': 'customerId'},
     {'1': 'user', '3': 2, '4': 1, '5': 11, '6': '.protos.user.GetUserByIdResponse', '9': 0, '10': 'user', '17': true},
     {'1': 'person', '3': 3, '4': 1, '5': 11, '6': '.custom_types.person.Person', '10': 'person'},
-    {'1': 'dependents', '3': 4, '4': 3, '5': 11, '6': '.custom_types.person.Person', '10': 'dependents'},
+    {'1': 'dependents', '3': 4, '4': 3, '5': 11, '6': '.custom_types.dependent.Dependent', '10': 'dependents'},
     {'1': 'billing_address', '3': 5, '4': 1, '5': 9, '10': 'billingAddress'},
     {'1': 'additional_information', '3': 6, '4': 1, '5': 9, '10': 'additionalInformation'},
   ],
@@ -150,10 +151,10 @@ final $typed_data.Uint8List updateCustomerRequestDescriptor = $convert.base64Dec
     'ChVVcGRhdGVDdXN0b21lclJlcXVlc3QSHwoLY3VzdG9tZXJfaWQYASABKAlSCmN1c3RvbWVySW'
     'QSOQoEdXNlchgCIAEoCzIgLnByb3Rvcy51c2VyLkdldFVzZXJCeUlkUmVzcG9uc2VIAFIEdXNl'
     'cogBARIzCgZwZXJzb24YAyABKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIGcGVyc2'
-    '9uEjsKCmRlcGVuZGVudHMYBCADKAsyGy5jdXN0b21fdHlwZXMucGVyc29uLlBlcnNvblIKZGVw'
-    'ZW5kZW50cxInCg9iaWxsaW5nX2FkZHJlc3MYBSABKAlSDmJpbGxpbmdBZGRyZXNzEjUKFmFkZG'
-    'l0aW9uYWxfaW5mb3JtYXRpb24YBiABKAlSFWFkZGl0aW9uYWxJbmZvcm1hdGlvbkIHCgVfdXNl'
-    'cg==');
+    '9uEkEKCmRlcGVuZGVudHMYBCADKAsyIS5jdXN0b21fdHlwZXMuZGVwZW5kZW50LkRlcGVuZGVu'
+    'dFIKZGVwZW5kZW50cxInCg9iaWxsaW5nX2FkZHJlc3MYBSABKAlSDmJpbGxpbmdBZGRyZXNzEj'
+    'UKFmFkZGl0aW9uYWxfaW5mb3JtYXRpb24YBiABKAlSFWFkZGl0aW9uYWxJbmZvcm1hdGlvbkIH'
+    'CgVfdXNlcg==');
 
 @$core.Deprecated('Use deleteCustomerRequestDescriptor instead')
 const DeleteCustomerRequest$json = {

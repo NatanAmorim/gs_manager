@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gs_manager/components.dart';
+import 'package:gs_manager/protos.dart' hide ConnectionState;
 import 'package:gs_manager/src/customer/customer_details_view.dart';
+import 'package:gs_manager/src/customer/customer_listing_controller.dart';
 import 'package:gs_manager/src/global_variables.dart';
 
 class ClienteListingView extends StatefulWidget {
@@ -13,26 +15,33 @@ class ClienteListingView extends StatefulWidget {
 }
 
 class _ClienteListingViewState extends State<ClienteListingView> {
-  List<dynamic> list = [];
-
   late final ScrollController scrollController = ScrollController();
+  final CustomerListingController controller = CustomerListingController();
 
-  Future refreshItems() async {
-    // setState(() {
-    //   items.clear();
-    // });
-    if (!mounted) return;
-    setState(() {
-      // items = fakeDb.clientes;
+  @override
+  void initState() {
+    super.initState();
+    controller.futureCostumers = controller.fetchCostumers();
+    scrollController.addListener(() {
+      if (scrollController.position.maxScrollExtent ==
+          scrollController.offset) {
+        fetchMoreItems();
+      }
     });
   }
 
-  Future fetchMoreItems() async {
+  Future refreshItems() async {
     if (!mounted) return;
-    setState(() {
-      // TODO
-      // items.addAll(list);
-    });
+    controller.cursor = null;
+    controller.items.clear();
+    controller.futureCostumers = controller.fetchCostumers();
+    setState(() {});
+  }
+
+  fetchMoreItems() {
+    if (!mounted) return;
+    controller.futureCostumers = controller.fetchCostumers();
+    setState(() {});
   }
 
   bool onScrollNotification(UserScrollNotification notification) {
@@ -43,17 +52,6 @@ class _ClienteListingViewState extends State<ClienteListingView> {
     }
 
     return true;
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    scrollController.addListener(() {
-      if (scrollController.position.maxScrollExtent ==
-          scrollController.offset) {
-        fetchMoreItems();
-      }
-    });
   }
 
   @override
@@ -68,27 +66,67 @@ class _ClienteListingViewState extends State<ClienteListingView> {
       onRefresh: refreshItems,
       child: NotificationListener<UserScrollNotification>(
         onNotification: onScrollNotification,
-        child: ListView.builder(
-          controller: scrollController,
-          shrinkWrap: true,
-          physics: const BouncingScrollPhysics(),
-          padding: const EdgeInsets.symmetric(
-            vertical: 8,
-            horizontal: 16,
-          ),
-          itemCount: 0,
-          // itemCount: items.length + 1, // TODO
-          itemBuilder: (BuildContext context, int index) {
-            // TODO
-            // if (index == items.length) {
-            //   return loading();
-            // }
+        child: FutureBuilder(
+          future: controller.futureCostumers,
+          builder: (
+            BuildContext context,
+            AsyncSnapshot<GetPaginatedCustomersResponse?> snapshot,
+          ) {
+            if (snapshot.connectionState != ConnectionState.done) {
+              return const Center(
+                child: SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: CircularProgressIndicator(),
+                ),
+              );
+            }
 
-            return listViewCard(index).animate().fadeIn(
-                  duration: const Duration(
-                    milliseconds: 300,
+            if (snapshot.hasError || !snapshot.hasData) {
+              return const Center(
+                child: Column(children: <Widget>[
+                  Icon(
+                    Icons.error,
+                    size: 96,
                   ),
-                );
+                  SizedBox(height: 10.0),
+                  Text(
+                    'Erro ao obter os dados.\nPor favor, tente novamente.',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                ]),
+              );
+            }
+
+            if (controller.items.isEmpty) {
+              controller.items = snapshot.data!.customers;
+            } else {
+              controller.items.addAll(snapshot.data!.customers);
+            }
+            controller.cursor = snapshot.data!.nextCursor;
+
+            return ListView.builder(
+              key: const PageStorageKey<String>('CustomerListView'),
+              controller: scrollController,
+              shrinkWrap: true,
+              physics: const BouncingScrollPhysics(),
+              padding: const EdgeInsets.symmetric(
+                vertical: 8,
+                horizontal: 16,
+              ),
+              itemCount: controller.items.length + 1,
+              itemBuilder: (BuildContext context, int index) {
+                if (index == controller.items.length) {
+                  return loading();
+                }
+
+                return listViewCard(index).animate().fadeIn(
+                      duration: const Duration(
+                        milliseconds: 300,
+                      ),
+                    );
+              },
+            );
           },
         ),
       ),
@@ -118,16 +156,14 @@ class _ClienteListingViewState extends State<ClienteListingView> {
       ),
       child: OpenContainerCardComponent(
         destination: CustomerDetailsView(
-          // customerUpdating: items[index], // TODO
-          customerUpdating: null,
+          customerUpdating: controller.items[index],
         ),
         child: ListTile(
           contentPadding: const EdgeInsets.symmetric(
             vertical: 8,
             horizontal: 16,
           ),
-          // title: Text(items[index].nome), // TODO
-          title: const Text('items[index].nome'),
+          title: Text(controller.items[index].person.name),
           textColor: Theme.of(context).colorScheme.secondary,
           leading: const Icon(Icons.person),
           trailing: const Icon(Icons.arrow_right),

@@ -73,9 +73,8 @@ class _LoginViewState extends State<LoginView> {
                             ),
                             TextButton(
                               style: ButtonStyle(
-                                foregroundColor: WidgetStateProperty.all(
-                                  Colors.blue,
-                                ),
+                                foregroundColor:
+                                    WidgetStateProperty.all(Colors.blue),
                               ),
                               onPressed: () {
                                 // TODO

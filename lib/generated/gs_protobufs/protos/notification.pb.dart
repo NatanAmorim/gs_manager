@@ -13,11 +13,11 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/wrappers.pb.dart' as $18;
+import '../../google/protobuf/wrappers.pb.dart' as $19;
 
 class GetPaginatedNotificationsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedNotificationsRequest({
-    $18.StringValue? cursor,
+    $19.StringValue? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -30,7 +30,7 @@ class GetPaginatedNotificationsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedNotificationsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedNotificationsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.notification'), createEmptyInstance: create)
-    ..aOM<$18.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $19.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -56,21 +56,21 @@ class GetPaginatedNotificationsRequest extends $pb.GeneratedMessage {
   static GetPaginatedNotificationsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $18.StringValue get cursor => $_getN(0);
+  $19.StringValue get cursor => $_getN(0);
   @$pb.TagNumber(1)
-  set cursor($18.StringValue v) { setField(1, v); }
+  set cursor($19.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
   void clearCursor() => clearField(1);
   @$pb.TagNumber(1)
-  $18.StringValue ensureCursor() => $_ensure(0);
+  $19.StringValue ensureCursor() => $_ensure(0);
 }
 
 class GetPaginatedNotificationsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedNotificationsResponse({
     $core.Iterable<GetNotificationByIdResponse>? notifications,
-    $18.StringValue? nextCursor,
+    $19.StringValue? nextCursor,
   }) {
     final $result = create();
     if (notifications != null) {
@@ -87,7 +87,7 @@ class GetPaginatedNotificationsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedNotificationsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.notification'), createEmptyInstance: create)
     ..pc<GetNotificationByIdResponse>(1, _omitFieldNames ? '' : 'notifications', $pb.PbFieldType.PM, subBuilder: GetNotificationByIdResponse.create)
-    ..aOM<$18.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $19.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -116,15 +116,15 @@ class GetPaginatedNotificationsResponse extends $pb.GeneratedMessage {
   $core.List<GetNotificationByIdResponse> get notifications => $_getList(0);
 
   @$pb.TagNumber(2)
-  $18.StringValue get nextCursor => $_getN(1);
+  $19.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($18.StringValue v) { setField(2, v); }
+  set nextCursor($19.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $18.StringValue ensureNextCursor() => $_ensure(1);
+  $19.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetNotificationByIdRequest extends $pb.GeneratedMessage {

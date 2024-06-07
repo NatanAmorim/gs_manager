@@ -13,11 +13,11 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../../google/protobuf/wrappers.pb.dart' as $18;
+import '../../../google/protobuf/wrappers.pb.dart' as $19;
 
 class Person extends $pb.GeneratedMessage {
   factory Person({
-    $18.StringValue? personId,
+    $19.StringValue? personId,
     $core.String? name,
     $core.String? mobilePhoneNumber,
     $core.String? birthDate,
@@ -46,7 +46,7 @@ class Person extends $pb.GeneratedMessage {
   factory Person.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Person', package: const $pb.PackageName(_omitMessageNames ? '' : 'custom_types.person'), createEmptyInstance: create)
-    ..aOM<$18.StringValue>(1, _omitFieldNames ? '' : 'personId', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(1, _omitFieldNames ? '' : 'personId', subBuilder: $19.StringValue.create)
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'mobilePhoneNumber')
     ..aOS(4, _omitFieldNames ? '' : 'birthDate')
@@ -76,15 +76,15 @@ class Person extends $pb.GeneratedMessage {
   static Person? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $18.StringValue get personId => $_getN(0);
+  $19.StringValue get personId => $_getN(0);
   @$pb.TagNumber(1)
-  set personId($18.StringValue v) { setField(1, v); }
+  set personId($19.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasPersonId() => $_has(0);
   @$pb.TagNumber(1)
   void clearPersonId() => clearField(1);
   @$pb.TagNumber(1)
-  $18.StringValue ensurePersonId() => $_ensure(0);
+  $19.StringValue ensurePersonId() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.String get name => $_getSZ(1);

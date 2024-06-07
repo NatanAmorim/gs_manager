@@ -13,13 +13,13 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/wrappers.pb.dart' as $18;
-import 'custom_types/decimal_value.pb.dart' as $19;
-import 'payment.pb.dart' as $10;
+import '../../google/protobuf/wrappers.pb.dart' as $19;
+import 'custom_types/decimal_value.pb.dart' as $20;
+import 'payment.pb.dart' as $11;
 
 class GetPaginatedSubscriptionBillingsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedSubscriptionBillingsRequest({
-    $18.StringValue? cursor,
+    $19.StringValue? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -32,7 +32,7 @@ class GetPaginatedSubscriptionBillingsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedSubscriptionBillingsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedSubscriptionBillingsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.subscription_billing'), createEmptyInstance: create)
-    ..aOM<$18.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $19.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -58,21 +58,21 @@ class GetPaginatedSubscriptionBillingsRequest extends $pb.GeneratedMessage {
   static GetPaginatedSubscriptionBillingsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $18.StringValue get cursor => $_getN(0);
+  $19.StringValue get cursor => $_getN(0);
   @$pb.TagNumber(1)
-  set cursor($18.StringValue v) { setField(1, v); }
+  set cursor($19.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
   void clearCursor() => clearField(1);
   @$pb.TagNumber(1)
-  $18.StringValue ensureCursor() => $_ensure(0);
+  $19.StringValue ensureCursor() => $_ensure(0);
 }
 
 class GetPaginatedSubscriptionBillingsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedSubscriptionBillingsResponse({
     $core.Iterable<GetSubscriptionBillingByIdResponse>? subscriptionBillings,
-    $18.StringValue? nextCursor,
+    $19.StringValue? nextCursor,
   }) {
     final $result = create();
     if (subscriptionBillings != null) {
@@ -89,7 +89,7 @@ class GetPaginatedSubscriptionBillingsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedSubscriptionBillingsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.subscription_billing'), createEmptyInstance: create)
     ..pc<GetSubscriptionBillingByIdResponse>(1, _omitFieldNames ? '' : 'subscriptionBillings', $pb.PbFieldType.PM, protoName: 'subscriptionBillings', subBuilder: GetSubscriptionBillingByIdResponse.create)
-    ..aOM<$18.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $19.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -118,15 +118,15 @@ class GetPaginatedSubscriptionBillingsResponse extends $pb.GeneratedMessage {
   $core.List<GetSubscriptionBillingByIdResponse> get subscriptionBillings => $_getList(0);
 
   @$pb.TagNumber(2)
-  $18.StringValue get nextCursor => $_getN(1);
+  $19.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($18.StringValue v) { setField(2, v); }
+  set nextCursor($19.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $18.StringValue ensureNextCursor() => $_ensure(1);
+  $19.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetSubscriptionBillingByIdRequest extends $pb.GeneratedMessage {
@@ -183,8 +183,8 @@ class GetSubscriptionBillingByIdResponse extends $pb.GeneratedMessage {
   factory GetSubscriptionBillingByIdResponse({
     $core.String? subscriptionBillingId,
     $core.String? observations,
-    $19.DecimalValue? totalDiscount,
-    $10.GetPaymentByIdResponse? payment,
+    $20.DecimalValue? totalDiscount,
+    $11.GetPaymentByIdResponse? payment,
   }) {
     final $result = create();
     if (subscriptionBillingId != null) {
@@ -208,8 +208,8 @@ class GetSubscriptionBillingByIdResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetSubscriptionBillingByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.subscription_billing'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'subscriptionBillingId')
     ..aOS(2, _omitFieldNames ? '' : 'observations')
-    ..aOM<$19.DecimalValue>(3, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $19.DecimalValue.create)
-    ..aOM<$10.GetPaymentByIdResponse>(4, _omitFieldNames ? '' : 'payment', subBuilder: $10.GetPaymentByIdResponse.create)
+    ..aOM<$20.DecimalValue>(3, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $20.DecimalValue.create)
+    ..aOM<$11.GetPaymentByIdResponse>(4, _omitFieldNames ? '' : 'payment', subBuilder: $11.GetPaymentByIdResponse.create)
     ..hasRequiredFields = false
   ;
 
@@ -253,34 +253,34 @@ class GetSubscriptionBillingByIdResponse extends $pb.GeneratedMessage {
   void clearObservations() => clearField(2);
 
   @$pb.TagNumber(3)
-  $19.DecimalValue get totalDiscount => $_getN(2);
+  $20.DecimalValue get totalDiscount => $_getN(2);
   @$pb.TagNumber(3)
-  set totalDiscount($19.DecimalValue v) { setField(3, v); }
+  set totalDiscount($20.DecimalValue v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasTotalDiscount() => $_has(2);
   @$pb.TagNumber(3)
   void clearTotalDiscount() => clearField(3);
   @$pb.TagNumber(3)
-  $19.DecimalValue ensureTotalDiscount() => $_ensure(2);
+  $20.DecimalValue ensureTotalDiscount() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $10.GetPaymentByIdResponse get payment => $_getN(3);
+  $11.GetPaymentByIdResponse get payment => $_getN(3);
   @$pb.TagNumber(4)
-  set payment($10.GetPaymentByIdResponse v) { setField(4, v); }
+  set payment($11.GetPaymentByIdResponse v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasPayment() => $_has(3);
   @$pb.TagNumber(4)
   void clearPayment() => clearField(4);
   @$pb.TagNumber(4)
-  $10.GetPaymentByIdResponse ensurePayment() => $_ensure(3);
+  $11.GetPaymentByIdResponse ensurePayment() => $_ensure(3);
 }
 
 class CreateSubscriptionBillingRequest extends $pb.GeneratedMessage {
   factory CreateSubscriptionBillingRequest({
     $core.String? subscriptionId,
     $core.String? observations,
-    $19.DecimalValue? totalDiscount,
-    $10.CreatePaymentRequest? payment,
+    $20.DecimalValue? totalDiscount,
+    $11.CreatePaymentRequest? payment,
   }) {
     final $result = create();
     if (subscriptionId != null) {
@@ -304,8 +304,8 @@ class CreateSubscriptionBillingRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateSubscriptionBillingRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.subscription_billing'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'subscriptionId')
     ..aOS(2, _omitFieldNames ? '' : 'observations')
-    ..aOM<$19.DecimalValue>(3, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $19.DecimalValue.create)
-    ..aOM<$10.CreatePaymentRequest>(4, _omitFieldNames ? '' : 'payment', subBuilder: $10.CreatePaymentRequest.create)
+    ..aOM<$20.DecimalValue>(3, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $20.DecimalValue.create)
+    ..aOM<$11.CreatePaymentRequest>(4, _omitFieldNames ? '' : 'payment', subBuilder: $11.CreatePaymentRequest.create)
     ..hasRequiredFields = false
   ;
 
@@ -349,26 +349,26 @@ class CreateSubscriptionBillingRequest extends $pb.GeneratedMessage {
   void clearObservations() => clearField(2);
 
   @$pb.TagNumber(3)
-  $19.DecimalValue get totalDiscount => $_getN(2);
+  $20.DecimalValue get totalDiscount => $_getN(2);
   @$pb.TagNumber(3)
-  set totalDiscount($19.DecimalValue v) { setField(3, v); }
+  set totalDiscount($20.DecimalValue v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasTotalDiscount() => $_has(2);
   @$pb.TagNumber(3)
   void clearTotalDiscount() => clearField(3);
   @$pb.TagNumber(3)
-  $19.DecimalValue ensureTotalDiscount() => $_ensure(2);
+  $20.DecimalValue ensureTotalDiscount() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $10.CreatePaymentRequest get payment => $_getN(3);
+  $11.CreatePaymentRequest get payment => $_getN(3);
   @$pb.TagNumber(4)
-  set payment($10.CreatePaymentRequest v) { setField(4, v); }
+  set payment($11.CreatePaymentRequest v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasPayment() => $_has(3);
   @$pb.TagNumber(4)
   void clearPayment() => clearField(4);
   @$pb.TagNumber(4)
-  $10.CreatePaymentRequest ensurePayment() => $_ensure(3);
+  $11.CreatePaymentRequest ensurePayment() => $_ensure(3);
 }
 
 class UpdateSubscriptionBillingRequest extends $pb.GeneratedMessage {
@@ -376,8 +376,8 @@ class UpdateSubscriptionBillingRequest extends $pb.GeneratedMessage {
     $core.String? subscriptionBillingId,
     $core.String? subscriptionId,
     $core.String? observations,
-    $19.DecimalValue? totalDiscount,
-    $10.GetPaymentByIdResponse? payment,
+    $20.DecimalValue? totalDiscount,
+    $11.GetPaymentByIdResponse? payment,
   }) {
     final $result = create();
     if (subscriptionBillingId != null) {
@@ -405,8 +405,8 @@ class UpdateSubscriptionBillingRequest extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'subscriptionBillingId')
     ..aOS(2, _omitFieldNames ? '' : 'subscriptionId')
     ..aOS(3, _omitFieldNames ? '' : 'observations')
-    ..aOM<$19.DecimalValue>(4, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $19.DecimalValue.create)
-    ..aOM<$10.GetPaymentByIdResponse>(5, _omitFieldNames ? '' : 'payment', subBuilder: $10.GetPaymentByIdResponse.create)
+    ..aOM<$20.DecimalValue>(4, _omitFieldNames ? '' : 'totalDiscount', subBuilder: $20.DecimalValue.create)
+    ..aOM<$11.GetPaymentByIdResponse>(5, _omitFieldNames ? '' : 'payment', subBuilder: $11.GetPaymentByIdResponse.create)
     ..hasRequiredFields = false
   ;
 
@@ -459,26 +459,26 @@ class UpdateSubscriptionBillingRequest extends $pb.GeneratedMessage {
   void clearObservations() => clearField(3);
 
   @$pb.TagNumber(4)
-  $19.DecimalValue get totalDiscount => $_getN(3);
+  $20.DecimalValue get totalDiscount => $_getN(3);
   @$pb.TagNumber(4)
-  set totalDiscount($19.DecimalValue v) { setField(4, v); }
+  set totalDiscount($20.DecimalValue v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasTotalDiscount() => $_has(3);
   @$pb.TagNumber(4)
   void clearTotalDiscount() => clearField(4);
   @$pb.TagNumber(4)
-  $19.DecimalValue ensureTotalDiscount() => $_ensure(3);
+  $20.DecimalValue ensureTotalDiscount() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  $10.GetPaymentByIdResponse get payment => $_getN(4);
+  $11.GetPaymentByIdResponse get payment => $_getN(4);
   @$pb.TagNumber(5)
-  set payment($10.GetPaymentByIdResponse v) { setField(5, v); }
+  set payment($11.GetPaymentByIdResponse v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasPayment() => $_has(4);
   @$pb.TagNumber(5)
   void clearPayment() => clearField(5);
   @$pb.TagNumber(5)
-  $10.GetPaymentByIdResponse ensurePayment() => $_ensure(4);
+  $11.GetPaymentByIdResponse ensurePayment() => $_ensure(4);
 }
 
 class DeleteSubscriptionBillingRequest extends $pb.GeneratedMessage {

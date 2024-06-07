@@ -13,14 +13,14 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/wrappers.pb.dart' as $18;
-import 'custom_types/decimal_value.pb.dart' as $19;
+import '../../google/protobuf/wrappers.pb.dart' as $19;
+import 'custom_types/decimal_value.pb.dart' as $20;
 import 'customer.pb.dart' as $6;
-import 'return.pb.dart' as $13;
+import 'return.pb.dart' as $14;
 
 class GetPaginatedSalesRequest extends $pb.GeneratedMessage {
   factory GetPaginatedSalesRequest({
-    $18.StringValue? cursor,
+    $19.StringValue? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -33,7 +33,7 @@ class GetPaginatedSalesRequest extends $pb.GeneratedMessage {
   factory GetPaginatedSalesRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedSalesRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale'), createEmptyInstance: create)
-    ..aOM<$18.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $19.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -59,21 +59,21 @@ class GetPaginatedSalesRequest extends $pb.GeneratedMessage {
   static GetPaginatedSalesRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $18.StringValue get cursor => $_getN(0);
+  $19.StringValue get cursor => $_getN(0);
   @$pb.TagNumber(1)
-  set cursor($18.StringValue v) { setField(1, v); }
+  set cursor($19.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
   void clearCursor() => clearField(1);
   @$pb.TagNumber(1)
-  $18.StringValue ensureCursor() => $_ensure(0);
+  $19.StringValue ensureCursor() => $_ensure(0);
 }
 
 class GetPaginatedSalesResponse extends $pb.GeneratedMessage {
   factory GetPaginatedSalesResponse({
     $core.Iterable<GetSaleByIdResponse>? sales,
-    $18.StringValue? nextCursor,
+    $19.StringValue? nextCursor,
   }) {
     final $result = create();
     if (sales != null) {
@@ -90,7 +90,7 @@ class GetPaginatedSalesResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedSalesResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale'), createEmptyInstance: create)
     ..pc<GetSaleByIdResponse>(1, _omitFieldNames ? '' : 'sales', $pb.PbFieldType.PM, subBuilder: GetSaleByIdResponse.create)
-    ..aOM<$18.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $19.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -119,15 +119,15 @@ class GetPaginatedSalesResponse extends $pb.GeneratedMessage {
   $core.List<GetSaleByIdResponse> get sales => $_getList(0);
 
   @$pb.TagNumber(2)
-  $18.StringValue get nextCursor => $_getN(1);
+  $19.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($18.StringValue v) { setField(2, v); }
+  set nextCursor($19.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $18.StringValue ensureNextCursor() => $_ensure(1);
+  $19.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetSaleByIdRequest extends $pb.GeneratedMessage {
@@ -186,7 +186,7 @@ class GetSaleByIdResponse extends $pb.GeneratedMessage {
     $6.GetCustomerByIdResponse? customer,
     $core.String? observations,
     $core.Iterable<SaleItem>? itemsSold,
-    $core.Iterable<$13.GetReturnByIdResponse>? returns,
+    $core.Iterable<$14.GetReturnByIdResponse>? returns,
   }) {
     final $result = create();
     if (saleId != null) {
@@ -215,7 +215,7 @@ class GetSaleByIdResponse extends $pb.GeneratedMessage {
     ..aOM<$6.GetCustomerByIdResponse>(2, _omitFieldNames ? '' : 'customer', subBuilder: $6.GetCustomerByIdResponse.create)
     ..aOS(3, _omitFieldNames ? '' : 'observations')
     ..pc<SaleItem>(4, _omitFieldNames ? '' : 'ItemsSold', $pb.PbFieldType.PM, protoName: 'ItemsSold', subBuilder: SaleItem.create)
-    ..pc<$13.GetReturnByIdResponse>(5, _omitFieldNames ? '' : 'Returns', $pb.PbFieldType.PM, protoName: 'Returns', subBuilder: $13.GetReturnByIdResponse.create)
+    ..pc<$14.GetReturnByIdResponse>(5, _omitFieldNames ? '' : 'Returns', $pb.PbFieldType.PM, protoName: 'Returns', subBuilder: $14.GetReturnByIdResponse.create)
     ..hasRequiredFields = false
   ;
 
@@ -273,12 +273,12 @@ class GetSaleByIdResponse extends $pb.GeneratedMessage {
   $core.List<SaleItem> get itemsSold => $_getList(3);
 
   @$pb.TagNumber(5)
-  $core.List<$13.GetReturnByIdResponse> get returns => $_getList(4);
+  $core.List<$14.GetReturnByIdResponse> get returns => $_getList(4);
 }
 
 class CreateSaleRequest extends $pb.GeneratedMessage {
   factory CreateSaleRequest({
-    $18.StringValue? customerId,
+    $19.StringValue? customerId,
     $core.String? observations,
     $core.Iterable<SaleItem>? itemsSold,
   }) {
@@ -299,7 +299,7 @@ class CreateSaleRequest extends $pb.GeneratedMessage {
   factory CreateSaleRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateSaleRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale'), createEmptyInstance: create)
-    ..aOM<$18.StringValue>(1, _omitFieldNames ? '' : 'customerId', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(1, _omitFieldNames ? '' : 'customerId', subBuilder: $19.StringValue.create)
     ..aOS(2, _omitFieldNames ? '' : 'observations')
     ..pc<SaleItem>(3, _omitFieldNames ? '' : 'ItemsSold', $pb.PbFieldType.PM, protoName: 'ItemsSold', subBuilder: SaleItem.create)
     ..hasRequiredFields = false
@@ -327,15 +327,15 @@ class CreateSaleRequest extends $pb.GeneratedMessage {
   static CreateSaleRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $18.StringValue get customerId => $_getN(0);
+  $19.StringValue get customerId => $_getN(0);
   @$pb.TagNumber(1)
-  set customerId($18.StringValue v) { setField(1, v); }
+  set customerId($19.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCustomerId() => $_has(0);
   @$pb.TagNumber(1)
   void clearCustomerId() => clearField(1);
   @$pb.TagNumber(1)
-  $18.StringValue ensureCustomerId() => $_ensure(0);
+  $19.StringValue ensureCustomerId() => $_ensure(0);
 
   @$pb.TagNumber(2)
   $core.String get observations => $_getSZ(1);
@@ -353,10 +353,10 @@ class CreateSaleRequest extends $pb.GeneratedMessage {
 class UpdateSaleRequest extends $pb.GeneratedMessage {
   factory UpdateSaleRequest({
     $core.String? saleId,
-    $18.StringValue? customerId,
+    $19.StringValue? customerId,
     $core.String? observations,
     $core.Iterable<SaleItem>? itemsSold,
-    $core.Iterable<$13.GetReturnByIdResponse>? returns,
+    $core.Iterable<$14.GetReturnByIdResponse>? returns,
   }) {
     final $result = create();
     if (saleId != null) {
@@ -382,10 +382,10 @@ class UpdateSaleRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateSaleRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'saleId')
-    ..aOM<$18.StringValue>(2, _omitFieldNames ? '' : 'customerId', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(2, _omitFieldNames ? '' : 'customerId', subBuilder: $19.StringValue.create)
     ..aOS(3, _omitFieldNames ? '' : 'observations')
     ..pc<SaleItem>(4, _omitFieldNames ? '' : 'ItemsSold', $pb.PbFieldType.PM, protoName: 'ItemsSold', subBuilder: SaleItem.create)
-    ..pc<$13.GetReturnByIdResponse>(5, _omitFieldNames ? '' : 'Returns', $pb.PbFieldType.PM, protoName: 'Returns', subBuilder: $13.GetReturnByIdResponse.create)
+    ..pc<$14.GetReturnByIdResponse>(5, _omitFieldNames ? '' : 'Returns', $pb.PbFieldType.PM, protoName: 'Returns', subBuilder: $14.GetReturnByIdResponse.create)
     ..hasRequiredFields = false
   ;
 
@@ -420,15 +420,15 @@ class UpdateSaleRequest extends $pb.GeneratedMessage {
   void clearSaleId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $18.StringValue get customerId => $_getN(1);
+  $19.StringValue get customerId => $_getN(1);
   @$pb.TagNumber(2)
-  set customerId($18.StringValue v) { setField(2, v); }
+  set customerId($19.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasCustomerId() => $_has(1);
   @$pb.TagNumber(2)
   void clearCustomerId() => clearField(2);
   @$pb.TagNumber(2)
-  $18.StringValue ensureCustomerId() => $_ensure(1);
+  $19.StringValue ensureCustomerId() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.String get observations => $_getSZ(2);
@@ -443,7 +443,7 @@ class UpdateSaleRequest extends $pb.GeneratedMessage {
   $core.List<SaleItem> get itemsSold => $_getList(3);
 
   @$pb.TagNumber(5)
-  $core.List<$13.GetReturnByIdResponse> get returns => $_getList(4);
+  $core.List<$14.GetReturnByIdResponse> get returns => $_getList(4);
 }
 
 class DeleteSaleRequest extends $pb.GeneratedMessage {
@@ -500,7 +500,7 @@ class SaleItem extends $pb.GeneratedMessage {
   factory SaleItem({
     $core.String? saleId,
     $core.String? productVariantId,
-    $19.DecimalValue? unitPrice,
+    $20.DecimalValue? unitPrice,
     $core.int? quantitySold,
   }) {
     final $result = create();
@@ -525,7 +525,7 @@ class SaleItem extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SaleItem', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'saleId')
     ..aOS(2, _omitFieldNames ? '' : 'productVariantId')
-    ..aOM<$19.DecimalValue>(3, _omitFieldNames ? '' : 'unitPrice', subBuilder: $19.DecimalValue.create)
+    ..aOM<$20.DecimalValue>(3, _omitFieldNames ? '' : 'unitPrice', subBuilder: $20.DecimalValue.create)
     ..a<$core.int>(4, _omitFieldNames ? '' : 'quantitySold', $pb.PbFieldType.O3)
     ..hasRequiredFields = false
   ;
@@ -570,15 +570,15 @@ class SaleItem extends $pb.GeneratedMessage {
   void clearProductVariantId() => clearField(2);
 
   @$pb.TagNumber(3)
-  $19.DecimalValue get unitPrice => $_getN(2);
+  $20.DecimalValue get unitPrice => $_getN(2);
   @$pb.TagNumber(3)
-  set unitPrice($19.DecimalValue v) { setField(3, v); }
+  set unitPrice($20.DecimalValue v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasUnitPrice() => $_has(2);
   @$pb.TagNumber(3)
   void clearUnitPrice() => clearField(3);
   @$pb.TagNumber(3)
-  $19.DecimalValue ensureUnitPrice() => $_ensure(2);
+  $20.DecimalValue ensureUnitPrice() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $core.int get quantitySold => $_getIZ(3);
@@ -593,7 +593,7 @@ class SaleItem extends $pb.GeneratedMessage {
 class SalePayment extends $pb.GeneratedMessage {
   factory SalePayment({
     $core.String? saleId,
-    $19.DecimalValue? amountPaid,
+    $20.DecimalValue? amountPaid,
     $core.String? paymentMethod,
   }) {
     final $result = create();
@@ -614,7 +614,7 @@ class SalePayment extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SalePayment', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.sale'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'saleId')
-    ..aOM<$19.DecimalValue>(2, _omitFieldNames ? '' : 'amountPaid', subBuilder: $19.DecimalValue.create)
+    ..aOM<$20.DecimalValue>(2, _omitFieldNames ? '' : 'amountPaid', subBuilder: $20.DecimalValue.create)
     ..aOS(3, _omitFieldNames ? '' : 'paymentMethod')
     ..hasRequiredFields = false
   ;
@@ -650,15 +650,15 @@ class SalePayment extends $pb.GeneratedMessage {
   void clearSaleId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $19.DecimalValue get amountPaid => $_getN(1);
+  $20.DecimalValue get amountPaid => $_getN(1);
   @$pb.TagNumber(2)
-  set amountPaid($19.DecimalValue v) { setField(2, v); }
+  set amountPaid($20.DecimalValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasAmountPaid() => $_has(1);
   @$pb.TagNumber(2)
   void clearAmountPaid() => clearField(2);
   @$pb.TagNumber(2)
-  $19.DecimalValue ensureAmountPaid() => $_ensure(1);
+  $20.DecimalValue ensureAmountPaid() => $_ensure(1);
 
   @$pb.TagNumber(3)
   $core.String get paymentMethod => $_getSZ(2);

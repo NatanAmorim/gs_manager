@@ -62,7 +62,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
   /// The widget will be used by the [AnimatedListState.removeItem] method's
   /// [AnimatedRemovedItemBuilder] parameter.
   Widget _buildRemovedItem(
-    Person dependente,
+    Dependent dependente,
     BuildContext context,
     Animation<double> animation,
   ) {
@@ -85,7 +85,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
   }
 
   /// Insert the "next item" into the list model.
-  void _insert(Person dependente) {
+  void _insert(Dependent dependente) {
     controller.customer.dependents.add(dependente);
     _listKey.currentState
         ?.insertItem(controller.customer.dependents.length - 1);
@@ -93,7 +93,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
   }
 
   /// Remove the selected item from the list model.
-  void _remove(Person dependente) async {
+  void _remove(Dependent dependente) async {
     final bool shouldDelete = await DialogHelper.onHandleDelete(
       context: context,
       itemDescription: 'Nome: ${dependente.name}',
@@ -122,7 +122,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
   }
 
   Widget _buildDependentsWidget(
-    Person dependente, {
+    Dependent dependente, {
     bool isRemoving = false,
   }) {
     return CardComponent(
@@ -329,20 +329,21 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
               TextButton.icon(
                 style: ButtonStyle(
                   foregroundColor: WidgetStateProperty.resolveWith<Color?>(
-                      (Set<WidgetState> states) {
-                    bool isLightTheme =
-                        Theme.of(context).brightness == Brightness.light;
+                    (Set<WidgetState> states) {
+                      bool isLightTheme =
+                          Theme.of(context).brightness == Brightness.light;
 
-                    if (states.contains(WidgetState.pressed)) {
+                      if (states.contains(WidgetState.pressed)) {
+                        return isLightTheme
+                            ? Colors.blue.shade700.withOpacity(0.6)
+                            : Colors.lightBlue.shade300.withOpacity(0.6);
+                      }
+
                       return isLightTheme
-                          ? Colors.blue.shade700.withOpacity(0.6)
-                          : Colors.lightBlue.shade300.withOpacity(0.6);
-                    }
-
-                    return isLightTheme
-                        ? Colors.blue.shade700
-                        : Colors.lightBlue.shade300;
-                  }),
+                          ? Colors.blue.shade700
+                          : Colors.lightBlue.shade300;
+                    },
+                  ),
                 ),
                 onPressed: () async {
                   final Uri url = Uri.parse(
@@ -430,7 +431,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
             itemBuilder: _buildItem,
           ),
           OutlinedButton.icon(
-            onPressed: () => _insert(Person()),
+            onPressed: () => _insert(Dependent()),
             icon: const Icon(
               Icons.person_add,
             ),
@@ -468,9 +469,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
         ),
         content: StatefulBuilder(builder: (context, snapshot) {
           return FutureBuilder<ViacepDto?>(
-            future: ViacepService.getAddress(
-              cep: cep,
-            ),
+            future: ViacepService.getAddress(cep: cep),
             builder:
                 (BuildContext context, AsyncSnapshot<ViacepDto?> snapshot) {
               if (snapshot.hasData) {

@@ -33,18 +33,31 @@ class _FilledButtonAsyncComponentState
   @override
   Widget build(BuildContext context) {
     return FilledButton.icon(
-      // style: ButtonStyle(
-      //   backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-      //       (Set<MaterialState> states) {
-      //     if (states.contains(MaterialState.pressed)) {
-      //       return Theme.of(context).colorScheme.primary.withOpacity(0.6);
-      //     }
+      style: ButtonStyle(
+        foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+          (Set<WidgetState> states) {
+            if (states.contains(WidgetState.pressed)) {
+              return Theme.of(context)
+                  .colorScheme
+                  .onTertiaryContainer
+                  .withOpacity(0.6);
+            }
 
-      //     return null;
-      //   }),
-      //   padding: MaterialStateProperty.all(const EdgeInsets.all(25.0)),
-      // ),
+            return Theme.of(context).colorScheme.onTertiaryContainer;
+          },
+        ),
+        backgroundColor:
+            WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+          if (states.contains(WidgetState.pressed)) {
+            return Theme.of(context)
+                .colorScheme
+                .tertiaryContainer
+                .withOpacity(0.6);
+          }
 
+          return Theme.of(context).colorScheme.tertiaryContainer;
+        }),
+      ),
       label: ValueListenableBuilder<bool>(
           valueListenable: _isLoadingNotifier,
           builder: (

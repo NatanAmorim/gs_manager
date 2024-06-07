@@ -98,6 +98,21 @@ class _ScaffoldFormComponentState extends State<ScaffoldFormComponent> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     TextButton.icon(
+                      style: ButtonStyle(
+                        foregroundColor:
+                            WidgetStateProperty.resolveWith<Color?>(
+                          (Set<WidgetState> states) {
+                            if (states.contains(WidgetState.pressed)) {
+                              return Theme.of(context)
+                                  .colorScheme
+                                  .tertiary
+                                  .withOpacity(0.6);
+                            }
+
+                            return Theme.of(context).colorScheme.tertiary;
+                          },
+                        ),
+                      ),
                       onPressed: () {
                         Navigator.maybePop(context);
                       },

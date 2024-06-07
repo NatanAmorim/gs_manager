@@ -13,13 +13,13 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/wrappers.pb.dart' as $18;
-import 'custom_types/calendar_date.pb.dart' as $22;
+import '../../google/protobuf/wrappers.pb.dart' as $19;
+import 'custom_types/calendar_date.pb.dart' as $23;
 import 'customer.pb.dart' as $6;
 
 class GetPaginatedPromotionsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedPromotionsRequest({
-    $18.StringValue? cursor,
+    $19.StringValue? cursor,
   }) {
     final $result = create();
     if (cursor != null) {
@@ -32,7 +32,7 @@ class GetPaginatedPromotionsRequest extends $pb.GeneratedMessage {
   factory GetPaginatedPromotionsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedPromotionsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
-    ..aOM<$18.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(1, _omitFieldNames ? '' : 'cursor', subBuilder: $19.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -58,21 +58,21 @@ class GetPaginatedPromotionsRequest extends $pb.GeneratedMessage {
   static GetPaginatedPromotionsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $18.StringValue get cursor => $_getN(0);
+  $19.StringValue get cursor => $_getN(0);
   @$pb.TagNumber(1)
-  set cursor($18.StringValue v) { setField(1, v); }
+  set cursor($19.StringValue v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasCursor() => $_has(0);
   @$pb.TagNumber(1)
   void clearCursor() => clearField(1);
   @$pb.TagNumber(1)
-  $18.StringValue ensureCursor() => $_ensure(0);
+  $19.StringValue ensureCursor() => $_ensure(0);
 }
 
 class GetPaginatedPromotionsResponse extends $pb.GeneratedMessage {
   factory GetPaginatedPromotionsResponse({
     $core.Iterable<GetPromotionByIdResponse>? promotions,
-    $18.StringValue? nextCursor,
+    $19.StringValue? nextCursor,
   }) {
     final $result = create();
     if (promotions != null) {
@@ -89,7 +89,7 @@ class GetPaginatedPromotionsResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPaginatedPromotionsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.promotion'), createEmptyInstance: create)
     ..pc<GetPromotionByIdResponse>(1, _omitFieldNames ? '' : 'promotions', $pb.PbFieldType.PM, subBuilder: GetPromotionByIdResponse.create)
-    ..aOM<$18.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(2, _omitFieldNames ? '' : 'nextCursor', subBuilder: $19.StringValue.create)
     ..hasRequiredFields = false
   ;
 
@@ -118,15 +118,15 @@ class GetPaginatedPromotionsResponse extends $pb.GeneratedMessage {
   $core.List<GetPromotionByIdResponse> get promotions => $_getList(0);
 
   @$pb.TagNumber(2)
-  $18.StringValue get nextCursor => $_getN(1);
+  $19.StringValue get nextCursor => $_getN(1);
   @$pb.TagNumber(2)
-  set nextCursor($18.StringValue v) { setField(2, v); }
+  set nextCursor($19.StringValue v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasNextCursor() => $_has(1);
   @$pb.TagNumber(2)
   void clearNextCursor() => clearField(2);
   @$pb.TagNumber(2)
-  $18.StringValue ensureNextCursor() => $_ensure(1);
+  $19.StringValue ensureNextCursor() => $_ensure(1);
 }
 
 class GetPromotionByIdRequest extends $pb.GeneratedMessage {
@@ -186,8 +186,8 @@ class GetPromotionByIdResponse extends $pb.GeneratedMessage {
     $core.String? name,
     $core.String? description,
     $core.String? discountType,
-    $22.CalendarDate? startDate,
-    $22.CalendarDate? endDate,
+    $23.CalendarDate? startDate,
+    $23.CalendarDate? endDate,
     $core.bool? isActive,
   }) {
     final $result = create();
@@ -227,8 +227,8 @@ class GetPromotionByIdResponse extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'name')
     ..aOS(4, _omitFieldNames ? '' : 'description')
     ..aOS(5, _omitFieldNames ? '' : 'discountType')
-    ..aOM<$22.CalendarDate>(6, _omitFieldNames ? '' : 'startDate', subBuilder: $22.CalendarDate.create)
-    ..aOM<$22.CalendarDate>(7, _omitFieldNames ? '' : 'endDate', subBuilder: $22.CalendarDate.create)
+    ..aOM<$23.CalendarDate>(6, _omitFieldNames ? '' : 'startDate', subBuilder: $23.CalendarDate.create)
+    ..aOM<$23.CalendarDate>(7, _omitFieldNames ? '' : 'endDate', subBuilder: $23.CalendarDate.create)
     ..aOB(8, _omitFieldNames ? '' : 'isActive')
     ..hasRequiredFields = false
   ;
@@ -302,26 +302,26 @@ class GetPromotionByIdResponse extends $pb.GeneratedMessage {
   void clearDiscountType() => clearField(5);
 
   @$pb.TagNumber(6)
-  $22.CalendarDate get startDate => $_getN(5);
+  $23.CalendarDate get startDate => $_getN(5);
   @$pb.TagNumber(6)
-  set startDate($22.CalendarDate v) { setField(6, v); }
+  set startDate($23.CalendarDate v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasStartDate() => $_has(5);
   @$pb.TagNumber(6)
   void clearStartDate() => clearField(6);
   @$pb.TagNumber(6)
-  $22.CalendarDate ensureStartDate() => $_ensure(5);
+  $23.CalendarDate ensureStartDate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $22.CalendarDate get endDate => $_getN(6);
+  $23.CalendarDate get endDate => $_getN(6);
   @$pb.TagNumber(7)
-  set endDate($22.CalendarDate v) { setField(7, v); }
+  set endDate($23.CalendarDate v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasEndDate() => $_has(6);
   @$pb.TagNumber(7)
   void clearEndDate() => clearField(7);
   @$pb.TagNumber(7)
-  $22.CalendarDate ensureEndDate() => $_ensure(6);
+  $23.CalendarDate ensureEndDate() => $_ensure(6);
 
   @$pb.TagNumber(8)
   $core.bool get isActive => $_getBF(7);
@@ -339,8 +339,8 @@ class CreatePromotionRequest extends $pb.GeneratedMessage {
     $core.String? name,
     $core.String? description,
     $core.String? discountType,
-    $22.CalendarDate? startDate,
-    $22.CalendarDate? endDate,
+    $23.CalendarDate? startDate,
+    $23.CalendarDate? endDate,
     $core.bool? isActive,
   }) {
     final $result = create();
@@ -376,8 +376,8 @@ class CreatePromotionRequest extends $pb.GeneratedMessage {
     ..aOS(4, _omitFieldNames ? '' : 'name')
     ..aOS(5, _omitFieldNames ? '' : 'description')
     ..aOS(6, _omitFieldNames ? '' : 'discountType')
-    ..aOM<$22.CalendarDate>(7, _omitFieldNames ? '' : 'startDate', subBuilder: $22.CalendarDate.create)
-    ..aOM<$22.CalendarDate>(8, _omitFieldNames ? '' : 'endDate', subBuilder: $22.CalendarDate.create)
+    ..aOM<$23.CalendarDate>(7, _omitFieldNames ? '' : 'startDate', subBuilder: $23.CalendarDate.create)
+    ..aOM<$23.CalendarDate>(8, _omitFieldNames ? '' : 'endDate', subBuilder: $23.CalendarDate.create)
     ..aOB(9, _omitFieldNames ? '' : 'isActive')
     ..hasRequiredFields = false
   ;
@@ -440,26 +440,26 @@ class CreatePromotionRequest extends $pb.GeneratedMessage {
   void clearDiscountType() => clearField(6);
 
   @$pb.TagNumber(7)
-  $22.CalendarDate get startDate => $_getN(4);
+  $23.CalendarDate get startDate => $_getN(4);
   @$pb.TagNumber(7)
-  set startDate($22.CalendarDate v) { setField(7, v); }
+  set startDate($23.CalendarDate v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasStartDate() => $_has(4);
   @$pb.TagNumber(7)
   void clearStartDate() => clearField(7);
   @$pb.TagNumber(7)
-  $22.CalendarDate ensureStartDate() => $_ensure(4);
+  $23.CalendarDate ensureStartDate() => $_ensure(4);
 
   @$pb.TagNumber(8)
-  $22.CalendarDate get endDate => $_getN(5);
+  $23.CalendarDate get endDate => $_getN(5);
   @$pb.TagNumber(8)
-  set endDate($22.CalendarDate v) { setField(8, v); }
+  set endDate($23.CalendarDate v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasEndDate() => $_has(5);
   @$pb.TagNumber(8)
   void clearEndDate() => clearField(8);
   @$pb.TagNumber(8)
-  $22.CalendarDate ensureEndDate() => $_ensure(5);
+  $23.CalendarDate ensureEndDate() => $_ensure(5);
 
   @$pb.TagNumber(9)
   $core.bool get isActive => $_getBF(6);
@@ -478,8 +478,8 @@ class UpdatePromotionRequest extends $pb.GeneratedMessage {
     $core.String? name,
     $core.String? description,
     $core.String? discountType,
-    $22.CalendarDate? startDate,
-    $22.CalendarDate? endDate,
+    $23.CalendarDate? startDate,
+    $23.CalendarDate? endDate,
     $core.bool? isActive,
   }) {
     final $result = create();
@@ -519,8 +519,8 @@ class UpdatePromotionRequest extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'name')
     ..aOS(4, _omitFieldNames ? '' : 'description')
     ..aOS(5, _omitFieldNames ? '' : 'discountType')
-    ..aOM<$22.CalendarDate>(6, _omitFieldNames ? '' : 'startDate', subBuilder: $22.CalendarDate.create)
-    ..aOM<$22.CalendarDate>(7, _omitFieldNames ? '' : 'endDate', subBuilder: $22.CalendarDate.create)
+    ..aOM<$23.CalendarDate>(6, _omitFieldNames ? '' : 'startDate', subBuilder: $23.CalendarDate.create)
+    ..aOM<$23.CalendarDate>(7, _omitFieldNames ? '' : 'endDate', subBuilder: $23.CalendarDate.create)
     ..aOB(8, _omitFieldNames ? '' : 'isActive')
     ..hasRequiredFields = false
   ;
@@ -592,26 +592,26 @@ class UpdatePromotionRequest extends $pb.GeneratedMessage {
   void clearDiscountType() => clearField(5);
 
   @$pb.TagNumber(6)
-  $22.CalendarDate get startDate => $_getN(5);
+  $23.CalendarDate get startDate => $_getN(5);
   @$pb.TagNumber(6)
-  set startDate($22.CalendarDate v) { setField(6, v); }
+  set startDate($23.CalendarDate v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasStartDate() => $_has(5);
   @$pb.TagNumber(6)
   void clearStartDate() => clearField(6);
   @$pb.TagNumber(6)
-  $22.CalendarDate ensureStartDate() => $_ensure(5);
+  $23.CalendarDate ensureStartDate() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $22.CalendarDate get endDate => $_getN(6);
+  $23.CalendarDate get endDate => $_getN(6);
   @$pb.TagNumber(7)
-  set endDate($22.CalendarDate v) { setField(7, v); }
+  set endDate($23.CalendarDate v) { setField(7, v); }
   @$pb.TagNumber(7)
   $core.bool hasEndDate() => $_has(6);
   @$pb.TagNumber(7)
   void clearEndDate() => clearField(7);
   @$pb.TagNumber(7)
-  $22.CalendarDate ensureEndDate() => $_ensure(6);
+  $23.CalendarDate ensureEndDate() => $_ensure(6);
 
   @$pb.TagNumber(8)
   $core.bool get isActive => $_getBF(7);

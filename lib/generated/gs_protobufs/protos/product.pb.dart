@@ -13,8 +13,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../../google/protobuf/wrappers.pb.dart' as $18;
-import 'custom_types/decimal_value.pb.dart' as $19;
+import '../../google/protobuf/wrappers.pb.dart' as $19;
+import 'custom_types/decimal_value.pb.dart' as $20;
 
 class GetAllProductsResponse extends $pb.GeneratedMessage {
   factory GetAllProductsResponse({
@@ -114,7 +114,7 @@ class GetProductByIdResponse extends $pb.GeneratedMessage {
   factory GetProductByIdResponse({
     $core.String? productId,
     $core.String? name,
-    $18.StringValue? picturePath,
+    $19.StringValue? picturePath,
     ProductBrand? productBrand,
     ProductCategory? productCategory,
     $core.Iterable<ProductVariant>? variants,
@@ -147,7 +147,7 @@ class GetProductByIdResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetProductByIdResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'protos.product'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'productId')
     ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..aOM<$18.StringValue>(3, _omitFieldNames ? '' : 'picturePath', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(3, _omitFieldNames ? '' : 'picturePath', subBuilder: $19.StringValue.create)
     ..aOM<ProductBrand>(4, _omitFieldNames ? '' : 'productBrand', subBuilder: ProductBrand.create)
     ..aOM<ProductCategory>(5, _omitFieldNames ? '' : 'productCategory', subBuilder: ProductCategory.create)
     ..pc<ProductVariant>(6, _omitFieldNames ? '' : 'variants', $pb.PbFieldType.PM, subBuilder: ProductVariant.create)
@@ -194,15 +194,15 @@ class GetProductByIdResponse extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $18.StringValue get picturePath => $_getN(2);
+  $19.StringValue get picturePath => $_getN(2);
   @$pb.TagNumber(3)
-  set picturePath($18.StringValue v) { setField(3, v); }
+  set picturePath($19.StringValue v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasPicturePath() => $_has(2);
   @$pb.TagNumber(3)
   void clearPicturePath() => clearField(3);
   @$pb.TagNumber(3)
-  $18.StringValue ensurePicturePath() => $_ensure(2);
+  $19.StringValue ensurePicturePath() => $_ensure(2);
 
   @$pb.TagNumber(4)
   ProductBrand get productBrand => $_getN(3);
@@ -335,8 +335,8 @@ class UpdateProductRequest extends $pb.GeneratedMessage {
     $core.String? productId,
     $core.String? name,
     $core.List<$core.int>? pictureBinary,
-    $18.StringValue? productBrandId,
-    $18.StringValue? productCategoryId,
+    $19.StringValue? productBrandId,
+    $19.StringValue? productCategoryId,
     $core.Iterable<ProductVariant>? variants,
   }) {
     final $result = create();
@@ -368,8 +368,8 @@ class UpdateProductRequest extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'productId')
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..a<$core.List<$core.int>>(3, _omitFieldNames ? '' : 'pictureBinary', $pb.PbFieldType.OY)
-    ..aOM<$18.StringValue>(4, _omitFieldNames ? '' : 'productBrandId', subBuilder: $18.StringValue.create)
-    ..aOM<$18.StringValue>(5, _omitFieldNames ? '' : 'productCategoryId', subBuilder: $18.StringValue.create)
+    ..aOM<$19.StringValue>(4, _omitFieldNames ? '' : 'productBrandId', subBuilder: $19.StringValue.create)
+    ..aOM<$19.StringValue>(5, _omitFieldNames ? '' : 'productCategoryId', subBuilder: $19.StringValue.create)
     ..pc<ProductVariant>(6, _omitFieldNames ? '' : 'variants', $pb.PbFieldType.PM, subBuilder: ProductVariant.create)
     ..hasRequiredFields = false
   ;
@@ -423,26 +423,26 @@ class UpdateProductRequest extends $pb.GeneratedMessage {
   void clearPictureBinary() => clearField(3);
 
   @$pb.TagNumber(4)
-  $18.StringValue get productBrandId => $_getN(3);
+  $19.StringValue get productBrandId => $_getN(3);
   @$pb.TagNumber(4)
-  set productBrandId($18.StringValue v) { setField(4, v); }
+  set productBrandId($19.StringValue v) { setField(4, v); }
   @$pb.TagNumber(4)
   $core.bool hasProductBrandId() => $_has(3);
   @$pb.TagNumber(4)
   void clearProductBrandId() => clearField(4);
   @$pb.TagNumber(4)
-  $18.StringValue ensureProductBrandId() => $_ensure(3);
+  $19.StringValue ensureProductBrandId() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  $18.StringValue get productCategoryId => $_getN(4);
+  $19.StringValue get productCategoryId => $_getN(4);
   @$pb.TagNumber(5)
-  set productCategoryId($18.StringValue v) { setField(5, v); }
+  set productCategoryId($19.StringValue v) { setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasProductCategoryId() => $_has(4);
   @$pb.TagNumber(5)
   void clearProductCategoryId() => clearField(5);
   @$pb.TagNumber(5)
-  $18.StringValue ensureProductCategoryId() => $_ensure(4);
+  $19.StringValue ensureProductCategoryId() => $_ensure(4);
 
   @$pb.TagNumber(6)
   $core.List<ProductVariant> get variants => $_getList(5);
@@ -821,7 +821,7 @@ class ProductVariant extends $pb.GeneratedMessage {
     $core.String? size,
     $core.String? barCode,
     $core.String? sku,
-    $19.DecimalValue? unitPrice,
+    $20.DecimalValue? unitPrice,
     ProductVariantInventory? inventory,
   }) {
     final $result = create();
@@ -858,7 +858,7 @@ class ProductVariant extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'size')
     ..aOS(4, _omitFieldNames ? '' : 'barCode')
     ..aOS(5, _omitFieldNames ? '' : 'sku')
-    ..aOM<$19.DecimalValue>(6, _omitFieldNames ? '' : 'unitPrice', subBuilder: $19.DecimalValue.create)
+    ..aOM<$20.DecimalValue>(6, _omitFieldNames ? '' : 'unitPrice', subBuilder: $20.DecimalValue.create)
     ..aOM<ProductVariantInventory>(7, _omitFieldNames ? '' : 'inventory', subBuilder: ProductVariantInventory.create)
     ..hasRequiredFields = false
   ;
@@ -930,15 +930,15 @@ class ProductVariant extends $pb.GeneratedMessage {
   void clearSku() => clearField(5);
 
   @$pb.TagNumber(6)
-  $19.DecimalValue get unitPrice => $_getN(5);
+  $20.DecimalValue get unitPrice => $_getN(5);
   @$pb.TagNumber(6)
-  set unitPrice($19.DecimalValue v) { setField(6, v); }
+  set unitPrice($20.DecimalValue v) { setField(6, v); }
   @$pb.TagNumber(6)
   $core.bool hasUnitPrice() => $_has(5);
   @$pb.TagNumber(6)
   void clearUnitPrice() => clearField(6);
   @$pb.TagNumber(6)
-  $19.DecimalValue ensureUnitPrice() => $_ensure(5);
+  $20.DecimalValue ensureUnitPrice() => $_ensure(5);
 
   @$pb.TagNumber(7)
   ProductVariantInventory get inventory => $_getN(6);
