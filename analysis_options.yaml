@@ -1,1 +1,6 @@
 include: package:flutter_lints/flutter.yaml
+
+# enable riverpod_lint
+analyzer:
+  plugins:
+    - custom_lint
