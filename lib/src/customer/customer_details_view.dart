@@ -46,7 +46,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
     return SlideTransition(
       position: animation.drive(
         Tween<Offset>(
-          begin: const Offset(-0.1, -0.5),
+          begin: const Offset(0.0, 0.6),
           end: Offset.zero,
         ),
       ),
@@ -106,16 +106,17 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
 
     final index = controller.customer.dependents.indexOf(dependente);
     _listKey.currentState?.removeItem(
-        index,
-        (
-          BuildContext context,
-          Animation<double> animation,
-        ) =>
-            _buildRemovedItem(
-              dependente,
-              context,
-              animation,
-            ));
+      index,
+      (
+        BuildContext context,
+        Animation<double> animation,
+      ) =>
+          _buildRemovedItem(
+        dependente,
+        context,
+        animation,
+      ),
+    );
 
     controller.customer.dependents.removeAt(index);
     FocusManager.instance.primaryFocus?.unfocus();
@@ -140,7 +141,7 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                       fontWeight: FontWeight.bold,
                     ),
               ),
-              OutlinedButton.icon(
+              TextButton.icon(
                 onPressed: () => _remove(dependente),
                 icon: const Icon(Icons.delete),
                 label: const Text('Remover'),
@@ -268,25 +269,33 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                     TextEditingController valueListenable,
                     Widget? child,
                   ) {
-                    return TextInputComponent(
-                      controller: valueListenable,
-                      label: 'Data de nascimento',
-                      placeholderText: 'Digite a data. Formato: XX/XX/XXXX',
-                      suffixIcon: datePickerButtonComponent(
-                        context: context,
-                        onDatePicked: (DateTime newDate) {
-                          dataNascimentoController.value.text =
-                              dateFormatter.format(newDate);
-                        },
-                      ),
-                      validator: validateBirthday,
-                      keyboardType: TextInputType.datetime,
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        DateInputFormatter(),
+                    return Row(
+                      children: [
+                        Flexible(
+                          child: TextInputComponent(
+                            controller: valueListenable,
+                            label: 'Data de nascimento',
+                            placeholderText:
+                                'Digite a data. Formato: XX/XX/XXXX',
+                            validator: validateBirthday,
+                            keyboardType: TextInputType.datetime,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly,
+                              DateInputFormatter(),
+                            ],
+                            onSaved: (String? text) =>
+                                controller.customer.person.birthDate = text!,
+                          ),
+                        ),
+                        const SizedBox(width: 8.0),
+                        datePickerButtonComponent(
+                          context: context,
+                          onDatePicked: (DateTime newDate) {
+                            dataNascimentoController.value.text =
+                                dateFormatter.format(newDate);
+                          },
+                        ),
                       ],
-                      onSaved: (String? text) =>
-                          controller.customer.person.birthDate = text!,
                     );
                   }),
               const SizedBox(height: 16),
@@ -375,8 +384,8 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 16.0),
-                  ElevatedButton.icon(
+                  const SizedBox(width: 8.0),
+                  TextButton.icon(
                     label: const Text('Buscar endereço'),
                     icon: const Icon(Icons.travel_explore),
                     onPressed: () async {
@@ -425,8 +434,8 @@ class _CustomerDetailsViewState extends State<CustomerDetailsView> {
           ),
           AnimatedList(
             shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
             key: _listKey,
+            physics: const NeverScrollableScrollPhysics(),
             initialItemCount: controller.customer.dependents.length,
             itemBuilder: _buildItem,
           ),

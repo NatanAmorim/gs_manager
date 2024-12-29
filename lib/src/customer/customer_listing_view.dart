@@ -24,7 +24,8 @@ class _ClienteListingViewState extends State<ClienteListingView> {
     controller.futureCostumers = controller.fetchCostumers();
     scrollController.addListener(() {
       if (scrollController.position.maxScrollExtent ==
-          scrollController.offset) {
+              scrollController.offset &&
+          controller.items.length > 15) {
         fetchMoreItems();
       }
     });
@@ -98,12 +99,12 @@ class _ClienteListingViewState extends State<ClienteListingView> {
               );
             }
 
+            controller.cursor = snapshot.data!.nextCursor;
             if (controller.items.isEmpty) {
               controller.items = snapshot.data!.customers;
             } else {
               controller.items.addAll(snapshot.data!.customers);
             }
-            controller.cursor = snapshot.data!.nextCursor;
 
             return ListView.builder(
               key: const PageStorageKey<String>('CustomerListView'),

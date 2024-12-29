@@ -27,6 +27,7 @@ class CustomerDetailsController {
           additionalInformation: customerUpdating!.additionalInformation,
           dependents: customerUpdating!.dependents,
         );
+
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   Future<bool> handleSubmit(BuildContext context) async {

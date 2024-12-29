@@ -29,6 +29,14 @@ Here's a short description of each element
 
 <!-- FIX: `customer_details_view.dart` does **NOT** show error on FutureBuilder in AlertDialog when an error occurs -->
 
+## 24.12.1-beta (Dec 29, 2024)
+
+- Add `Riverpod` related packages.
+- Add `fixnum` package to be compatible with Protobufs and gRPC.
+- Add `AnimatedListComponent` and `ElevatedButtonAsyncComponent`.
+- Remove `FilledButtonAsyncComponent`.
+- Update `BrlInputFormatter` and `ValuesConverter` both now leaner and better.
+
 ## 24.06.4-beta (Jun 07, 2024)
 
 - Customer listing now works correctly.

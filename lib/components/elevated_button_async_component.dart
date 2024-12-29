@@ -1,26 +1,28 @@
 import 'package:flutter/material.dart';
 
-class FilledButtonAsyncComponent extends StatefulWidget {
-  const FilledButtonAsyncComponent({
+class ElevatedButtonAsyncComponent extends StatefulWidget {
+  const ElevatedButtonAsyncComponent({
     super.key,
     required this.icon,
     required this.label,
     required this.pressedLabel,
+    this.isAlternativeColor = false,
     required this.onPressed,
   });
 
   final IconData icon;
   final String label;
   final String pressedLabel;
+  final bool isAlternativeColor;
   final Future<bool> Function() onPressed;
 
   @override
-  State<FilledButtonAsyncComponent> createState() =>
-      _FilledButtonAsyncComponentState();
+  State<ElevatedButtonAsyncComponent> createState() =>
+      _ElevatedButtonAsyncComponentState();
 }
 
-class _FilledButtonAsyncComponentState
-    extends State<FilledButtonAsyncComponent> {
+class _ElevatedButtonAsyncComponentState
+    extends State<ElevatedButtonAsyncComponent> {
   final double contentSize = 20;
   final ValueNotifier<bool> _isLoadingNotifier = ValueNotifier<bool>(false);
 
@@ -32,47 +34,51 @@ class _FilledButtonAsyncComponentState
 
   @override
   Widget build(BuildContext context) {
-    return FilledButton.icon(
+    Color foregroundColor;
+    Color backgroundColor;
+    if (widget.isAlternativeColor) {
+      foregroundColor = Theme.of(context).colorScheme.onPrimary;
+      backgroundColor = Theme.of(context).colorScheme.primary;
+    } else {
+      foregroundColor = Theme.of(context).colorScheme.onTertiaryContainer;
+      backgroundColor = Theme.of(context).colorScheme.tertiaryContainer;
+    }
+    return ElevatedButton.icon(
       style: ButtonStyle(
         foregroundColor: WidgetStateProperty.resolveWith<Color?>(
           (Set<WidgetState> states) {
             if (states.contains(WidgetState.pressed)) {
-              return Theme.of(context)
-                  .colorScheme
-                  .onTertiaryContainer
-                  .withOpacity(0.6);
+              return foregroundColor.withOpacity(0.6);
             }
 
-            return Theme.of(context).colorScheme.onTertiaryContainer;
+            return foregroundColor;
           },
         ),
         backgroundColor:
             WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
           if (states.contains(WidgetState.pressed)) {
-            return Theme.of(context)
-                .colorScheme
-                .tertiaryContainer
-                .withOpacity(0.6);
+            return backgroundColor.withOpacity(0.6);
           }
 
-          return Theme.of(context).colorScheme.tertiaryContainer;
+          return backgroundColor;
         }),
       ),
       label: ValueListenableBuilder<bool>(
-          valueListenable: _isLoadingNotifier,
-          builder: (
-            BuildContext context,
-            bool value,
-            Widget? child,
-          ) {
-            return Text(
-              value ? widget.pressedLabel : widget.label,
-              style: TextStyle(
-                fontSize: contentSize,
-                fontWeight: FontWeight.bold,
-              ),
-            );
-          }),
+        valueListenable: _isLoadingNotifier,
+        builder: (
+          BuildContext context,
+          bool value,
+          Widget? child,
+        ) {
+          return Text(
+            value ? widget.pressedLabel : widget.label,
+            style: TextStyle(
+              fontSize: contentSize,
+              fontWeight: FontWeight.bold,
+            ),
+          );
+        },
+      ),
       icon: ValueListenableBuilder<bool>(
         valueListenable: _isLoadingNotifier,
         builder: (
@@ -86,7 +92,7 @@ class _FilledButtonAsyncComponentState
                     height: contentSize,
                     child: CircularProgressIndicator(
                       strokeWidth: 2.0,
-                      color: Theme.of(context).colorScheme.onPrimary,
+                      color: foregroundColor,
                     ),
                   )
                 : Icon(

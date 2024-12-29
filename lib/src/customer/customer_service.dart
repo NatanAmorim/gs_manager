@@ -57,10 +57,15 @@ class CustomerService {
     bool isSuccessful = false;
     final stub = CustomerServiceClient(Api.channel);
 
+    String? accessToken = await Api.getAccessToken();
+
     try {
       final response = await stub.putAsync(
         request,
-        options: CallOptions(compression: const GzipCodec()),
+        options: CallOptions(
+          compression: const GzipCodec(),
+          metadata: {'authorization': 'bearer $accessToken'},
+        ),
       );
       isSuccessful = true;
       debugPrint('Greeter client received: $response');

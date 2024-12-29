@@ -21,7 +21,6 @@ class ProductDetailsView extends StatefulWidget {
 
 class _ProductDetailsViewState extends State<ProductDetailsView> {
   late ProductDetailsController controller;
-  late List<ProductVariant> variants = widget.productUpdating?.variants ?? [];
 
   @override
   void initState() {
@@ -54,6 +53,9 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
               TextInputComponent(
                 label: 'Nome',
                 placeholderText: 'Digite o nome do produto',
+                keyboardType: TextInputType.name,
+                initialValue: controller.product.name,
+                onSaved: (String? text) => controller.product.name = text!,
                 autofocus: widget.productUpdating == null,
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
@@ -74,7 +76,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             key: _listKey,
-            initialItemCount: variants.length,
+            initialItemCount: controller.product.variants.length,
             itemBuilder: _buildItem,
           ),
           OutlinedButton.icon(
@@ -99,9 +101,14 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
     int index,
     Animation<double> animation,
   ) {
-    return SizeTransition(
-      sizeFactor: animation,
-      child: _buildVariantWidget(variants[index]),
+    return SlideTransition(
+      position: animation.drive(
+        Tween<Offset>(
+          begin: const Offset(0.0, 0.6),
+          end: Offset.zero,
+        ),
+      ),
+      child: _buildVariantWidget(controller.product.variants[index]),
     );
   }
 
@@ -118,8 +125,13 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
     Animation<double> animation,
   ) {
     // WARNING we don't want removed items to be interactive.
-    return SizeTransition(
-      sizeFactor: animation,
+    return SlideTransition(
+      position: animation.drive(
+        Tween<Offset>(
+          begin: const Offset(-0.8, 0.0),
+          end: Offset.zero,
+        ),
+      ),
       child: FadeTransition(
         opacity: CurveTween(curve: Curves.easeInOut).animate(animation),
         child: _buildVariantWidget(
@@ -132,8 +144,9 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
 
   // Insert the "next item" into the list model.
   void _insert(ProductVariant variant) {
-    variants.add(variant);
-    _listKey.currentState?.insertItem(variants.length - 1);
+    controller.product.variants.add(variant);
+    _listKey.currentState?.insertItem(controller.product.variants.length - 1);
+    setState(() {}); // TODO does this cause problems?
   }
 
   // Remove the selected item from the list model.
@@ -148,20 +161,22 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
     if (!shouldDelete) {
       return;
     }
-    final index = variants.indexOf(variant);
-    _listKey.currentState?.removeItem(
-        index,
-        (
-          BuildContext context,
-          Animation<double> animation,
-        ) =>
-            _buildRemovedItem(
-              variant,
-              context,
-              animation,
-            ));
 
-    variants.removeAt(index);
+    final index = controller.product.variants.indexOf(variant);
+    _listKey.currentState?.removeItem(
+      index,
+      (
+        BuildContext context,
+        Animation<double> animation,
+      ) =>
+          _buildRemovedItem(
+        variant,
+        context,
+        animation,
+      ),
+    );
+
+    controller.product.variants.removeAt(index);
     FocusManager.instance.primaryFocus?.unfocus();
   }
 
@@ -187,32 +202,15 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
               TextButton.icon(
                 onPressed: () => _remove(variant),
                 icon: const Icon(Icons.delete),
-                label: const Text('Excluir variante'),
+                label: const Text('Remover'),
               ),
             ],
           ),
         ),
-        // TODO
-        // const SizedBox(height: 8.0),
-        // TextInputComponent(
-        //   isEnabled: !isRemoving,
-        //   label: 'Descrição',
-        //   placeholderText: 'Digite a descrição do produto',
-        //   onChanged: (String? text) => setState(() {
-        //     variante.descricao = text!;
-        //   }),
-        //   validator: (String? value) {
-        //     if (value == null || value.isEmpty) {
-        //       return 'Digite a descrição';
-        //     }
 
-        //     if (value.length < 3) {
-        //       return 'Insira uma descrição válida';
-        //     }
-
-        //     return null;
-        //   },
-        // ),
+        /// TODO PicturePath
+        /// TODO ProductBrandId ProductBrand
+        /// TODO ProductCategoryId ProductCategory
         const SizedBox(height: 16),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -244,7 +242,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                     return 'Digite o preço';
                   }
 
-                  if (ValuesConverter.convertBrl(value) < 0.05) {
+                  if (ValuesConverter.convertToBrlToDouble(value) < 0.05) {
                     return 'Preço mínimo de 5 centavos';
                   }
 

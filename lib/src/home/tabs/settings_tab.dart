@@ -32,7 +32,7 @@ class SettingsTab extends ConsumerWidget {
           children: <TextSpan>[
             TextSpan(
               style: Theme.of(context).textTheme.bodyLarge!,
-              text: 'App de gestão da empresa $companyName ™',
+              text: 'App de gestão da empresa $companyName™.',
             ),
             TextSpan(
               style: defaultTextStyle.copyWith(

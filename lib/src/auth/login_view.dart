@@ -89,10 +89,11 @@ class _LoginViewState extends State<LoginView> {
                         ),
                         Positioned(
                           bottom: -12,
-                          child: FilledButtonAsyncComponent(
+                          child: ElevatedButtonAsyncComponent(
+                            isAlternativeColor: true,
                             icon: Icons.login,
                             label: 'Entrar',
-                            pressedLabel: 'Entrando...',
+                            pressedLabel: ' Entrando...',
                             onPressed: () async {
                               NavigatorState navigator = Navigator.of(context);
 
